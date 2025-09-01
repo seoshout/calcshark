@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Calculator, RefreshCw, Info, AlertCircle, CheckCircle, Target } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
 import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 
 interface BMIResult {
@@ -13,6 +14,60 @@ interface BMIResult {
   recommendations: string[];
   healthRisk: string;
 }
+
+// BMI FAQ data
+const bmiFAQs: FAQItem[] = [
+  {
+    question: "What is a good BMI?",
+    answer: "A BMI between 18.5 and 24.9 is generally considered normal or healthy for most adults. However, what's 'good' can vary based on individual factors like age, muscle mass, bone density, and overall health. It's best to consult with a healthcare provider for personalized advice.",
+    category: "Health Ranges"
+  },
+  {
+    question: "How accurate is BMI?",
+    answer: "BMI is a useful screening tool but not a perfect measure of health. It doesn't account for muscle mass, bone density, or body composition. For example, athletes with high muscle mass may have a high BMI but low body fat. Other measurements like waist circumference, body fat percentage, and overall health markers provide a more complete picture.",
+    category: "Accuracy"
+  },
+  {
+    question: "Is BMI different for men and women?",
+    answer: "The BMI formula is the same for both men and women, but interpretation can vary. Women typically have more body fat than men at the same BMI due to biological differences. Some health experts suggest that BMI ranges might need gender-specific adjustments, but the standard categories are currently used for both sexes.",
+    category: "Gender Differences"
+  },
+  {
+    question: "Can I use BMI for children?",
+    answer: "BMI can be used for children and teenagers, but it's interpreted differently. Instead of fixed categories, children's BMI is compared to other children of the same age and sex using percentiles. A pediatric BMI calculator or consultation with a pediatrician is recommended for accurate assessment in children.",
+    category: "Age Groups"
+  },
+  {
+    question: "What should I do if my BMI is too high or too low?",
+    answer: "If your BMI falls outside the normal range, consider consulting with a healthcare provider or registered dietitian. They can help assess your overall health, discuss potential risks, and create a personalized plan. Focus on sustainable lifestyle changes including balanced nutrition, regular physical activity, and adequate sleep rather than quick fixes.",
+    category: "Action Steps"
+  },
+  {
+    question: "How often should I calculate my BMI?",
+    answer: "For general health monitoring, calculating BMI monthly or quarterly is usually sufficient. If you're actively working on weight management, weekly calculations might be helpful to track progress. Remember that weight naturally fluctuates, so focus on trends over time rather than daily changes.",
+    category: "Frequency"
+  },
+  {
+    question: "Are there alternatives to BMI?",
+    answer: "Yes, several alternatives can provide additional insights: waist circumference, waist-to-hip ratio, body fat percentage, DEXA scans, and bioelectrical impedance analysis. These methods can give a more complete picture of body composition and health risks. Many healthcare providers use multiple measurements together.",
+    category: "Alternatives"
+  },
+  {
+    question: "Is this BMI calculator accurate?",
+    answer: "Our BMI calculator uses the standard WHO formula (weight in kg / height in m²) and provides accurate mathematical results. The calculator includes both metric and imperial units with proper conversions. However, remember that BMI is just one health indicator, and the results should be considered alongside other health factors and professional medical advice.",
+    category: "Tool Accuracy"
+  },
+  {
+    question: "What causes BMI to be inaccurate?",
+    answer: "BMI may be less accurate for: athletes and bodybuilders (high muscle mass), elderly adults (muscle loss), pregnant or breastfeeding women, people with certain medical conditions affecting weight or muscle mass, and individuals with different bone densities. In these cases, additional health assessments are recommended.",
+    category: "Limitations"
+  },
+  {
+    question: "How do I interpret my BMI results?",
+    answer: "BMI results should be interpreted as part of overall health assessment. Consider factors like your activity level, muscle mass, health conditions, and family history. A healthcare provider can help you understand what your BMI means in the context of your individual health profile and goals.",
+    category: "Interpretation"
+  }
+];
 
 export default function BMICalculator() {
   const [height, setHeight] = useState<string>('');
@@ -486,68 +541,11 @@ export default function BMICalculator() {
         </div>
       </div>
 
-      {/* FAQ Section */}
-      <div className="bg-background border rounded-xl p-8">
-        <h2 className="text-2xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
-        
-        <div className="space-y-6">
-          <div className="border-b border-border pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">What is a good BMI?</h3>
-            <p className="text-muted-foreground">
-              A BMI between 18.5 and 24.9 is generally considered normal or healthy for most adults. However, what's "good" can vary based on individual factors like age, muscle mass, bone density, and overall health. It's best to consult with a healthcare provider for personalized advice.
-            </p>
-          </div>
-
-          <div className="border-b border-border pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">How accurate is BMI?</h3>
-            <p className="text-muted-foreground">
-              BMI is a useful screening tool but not a perfect measure of health. It doesn't account for muscle mass, bone density, or body composition. For example, athletes with high muscle mass may have a high BMI but low body fat. Other measurements like waist circumference, body fat percentage, and overall health markers provide a more complete picture.
-            </p>
-          </div>
-
-          <div className="border-b border-border pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">Is BMI different for men and women?</h3>
-            <p className="text-muted-foreground">
-              The BMI formula is the same for both men and women, but interpretation can vary. Women typically have more body fat than men at the same BMI due to biological differences. Some health experts suggest that BMI ranges might need gender-specific adjustments, but the standard categories are currently used for both sexes.
-            </p>
-          </div>
-
-          <div className="border-b border-border pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">Can I use BMI for children?</h3>
-            <p className="text-muted-foreground">
-              BMI can be used for children and teenagers, but it's interpreted differently. Instead of fixed categories, children's BMI is compared to other children of the same age and sex using percentiles. A pediatric BMI calculator or consultation with a pediatrician is recommended for accurate assessment in children.
-            </p>
-          </div>
-
-          <div className="border-b border-border pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">What should I do if my BMI is too high or too low?</h3>
-            <p className="text-muted-foreground">
-              If your BMI falls outside the normal range, consider consulting with a healthcare provider or registered dietitian. They can help assess your overall health, discuss potential risks, and create a personalized plan. Focus on sustainable lifestyle changes including balanced nutrition, regular physical activity, and adequate sleep rather than quick fixes.
-            </p>
-          </div>
-
-          <div className="border-b border-border pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">How often should I calculate my BMI?</h3>
-            <p className="text-muted-foreground">
-              For general health monitoring, calculating BMI monthly or quarterly is usually sufficient. If you're actively working on weight management, weekly calculations might be helpful to track progress. Remember that weight naturally fluctuates, so focus on trends over time rather than daily changes.
-            </p>
-          </div>
-
-          <div className="border-b border-border pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">Are there alternatives to BMI?</h3>
-            <p className="text-muted-foreground">
-              Yes, several alternatives can provide additional insights: waist circumference, waist-to-hip ratio, body fat percentage, DEXA scans, and bioelectrical impedance analysis. These methods can give a more complete picture of body composition and health risks. Many healthcare providers use multiple measurements together.
-            </p>
-          </div>
-
-          <div className="pb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">Is this BMI calculator accurate?</h3>
-            <p className="text-muted-foreground">
-              Our BMI calculator uses the standard WHO formula (weight in kg / height in m²) and provides accurate mathematical results. The calculator includes both metric and imperial units with proper conversions. However, remember that BMI is just one health indicator, and the results should be considered alongside other health factors and professional medical advice.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* FAQ Section with Accordion */}
+      <FAQAccordion 
+        faqs={bmiFAQs}
+        className="mt-8"
+      />
     </div>
   );
 }

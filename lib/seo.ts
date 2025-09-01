@@ -146,9 +146,15 @@ export const calculatorSEO = {
     keywords: ['mortgage calculator', 'home loan calculator', 'monthly payment calculator', 'PITI calculator', 'mortgage payment'],
   },
   bmi: {
-    title: 'BMI Calculator - Body Mass Index Calculator',
-    description: 'Calculate your Body Mass Index (BMI) with our free online BMI calculator. Determine if you are underweight, normal weight, overweight, or obese based on your height and weight.',
-    keywords: ['BMI calculator', 'body mass index', 'weight calculator', 'health calculator', 'obesity calculator'],
+    title: 'Free BMI Calculator - Body Mass Index Calculator Online | Calcverse',
+    description: 'Calculate your Body Mass Index (BMI) instantly with our free online BMI calculator. Get accurate results for both metric and imperial units. Includes health recommendations, BMI categories, and detailed analysis. No registration required.',
+    keywords: [
+      'BMI calculator', 'body mass index calculator', 'free BMI calculator', 'online BMI calculator',
+      'BMI checker', 'weight calculator', 'health calculator', 'obesity calculator', 'BMI chart',
+      'body mass index checker', 'BMI scale', 'BMI categories', 'underweight calculator',
+      'overweight calculator', 'obesity BMI', 'healthy weight calculator', 'BMI metric imperial',
+      'BMI kg cm', 'BMI lbs feet inches', 'WHO BMI calculator', 'adult BMI calculator'
+    ],
   },
   loan: {
     title: 'Loan Payment Calculator - Monthly Payment Calculator',

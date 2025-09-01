@@ -4,6 +4,7 @@ import { getCalculatorBySlug, getCategoryBySlug } from '@/lib/calculator-categor
 import BMICalculator from './calculators/BMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
 import { generateSoftwareSchema, generateBreadcrumbSchema } from '@/lib/schemas';
+import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
   params: {
@@ -24,18 +25,57 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
 
   const category = getCategoryBySlug(calculator.category);
   
+  // Get specific SEO data if available, otherwise use defaults
+  const slug = calculator.slug.replace('-calculator', '');
+  const seoData = calculatorSEO[slug as keyof typeof calculatorSEO];
+  
+  const title = seoData?.title || `Free Online ${calculator.name} - No Sign Up - No Login Required | Calcverse`;
+  const description = seoData?.description || `${calculator.description}. Free Online ${calculator.name} - instant, accurate, and completely free to use. No registration required.`;
+  const keywords = seoData?.keywords || [`free ${calculator.name.toLowerCase()}`, ...calculator.tags, 'online calculator', 'free calculator tool', 'no registration'];
+  
   return {
-    title: `Free Online ${calculator.name} - No Sign Up - No Login Required | Calcverse`,
-    description: `${calculator.description}. Free Online ${calculator.name} - instant, accurate, and completely free to use. No registration required.`,
-    keywords: `free ${calculator.name.toLowerCase()}, ${calculator.tags.join(', ')}, online calculator, free calculator tool, no registration`,
+    title,
+    description,
+    keywords: Array.isArray(keywords) ? keywords.join(', ') : keywords,
     openGraph: {
-      title: `Free Online ${calculator.name} - No Sign Up Required`,
-      description: `${calculator.description}. Free and instant calculations with no registration required.`,
-      url: `/calculator/${calculator.slug}`,
+      title,
+      description,
+      url: `https://calcverse.com/calculator/${calculator.slug}`,
       type: 'website',
+      images: [
+        {
+          url: `https://calcverse.com/og-calculator-${calculator.slug}.jpg`,
+          width: 1200,
+          height: 630,
+          alt: calculator.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`https://calcverse.com/og-calculator-${calculator.slug}.jpg`],
+      creator: '@calcverse',
+      site: '@calcverse',
     },
     alternates: {
-      canonical: `/calculator/${calculator.slug}`,
+      canonical: `https://calcverse.com/calculator/${calculator.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    other: {
+      'theme-color': '#8b5cf6',
+      'apple-mobile-web-app-title': `${calculator.name} | Calcverse`,
     },
   };
 }
