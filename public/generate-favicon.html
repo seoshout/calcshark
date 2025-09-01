@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcverse Favicon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+        canvas { border: 1px solid #ddd; margin: 10px 0; }
+        .favicon-preview { display: flex; gap: 20px; align-items: center; margin: 20px 0; }
+        .size-label { font-weight: bold; color: #666; }
+        button { background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
+        button:hover { opacity: 0.9; }
+        .instructions { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Calcverse Favicon Generator</h1>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Click "Generate Favicon" button below</li>
+                <li>Right-click on each generated favicon and "Save image as..."</li>
+                <li>Save as favicon-16x16.png, favicon-32x32.png, etc.</li>
+                <li>Use an online converter to create favicon.ico from the 32x32 PNG</li>
+            </ol>
+        </div>
+        
+        <button onclick="generateFavicons()">Generate Favicons</button>
+        <button onclick="downloadAll()">Download All Sizes</button>
+        
+        <div class="favicon-preview" id="favicon-container">
+            <!-- Favicons will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        function drawCalculator(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            const scale = size / 24; // Base size is 24x24
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#3b82f6');
+            gradient.addColorStop(1, '#8b5cf6');
+            
+            // Calculator body
+            ctx.fillStyle = gradient;
+            ctx.roundRect(4 * scale, 2 * scale, 16 * scale, 20 * scale, 2 * scale);
+            ctx.fill();
+            
+            // Display screen
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.roundRect(6 * scale, 4 * scale, 12 * scale, 4 * scale, 1 * scale);
+            ctx.fill();
+            
+            // Buttons
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            
+            // Button positions
+            const buttons = [
+                // Row 1
+                [6, 10], [10, 10], [14, 10], [18, 10],
+                // Row 2
+                [6, 13], [10, 13], [14, 13], [18, 13],
+                // Row 3
+                [6, 16], [10, 16], [14, 16], [18, 16],
+                // Row 4
+                [14, 19], [18, 19]
+            ];
+            
+            buttons.forEach(([x, y]) => {
+                ctx.roundRect(x * scale, y * scale, 2 * scale, 2 * scale, 0.5 * scale);
+                ctx.fill();
+            });
+            
+            // Wide button (0 key)
+            ctx.roundRect(6 * scale, 19 * scale, 6 * scale, 2 * scale, 0.5 * scale);
+            ctx.fill();
+        }
+        
+        // Polyfill for roundRect
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.beginPath();
+                this.moveTo(x + radius, y);
+                this.arcTo(x + width, y, x + width, y + height, radius);
+                this.arcTo(x + width, y + height, x, y + height, radius);
+                this.arcTo(x, y + height, x, y, radius);
+                this.arcTo(x, y, x + width, y, radius);
+                this.closePath();
+            };
+        }
+        
+        function generateFavicons() {
+            const container = document.getElementById('favicon-container');
+            container.innerHTML = '';
+            
+            const sizes = [16, 32, 48, 64, 128, 256];
+            
+            sizes.forEach(size => {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                canvas.style.width = size + 'px';
+                canvas.style.height = size + 'px';
+                
+                drawCalculator(canvas, size);
+                
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = `
+                    <div class="size-label">${size}x${size}</div>
+                    ${canvas.outerHTML}
+                `;
+                
+                container.appendChild(wrapper);
+            });
+        }
+        
+        function downloadAll() {
+            const canvases = document.querySelectorAll('canvas');
+            canvases.forEach((canvas, index) => {
+                const sizes = [16, 32, 48, 64, 128, 256];
+                const link = document.createElement('a');
+                link.download = `favicon-${sizes[index]}x${sizes[index]}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+        
+        // Auto-generate on load
+        window.onload = generateFavicons;
+    </script>
+</body>
+</html>

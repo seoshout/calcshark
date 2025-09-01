@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Calculator, RefreshCw, Info, AlertCircle, CheckCircle, Target } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 
 interface BMIResult {
   bmi: number;
@@ -30,10 +31,10 @@ export default function BMICalculator() {
 
     try {
       if (unit === 'metric') {
-        const heightValue = parseFloat(height);
-        const weightValue = parseFloat(weight);
+        const heightValue = validateCalculatorInput(height);
+        const weightValue = validateCalculatorInput(weight);
         
-        if (isNaN(heightValue) || isNaN(weightValue)) {
+        if (heightValue === null || weightValue === null) {
           throw new Error('Please enter valid numbers for height and weight');
         }
         
@@ -52,11 +53,11 @@ export default function BMICalculator() {
         heightInMeters = heightValue / 100; // Convert cm to meters
         weightInKg = weightValue;
       } else {
-        const feetValue = parseFloat(feet);
-        const inchesValue = parseFloat(inches) || 0;
-        const weightValue = parseFloat(weight);
+        const feetValue = validateCalculatorInput(feet);
+        const inchesValue = validateCalculatorInput(inches) || 0;
+        const weightValue = validateCalculatorInput(weight);
         
-        if (isNaN(feetValue) || isNaN(inchesValue) || isNaN(weightValue)) {
+        if (feetValue === null || inchesValue === null || weightValue === null) {
           throw new Error('Please enter valid numbers for height and weight');
         }
         

@@ -35,17 +35,18 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="" />
         <link rel="preload" as="image" href="/og-default.jpg" />
         
-        {/* Favicon and Icons */}
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon and Icons - Calculator Icon */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8b5cf6" />
+        <link rel="mask-icon" href="/favicon.svg" color="#3b82f6" />
         
-        {/* Theme and App Configuration */}
-        <meta name="theme-color" content="#8b5cf6" />
-        <meta name="msapplication-TileColor" content="#8b5cf6" />
+        {/* Theme and App Configuration - Calculator Theme */}
+        <meta name="theme-color" content="#3b82f6" />
+        <meta name="msapplication-TileColor" content="#3b82f6" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

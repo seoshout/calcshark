@@ -12,7 +12,9 @@ if (!match) {
 
 // Parse the array (this is hacky but works for our data structure)
 const arrayString = match[1];
-const categories = eval(arrayString); // Using eval for simplicity - not recommended for production
+// SECURITY FIX: Remove eval usage - potential security vulnerability
+// const categories = eval(arrayString); // REMOVED: eval is dangerous
+const categories = JSON.parse(arrayString.replace(/'/g, '"')); // Safe JSON parsing
 
 console.log('Calculators per category:');
 console.log('='.repeat(50));

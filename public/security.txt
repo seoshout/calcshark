@@ -1,0 +1,17 @@
+Contact: security@calcverse.com
+Contact: https://github.com/82lotterylogin/calcverse/security/advisories/new
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://calcverse.com/pgp-key.txt
+Acknowledgments: https://calcverse.com/security-acknowledgments
+Policy: https://calcverse.com/security-policy
+Preferred-Languages: en
+
+# Security Policy
+# We take security seriously. Please report security vulnerabilities
+# through the GitHub Security Advisory system or email.
+# Do not disclose security issues publicly until we have had a
+# chance to address them.
+
+# Bug Bounty Program
+# We do not currently offer monetary rewards but will acknowledge
+# responsible disclosure in our security acknowledgments page.

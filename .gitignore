@@ -54,3 +54,24 @@ pids
 
 # Optional eslint cache
 .eslintcache
+
+# Security sensitive files
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+private/
+config/secrets.json
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+*.temp
+
+# Database dumps
+*.sql
+*.dump

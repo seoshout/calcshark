@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.env
+Disallow: /.env.*
+Disallow: /admin
+Disallow: /config
+Disallow: /logs
+
+# Security - Block access to sensitive files
+Disallow: /.git
+Disallow: /node_modules
+Disallow: /.next
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
+
+# Sitemap
+Sitemap: https://calcverse.com/sitemap.xml

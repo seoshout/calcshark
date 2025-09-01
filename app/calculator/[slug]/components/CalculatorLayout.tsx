@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Star, Bookmark, Share2, Calculator, TrendingUp, Users, Clock, Check, Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { secureStorage, validateCalculatorInput, sanitizeInput } from '@/lib/security';
 
 interface CalculatorLayoutProps {
   calculator: any;
@@ -16,19 +17,21 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
   const [showCopied, setShowCopied] = useState(false);
 
   const handleSave = () => {
-    // Get saved calculators from localStorage
-    const saved = JSON.parse(localStorage.getItem('savedCalculators') || '[]');
+    // Get saved calculators from secure storage
+    const savedData = secureStorage.getItem('savedCalculators');
+    const saved = savedData ? JSON.parse(savedData) : [];
     
     if (isSaved) {
       // Remove from saved
       const filtered = saved.filter((slug: string) => slug !== calculator.slug);
-      localStorage.setItem('savedCalculators', JSON.stringify(filtered));
+      secureStorage.setItem('savedCalculators', JSON.stringify(filtered));
       setIsSaved(false);
     } else {
       // Add to saved
-      if (!saved.includes(calculator.slug)) {
-        saved.push(calculator.slug);
-        localStorage.setItem('savedCalculators', JSON.stringify(saved));
+      const sanitizedSlug = sanitizeInput(calculator.slug);
+      if (!saved.includes(sanitizedSlug)) {
+        saved.push(sanitizedSlug);
+        secureStorage.setItem('savedCalculators', JSON.stringify(saved));
       }
       setIsSaved(true);
     }
@@ -68,8 +71,10 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
   // Check if calculator is saved on component mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = JSON.parse(localStorage.getItem('savedCalculators') || '[]');
-      setIsSaved(saved.includes(calculator.slug));
+      const savedData = secureStorage.getItem('savedCalculators');
+      const saved = savedData ? JSON.parse(savedData) : [];
+      const sanitizedSlug = sanitizeInput(calculator.slug);
+      setIsSaved(saved.includes(sanitizedSlug));
     }
   }, [calculator.slug]);
 
