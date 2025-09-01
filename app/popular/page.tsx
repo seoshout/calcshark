@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight, Star, Calculator, TrendingUp, Heart, DollarSign } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { calculatorCategories, getAllCalculators, popularCalculators } from '@/lib/calculator-categories';
+import { generateBreadcrumbSchema } from '@/lib/schemas';
 
 export const metadata = {
   title: 'Popular Calculators - Most Used Online Calculators | Calcverse',
@@ -18,6 +19,12 @@ export default function PopularCalculatorsPage() {
   // Get all calculators and filter for popular ones
   const allCalculators = getAllCalculators();
   const popularCalcs = allCalculators.filter(calc => calc.popular);
+
+  // Generate breadcrumb schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Popular Calculators', url: '/popular' }
+  ]);
   
   // Get category data for each popular calculator
   const popularWithCategories = popularCalcs.map(calc => {
@@ -64,8 +71,15 @@ export default function PopularCalculatorsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Breadcrumbs */}
-      <div className="border-b bg-muted/30">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+        {/* Breadcrumbs */}
+        <div className="border-b bg-muted/30">
         <div className="container py-4">
           <nav className="flex items-center space-x-2 text-sm">
             <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">

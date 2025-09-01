@@ -1,10 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ChevronRight, Calculator, Search, Filter, Grid3X3, List, Star, TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { calculatorCategories, getAllCalculators, getCategoryBySlug } from '@/lib/calculator-categories';
+import { generateBreadcrumbSchema } from '@/lib/schemas';
 
 // Icon mapping for different calculator types
 const getCalculatorIcon = (calculatorName: string, categorySlug: string) => {
@@ -66,7 +68,8 @@ const getCalculatorIcon = (calculatorName: string, categorySlug: string) => {
   return '🧮';
 };
 
-export default function AllOnlineCalculatorsPage() {
+function AllCalculatorsContent() {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState('all');
@@ -74,6 +77,19 @@ export default function AllOnlineCalculatorsPage() {
   const [showPopularOnly, setShowPopularOnly] = useState(false);
 
   const allCalculators = getAllCalculators();
+  
+  // Handle URL search parameters
+  useEffect(() => {
+    const urlSearchQuery = searchParams.get('search');
+    if (urlSearchQuery) {
+      setSearchQuery(decodeURIComponent(urlSearchQuery));
+    }
+  }, [searchParams]);
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'All Calculators', url: '/all-online-calculators' }
+  ]);
 
   // Filter calculators based on search and filters
   const filteredCalculators = useMemo(() => {
@@ -136,6 +152,14 @@ export default function AllOnlineCalculatorsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      
       {/* Breadcrumbs */}
       <div className="border-b bg-muted/30">
         <div className="container py-4">
@@ -455,5 +479,13 @@ export default function AllOnlineCalculatorsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AllOnlineCalculatorsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <AllCalculatorsContent />
+    </Suspense>
   );
 }

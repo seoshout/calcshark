@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { getCalculatorBySlug, getCategoryBySlug } from '@/lib/calculator-categories';
 import BMICalculator from './calculators/BMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
+import { generateSoftwareSchema, generateBreadcrumbSchema } from '@/lib/schemas';
 
 interface CalculatorPageProps {
   params: {
@@ -57,36 +58,80 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
 
   const category = getCategoryBySlug(calculator.category);
   const CalculatorComponent = calculatorComponents[calculator.slug];
+
+  // Generate schemas
+  const softwareSchema = generateSoftwareSchema(
+    calculator.name,
+    calculator.description,
+    category?.name || 'Calculator'
+  );
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: category?.name || 'Category', url: `/category/${calculator.category}` },
+    { name: calculator.name, url: `/calculator/${calculator.slug}` }
+  ]);
   
   // If we haven't implemented this calculator yet, show a coming soon message
   if (!CalculatorComponent) {
     return (
       <CalculatorLayout calculator={calculator} category={category}>
-        <div className="bg-background border rounded-xl p-8 text-center">
-          <div className="mb-4">
-            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-              <span className="text-2xl">🚧</span>
-            </div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">Coming Soon</h2>
-            <p className="text-muted-foreground mb-6">
-              This calculator is currently under development. We're working hard to bring you the best calculation experience.
-            </p>
-            <div className="text-sm text-muted-foreground">
-              <p>In the meantime, you can:</p>
-              <ul className="list-disc list-inside mt-2 space-y-1">
-                <li>Browse our <a href="/popular" className="text-primary hover:underline">popular calculators</a></li>
-                <li>Explore the <a href={`/category/${calculator.category}`} className="text-primary hover:underline">{category?.name}</a> category</li>
-                <li>View <a href="/all-online-calculators" className="text-primary hover:underline">all available calculators</a></li>
-              </ul>
+        {/* Software Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareSchema),
+          }}
+        />
+        
+        {/* Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
+          }}
+        />
+          <div className="bg-background border rounded-xl p-8 text-center">
+            <div className="mb-4">
+              <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <span className="text-2xl">🚧</span>
+              </div>
+              <h2 className="text-2xl font-bold text-foreground mb-2">Coming Soon</h2>
+              <p className="text-muted-foreground mb-6">
+                This calculator is currently under development. We're working hard to bring you the best calculation experience.
+              </p>
+              <div className="text-sm text-muted-foreground">
+                <p>In the meantime, you can:</p>
+                <ul className="list-disc list-inside mt-2 space-y-1">
+                  <li>Browse our <a href="/popular" className="text-primary hover:underline">popular calculators</a></li>
+                  <li>Explore the <a href={`/category/${calculator.category}`} className="text-primary hover:underline">{category?.name}</a> category</li>
+                  <li>View <a href="/all-online-calculators" className="text-primary hover:underline">all available calculators</a></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </CalculatorLayout>
+        </CalculatorLayout>
     );
   }
 
   return (
     <CalculatorLayout calculator={calculator} category={category}>
+      {/* Software Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareSchema),
+        }}
+      />
+      
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      
       <CalculatorComponent />
     </CalculatorLayout>
   );

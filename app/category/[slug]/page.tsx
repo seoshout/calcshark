@@ -5,6 +5,7 @@ import { calculatorCategories, getCategoryBySlug, getCalculatorsBySubcategory } 
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { cn, slugify } from '@/lib/utils';
 import { FAQAccordion } from './components/faq-accordion';
+import { generateBreadcrumbSchema } from '@/lib/schemas';
 
 // Icons mapping for categories
 const iconMap: { [key: string]: any } = {
@@ -160,6 +161,13 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const IconComponent = iconMap[category.icon] || (() => <span>🧮</span>);
+
+  // Generate breadcrumb schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Categories', url: '/categories' },
+    { name: category.name, url: `/category/${category.slug}` }
+  ]);
   
   // Calculate total number of calculators for this category
   const totalCalculators = category.subcategories.reduce((total, subcategory) => {
@@ -180,22 +188,29 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Breadcrumbs */}
-      <div className="border-b bg-muted/30">
-        <div className="container py-4">
-          <nav className="flex items-center space-x-2 text-sm">
-            <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <Link href="/categories" className="text-muted-foreground hover:text-foreground transition-colors">
-              Categories
-            </Link>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <span className="text-foreground font-medium">{category.name}</span>
-          </nav>
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+        {/* Breadcrumbs */}
+        <div className="border-b bg-muted/30">
+          <div className="container py-4">
+            <nav className="flex items-center space-x-2 text-sm">
+              <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">
+                Home
+              </Link>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <Link href="/categories" className="text-muted-foreground hover:text-foreground transition-colors">
+                Categories
+              </Link>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <span className="text-foreground font-medium">{category.name}</span>
+            </nav>
+          </div>
         </div>
-      </div>
 
       {/* Category Header */}
       <div className="bg-gradient-to-br from-primary/10 via-purple-50 to-pink-50 dark:from-primary/10 dark:via-purple-900/20 dark:to-pink-900/20">

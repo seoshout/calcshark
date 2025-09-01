@@ -5,6 +5,7 @@ import { useState, useMemo } from 'react';
 import { ChevronRight, Search, Calculator, TrendingUp, Users, Star, Filter, Grid3X3, DollarSign, GraduationCap, Heart, Home, Hammer, Car, Briefcase, Baby, Dog, Gamepad, Clock, UtensilsCrossed, Leaf, Trophy, Sprout } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { calculatorCategories, getAllCalculators } from '@/lib/calculator-categories';
+import { generateBreadcrumbSchema } from '@/lib/schemas';
 
 // Icon mapping for categories
 const getIcon = (iconName: string) => {
@@ -36,6 +37,11 @@ export default function CategoriesPage() {
   const allCalculators = getAllCalculators();
   const totalCalculators = allCalculators.length;
   const popularCalculators = allCalculators.filter(calc => calc.popular).length;
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Calculator Categories', url: '/categories' }
+  ]);
 
   // Filter and sort categories
   const filteredAndSortedCategories = useMemo(() => {
@@ -76,6 +82,14 @@ export default function CategoriesPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      
       {/* Breadcrumbs */}
       <div className="border-b bg-muted/30">
         <div className="container py-4">
