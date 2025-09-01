@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getCalculatorBySlug, getCategoryBySlug } from '@/lib/calculator-categories';
 import BMICalculator from './calculators/BMICalculator';
+import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
 import { generateSoftwareSchema, generateBreadcrumbSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
@@ -82,7 +83,8 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
-  'bmi-calculator': BMICalculator,
+  'bmi-calculator': AdvancedBMICalculator, // Use the advanced version
+  'basic-bmi-calculator': BMICalculator,   // Keep basic version available
   // Add more calculators as we create them
   // 'mortgage-payment-calculator': MortgageCalculator,
   // 'loan-payment-calculator': LoanCalculator,
