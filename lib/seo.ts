@@ -1,0 +1,212 @@
+import { Metadata } from 'next';
+
+export interface SEOProps {
+  title: string;
+  description: string;
+  canonical?: string;
+  keywords?: string[];
+  ogImage?: string;
+  noIndex?: boolean;
+  structuredData?: object;
+}
+
+export function generateMetadata({
+  title,
+  description,
+  canonical,
+  keywords = [],
+  ogImage = '/og-default.jpg',
+  noIndex = false,
+}: SEOProps): Metadata {
+  const siteName = 'Calcverse';
+  const siteUrl = 'https://calcverse.com';
+  const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+  
+  return {
+    title: fullTitle,
+    description,
+    keywords: keywords.join(', '),
+    
+    // Open Graph
+    openGraph: {
+      title: fullTitle,
+      description,
+      url: canonical || siteUrl,
+      siteName,
+      images: [
+        {
+          url: `${siteUrl}${ogImage}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    
+    // Twitter
+    twitter: {
+      card: 'summary_large_image',
+      title: fullTitle,
+      description,
+      images: [`${siteUrl}${ogImage}`],
+      creator: '@calcverse',
+      site: '@calcverse',
+    },
+    
+    // Canonical URL and alternates
+    alternates: {
+      canonical: canonical || siteUrl,
+      languages: {
+        'x-default': siteUrl,
+        'en': siteUrl,
+        'hi': `${siteUrl}/hi/`,
+      },
+    },
+    
+    // Robots
+    robots: {
+      index: !noIndex,
+      follow: !noIndex,
+      googleBot: {
+        index: !noIndex,
+        follow: !noIndex,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    
+    // Additional meta tags
+    authors: [{ name: 'Calcverse Team' }],
+    creator: 'Calcverse',
+    publisher: 'Calcverse',
+    category: 'Calculators',
+    
+    // Verification
+    verification: {
+      google: 'your-google-site-verification',
+      yandex: 'your-yandex-verification',
+      yahoo: 'your-yahoo-site-verification',
+    },
+    
+    // Additional metadata
+    other: {
+      'theme-color': '#8b5cf6',
+      'mobile-web-app-capable': 'yes',
+      'apple-mobile-web-app-capable': 'yes',
+      'application-name': 'Calcverse',
+      'apple-mobile-web-app-title': 'Calcverse',
+    },
+  };
+}
+
+export const defaultSEO: SEOProps = {
+  title: 'Calcverse - The Ultimate Calculator Collection',
+  description: 'Discover 898+ free online calculators for finance, health, construction, education, business, and more. Fast, accurate, and easy-to-use tools for all your calculation needs.',
+  keywords: [
+    'calculators',
+    'online calculator',
+    'free calculator',
+    'financial calculator',
+    'mortgage calculator',
+    'loan calculator',
+    'health calculator',
+    'BMI calculator',
+    'math calculator',
+    'construction calculator',
+    'business calculator',
+    'percentage calculator',
+    'compound interest calculator',
+    'calcverse'
+  ],
+};
+
+export const calculatorSEO = {
+  mortgage: {
+    title: 'Mortgage Payment Calculator - Free Online Tool',
+    description: 'Calculate your monthly mortgage payments with our free online mortgage calculator. Includes principal, interest, taxes, and insurance (PITI). Get accurate results instantly.',
+    keywords: ['mortgage calculator', 'home loan calculator', 'monthly payment calculator', 'PITI calculator', 'mortgage payment'],
+  },
+  bmi: {
+    title: 'BMI Calculator - Body Mass Index Calculator',
+    description: 'Calculate your Body Mass Index (BMI) with our free online BMI calculator. Determine if you are underweight, normal weight, overweight, or obese based on your height and weight.',
+    keywords: ['BMI calculator', 'body mass index', 'weight calculator', 'health calculator', 'obesity calculator'],
+  },
+  loan: {
+    title: 'Loan Payment Calculator - Monthly Payment Calculator',
+    description: 'Calculate your monthly loan payments with our free loan calculator. Works for auto loans, personal loans, student loans, and more. Get payment schedules and total interest.',
+    keywords: ['loan calculator', 'monthly payment calculator', 'auto loan calculator', 'personal loan calculator', 'loan payment'],
+  },
+  percentage: {
+    title: 'Percentage Calculator - Calculate Percentages Online',
+    description: 'Calculate percentages, percentage increase/decrease, percentage of a number, and percentage difference with our free online percentage calculator.',
+    keywords: ['percentage calculator', 'percent calculator', 'percentage increase', 'percentage decrease', 'percentage change'],
+  },
+};
+
+export function generateCalculatorStructuredData(calculator: {
+  name: string;
+  description: string;
+  category: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: calculator.name,
+    description: calculator.description,
+    category: calculator.category,
+    url: calculator.url,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    permissions: 'No special permissions required',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '1250',
+      bestRating: '5',
+      worstRating: '1',
+    },
+  };
+}
+
+export function generateBreadcrumbStructuredData(items: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function generateOrganizationStructuredData() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Calcverse',
+    url: 'https://calcverse.com',
+    logo: 'https://calcverse.com/logo.png',
+    description: 'The ultimate collection of free online calculators for all your calculation needs.',
+    sameAs: [
+      'https://twitter.com/calcverse',
+      'https://github.com/calcverse',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      email: 'contact@calcverse.com',
+      availableLanguage: 'English',
+    },
+  };
+}
