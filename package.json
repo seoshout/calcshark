@@ -11,7 +11,10 @@
     "security:hsts": "node scripts/verify-hsts.js",
     "security:headers": "node scripts/verify-hsts.js && echo 'Run: curl -I https://calcverse.com' to check all headers",
     "favicon:guide": "node scripts/create-favicons.js",
-    "favicon:generate": "echo 'Open http://localhost:3000/generate-favicon.html in your browser to generate PNG files'"
+    "favicon:generate": "echo 'Open http://localhost:3000/generate-favicon.html in your browser to generate PNG files'",
+    "html:analyze": "node scripts/analyze-html.js",
+    "html:check": "echo 'Start dev server and visit http://localhost:3000 then View Page Source to see clean HTML'",
+    "test:search": "node scripts/test-search.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

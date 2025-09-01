@@ -89,7 +89,25 @@ const nextConfig = {
   // Optimize production build
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
-  compress: true,
+  
+  // Better HTML output formatting
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+  
+  // Cleaner development output
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error']
+    } : false,
+  },
+  
+  // Development configuration for cleaner HTML
+  ...(process.env.NODE_ENV === 'development' ? {
+    compress: false,
+  } : {
+    compress: true,
+  }),
   
   // Environment variables validation
   env: {

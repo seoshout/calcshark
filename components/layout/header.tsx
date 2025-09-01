@@ -2,17 +2,38 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Search, Menu, X, Calculator, Sun, Moon, ChevronDown, DollarSign, GraduationCap, Heart, Home, Hammer, Car, Briefcase, Baby, Dog, Gamepad, Clock, UtensilsCrossed, Leaf, Trophy, Sprout } from 'lucide-react';
 import { calculatorCategories } from '@/lib/calculator-categories';
 import { cn } from '@/lib/utils';
 
 export default function Header() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
   const [isMobileCategoriesOpen, setIsMobileCategoriesOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/all-online-calculators?search=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setSearchQuery(suggestion);
+    router.push(`/all-online-calculators?search=${encodeURIComponent(suggestion)}`);
+    setIsSearchOpen(false);
+  };
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -178,6 +199,7 @@ export default function Header() {
                     placeholder="Search calculators..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyPress={handleKeyPress}
                     className="flex-1 bg-transparent outline-none text-sm placeholder:text-muted-foreground"
                     autoFocus
                   />
@@ -190,10 +212,7 @@ export default function Header() {
                         <button
                           key={suggestion}
                           className="block w-full text-left text-sm p-2 hover:bg-accent rounded-md transition-colors"
-                          onClick={() => {
-                            setSearchQuery(suggestion);
-                            setIsSearchOpen(false);
-                          }}
+                          onClick={() => handleSuggestionClick(suggestion)}
                         >
                           {suggestion}
                         </button>
@@ -256,6 +275,7 @@ export default function Header() {
                 placeholder="Search calculators..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyPress={handleKeyPress}
                 className="flex-1 bg-transparent outline-none text-sm"
               />
             </div>
@@ -270,7 +290,7 @@ export default function Header() {
                       key={suggestion}
                       className="block w-full text-left text-sm p-2 hover:bg-accent rounded-md transition-colors"
                       onClick={() => {
-                        setSearchQuery(suggestion);
+                        handleSuggestionClick(suggestion);
                         setIsMenuOpen(false);
                       }}
                     >

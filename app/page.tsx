@@ -2,12 +2,26 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Search, Calculator, TrendingUp, Users, Zap, ChevronRight, Star, BarChart3, Globe, Grid3X3, DollarSign, GraduationCap, Heart, Home, Hammer, Car, Briefcase, Baby, Dog, Gamepad, Clock, UtensilsCrossed, Leaf, Trophy, Sprout } from 'lucide-react';
 import { calculatorCategories, popularCalculators } from '@/lib/calculator-categories';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+  
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/all-online-calculators?search=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
+  
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
   
   // Icon mapping for categories
   const getIcon = (iconName: string) => {
@@ -122,9 +136,13 @@ export default function HomePage() {
                   placeholder="Search calculators... (e.g., mortgage, BMI, percentage)"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyPress={handleKeyPress}
                   className="w-full rounded-full border bg-background/50 pl-12 pr-6 py-4 text-lg placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 backdrop-blur-sm"
                 />
-                <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-primary px-6 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
+                <button 
+                  onClick={handleSearch}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-primary px-6 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                >
                   Search
                 </button>
               </div>
@@ -133,7 +151,7 @@ export default function HomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/calculators"
+                href="/all-online-calculators"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 Browse All Calculators
@@ -224,7 +242,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <Link
-              href="/calculators"
+              href="/all-online-calculators"
               className="inline-flex items-center justify-center rounded-full border border-primary bg-primary/5 px-8 py-3 font-medium text-primary hover:bg-primary/10 transition-colors"
             >
               View All Popular Calculators
@@ -354,7 +372,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/calculators"
+                href="/all-online-calculators"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 Start Calculating Now
