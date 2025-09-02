@@ -83,14 +83,15 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
 
 // Import calculators
 import AdvancedCompoundInterestCalculator from './calculators/AdvancedCompoundInterestCalculator';
+import AdvancedMortgageCalculator from './calculators/AdvancedMortgageCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'bmi-calculator': AdvancedBMICalculator, // Use the advanced version
   'basic-bmi-calculator': BMICalculator,   // Keep basic version available
   'compound-interest-calculator': AdvancedCompoundInterestCalculator,
+  'mortgage-payment-calculator': AdvancedMortgageCalculator,
   // Add more calculators as we create them
-  // 'mortgage-payment-calculator': MortgageCalculator,
   // 'loan-payment-calculator': LoanCalculator,
   // etc.
 };

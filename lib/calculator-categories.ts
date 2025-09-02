@@ -222,17 +222,17 @@ export const calculatorCategories: Category[] = [
           {
             id: 'compound-interest-calculator',
             name: 'Compound Interest Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced compound interest calculator with Monte Carlo simulation, retirement planning, and comprehensive investment analysis',
             slug: 'compound-interest-calculator',
             category: 'finance-personal-finance',
             subcategory: 'loans-debt',
             tags: [
-              'finance & personal finance',
-              'loans & debt',
-              'compound interest calculator'
+              'Finance & Personal Finance',
+              'Loans & Debt',
+              'Compound Interest Calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -293,17 +293,17 @@ export const calculatorCategories: Category[] = [
           {
             id: 'mortgage-payment-calculator',
             name: 'Mortgage Payment Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Ultimate advanced mortgage calculator with comprehensive cost analysis, risk assessment, stress testing, and payment optimization strategies',
             slug: 'mortgage-payment-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
             tags: [
-              'finance & personal finance',
-              'mortgages',
-              'mortgage payment calculator'
+              'Finance & Personal Finance',
+              'Mortgages',
+              'Mortgage Payment Calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -2040,17 +2040,17 @@ export const calculatorCategories: Category[] = [
           {
             id: 'bmi-calculator',
             name: 'BMI Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced BMI calculator with comprehensive health analysis, body fat estimation, calorie recommendations, and detailed health insights',
             slug: 'bmi-calculator',
             category: 'health-fitness',
             subcategory: 'body-metrics',
             tags: [
-              'health & fitness',
-              'body metrics',
-              'bmi calculator'
+              'Health & Fitness',
+              'Body Metrics',
+              'BMI Calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
