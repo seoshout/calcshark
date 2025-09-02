@@ -86,7 +86,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-x-hidden">
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
@@ -124,7 +124,7 @@ export default function Header() {
             {/* Mega Menu */}
             <div 
               className={cn(
-                "absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[1100px] bg-background border rounded-xl shadow-2xl transition-all duration-300",
+                "absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[min(1100px,95vw)] bg-background border rounded-xl shadow-2xl transition-all duration-300",
                 isCategoriesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"
               )}
               onMouseEnter={() => setIsCategoriesOpen(true)}
@@ -213,7 +213,7 @@ export default function Header() {
             
             {/* Search Dropdown */}
             {isSearchOpen && (
-              <div className="absolute top-full right-0 mt-2 w-80 bg-background border rounded-xl shadow-2xl p-4 z-50">
+              <div className="absolute top-full right-0 mt-2 w-[min(320px,90vw)] bg-background border rounded-xl shadow-2xl p-4 z-50">
                 <div className="flex items-center space-x-2 mb-4">
                   <Search className="h-4 w-4 text-muted-foreground" />
                   <input
@@ -287,7 +287,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden border-t bg-background">
+        <div className="lg:hidden border-t bg-background overflow-x-hidden">
           <div className="container py-6 space-y-6">
             {/* Mobile Search */}
             <div className="flex items-center space-x-2 px-4 py-3 bg-accent rounded-full">
