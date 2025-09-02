@@ -266,7 +266,7 @@ export default function CategoriesPage() {
                         </div>
                       </div>
                       <Link
-                        href={`/category/${category.slug}`}
+                        href={`/category/${category.slug}/`}
                         className="flex items-center justify-center px-3 py-2 md:px-4 md:py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium text-sm md:text-base flex-shrink-0"
                       >
                         View All
@@ -296,7 +296,7 @@ export default function CategoriesPage() {
                       return (
                         <Link
                           key={subcategory.slug}
-                          href={`/category/${category.slug}#${subcategory.slug}`}
+                          href={`/category/${category.slug}/#${subcategory.slug}`}
                           className="group bg-background border rounded-lg p-4 hover:shadow-md transition-all duration-200 hover:border-primary/50"
                         >
                           <div className="flex items-center justify-between mb-3">
@@ -370,14 +370,14 @@ export default function CategoriesPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/all-online-calculators"
+                href="/all-online-calculators/"
                 className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
                 <Calculator className="h-4 w-4 mr-2" />
                 Browse All {totalCalculators} Calculators
               </Link>
               <Link
-                href="/popular"
+                href="/popular/"
                 className="inline-flex items-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
               >
                 <TrendingUp className="h-4 w-4 mr-2" />

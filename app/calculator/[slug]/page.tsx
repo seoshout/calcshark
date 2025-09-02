@@ -150,9 +150,9 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
               <div className="text-sm text-muted-foreground">
                 <p>In the meantime, you can:</p>
                 <ul className="list-disc list-inside mt-2 space-y-1">
-                  <li>Browse our <a href="/popular" className="text-primary hover:underline">popular calculators</a></li>
-                  <li>Explore the <a href={`/category/${calculator.category}`} className="text-primary hover:underline">{category?.name}</a> category</li>
-                  <li>View <a href="/all-online-calculators" className="text-primary hover:underline">all available calculators</a></li>
+                  <li>Browse our <a href="/popular/" className="text-primary hover:underline">popular calculators</a></li>
+                  <li>Explore the <a href={`/category/${calculator.category}/`} className="text-primary hover:underline">{category?.name}</a> category</li>
+                  <li>View <a href="/all-online-calculators/" className="text-primary hover:underline">all available calculators</a></li>
                 </ul>
               </div>
             </div>

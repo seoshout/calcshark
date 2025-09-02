@@ -604,64 +604,30 @@ export default function AdvancedMortgageCalculator() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 sm:space-y-8">
       {/* Main Calculator Card */}
-      <div className="bg-background border rounded-xl p-6">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-green-600">
-            <Home className="h-8 w-8 text-white" />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold text-foreground">Ultimate Advanced Mortgage Calculator</h2>
-            <p className="text-muted-foreground mt-1">Complete homeownership cost analysis and affordability planning</p>
-          </div>
-        </div>
-
-        {/* Calculation Mode Toggle */}
-        <div className="mb-6">
-          <div className="flex bg-muted rounded-lg p-1 w-fit">
-            {[
-              { key: 'payment', label: 'Payment Calculator', icon: Calculator },
-              { key: 'affordability', label: 'Affordability Analysis', icon: Target },
-              { key: 'comparison', label: 'Loan Comparison', icon: BarChart3 }
-            ].map(({ key, label, icon: Icon }) => (
-              <button
-                key={key}
-                onClick={() => setCalculationMode(key as any)}
-                className={cn(
-                  "flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                  calculationMode === key 
-                    ? "bg-background text-foreground shadow-sm" 
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <Icon className="h-4 w-4 mr-2" />
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-
+      <div className="bg-background border rounded-xl p-3 sm:p-6">
         {/* Tab Navigation */}
-        <div className="mb-8">
-          <div className="flex bg-muted rounded-lg p-1 w-fit">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex bg-muted rounded-lg p-1 w-full overflow-x-auto">
             {[
-              { key: 'basic', label: 'Loan Details', icon: Home },
-              { key: 'advanced', label: 'Advanced Settings', icon: Settings },
-              { key: 'analysis', label: 'Financial Analysis', icon: BarChart3 }
-            ].map(({ key, label, icon: Icon }) => (
+              { key: 'basic', label: 'Loan Details', shortLabel: 'Loan', icon: Home },
+              { key: 'advanced', label: 'Advanced Settings', shortLabel: 'Advanced', icon: Settings },
+              { key: 'analysis', label: 'Financial Analysis', shortLabel: 'Analysis', icon: BarChart3 }
+            ].map(({ key, label, shortLabel, icon: Icon }) => (
               <button
                 key={key}
                 onClick={() => setActiveTab(key as any)}
                 className={cn(
-                  "flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                  "flex items-center justify-center px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors flex-1 min-w-0",
                   activeTab === key 
                     ? "bg-background text-foreground shadow-sm" 
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <Icon className="h-4 w-4 mr-2" />
-                {label}
+                <Icon className="h-4 w-4 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate sm:hidden">{shortLabel}</span>
+                <span className="truncate hidden sm:inline">{label}</span>
               </button>
             ))}
           </div>
@@ -669,7 +635,7 @@ export default function AdvancedMortgageCalculator() {
 
         {/* Basic Settings Tab */}
         {activeTab === 'basic' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
@@ -790,7 +756,7 @@ export default function AdvancedMortgageCalculator() {
 
         {/* Advanced Settings Tab */}
         {activeTab === 'advanced' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
               <h3 className="font-medium text-purple-900 dark:text-purple-100 mb-2">Additional Costs & Settings</h3>
               <p className="text-sm text-purple-800 dark:text-purple-200">
@@ -930,7 +896,7 @@ export default function AdvancedMortgageCalculator() {
 
         {/* Financial Analysis Tab */}
         {activeTab === 'analysis' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
               <h3 className="font-medium text-green-900 dark:text-green-100 mb-2">Financial Profile</h3>
               <p className="text-sm text-green-800 dark:text-green-200">
@@ -1059,38 +1025,72 @@ export default function AdvancedMortgageCalculator() {
 
         {/* Results Display */}
         {result && (
-          <div className="mt-8 space-y-6">
-            {/* Main Payment Summary */}
-            <div className="bg-background border rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Calculator className="h-5 w-5 mr-2 text-primary" />
-                Monthly Payment Breakdown
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">{formatCurrency(result.totalMonthlyPayment)}</div>
-                  <div className="text-sm font-medium text-blue-800 dark:text-blue-200">Total Monthly Payment</div>
+          <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-6 overflow-hidden">
+            {/* Calculation Mode Toggle - Appears only after results */}
+            <div className="bg-background border rounded-xl p-4 md:p-6">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground">Analysis Mode</h3>
+                  <p className="text-sm text-muted-foreground">Choose how you want to view your analysis</p>
                 </div>
-                
-                <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                  <div className="text-3xl font-bold text-green-600 mb-1">{formatCurrency(result.principalAndInterest)}</div>
-                  <div className="text-sm font-medium text-green-800 dark:text-green-200">Principal & Interest</div>
+                <div className="flex flex-col sm:flex-row bg-muted rounded-lg p-1 gap-1 sm:gap-0">
+                  {[
+                    { key: 'payment', label: 'Payment', icon: Calculator },
+                    { key: 'affordability', label: 'Affordability', icon: Target },
+                    { key: 'comparison', label: 'Comparison', icon: BarChart3 }
+                  ].map(({ key, label, icon: Icon }) => (
+                    <button
+                      key={key}
+                      onClick={() => setCalculationMode(key as any)}
+                      className={cn(
+                        "flex items-center justify-center px-2 sm:px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors min-w-0 flex-1 sm:flex-none",
+                        calculationMode === key 
+                          ? "bg-background text-foreground shadow-sm" 
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      <Icon className="h-4 w-4 mr-1 sm:mr-2 flex-shrink-0" />
+                      <span className="truncate sm:inline">{label}</span>
+                    </button>
+                  ))}
                 </div>
-                
-                <div className="text-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-1">{formatCurrency(result.totalInterest)}</div>
-                  <div className="text-sm font-medium text-orange-800 dark:text-orange-200">Total Interest</div>
-                </div>
-                
-                <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                  <div className="text-3xl font-bold text-purple-600 mb-1">{result.affordabilityScore}</div>
-                  <div className="text-sm font-medium text-purple-800 dark:text-purple-200">Affordability Score</div>
-                </div>
+              </div>
+            </div>
+
+            {/* Payment Calculator Mode */}
+            {calculationMode === 'payment' && (
+              <>
+                {/* Main Payment Summary */}
+                <div className="bg-background border rounded-xl p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-semibold mb-4 flex items-center">
+                    <Calculator className="h-5 w-5 mr-2 text-primary" />
+                    Monthly Payment Breakdown
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6">
+                    <div className="text-center p-3 md:p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">{formatCurrency(result.totalMonthlyPayment)}</div>
+                      <div className="text-xs md:text-sm font-medium text-blue-800 dark:text-blue-200">Total Monthly Payment</div>
+                    </div>
+                    
+                    <div className="text-center p-3 md:p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <div className="text-2xl md:text-3xl font-bold text-green-600 mb-1">{formatCurrency(result.principalAndInterest)}</div>
+                      <div className="text-xs md:text-sm font-medium text-green-800 dark:text-green-200">Principal & Interest</div>
+                    </div>
+                    
+                    <div className="text-center p-3 md:p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                      <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">{formatCurrency(result.totalInterest)}</div>
+                      <div className="text-xs md:text-sm font-medium text-orange-800 dark:text-orange-200">Total Interest</div>
+                    </div>
+                    
+                    <div className="text-center p-3 md:p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                      <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">{result.affordabilityScore}</div>
+                      <div className="text-xs md:text-sm font-medium text-purple-800 dark:text-purple-200">Affordability Score</div>
+                    </div>
               </div>
 
               {/* Detailed Breakdown */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <h4 className="font-semibold mb-3">Payment Components</h4>
                   <div className="space-y-2">
@@ -1155,9 +1155,190 @@ export default function AdvancedMortgageCalculator() {
                   </div>
                 </div>
               </div>
-            </div>
+                </div>
+              </>
+            )}
 
-            {/* Risk Assessment */}
+            {/* Affordability Analysis Mode */}
+            {calculationMode === 'affordability' && (
+              <>
+                {/* Affordability Score Overview */}
+                <div className="bg-background border rounded-xl p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <Target className="h-5 w-5 mr-2 text-primary" />
+                    Affordability Analysis
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div className="text-center p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <div className="text-4xl font-bold text-blue-600 mb-2">{result.affordabilityScore}/100</div>
+                      <div className="text-lg font-medium text-blue-800 dark:text-blue-200 mb-1">Affordability Score</div>
+                      <div className="text-sm text-blue-700 dark:text-blue-300">
+                        {result.affordabilityScore >= 80 ? "Excellent" : 
+                         result.affordabilityScore >= 60 ? "Good" : 
+                         result.affordabilityScore >= 40 ? "Fair" : "Poor"}
+                      </div>
+                    </div>
+                    
+                    <div className="text-center p-6 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <div className="text-4xl font-bold text-green-600 mb-2">{formatPercentage(result.riskAssessment.paymentToIncomeRatio)}</div>
+                      <div className="text-lg font-medium text-green-800 dark:text-green-200 mb-1">Payment-to-Income</div>
+                      <div className="text-sm text-green-700 dark:text-green-300">Recommended: &lt;28%</div>
+                    </div>
+                    
+                    <div className="text-center p-6 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                      <div className="text-4xl font-bold text-orange-600 mb-2">{formatPercentage(result.riskAssessment.debtToIncomeRatio)}</div>
+                      <div className="text-lg font-medium text-orange-800 dark:text-orange-200 mb-1">Debt-to-Income</div>
+                      <div className="text-sm text-orange-700 dark:text-orange-300">Recommended: &lt;36%</div>
+                    </div>
+                  </div>
+                  
+                  {/* Detailed Affordability Breakdown */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-3">Monthly Budget Impact</h4>
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span>Gross Monthly Income</span>
+                          <span className="font-medium">{formatCurrency(settings.annualIncome / 12)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Total Housing Payment</span>
+                          <span className="font-medium">{formatCurrency(result.totalMonthlyPayment)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Existing Debt Payments</span>
+                          <span className="font-medium">{formatCurrency(settings.monthlyDebts)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Remaining Income</span>
+                          <span className="font-medium text-green-600">
+                            {formatCurrency((settings.annualIncome / 12) - result.totalMonthlyPayment - settings.monthlyDebts)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold mb-3">Affordability Factors</h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span>Credit Score Impact</span>
+                          <div className="flex items-center">
+                            <div className="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                              <div 
+                                className="bg-green-500 h-2 rounded-full" 
+                                style={{ width: `${(settings.creditScore - 300) / 550 * 100}%` }}
+                              ></div>
+                            </div>
+                            <span className="ml-2 text-sm font-medium">{settings.creditScore}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>Down Payment %</span>
+                          <span className="font-medium">{formatPercentage(settings.downPayment / settings.homePrice)}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>Cash Reserves</span>
+                          <span className="font-medium">{formatCurrency(settings.cashReserves)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Loan Comparison Mode */}
+            {calculationMode === 'comparison' && (
+              <>
+                {/* Loan Term Comparison */}
+                <div className="bg-background border rounded-xl p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <BarChart3 className="h-5 w-5 mr-2 text-primary" />
+                    Loan Comparison Analysis
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    {/* 15-Year vs 30-Year Comparison */}
+                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">15-Year Fixed</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Monthly Payment (P&I)</span>
+                          <span className="font-medium">{formatCurrency(calculateMonthlyPayment(result.totalLoanAmount, settings.interestRate / 100 / 12, 15 * 12))}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Total Interest</span>
+                          <span className="font-medium">{formatCurrency(calculateMonthlyPayment(result.totalLoanAmount, settings.interestRate / 100 / 12, 15 * 12) * 180 - result.totalLoanAmount)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Interest Savings</span>
+                          <span className="font-medium text-green-600">
+                            {formatCurrency(result.totalInterest - (calculateMonthlyPayment(result.totalLoanAmount, settings.interestRate / 100 / 12, 15 * 12) * 180 - result.totalLoanAmount))}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">30-Year Fixed (Current)</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Monthly Payment (P&I)</span>
+                          <span className="font-medium">{formatCurrency(result.principalAndInterest)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Total Interest</span>
+                          <span className="font-medium">{formatCurrency(result.totalInterest)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Lower Monthly Payment</span>
+                          <span className="font-medium text-blue-600">
+                            {formatCurrency(calculateMonthlyPayment(result.totalLoanAmount, settings.interestRate / 100 / 12, 15 * 12) - result.principalAndInterest)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Payment Strategy Comparison */}
+                  <div>
+                    <h4 className="font-semibold mb-3">Payment Optimization Strategies</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                        <h5 className="font-medium text-yellow-900 dark:text-yellow-100 mb-2">Bi-weekly Payments</h5>
+                        <div className="text-sm space-y-1">
+                          <div>Payment: {formatCurrency(result.principalAndInterest / 2)}</div>
+                          <div>Time Savings: ~6 years</div>
+                          <div className="text-green-600 font-medium">Interest Savings: ~{formatCurrency(result.totalInterest * 0.23)}</div>
+                        </div>
+                      </div>
+                      
+                      <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                        <h5 className="font-medium text-purple-900 dark:text-purple-100 mb-2">Extra $100/month</h5>
+                        <div className="text-sm space-y-1">
+                          <div>Payment: {formatCurrency(result.principalAndInterest + 100)}</div>
+                          <div>Time Savings: ~4.5 years</div>
+                          <div className="text-green-600 font-medium">Interest Savings: ~{formatCurrency(result.totalInterest * 0.15)}</div>
+                        </div>
+                      </div>
+                      
+                      <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                        <h5 className="font-medium text-orange-900 dark:text-orange-100 mb-2">Annual Extra Payment</h5>
+                        <div className="text-sm space-y-1">
+                          <div>Extra: {formatCurrency(result.principalAndInterest)}</div>
+                          <div>Time Savings: ~5 years</div>
+                          <div className="text-green-600 font-medium">Interest Savings: ~{formatCurrency(result.totalInterest * 0.18)}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Shared Risk Assessment for All Modes */}
             <div className="bg-background border rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-4 flex items-center">
                 <Shield className="h-5 w-5 mr-2 text-primary" />
@@ -1319,20 +1500,22 @@ export default function AdvancedMortgageCalculator() {
             )}
 
             {/* Interactive Charts */}
-            <MortgageCharts
-              monthlyBreakdown={result.monthlyBreakdown}
-              amortizationSchedule={result.amortizationSchedule}
-              totalLoanAmount={result.totalLoanAmount}
-              totalInterest={result.totalInterest}
-              totalMonthlyPayment={result.totalMonthlyPayment}
-              loanTerm={settings.loanTerm}
-            />
+            <div className="overflow-hidden">
+              <MortgageCharts
+                monthlyBreakdown={result.monthlyBreakdown}
+                amortizationSchedule={result.amortizationSchedule}
+                totalLoanAmount={result.totalLoanAmount}
+                totalInterest={result.totalInterest}
+                totalMonthlyPayment={result.totalMonthlyPayment}
+                loanTerm={settings.loanTerm}
+              />
+            </div>
           </div>
         )}
       </div>
 
       {/* Usage Instructions Section */}
-      <div className="bg-background border rounded-xl p-8">
+      <div className="bg-background border rounded-xl p-2 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Advanced Mortgage Calculator</h2>
         
         <div className="prose prose-gray dark:prose-invert max-w-none mb-8">
@@ -1373,7 +1556,7 @@ export default function AdvancedMortgageCalculator() {
           </div>
 
           <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800 mb-6">
-            <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Calculation Modes</h3>
+            <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 How the Three Calculation Modes Work</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="text-center">
@@ -1381,7 +1564,8 @@ export default function AdvancedMortgageCalculator() {
                   <Calculator className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Payment Calculator</h4>
-                <p className="text-sm text-green-800 dark:text-green-200">Calculate monthly payments with all costs included</p>
+                <p className="text-sm text-green-800 dark:text-green-200 mb-2">Calculate monthly payments with all costs included</p>
+                <p className="text-xs text-green-700 dark:text-green-300 italic">Click this button to see detailed payment breakdown including principal, interest, taxes, insurance, PMI, and HOA fees.</p>
               </div>
               
               <div className="text-center">
@@ -1389,7 +1573,8 @@ export default function AdvancedMortgageCalculator() {
                   <Target className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Affordability Analysis</h4>
-                <p className="text-sm text-green-800 dark:text-green-200">Risk assessment and debt-to-income ratios</p>
+                <p className="text-sm text-green-800 dark:text-green-200 mb-2">Risk assessment and debt-to-income ratios</p>
+                <p className="text-xs text-green-700 dark:text-green-300 italic">Click this button to see your affordability score, budget impact analysis, and detailed risk assessment.</p>
               </div>
               
               <div className="text-center">
@@ -1397,8 +1582,15 @@ export default function AdvancedMortgageCalculator() {
                   <BarChart3 className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Loan Comparison</h4>
-                <p className="text-sm text-green-800 dark:text-green-200">15 vs 30 year, biweekly payments, strategies</p>
+                <p className="text-sm text-green-800 dark:text-green-200 mb-2">15 vs 30 year, biweekly payments, strategies</p>
+                <p className="text-xs text-green-700 dark:text-green-300 italic">Click this button to compare different loan terms, payment strategies, and see potential interest savings.</p>
               </div>
+            </div>
+            
+            <div className="mt-4 p-3 bg-green-100 dark:bg-green-800/30 rounded-lg">
+              <p className="text-sm text-green-800 dark:text-green-200">
+                <strong>💡 How to Use:</strong> First click "Calculate Mortgage" to generate results, then use the three mode buttons above the results to switch between different analysis views. Each mode shows specialized information about your mortgage.
+              </p>
             </div>
           </div>
 
@@ -1468,7 +1660,7 @@ export default function AdvancedMortgageCalculator() {
       </div>
 
       {/* Educational Content Section */}
-      <div className="bg-background border rounded-xl p-8">
+      <div className="bg-background border rounded-xl p-2 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Understanding Your Mortgage</h2>
         
         <div className="prose prose-gray dark:prose-invert max-w-none">

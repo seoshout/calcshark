@@ -137,7 +137,7 @@ export default function PopularCalculatorsPage() {
             return (
               <Link
                 key={calculator.id}
-                href={`/calculator/${calculator.slug}`}
+                href={`/calculator/${calculator.slug}/`}
                 className="group relative p-6 bg-background border rounded-xl hover:shadow-lg transition-all duration-200 hover:border-primary/50 hover:-translate-y-1"
               >
                 {/* Popular Badge */}
@@ -207,7 +207,7 @@ export default function PopularCalculatorsPage() {
                   {categoryData.calculators.slice(0, 3).map((calc: any) => (
                     <Link
                       key={calc.id}
-                      href={`/calculator/${calc.slug}`}
+                      href={`/calculator/${calc.slug}/`}
                       className="flex items-center justify-between p-2 rounded-lg hover:bg-accent transition-colors group"
                     >
                       <span className="text-sm font-medium group-hover:text-primary transition-colors">
@@ -219,7 +219,7 @@ export default function PopularCalculatorsPage() {
                   
                   {categoryData.calculators.length > 3 && (
                     <Link
-                      href={`/category/${categorySlug}`}
+                      href={`/category/${categorySlug}/`}
                       className="flex items-center text-sm text-primary hover:underline mt-2"
                     >
                       View all {categoryData.calculators.length} popular calculators
@@ -243,7 +243,7 @@ export default function PopularCalculatorsPage() {
             Browse all {allCalculators.length}+ calculators across 17 categories to find the perfect tool for your needs.
           </p>
           <Link
-            href="/all-online-calculators"
+            href="/all-online-calculators/"
             className="inline-flex items-center px-6 py-3 bg-background text-primary rounded-lg hover:bg-background/90 transition-colors font-medium"
           >
             View All Calculators

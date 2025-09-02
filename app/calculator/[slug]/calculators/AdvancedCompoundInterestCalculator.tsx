@@ -419,64 +419,30 @@ export default function AdvancedCompoundInterestCalculator() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 sm:space-y-8">
       {/* Main Calculator Card */}
-      <div className="bg-background border rounded-xl p-6">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 rounded-xl bg-gradient-to-br from-green-500 to-blue-600">
-            <PiggyBank className="h-8 w-8 text-white" />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold text-foreground">Advanced Compound Interest Calculator</h2>
-            <p className="text-muted-foreground mt-1">Professional investment growth and retirement planning</p>
-          </div>
-        </div>
-
-        {/* Calculation Mode Toggle */}
-        <div className="mb-6">
-          <div className="flex bg-muted rounded-lg p-1 w-fit">
-            {[
-              { key: 'investment', label: 'Investment Growth', icon: TrendingUp },
-              { key: 'goal', label: 'Goal Planning', icon: Target },
-              { key: 'retirement', label: 'Retirement Planning', icon: PiggyBank }
-            ].map(({ key, label, icon: Icon }) => (
-              <button
-                key={key}
-                onClick={() => setCalculationMode(key as any)}
-                className={cn(
-                  "flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                  calculationMode === key 
-                    ? "bg-background text-foreground shadow-sm" 
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <Icon className="h-4 w-4 mr-2" />
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-
+      <div className="bg-background border rounded-xl p-3 sm:p-6">
         {/* Tab Navigation */}
-        <div className="mb-8">
-          <div className="flex bg-muted rounded-lg p-1 w-fit">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex bg-muted rounded-lg p-1 w-full overflow-x-auto">
             {[
-              { key: 'basic', label: 'Basic Settings', icon: Calculator },
-              { key: 'advanced', label: 'Advanced Options', icon: Activity },
-              { key: 'retirement', label: 'Retirement Planning', icon: PiggyBank }
-            ].map(({ key, label, icon: Icon }) => (
+              { key: 'basic', label: 'Basic Settings', shortLabel: 'Basic', icon: Calculator },
+              { key: 'advanced', label: 'Advanced Options', shortLabel: 'Advanced', icon: Activity },
+              { key: 'retirement', label: 'Retirement Planning', shortLabel: 'Retirement', icon: PiggyBank }
+            ].map(({ key, label, shortLabel, icon: Icon }) => (
               <button
                 key={key}
                 onClick={() => setActiveTab(key as any)}
                 className={cn(
-                  "flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                  "flex items-center justify-center px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors flex-1 min-w-0",
                   activeTab === key 
                     ? "bg-background text-foreground shadow-sm" 
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <Icon className="h-4 w-4 mr-2" />
-                {label}
+                <Icon className="h-4 w-4 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate sm:hidden">{shortLabel}</span>
+                <span className="truncate hidden sm:inline">{label}</span>
               </button>
             ))}
           </div>
@@ -484,7 +450,7 @@ export default function AdvancedCompoundInterestCalculator() {
 
         {/* Basic Settings Tab */}
         {activeTab === 'basic' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
@@ -614,7 +580,7 @@ export default function AdvancedCompoundInterestCalculator() {
 
         {/* Advanced Settings Tab */}
         {activeTab === 'advanced' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
               <h3 className="font-medium text-blue-900 dark:text-blue-100 mb-2">Advanced Investment Modeling</h3>
               <p className="text-sm text-blue-800 dark:text-blue-200">
@@ -729,7 +695,7 @@ export default function AdvancedCompoundInterestCalculator() {
 
         {/* Retirement Planning Tab */}
         {activeTab === 'retirement' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
               <h3 className="font-medium text-purple-900 dark:text-purple-100 mb-2">Retirement Planning</h3>
               <p className="text-sm text-purple-800 dark:text-purple-200">
@@ -814,7 +780,38 @@ export default function AdvancedCompoundInterestCalculator() {
 
         {/* Results Display */}
         {result && (
-          <div className="mt-8 space-y-6">
+          <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-6 overflow-hidden">
+            {/* Calculation Mode Toggle - Appears only after results */}
+            <div className="bg-background border rounded-xl p-4 md:p-6">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground">Analysis Mode</h3>
+                  <p className="text-sm text-muted-foreground">Choose how you want to view your analysis</p>
+                </div>
+                <div className="flex flex-col sm:flex-row bg-muted rounded-lg p-1 gap-1 sm:gap-0">
+                  {[
+                    { key: 'investment', label: 'Growth', icon: TrendingUp },
+                    { key: 'goal', label: 'Goals', icon: Target },
+                    { key: 'retirement', label: 'Retirement', icon: PiggyBank }
+                  ].map(({ key, label, icon: Icon }) => (
+                    <button
+                      key={key}
+                      onClick={() => setCalculationMode(key as any)}
+                      className={cn(
+                        "flex items-center justify-center px-2 sm:px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors min-w-0 flex-1 sm:flex-none",
+                        calculationMode === key 
+                          ? "bg-background text-foreground shadow-sm" 
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      <Icon className="h-4 w-4 mr-1 sm:mr-2 flex-shrink-0" />
+                      <span className="truncate sm:inline">{label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {/* Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="bg-background border rounded-lg p-4">
@@ -961,20 +958,22 @@ export default function AdvancedCompoundInterestCalculator() {
             )}
             
             {/* Interactive Charts */}
-            <CompoundInterestCharts
-              monthlyBreakdown={result.monthlyBreakdown}
-              totalContributions={result.totalContributions}
-              totalInterest={result.totalInterest}
-              futureValue={result.futureValue}
-              realValue={result.realValue}
-              years={settings.investmentPeriodYears}
-            />
+            <div className="overflow-hidden">
+              <CompoundInterestCharts
+                monthlyBreakdown={result.monthlyBreakdown}
+                totalContributions={result.totalContributions}
+                totalInterest={result.totalInterest}
+                futureValue={result.futureValue}
+                realValue={result.realValue}
+                years={settings.investmentPeriodYears}
+              />
+            </div>
           </div>
         )}
       </div>
 
       {/* Usage Instructions Section */}
-      <div className="bg-background border rounded-xl p-8">
+      <div className="bg-background border rounded-xl p-2 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Calculator</h2>
         
         <div className="prose prose-gray dark:prose-invert max-w-none mb-8">
@@ -1063,7 +1062,7 @@ export default function AdvancedCompoundInterestCalculator() {
       </div>
 
       {/* Educational Content Section */}
-      <div className="bg-background border rounded-xl p-8">
+      <div className="bg-background border rounded-xl p-2 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Understanding Compound Interest</h2>
         
         <div className="prose prose-gray dark:prose-invert max-w-none">

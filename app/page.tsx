@@ -13,7 +13,7 @@ export default function HomePage() {
   
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      router.push(`/all-online-calculators?search=${encodeURIComponent(searchQuery.trim())}`);
+      router.push(`/all-online-calculators/?search=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
   
@@ -151,14 +151,14 @@ export default function HomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/all-online-calculators"
+                href="/all-online-calculators/"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 Browse All Calculators
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                href="/categories"
+                href="/categories/"
                 className="inline-flex items-center justify-center rounded-full border border-border bg-background/50 px-8 py-4 text-lg font-medium hover:bg-accent transition-colors backdrop-blur-sm"
               >
                 View Categories
@@ -220,7 +220,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={calc}
-                  href={`/calculator/${calc}`}
+                  href={`/calculator/${calc}/`}
                   className="group p-6 rounded-xl border bg-card hover:shadow-lg transition-all duration-200 hover:border-primary/50"
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -242,7 +242,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <Link
-              href="/all-online-calculators"
+              href="/all-online-calculators/"
               className="inline-flex items-center justify-center rounded-full border border-primary bg-primary/5 px-8 py-3 font-medium text-primary hover:bg-primary/10 transition-colors"
             >
               View All Popular Calculators
@@ -291,7 +291,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={category.slug}
-                  href={`/category/${category.slug}`}
+                  href={`/category/${category.slug}/`}
                   className="group p-6 rounded-xl bg-background border hover:shadow-lg transition-all duration-200 hover:border-primary/50"
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -317,7 +317,7 @@ export default function HomePage() {
           {/* View All Categories Button */}
           <div className="text-center mt-12">
             <Link
-              href="/categories"
+              href="/categories/"
               className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium text-lg"
             >
               <Grid3X3 className="h-5 w-5 mr-2" />
@@ -372,14 +372,14 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/all-online-calculators"
+                href="/all-online-calculators/"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 Start Calculating Now
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                href="/about"
+                href="/about/"
                 className="inline-flex items-center justify-center rounded-full border border-border bg-background px-8 py-4 font-medium hover:bg-accent transition-colors"
               >
                 Learn More

@@ -23,7 +23,8 @@
       "Bash(del \"D:\\Projects\\calcverse\\app\\document.tsx\")",
       "Bash(npm run lint)",
       "WebSearch",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

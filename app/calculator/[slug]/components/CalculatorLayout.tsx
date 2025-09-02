@@ -16,6 +16,15 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
   const [isSaved, setIsSaved] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
 
+  // Helper function to convert CAPITAL CASE to Title Case
+  const toTitleCase = (str: string) => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
   const handleSave = () => {
     // Get saved calculators from secure storage
     const savedData = secureStorage.getItem('savedCalculators');
@@ -92,7 +101,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Breadcrumbs */}
       <div className="border-b bg-muted/30">
         <div className="container py-4">
@@ -102,10 +111,10 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
             </Link>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <Link 
-              href={`/category/${calculator.category}`} 
+              href={`/category/${calculator.category}/`} 
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              {category?.name}
+              {category?.name ? toTitleCase(category.name) : ''}
             </Link>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <span className="text-foreground font-medium">{calculator.name}</span>
@@ -209,10 +218,10 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Category:</span>
                     <Link 
-                      href={`/category/${calculator.category}`}
+                      href={`/category/${calculator.category}/`}
                       className="text-primary hover:underline"
                     >
-                      {category?.name}
+                      {category?.name ? toTitleCase(category.name) : ''}
                     </Link>
                   </div>
                   <div className="flex justify-between">
@@ -232,21 +241,21 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                 <div className="space-y-3">
                   {/* This would be dynamically generated based on the same category */}
                   <Link 
-                    href="/calculator/body-fat-percentage-calculator"
+                    href="/calculator/body-fat-percentage-calculator/"
                     className="block p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <div className="font-medium text-sm">Body Fat Percentage Calculator</div>
                     <div className="text-xs text-muted-foreground">Health & Fitness</div>
                   </Link>
                   <Link 
-                    href="/calculator/ideal-weight-calculator"
+                    href="/calculator/ideal-weight-calculator/"
                     className="block p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <div className="font-medium text-sm">Ideal Weight Calculator</div>
                     <div className="text-xs text-muted-foreground">Health & Fitness</div>
                   </Link>
                   <Link 
-                    href="/calculator/calorie-calculator"
+                    href="/calculator/calorie-calculator/"
                     className="block p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <div className="font-medium text-sm">Calorie Calculator</div>
@@ -254,10 +263,10 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                   </Link>
                 </div>
                 <Link 
-                  href={`/category/${calculator.category}`}
+                  href={`/category/${calculator.category}/`}
                   className="block mt-4 text-sm text-primary hover:underline"
                 >
-                  View all {category?.name} calculators →
+                  View all {category?.name ? toTitleCase(category.name) : ''} calculators →
                 </Link>
               </div>
 
@@ -269,7 +278,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                 </h3>
                 <div className="space-y-3">
                   <Link 
-                    href="/calculator/mortgage-payment-calculator"
+                    href="/calculator/mortgage-payment-calculator/"
                     className="block p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <div className="flex items-center">
@@ -278,7 +287,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                     </div>
                   </Link>
                   <Link 
-                    href="/calculator/percentage-calculator"
+                    href="/calculator/percentage-calculator/"
                     className="block p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <div className="flex items-center">
@@ -287,7 +296,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                     </div>
                   </Link>
                   <Link 
-                    href="/calculator/loan-payment-calculator"
+                    href="/calculator/loan-payment-calculator/"
                     className="block p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <div className="flex items-center">
@@ -297,7 +306,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                   </Link>
                 </div>
                 <Link 
-                  href="/popular"
+                  href="/popular/"
                   className="block mt-4 text-sm text-primary hover:underline"
                 >
                   View all popular calculators →

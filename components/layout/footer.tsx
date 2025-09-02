@@ -5,34 +5,43 @@ import { calculatorCategories } from '@/lib/calculator-categories';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   
+  // Helper function to convert CAPITAL CASE to Title Case
+  const toTitleCase = (str: string) => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+  
   const footerLinks = {
     popular: [
-      { name: 'Mortgage Calculator', href: '/calculator/mortgage-payment' },
-      { name: 'BMI Calculator', href: '/calculator/bmi' },
-      { name: 'Loan Payment Calculator', href: '/calculator/loan-payment' },
-      { name: 'Percentage Calculator', href: '/calculator/percentage' },
-      { name: 'Tip Calculator', href: '/calculator/tip' },
-      { name: 'Compound Interest Calculator', href: '/calculator/compound-interest' },
+      { name: 'Mortgage Calculator', href: '/calculator/mortgage-payment/' },
+      { name: 'BMI Calculator', href: '/calculator/bmi/' },
+      { name: 'Loan Payment Calculator', href: '/calculator/loan-payment/' },
+      { name: 'Percentage Calculator', href: '/calculator/percentage/' },
+      { name: 'Tip Calculator', href: '/calculator/tip/' },
+      { name: 'Compound Interest Calculator', href: '/calculator/compound-interest/' },
     ],
     categories: calculatorCategories.slice(0, 6).map(cat => ({
-      name: cat.name,
-      href: `/category/${cat.slug}`
+      name: toTitleCase(cat.name),
+      href: `/category/${cat.slug}/`
     })),
     company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Cookie Policy', href: '/cookies' },
+      { name: 'About Us', href: '/about/' },
+      { name: 'Contact', href: '/contact/' },
+      { name: 'Privacy Policy', href: '/privacy/' },
+      { name: 'Terms of Service', href: '/terms/' },
+      { name: 'Cookie Policy', href: '/cookies/' },
       { name: 'Sitemap', href: '/sitemap.xml' },
     ],
     resources: [
-      { name: 'All Calculators', href: '/all-online-calculators' },
-      { name: 'Popular Calculators', href: '/popular' },
-      { name: 'Financial Tools', href: '/category/finance-personal-finance' },
-      { name: 'Health Calculators', href: '/category/health-fitness' },
-      { name: 'Math Tools', href: '/category/mathematics-science' },
-      { name: 'Calculator Categories', href: '/categories' },
+      { name: 'All Calculators', href: '/all-online-calculators/' },
+      { name: 'Popular Calculators', href: '/popular/' },
+      { name: 'Financial Tools', href: '/category/finance-personal-finance/' },
+      { name: 'Health Calculators', href: '/category/health-fitness/' },
+      { name: 'Math Tools', href: '/category/mathematics-science/' },
+      { name: 'Calculator Categories', href: '/categories/' },
     ]
   };
 

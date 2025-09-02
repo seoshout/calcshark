@@ -203,7 +203,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 Home
               </Link>
               <ChevronRight className="h-4 w-4 text-muted-foreground" />
-              <Link href="/categories" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/categories/" className="text-muted-foreground hover:text-foreground transition-colors">
                 Categories
               </Link>
               <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -217,7 +217,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         <div className="container py-16">
           <div className="flex items-center justify-between mb-8">
             <Link 
-              href="/categories"
+              href="/categories/"
               className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
@@ -337,7 +337,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                           Free • Instant Results
                         </span>
                         <Link 
-                          href={`/calculator/${calculator.slug}`}
+                          href={`/calculator/${calculator.slug}/`}
                           className="text-sm text-primary hover:underline"
                         >
                           Calculate →
@@ -458,7 +458,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 return (
                   <Link
                     key={relatedCategory.slug}
-                    href={`/category/${relatedCategory.slug}`}
+                    href={`/category/${relatedCategory.slug}/`}
                     className="group p-6 bg-background border rounded-xl hover:shadow-lg transition-all duration-200 hover:border-primary/50"
                   >
                     <div className="flex items-center space-x-4 mb-4">

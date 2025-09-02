@@ -333,7 +333,7 @@ function AllCalculatorsContent() {
                     </span>
                   </h2>
                   <Link
-                    href={`/category/${categoryData.slug}`}
+                    href={`/category/${categoryData.slug}/`}
                     className="text-sm text-primary hover:underline flex items-center"
                   >
                     View category
@@ -345,7 +345,7 @@ function AllCalculatorsContent() {
                   {categoryData.calculators.map((calculator) => (
                     <Link
                       key={calculator.id}
-                      href={`/calculator/${calculator.slug}`}
+                      href={`/calculator/${calculator.slug}/`}
                       className="group relative p-4 bg-background border rounded-lg hover:shadow-md transition-all duration-200 hover:border-primary/50"
                     >
                       {calculator.popular && (
@@ -397,7 +397,7 @@ function AllCalculatorsContent() {
                     </span>
                   </h2>
                   <Link
-                    href={`/category/${categoryData.slug}`}
+                    href={`/category/${categoryData.slug}/`}
                     className="text-sm text-primary hover:underline flex items-center"
                   >
                     View category
@@ -409,7 +409,7 @@ function AllCalculatorsContent() {
                   {categoryData.calculators.map((calculator) => (
                     <Link
                       key={calculator.id}
-                      href={`/calculator/${calculator.slug}`}
+                      href={`/calculator/${calculator.slug}/`}
                       className="group flex items-center justify-between p-3 bg-background border rounded-lg hover:bg-accent transition-colors"
                     >
                       <div className="flex items-center space-x-3 flex-1 min-w-0">
@@ -461,7 +461,7 @@ function AllCalculatorsContent() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/popular"
+                href="/popular/"
                 className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
                 <TrendingUp className="h-4 w-4 mr-2" />

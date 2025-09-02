@@ -18,7 +18,7 @@ export default function Header() {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      router.push(`/all-online-calculators?search=${encodeURIComponent(searchQuery.trim())}`);
+      router.push(`/all-online-calculators/?search=${encodeURIComponent(searchQuery.trim())}`);
       setIsSearchOpen(false);
     }
   };
@@ -31,7 +31,7 @@ export default function Header() {
 
   const handleSuggestionClick = (suggestion: string) => {
     setSearchQuery(suggestion);
-    router.push(`/all-online-calculators?search=${encodeURIComponent(suggestion)}`);
+    router.push(`/all-online-calculators/?search=${encodeURIComponent(suggestion)}`);
     setIsSearchOpen(false);
   };
 
@@ -62,6 +62,15 @@ export default function Header() {
     }
   };
 
+  // Helper function to convert CAPITAL CASE to Title Case
+  const toTitleCase = (str: string) => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
   // Icon mapping for mega menu
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -86,7 +95,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-x-hidden">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
@@ -124,7 +133,7 @@ export default function Header() {
             {/* Mega Menu */}
             <div 
               className={cn(
-                "absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[min(1100px,95vw)] bg-background border rounded-xl shadow-2xl transition-all duration-300",
+                "absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[1100px] max-w-[95vw] bg-background border rounded-xl shadow-2xl transition-all duration-300 z-50",
                 isCategoriesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"
               )}
               onMouseEnter={() => setIsCategoriesOpen(true)}
@@ -158,7 +167,7 @@ export default function Header() {
                     return (
                       <Link
                         key={category.slug}
-                        href={`/category/${category.slug}`}
+                        href={`/category/${category.slug}/`}
                         className="group flex items-center space-x-3 p-2 rounded-lg hover:bg-accent transition-all duration-200"
                       >
                         <div className={cn("p-2 rounded-lg bg-gradient-to-br group-hover:scale-110 transition-transform duration-200", colorClass)}>
@@ -166,7 +175,7 @@ export default function Header() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-sm text-foreground group-hover:text-primary transition-colors truncate">
-                            {category.name}
+                            {toTitleCase(category.name)}
                           </h4>
                         </div>
                       </Link>
@@ -178,21 +187,21 @@ export default function Header() {
           </div>
 
           <Link 
-            href="/popular" 
+            href="/popular/" 
             className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
           >
             Popular
           </Link>
           
           <Link 
-            href="/all-online-calculators" 
+            href="/all-online-calculators/" 
             className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
           >
             All Calculators
           </Link>
           
           <Link 
-            href="/about" 
+            href="/about/" 
             className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
           >
             About
@@ -213,7 +222,7 @@ export default function Header() {
             
             {/* Search Dropdown */}
             {isSearchOpen && (
-              <div className="absolute top-full right-0 mt-2 w-[min(320px,90vw)] bg-background border rounded-xl shadow-2xl p-4 z-50">
+              <div className="absolute top-full right-0 mt-2 w-80 max-w-[90vw] bg-background border rounded-xl shadow-2xl p-4 z-50">
                 <div className="flex items-center space-x-2 mb-4">
                   <Search className="h-4 w-4 text-muted-foreground" />
                   <input
@@ -287,7 +296,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden border-t bg-background overflow-x-hidden">
+        <div className="lg:hidden border-t bg-background">
           <div className="container py-6 space-y-6">
             {/* Mobile Search */}
             <div className="flex items-center space-x-2 px-4 py-3 bg-accent rounded-full">
@@ -333,7 +342,7 @@ export default function Header() {
               </Link>
               
               <Link 
-                href="/popular"
+                href="/popular/"
                 className="text-lg font-medium hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -341,7 +350,7 @@ export default function Header() {
               </Link>
               
               <Link 
-                href="/all-online-calculators"
+                href="/all-online-calculators/"
                 className="text-lg font-medium hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -392,7 +401,7 @@ export default function Header() {
                   return (
                     <Link
                       key={category.slug}
-                      href={`/category/${category.slug}`}
+                      href={`/category/${category.slug}/`}
                       className="flex items-center space-x-3 p-3 rounded-xl hover:bg-accent transition-colors"
                       onClick={() => {
                         setIsMenuOpen(false);
@@ -403,7 +412,7 @@ export default function Header() {
                         <IconComponent className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <span className="font-medium text-sm">{category.name}</span>
+                        <span className="font-medium text-sm">{toTitleCase(category.name)}</span>
                         <p className="text-xs text-muted-foreground">
                           {category.subcategories.length} subcategories
                         </p>
@@ -418,7 +427,7 @@ export default function Header() {
 
             <div className="pt-4 border-t">
               <Link 
-                href="/about"
+                href="/about/"
                 className="block text-lg font-medium hover:text-primary transition-colors mb-4"
                 onClick={() => setIsMenuOpen(false)}
               >

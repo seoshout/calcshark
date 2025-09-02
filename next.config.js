@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
   images: {
     domains: ['calcverse.com'],
     formats: ['image/webp', 'image/avif'],
