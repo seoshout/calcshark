@@ -19,6 +19,7 @@ interface CompoundInterestChartsProps {
   futureValue: number;
   realValue: number;
   years: number;
+  className?: string;
 }
 
 export default function CompoundInterestCharts({ 

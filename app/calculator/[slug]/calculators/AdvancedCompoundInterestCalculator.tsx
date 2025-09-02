@@ -973,6 +973,95 @@ export default function AdvancedCompoundInterestCalculator() {
         )}
       </div>
 
+      {/* Usage Instructions Section */}
+      <div className="bg-background border rounded-xl p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Calculator</h2>
+        
+        <div className="prose prose-gray dark:prose-invert max-w-none mb-8">
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+            <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">📋 Step-by-Step Instructions</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">1️⃣ Basic Settings</h4>
+                <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
+                  <li><strong>Initial Investment:</strong> Enter your starting amount (minimum $0)</li>
+                  <li><strong>Monthly Contribution:</strong> Regular monthly deposits you plan to make</li>
+                  <li><strong>Interest Rate:</strong> Annual percentage rate (0.1% to 50%)</li>
+                  <li><strong>Investment Period:</strong> How long you'll invest (1-100 years)</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">2️⃣ Advanced Options</h4>
+                <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
+                  <li><strong>Compounding Frequency:</strong> How often interest compounds</li>
+                  <li><strong>Account Type:</strong> Tax treatment (401k, IRA, Roth, Taxable)</li>
+                  <li><strong>Inflation Rate:</strong> Annual inflation (typically 2.5%)</li>
+                  <li><strong>Tax Rate:</strong> Your marginal tax bracket</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800 mb-6">
+            <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">🎯 Calculation Modes</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <TrendingUp className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Investment Growth</h4>
+                <p className="text-sm text-green-800 dark:text-green-200">Calculate future value of regular investments</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Target className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Goal Planning</h4>
+                <p className="text-sm text-green-800 dark:text-green-200">Set target amount and see required contributions</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <PiggyBank className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Retirement Planning</h4>
+                <p className="text-sm text-green-800 dark:text-green-200">4% withdrawal rule and Monte Carlo analysis</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
+            <h3 className="text-xl font-semibold text-yellow-900 dark:text-yellow-100 mb-4">💡 Pro Tips for Best Results</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">⚡ Quick Start</h4>
+                <ul className="list-disc list-inside space-y-1 text-sm text-yellow-800 dark:text-yellow-200">
+                  <li>Use default values to see example calculations</li>
+                  <li>Start with Investment Growth mode</li>
+                  <li>Try different compounding frequencies</li>
+                  <li>Compare account types for tax impact</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Advanced Features</h4>
+                <ul className="list-disc list-inside space-y-1 text-sm text-yellow-800 dark:text-yellow-200">
+                  <li>Set Financial Goals in Goal Planning mode</li>
+                  <li>Use Retirement Planning for 4% rule analysis</li>
+                  <li>Enable Monte Carlo for success probability</li>
+                  <li>Check real vs nominal returns</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Educational Content Section */}
       <div className="bg-background border rounded-xl p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Understanding Compound Interest</h2>

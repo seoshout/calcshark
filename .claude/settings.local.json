@@ -20,7 +20,10 @@
       "Bash(git push:*)",
       "Bash(dir:*)",
       "Bash(npm run favicon:guide:*)",
-      "Bash(del \"D:\\Projects\\calcverse\\app\\document.tsx\")"
+      "Bash(del \"D:\\Projects\\calcverse\\app\\document.tsx\")",
+      "Bash(npm run lint)",
+      "WebSearch",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

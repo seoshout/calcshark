@@ -1331,6 +1331,142 @@ export default function AdvancedMortgageCalculator() {
         )}
       </div>
 
+      {/* Usage Instructions Section */}
+      <div className="bg-background border rounded-xl p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Advanced Mortgage Calculator</h2>
+        
+        <div className="prose prose-gray dark:prose-invert max-w-none mb-8">
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+            <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">🏠 Step-by-Step Guide</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">1️⃣ Loan Details</h4>
+                <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
+                  <li><strong>Home Price:</strong> Total purchase price</li>
+                  <li><strong>Down Payment:</strong> Upfront payment (20% = no PMI)</li>
+                  <li><strong>Interest Rate:</strong> Current mortgage rate (5-8% typical)</li>
+                  <li><strong>Loan Term:</strong> 15, 20, 25, or 30 years</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">2️⃣ Advanced Settings</h4>
+                <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
+                  <li><strong>Property Tax Rate:</strong> Annual % of home value</li>
+                  <li><strong>Home Insurance:</strong> Annual premium amount</li>
+                  <li><strong>PMI Rate:</strong> If down payment &lt; 20%</li>
+                  <li><strong>HOA Fees:</strong> Monthly homeowner association</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">3️⃣ Financial Analysis</h4>
+                <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
+                  <li><strong>Annual Income:</strong> Gross yearly income</li>
+                  <li><strong>Monthly Debts:</strong> All existing debt payments</li>
+                  <li><strong>Credit Score:</strong> Impact on interest rate</li>
+                  <li><strong>Cash Reserves:</strong> Emergency fund remaining</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800 mb-6">
+            <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Calculation Modes</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Calculator className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Payment Calculator</h4>
+                <p className="text-sm text-green-800 dark:text-green-200">Calculate monthly payments with all costs included</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Target className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Affordability Analysis</h4>
+                <p className="text-sm text-green-800 dark:text-green-200">Risk assessment and debt-to-income ratios</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <BarChart3 className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Loan Comparison</h4>
+                <p className="text-sm text-green-800 dark:text-green-200">15 vs 30 year, biweekly payments, strategies</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800 mb-6">
+            <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100 mb-4">📈 Advanced Features</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold text-orange-900 dark:text-orange-100 mb-3">🔬 Risk Assessment</h4>
+                <ul className="space-y-1 text-sm text-orange-800 dark:text-orange-200">
+                  <li><strong>Affordability Score:</strong> 0-100 rating based on income ratios</li>
+                  <li><strong>Stress Testing:</strong> Payment impact of rate increases</li>
+                  <li><strong>DTI Analysis:</strong> Debt-to-income ratio monitoring</li>
+                  <li><strong>Risk Level:</strong> Low, moderate, or high classification</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-orange-900 dark:text-orange-100 mb-3">📊 Interactive Charts</h4>
+                <ul className="space-y-1 text-sm text-orange-800 dark:text-orange-200">
+                  <li><strong>Amortization:</strong> Balance paydown over time</li>
+                  <li><strong>Payment Breakdown:</strong> Principal, interest, taxes, insurance</li>
+                  <li><strong>Equity Building:</strong> Home equity accumulation</li>
+                  <li><strong>Strategy Comparison:</strong> Different payment options</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
+            <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-4">💡 Getting Started Tips</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">🚀 Quick Start</h4>
+                <ul className="list-disc list-inside space-y-1 text-sm text-purple-800 dark:text-purple-200">
+                  <li>Begin with default values for immediate results</li>
+                  <li>Use <strong>Payment Calculator</strong> mode first</li>
+                  <li>Enter your actual home price and down payment</li>
+                  <li>Check current mortgage rates online for accuracy</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">🎯 Best Practices</h4>
+                <ul className="list-disc list-inside space-y-1 text-sm text-purple-800 dark:text-purple-200">
+                  <li>Fill in <strong>Financial Analysis</strong> for affordability insights</li>
+                  <li>Use <strong>Advanced Settings</strong> for accurate total costs</li>
+                  <li>Try <strong>Loan Comparison</strong> for optimization strategies</li>
+                  <li>Review <strong>Risk Assessment</strong> before purchasing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800 mt-6">
+            <h4 className="font-semibold text-red-900 dark:text-red-100 mb-2">⚠️ Important Notes</h4>
+            <ul className="list-disc list-inside space-y-1 text-sm text-red-800 dark:text-red-200">
+              <li>This calculator provides estimates only - actual terms may vary</li>
+              <li>Property taxes and insurance rates vary by location</li>
+              <li>Interest rates change daily - verify current rates with lenders</li>
+              <li>Consider all costs including maintenance, utilities, and closing costs</li>
+              <li>Consult with mortgage professionals before making decisions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* Educational Content Section */}
       <div className="bg-background border rounded-xl p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Understanding Your Mortgage</h2>
