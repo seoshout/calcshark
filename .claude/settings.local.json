@@ -29,7 +29,8 @@
       "Bash(curl:*)",
       "Bash(npm run sitemap:test:*)",
       "Bash(npm run sitemap:discover:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(netstat:*)"
     ],
     "deny": [],
     "ask": []

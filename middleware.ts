@@ -7,6 +7,40 @@ const RATE_LIMIT_MAX_REQUESTS = 100;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 
 export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  // Handle URL redirects first
+  // Redirect old calculator URLs to new format
+  if (pathname.startsWith('/calculator/')) {
+    const calculatorSlug = pathname.replace('/calculator/', '').replace('/', '');
+    
+    if (calculatorSlug) {
+      // Map common calculator slugs to their new URLs
+      const redirectMap: { [key: string]: string } = {
+        'bmi-calculator': '/health-fitness/body-metrics/bmi-calculator/',
+        'mortgage-payment-calculator': '/finance-personal-finance/mortgages/mortgage-payment-calculator/',
+        'loan-payment-calculator': '/finance-personal-finance/loans-debt/loan-payment-calculator/',
+        'compound-interest-calculator': '/finance-personal-finance/investment-returns/compound-interest-calculator/',
+        'percentage-calculator': '/mathematics-science/basic-math/percentage-calculator/',
+        'tip-calculator': '/finance-personal-finance/budget-expenses/tip-calculator/',
+        'calorie-calculator': '/health-fitness/nutrition-diet/calorie-calculator/',
+      };
+
+      if (redirectMap[calculatorSlug]) {
+        return NextResponse.redirect(new URL(redirectMap[calculatorSlug], request.url), 301);
+      }
+    }
+  }
+
+  // Redirect old category URLs to new format
+  if (pathname.startsWith('/category/')) {
+    const categorySlug = pathname.replace('/category/', '').replace('/', '');
+    
+    if (categorySlug) {
+      return NextResponse.redirect(new URL(`/${categorySlug}/`, request.url), 301);
+    }
+  }
+
   const response = NextResponse.next();
   
   // Get client IP for rate limiting
@@ -64,7 +98,6 @@ export function middleware(request: NextRequest) {
   }
   
   // Block requests to sensitive paths
-  const pathname = request.nextUrl.pathname;
   const blockedPaths = [
     '/.env',
     '/wp-admin',

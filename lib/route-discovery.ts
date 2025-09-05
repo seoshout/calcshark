@@ -97,30 +97,38 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
   const routes: DiscoveredRoute[] = [];
   
   try {
-    const calculatorsDir = path.join(process.cwd(), 'app', 'calculator', '[slug]', 'calculators');
+    // First, check which calculator components actually exist
+    const calculatorsDir = path.join(process.cwd(), 'app', '[category]', '[subcategory]', '[calculator]', 'calculators');
     
     if (await fileExists(calculatorsDir)) {
       const calculatorFiles = await fs.readdir(calculatorsDir);
-      
-      const calculatorComponents = calculatorFiles
+      const existingComponents = calculatorFiles
         .filter(file => file.endsWith('.tsx') && file !== 'index.tsx')
-        .map(file => {
-          const componentName = file.replace('.tsx', '');
-          const slug = componentNameToSlug(componentName);
-          const isPopular = isPopularCalculator(slug);
-          
-          return {
-            url: `/calculator/${slug}`,
-            priority: isPopular ? 0.9 : 0.7,
-            changefreq: 'monthly' as const,
-            type: 'calculator' as const
-          };
-        });
-
-      routes.push(...calculatorComponents);
+        .map(file => componentNameToSlug(file.replace('.tsx', '')));
+      
+      // Import calculator categories to get the actual structure
+      const { calculatorCategories, popularCalculators } = await import('./calculator-categories');
+      
+      for (const category of calculatorCategories) {
+        for (const subcategory of category.subcategories) {
+          for (const calculator of subcategory.calculators) {
+            // Only include calculators that have actual component files
+            if (existingComponents.includes(calculator.slug)) {
+              const isPopular = popularCalculators.includes(calculator.slug);
+              
+              routes.push({
+                url: `/${category.slug}/${subcategory.slug}/${calculator.slug}/`,
+                priority: isPopular ? 0.9 : 0.7,
+                changefreq: 'monthly' as const,
+                type: 'calculator' as const
+              });
+            }
+          }
+        }
+      }
     }
   } catch (error) {
-    console.warn('Could not discover calculator components:', error instanceof Error ? error.message : String(error));
+    console.warn('Could not discover calculator routes:', error instanceof Error ? error.message : String(error));
   }
 
   return routes;
@@ -130,21 +138,27 @@ async function discoverCategoryPages(): Promise<DiscoveredRoute[]> {
   const routes: DiscoveredRoute[] = [];
   
   try {
-    // Check if category pages exist by looking for the dynamic route
-    const categoryPagePath = path.join(process.cwd(), 'app', 'category', '[slug]', 'page.tsx');
+    // Import calculator categories to get actual category and subcategory slugs
+    const { calculatorCategories } = await import('./calculator-categories');
     
-    if (await fileExists(categoryPagePath)) {
-      // Import calculator categories to get actual category slugs
-      const { calculatorCategories } = await import('./calculator-categories');
+    for (const category of calculatorCategories) {
+      // Add category page
+      routes.push({
+        url: `/${category.slug}/`,
+        priority: 0.8,
+        changefreq: 'weekly',
+        type: 'category'
+      });
       
-      calculatorCategories.forEach(category => {
+      // Add subcategory pages
+      for (const subcategory of category.subcategories) {
         routes.push({
-          url: `/category/${category.slug}`,
-          priority: 0.8,
+          url: `/${category.slug}/${subcategory.slug}/`,
+          priority: 0.7,
           changefreq: 'weekly',
           type: 'category'
         });
-      });
+      }
     }
   } catch (error) {
     console.warn('Could not discover category pages:', error instanceof Error ? error.message : String(error));

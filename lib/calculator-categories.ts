@@ -12350,3 +12350,26 @@ export const searchCalculators = (query: string): Calculator[] => {
 export const getCalculatorsBySubcategory = (subcategorySlug: string): Calculator[] => {
   return getAllCalculators().filter(calc => calc.subcategory === subcategorySlug);
 };
+
+export const getCalculatorByNestedSlug = (categorySlug: string, subcategorySlug: string, calculatorSlug: string): Calculator | undefined => {
+  const category = getCategoryBySlug(categorySlug);
+  if (!category) return undefined;
+  
+  const subcategory = category.subcategories.find(sub => sub.slug === subcategorySlug);
+  if (!subcategory) return undefined;
+  
+  return subcategory.calculators.find(calc => calc.slug === calculatorSlug);
+};
+
+export const getCalculatorURL = (calculator: Calculator): string => {
+  // Find the category and subcategory for this calculator
+  for (const category of calculatorCategories) {
+    for (const subcategory of category.subcategories) {
+      if (subcategory.calculators.some(calc => calc.slug === calculator.slug)) {
+        return `/${category.slug}/${subcategory.slug}/${calculator.slug}/`;
+      }
+    }
+  }
+  // Fallback to old format if not found (shouldn't happen)
+  return `/calculator/${calculator.slug}/`;
+};

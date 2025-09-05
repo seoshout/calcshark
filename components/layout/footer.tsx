@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Calculator, Github, Twitter, Mail, Heart } from 'lucide-react';
-import { calculatorCategories } from '@/lib/calculator-categories';
+import { calculatorCategories, getCalculatorBySlug, getCalculatorURL } from '@/lib/calculator-categories';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,18 +14,27 @@ export default function Footer() {
       .join(' ');
   };
   
+  // Generate popular calculator links dynamically
+  const popularCalculatorSlugs = [
+    'mortgage-payment-calculator',
+    'bmi-calculator', 
+    'loan-payment-calculator',
+    'percentage-calculator',
+    'tip-calculator',
+    'compound-interest-calculator'
+  ];
+
   const footerLinks = {
-    popular: [
-      { name: 'Mortgage Calculator', href: '/calculator/mortgage-payment/' },
-      { name: 'BMI Calculator', href: '/calculator/bmi/' },
-      { name: 'Loan Payment Calculator', href: '/calculator/loan-payment/' },
-      { name: 'Percentage Calculator', href: '/calculator/percentage/' },
-      { name: 'Tip Calculator', href: '/calculator/tip/' },
-      { name: 'Compound Interest Calculator', href: '/calculator/compound-interest/' },
-    ],
+    popular: popularCalculatorSlugs.map(slug => {
+      const calculator = getCalculatorBySlug(slug);
+      return calculator ? {
+        name: calculator.name,
+        href: getCalculatorURL(calculator)
+      } : null;
+    }).filter(Boolean) as { name: string; href: string }[],
     categories: calculatorCategories.slice(0, 6).map(cat => ({
       name: toTitleCase(cat.name),
-      href: `/category/${cat.slug}/`
+      href: `/${cat.slug}/`
     })),
     company: [
       { name: 'About Us', href: '/about/' },
@@ -38,9 +47,9 @@ export default function Footer() {
     resources: [
       { name: 'All Calculators', href: '/all-online-calculators/' },
       { name: 'Popular Calculators', href: '/popular/' },
-      { name: 'Financial Tools', href: '/category/finance-personal-finance/' },
-      { name: 'Health Calculators', href: '/category/health-fitness/' },
-      { name: 'Math Tools', href: '/category/mathematics-science/' },
+      { name: 'Financial Tools', href: '/finance-personal-finance/' },
+      { name: 'Health Calculators', href: '/health-fitness/' },
+      { name: 'Math Tools', href: '/mathematics-science/' },
       { name: 'Calculator Categories', href: '/categories/' },
     ]
   };

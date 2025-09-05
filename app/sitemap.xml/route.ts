@@ -23,7 +23,7 @@ export async function GET() {
 ${allUrls
   .map(
     ({ url, lastmod, changefreq, priority }) => `  <url>
-    <loc>${baseUrl}${url}/</loc>
+    <loc>${baseUrl}${url}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
