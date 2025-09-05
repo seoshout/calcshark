@@ -14,7 +14,10 @@
     "favicon:generate": "echo 'Open http://localhost:3000/generate-favicon.html in your browser to generate PNG files'",
     "html:analyze": "node scripts/analyze-html.js",
     "html:check": "echo 'Start dev server and visit http://localhost:3000 then View Page Source to see clean HTML'",
-    "test:search": "node scripts/test-search.js"
+    "test:search": "node scripts/test-search.js",
+    "sitemap:generate": "node scripts/generate-sitemap.js",
+    "sitemap:test": "echo 'Start dev server and visit http://localhost:3000/sitemap.xml to test dynamic sitemap'",
+    "sitemap:discover": "node scripts/test-sitemap-discovery.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

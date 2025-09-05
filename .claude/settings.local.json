@@ -25,7 +25,10 @@
       "WebSearch",
       "Bash(git reset:*)",
       "Bash(git checkout:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(curl:*)",
+      "Bash(npm run sitemap:test:*)",
+      "Bash(npm run sitemap:discover:*)"
     ],
     "deny": [],
     "ask": []

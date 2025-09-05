@@ -15,5 +15,15 @@ Disallow: /package.json
 Disallow: /package-lock.json
 Disallow: /yarn.lock
 
-# Sitemap
+# Allow search engines to crawl all calculators and categories
+Allow: /calculator/*
+Allow: /category/*
+Allow: /categories/
+Allow: /all-online-calculators/
+Allow: /popular/
+
+# Crawl-delay (optional - be respectful to servers)
+Crawl-delay: 1
+
+# Sitemap (Dynamic sitemap that updates automatically)
 Sitemap: https://calcshark.com/sitemap.xml
