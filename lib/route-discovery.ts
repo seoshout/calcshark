@@ -164,21 +164,20 @@ async function fileExists(filePath: string): Promise<boolean> {
 }
 
 function componentNameToSlug(componentName: string): string {
-  // Handle specific known mappings first
+  // Handle specific known mappings to match actual calculator slugs
   const knownMappings: { [key: string]: string } = {
-    'BMICalculator': 'bmi',
-    'AdvancedBMICalculator': 'bmi',
-    'AdvancedMortgageCalculator': 'mortgage-payment',
-    'AdvancedCompoundInterestCalculator': 'compound-interest'
+    'BMICalculator': 'bmi-calculator',
+    'AdvancedBMICalculator': 'bmi-calculator',
+    'AdvancedMortgageCalculator': 'mortgage-payment-calculator',
+    'AdvancedCompoundInterestCalculator': 'compound-interest-calculator'
   };
 
   if (knownMappings[componentName]) {
     return knownMappings[componentName];
   }
 
-  // Fallback to automatic conversion
+  // Fallback to automatic conversion that keeps the -calculator suffix
   return componentName
-    .replace(/Calculator$/, '') // Remove Calculator suffix
     .replace(/Advanced/, '') // Remove Advanced prefix
     .replace(/([A-Z])/g, '-$1') // Add hyphens before capital letters
     .toLowerCase()
@@ -188,8 +187,8 @@ function componentNameToSlug(componentName: string): string {
 
 function isPopularCalculator(slug: string): boolean {
   const popularSlugs = [
-    'bmi', 'mortgage-payment', 'loan-payment', 'compound-interest',
-    'percentage', 'tip', 'calorie', 'gpa', 'age', 'discount'
+    'bmi-calculator', 'mortgage-payment-calculator', 'loan-payment-calculator', 'compound-interest-calculator',
+    'percentage-calculator', 'tip-calculator', 'calorie-calculator', 'gpa-calculator', 'age-calculator', 'discount-calculator'
   ];
   return popularSlugs.includes(slug);
 }
