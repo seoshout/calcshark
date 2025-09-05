@@ -54,7 +54,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Calculator className="h-8 w-8 text-blue-400" />
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Calcverse
+                Calcshark
               </span>
             </Link>
             <p className="text-sm text-gray-300 mb-4 leading-relaxed">
@@ -63,7 +63,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link 
-                href="https://github.com/calcverse" 
+                href="https://github.com/calcshark" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -71,7 +71,7 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </Link>
               <Link 
-                href="https://twitter.com/calcverse" 
+                href="https://twitter.com/calcshark" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -79,7 +79,7 @@ export default function Footer() {
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link 
-                href="mailto:contact@calcverse.com" 
+                href="mailto:contact@calcshark.com" 
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -162,7 +162,7 @@ export default function Footer() {
         <div className="container py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center text-sm text-gray-400">
-              <span>© {currentYear} Calcverse. All rights reserved.</span>
+              <span>© {currentYear} Calcshark. All rights reserved.</span>
             </div>
             
             <div className="flex items-center text-sm text-gray-400">

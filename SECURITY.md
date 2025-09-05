@@ -88,8 +88,8 @@ npm audit: 0 vulnerabilities found
 If you discover a security vulnerability, please report it responsibly:
 
 1. **DO NOT** create a public GitHub issue
-2. Email: security@calcverse.com
-3. Or use GitHub Security Advisories: [Report Vulnerability](https://github.com/82lotterylogin/calcverse/security/advisories/new)
+2. Email: security@calcshark.com
+3. Or use GitHub Security Advisories: [Report Vulnerability](https://github.com/82lotterylogin/calcshark/security/advisories/new)
 
 ### What to Include:
 - Description of the vulnerability
@@ -156,10 +156,10 @@ If you discover a security vulnerability, please report it responsibly:
 npm audit
 
 # Check for security headers (after deployment)
-curl -I https://calcverse.com
+curl -I https://calcshark.com
 
 # Test HSTS header specifically
-curl -I https://calcverse.com | grep -i "strict-transport-security"
+curl -I https://calcshark.com | grep -i "strict-transport-security"
 
 # Validate CSP
 # Use browser dev tools or online CSP validators
@@ -191,8 +191,8 @@ curl -I https://calcverse.com | grep -i "strict-transport-security"
 ## Contact
 
 For security-related questions or concerns:
-- Security Email: security@calcverse.com
-- Project Maintainer: [GitHub Issues](https://github.com/82lotterylogin/calcverse/issues)
+- Security Email: security@calcshark.com
+- Project Maintainer: [GitHub Issues](https://github.com/82lotterylogin/calcshark/issues)
 
 ---
 

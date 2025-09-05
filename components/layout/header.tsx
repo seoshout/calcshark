@@ -104,7 +104,7 @@ export default function Header() {
           </div>
           <div className="flex flex-col">
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Calcverse
+              Calcshark
             </span>
             <span className="text-xs text-muted-foreground -mt-1">735+ Calculators</span>
           </div>

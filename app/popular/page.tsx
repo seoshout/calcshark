@@ -5,12 +5,12 @@ import { calculatorCategories, getAllCalculators, popularCalculators } from '@/l
 import { generateBreadcrumbSchema } from '@/lib/schemas';
 
 export const metadata = {
-  title: 'Popular Calculators - Most Used Online Calculators | Calcverse',
-  description: 'Discover the most popular and frequently used calculators on Calcverse. From BMI and mortgage calculators to GPA and percentage calculators.',
+  title: 'Popular Calculators - Most Used Online Calculators | Calcshark',
+  description: 'Discover the most popular and frequently used calculators on Calcshark. From BMI and mortgage calculators to GPA and percentage calculators.',
   keywords: 'popular calculators, most used calculators, trending calculators, BMI calculator, mortgage calculator, GPA calculator',
   openGraph: {
     title: 'Popular Calculators - Most Used Online Calculators',
-    description: 'Discover the most popular and frequently used calculators on Calcverse.',
+    description: 'Discover the most popular and frequently used calculators on Calcshark.',
     url: '/popular',
   }
 };

@@ -16,7 +16,7 @@ export const generateBreadcrumbSchema = (items: BreadcrumbItem[]) => {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://calcverse.com${item.url}`
+      "item": `https://calcshark.com${item.url}`
     }))
   };
 };
@@ -28,7 +28,7 @@ export const generateSoftwareSchema = (calculatorName: string, description: stri
     "@type": "SoftwareApplication",
     "name": calculatorName,
     "description": description,
-    "url": `https://calcverse.com/calculator/${calculatorName.toLowerCase().replace(/\s+/g, '-')}`,
+    "url": `https://calcshark.com/calculator/${calculatorName.toLowerCase().replace(/\s+/g, '-')}`,
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Web Browser",
     "browserRequirements": "Requires JavaScript",
@@ -41,13 +41,13 @@ export const generateSoftwareSchema = (calculatorName: string, description: stri
     },
     "creator": {
       "@type": "Organization",
-      "name": "Calcverse",
-      "url": "https://calcverse.com"
+      "name": "Calcshark",
+      "url": "https://calcshark.com"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Calcverse",
-      "url": "https://calcverse.com"
+      "name": "Calcshark",
+      "url": "https://calcshark.com"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -68,7 +68,7 @@ export const generateSoftwareSchema = (calculatorName: string, description: stri
     "copyrightYear": new Date().getFullYear(),
     "copyrightHolder": {
       "@type": "Organization",
-      "name": "Calcverse"
+      "name": "Calcshark"
     }
   };
 };
@@ -78,9 +78,9 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Calcverse",
-    "url": "https://calcverse.com",
-    "logo": "https://calcverse.com/favicon.svg",
+    "name": "Calcshark",
+    "url": "https://calcshark.com",
+    "logo": "https://calcshark.com/favicon.svg",
     "description": "The ultimate collection of 735+ free online calculators across 17 categories including finance, health, construction, education, business, and more.",
     "foundingDate": "2024",
     "contactPoint": {
@@ -89,8 +89,8 @@ export const generateOrganizationSchema = () => {
       "availableLanguage": "English"
     },
     "sameAs": [
-      "https://github.com/calcverse",
-      "https://twitter.com/calcverse"
+      "https://github.com/calcshark",
+      "https://twitter.com/calcshark"
     ]
   };
 };
@@ -100,16 +100,16 @@ export const generateWebsiteSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Calcverse",
-    "url": "https://calcverse.com",
+    "name": "Calcshark",
+    "url": "https://calcshark.com",
     "description": "The ultimate collection of 735+ free online calculators",
     "publisher": {
       "@type": "Organization",
-      "name": "Calcverse"
+      "name": "Calcshark"
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://calcverse.com/all-online-calculators?search={search_term_string}",
+      "target": "https://calcshark.com/all-online-calculators?search={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

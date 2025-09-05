@@ -16,4 +16,4 @@ Disallow: /package-lock.json
 Disallow: /yarn.lock
 
 # Sitemap
-Sitemap: https://calcverse.com/sitemap.xml
+Sitemap: https://calcshark.com/sitemap.xml

@@ -18,8 +18,8 @@ export function generateMetadata({
   ogImage = '/og-default.jpg',
   noIndex = false,
 }: SEOProps): Metadata {
-  const siteName = 'Calcverse';
-  const siteUrl = 'https://calcverse.com';
+  const siteName = 'Calcshark';
+  const siteUrl = 'https://calcshark.com';
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   
   return {
@@ -67,8 +67,8 @@ export function generateMetadata({
       title: fullTitle,
       description,
       images: [`${siteUrl}${ogImage}`],
-      creator: '@calcverse',
-      site: '@calcverse',
+      creator: '@calcshark',
+      site: '@calcshark',
     },
     
     // Canonical URL and alternates
@@ -95,9 +95,9 @@ export function generateMetadata({
     },
     
     // Additional meta tags
-    authors: [{ name: 'Calcverse Team' }],
-    creator: 'Calcverse',
-    publisher: 'Calcverse',
+    authors: [{ name: 'Calcshark Team' }],
+    creator: 'Calcshark',
+    publisher: 'Calcshark',
     category: 'Calculators',
     
     // Verification
@@ -112,14 +112,14 @@ export function generateMetadata({
       'theme-color': '#8b5cf6',
       'mobile-web-app-capable': 'yes',
       'apple-mobile-web-app-capable': 'yes',
-      'application-name': 'Calcverse',
-      'apple-mobile-web-app-title': 'Calcverse',
+      'application-name': 'Calcshark',
+      'apple-mobile-web-app-title': 'Calcshark',
     },
   };
 }
 
 export const defaultSEO: SEOProps = {
-  title: 'Calcverse - The Ultimate Calculator Collection',
+  title: 'Calcshark - The Ultimate Calculator Collection',
   description: 'Discover 898+ free online calculators for finance, health, construction, education, business, and more. Fast, accurate, and easy-to-use tools for all your calculation needs.',
   keywords: [
     'calculators',
@@ -135,7 +135,7 @@ export const defaultSEO: SEOProps = {
     'business calculator',
     'percentage calculator',
     'compound interest calculator',
-    'calcverse'
+    'calcshark'
   ],
 };
 
@@ -146,7 +146,7 @@ export const calculatorSEO = {
     keywords: ['mortgage calculator', 'home loan calculator', 'monthly payment calculator', 'PITI calculator', 'mortgage payment'],
   },
   bmi: {
-    title: 'Free BMI Calculator - Body Mass Index Calculator Online | Calcverse',
+    title: 'Free BMI Calculator - Body Mass Index Calculator Online | Calcshark',
     description: 'Calculate your Body Mass Index (BMI) instantly with our free online BMI calculator. Get accurate results for both metric and imperial units. Includes health recommendations, BMI categories, and detailed analysis. No registration required.',
     keywords: [
       'BMI calculator', 'body mass index calculator', 'free BMI calculator', 'online BMI calculator',
@@ -216,18 +216,18 @@ export function generateOrganizationStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Calcverse',
-    url: 'https://calcverse.com',
-    logo: 'https://calcverse.com/logo.png',
+    name: 'Calcshark',
+    url: 'https://calcshark.com',
+    logo: 'https://calcshark.com/logo.png',
     description: 'The ultimate collection of free online calculators for all your calculation needs.',
     sameAs: [
-      'https://twitter.com/calcverse',
-      'https://github.com/calcverse',
+      'https://twitter.com/calcshark',
+      'https://github.com/calcshark',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
-      email: 'contact@calcverse.com',
+      email: 'contact@calcshark.com',
       availableLanguage: 'English',
     },
   };

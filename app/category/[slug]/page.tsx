@@ -39,15 +39,15 @@ export async function generateMetadata({ params }: CategoryPageProps) {
   
   if (!category) {
     return {
-      title: 'Category Not Found | Calcverse',
+      title: 'Category Not Found | Calcshark',
       description: 'The requested calculator category could not be found.',
     };
   }
 
   return generateSEOMetadata({
-    title: `Free ${category.name} Online Calculators - No Sign Up - Calcverse`,
+    title: `Free ${category.name} Online Calculators - No Sign Up - Calcshark`,
     description: `Discover ${category.name.toLowerCase()} calculators. ${category.description} All tools are free, instant, and accurate.`,
-    canonical: `https://calcverse.com/category/${category.slug}`,
+    canonical: `https://calcshark.com/category/${category.slug}`,
     keywords: [
       category.name.toLowerCase(),
       'calculator',

@@ -2,7 +2,7 @@
 const nextConfig = {
   trailingSlash: true,
   images: {
-    domains: ['calcverse.com'],
+    domains: ['calcshark.com'],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
   },
@@ -81,7 +81,7 @@ const nextConfig = {
             value: 'http',
           },
         ],
-        destination: 'https://calcverse.com/:path*',
+        destination: 'https://calcshark.com/:path*',
         permanent: true,
       },
     ];

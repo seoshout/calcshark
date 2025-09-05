@@ -1,5 +1,5 @@
 {
-  "name": "calcverse",
+  "name": "calcshark",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "next lint",
     "security:audit": "npm audit --audit-level=moderate",
     "security:hsts": "node scripts/verify-hsts.js",
-    "security:headers": "node scripts/verify-hsts.js && echo 'Run: curl -I https://calcverse.com' to check all headers",
+    "security:headers": "node scripts/verify-hsts.js && echo 'Run: curl -I https://calcshark.com' to check all headers",
     "favicon:guide": "node scripts/create-favicons.js",
     "favicon:generate": "echo 'Open http://localhost:3000/generate-favicon.html in your browser to generate PNG files'",
     "html:analyze": "node scripts/analyze-html.js",

@@ -24,7 +24,8 @@
       "Bash(npm run lint)",
       "WebSearch",
       "Bash(git reset:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git remote set-url:*)"
     ],
     "deny": [],
     "ask": []

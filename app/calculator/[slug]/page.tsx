@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
   
   if (!calculator) {
     return {
-      title: 'Calculator Not Found | Calcverse',
+      title: 'Calculator Not Found | Calcshark',
       description: 'The calculator you are looking for could not be found.',
     };
   }
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
   const slug = calculator.slug.replace('-calculator', '');
   const seoData = calculatorSEO[slug as keyof typeof calculatorSEO];
   
-  const title = seoData?.title || `Free Online ${calculator.name} - No Sign Up - No Login Required | Calcverse`;
+  const title = seoData?.title || `Free Online ${calculator.name} - No Sign Up - No Login Required | Calcshark`;
   const description = seoData?.description || `${calculator.description}. Free Online ${calculator.name} - instant, accurate, and completely free to use. No registration required.`;
   const keywords = seoData?.keywords || [`free ${calculator.name.toLowerCase()}`, ...calculator.tags, 'online calculator', 'free calculator tool', 'no registration'];
   
@@ -41,11 +41,11 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
     openGraph: {
       title,
       description,
-      url: `https://calcverse.com/calculator/${calculator.slug}`,
+      url: `https://calcshark.com/calculator/${calculator.slug}`,
       type: 'website',
       images: [
         {
-          url: `https://calcverse.com/og-calculator-${calculator.slug}.jpg`,
+          url: `https://calcshark.com/og-calculator-${calculator.slug}.jpg`,
           width: 1200,
           height: 630,
           alt: calculator.name,
@@ -56,12 +56,12 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
       card: 'summary_large_image',
       title,
       description,
-      images: [`https://calcverse.com/og-calculator-${calculator.slug}.jpg`],
-      creator: '@calcverse',
-      site: '@calcverse',
+      images: [`https://calcshark.com/og-calculator-${calculator.slug}.jpg`],
+      creator: '@calcshark',
+      site: '@calcshark',
     },
     alternates: {
-      canonical: `https://calcverse.com/calculator/${calculator.slug}`,
+      canonical: `https://calcshark.com/calculator/${calculator.slug}`,
     },
     robots: {
       index: true,
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
     },
     other: {
       'theme-color': '#8b5cf6',
-      'apple-mobile-web-app-title': `${calculator.name} | Calcverse`,
+      'apple-mobile-web-app-title': `${calculator.name} | Calcshark`,
     },
   };
 }

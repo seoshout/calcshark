@@ -6,7 +6,7 @@
 const https = require('https');
 const http = require('http');
 
-const DOMAIN = process.env.DOMAIN || 'calcverse.com';
+const DOMAIN = process.env.DOMAIN || 'calcshark.com';
 const TIMEOUT = 10000; // 10 seconds
 
 console.log('🔒 HSTS Header Verification Tool');

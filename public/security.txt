@@ -1,9 +1,9 @@
-Contact: security@calcverse.com
-Contact: https://github.com/82lotterylogin/calcverse/security/advisories/new
+Contact: security@calcshark.com
+Contact: https://github.com/82lotterylogin/calcshark/security/advisories/new
 Expires: 2025-12-31T23:59:59.000Z
-Encryption: https://calcverse.com/pgp-key.txt
-Acknowledgments: https://calcverse.com/security-acknowledgments
-Policy: https://calcverse.com/security-policy
+Encryption: https://calcshark.com/pgp-key.txt
+Acknowledgments: https://calcshark.com/security-acknowledgments
+Policy: https://calcshark.com/security-policy
 Preferred-Languages: en
 
 # Security Policy

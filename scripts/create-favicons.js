@@ -3,7 +3,7 @@
  * This script provides instructions and tools to create favicon files
  */
 
-console.log('🧮 Calcverse Favicon Creation Guide');
+console.log('🧮 Calcshark Favicon Creation Guide');
 console.log('=' .repeat(50));
 
 console.log('\n📋 Files created:');
