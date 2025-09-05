@@ -87,7 +87,7 @@ async function discoverStaticPages(): Promise<DiscoveredRoute[]> {
       }
     }
   } catch (error) {
-    console.warn('Could not discover static pages:', error.message);
+    console.warn('Could not discover static pages:', error instanceof Error ? error.message : String(error));
   }
 
   return routes;
@@ -120,7 +120,7 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
       routes.push(...calculatorComponents);
     }
   } catch (error) {
-    console.warn('Could not discover calculator components:', error.message);
+    console.warn('Could not discover calculator components:', error instanceof Error ? error.message : String(error));
   }
 
   return routes;
@@ -147,7 +147,7 @@ async function discoverCategoryPages(): Promise<DiscoveredRoute[]> {
       });
     }
   } catch (error) {
-    console.warn('Could not discover category pages:', error.message);
+    console.warn('Could not discover category pages:', error instanceof Error ? error.message : String(error));
   }
 
   return routes;
