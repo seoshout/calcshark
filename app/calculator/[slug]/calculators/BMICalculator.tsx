@@ -255,11 +255,11 @@ export default function BMICalculator() {
         {/* Unit Toggle */}
         <div className="mb-6">
           <label className="block text-sm font-medium text-foreground mb-2">Units</label>
-          <div className="flex bg-accent rounded-lg p-1 w-fit">
+          <div className="flex bg-accent rounded-lg p-1 w-full sm:w-fit overflow-x-auto scrollbar-hide">
             <button
               onClick={() => setUnit('metric')}
               className={cn(
-                "px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                "px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0",
                 unit === 'metric' 
                   ? "bg-background text-foreground shadow-sm" 
                   : "text-muted-foreground hover:text-foreground"
@@ -270,7 +270,7 @@ export default function BMICalculator() {
             <button
               onClick={() => setUnit('imperial')}
               className={cn(
-                "px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                "px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0",
                 unit === 'imperial' 
                   ? "bg-background text-foreground shadow-sm" 
                   : "text-muted-foreground hover:text-foreground"

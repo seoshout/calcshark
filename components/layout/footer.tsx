@@ -48,9 +48,9 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white border-t border-gray-800">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center md:text-left">
           {/* Brand Section */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col items-center md:items-start">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Calculator className="h-8 w-8 text-blue-400" />
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -61,7 +61,7 @@ export default function Footer() {
               The ultimate collection of online calculators. From financial planning to health metrics, 
               construction to cooking - find the perfect calculator for every need.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <Link 
                 href="https://github.com/calcshark" 
                 className="text-gray-400 hover:text-white transition-colors"
@@ -161,17 +161,17 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="container py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center text-sm text-gray-400">
+            <div className="flex items-center text-sm text-gray-400 justify-center md:justify-start">
               <span>© {currentYear} Calcshark. All rights reserved.</span>
             </div>
             
-            <div className="flex items-center text-sm text-gray-400">
+            <div className="flex items-center text-sm text-gray-400 justify-center md:justify-start">
               <span>Made with</span>
               <Heart className="h-4 w-4 mx-1 text-red-500 fill-current" />
               <span>for calculator enthusiasts everywhere</span>
             </div>
             
-            <div className="flex items-center space-x-4 text-sm">
+            <div className="flex items-center space-x-4 text-sm justify-center md:justify-start">
               <span className="text-gray-400">735+ Calculators Available</span>
               <div className="h-4 w-px bg-gray-700" />
               <span className="text-gray-400">Free to Use</span>

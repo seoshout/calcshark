@@ -486,9 +486,9 @@ export default function AdvancedBMICalculator() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 md:space-y-8">
       {/* Main Calculator Card */}
-      <div className="bg-background border rounded-xl p-6">
+      <div className="bg-background border rounded-xl p-3 md:p-6">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-purple-600">
             <Calculator className="h-8 w-8 text-white" />
@@ -501,7 +501,7 @@ export default function AdvancedBMICalculator() {
 
         {/* Tab Navigation */}
         <div className="mb-8">
-          <div className="flex bg-muted rounded-lg p-1 w-fit">
+          <div className="flex gap-1 bg-muted rounded-lg p-1 overflow-x-auto scrollbar-hide">
             {[
               { key: 'basic', label: 'Basic Info', icon: User },
               { key: 'advanced', label: 'Body Measurements', icon: Scale },
@@ -511,14 +511,14 @@ export default function AdvancedBMICalculator() {
                 key={key}
                 onClick={() => setActiveTab(key as any)}
                 className={cn(
-                  "flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                  "flex items-center px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors whitespace-nowrap flex-1 justify-center min-w-0",
                   activeTab === key 
                     ? "bg-background text-foreground shadow-sm" 
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <Icon className="h-4 w-4 mr-2" />
-                {label}
+                <Icon className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate">{label}</span>
               </button>
             ))}
           </div>
@@ -530,11 +530,11 @@ export default function AdvancedBMICalculator() {
             {/* Unit Toggle */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-3">Units</label>
-              <div className="flex bg-accent rounded-lg p-1 w-fit">
+              <div className="flex bg-accent rounded-lg p-1 w-full overflow-x-auto scrollbar-hide">
                 <button
                   onClick={() => setUnit('metric')}
                   className={cn(
-                    "px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                    "px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap flex-1",
                     unit === 'metric' 
                       ? "bg-background text-foreground shadow-sm" 
                       : "text-muted-foreground hover:text-foreground"
@@ -545,7 +545,7 @@ export default function AdvancedBMICalculator() {
                 <button
                   onClick={() => setUnit('imperial')}
                   className={cn(
-                    "px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                    "px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap flex-1",
                     unit === 'imperial' 
                       ? "bg-background text-foreground shadow-sm" 
                       : "text-muted-foreground hover:text-foreground"
@@ -792,7 +792,7 @@ export default function AdvancedBMICalculator() {
         )}
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 mt-8">
+        <div className="flex flex-wrap gap-3 mt-8 justify-center sm:justify-start">
           <button
             onClick={calculateComprehensiveBMI}
             className="flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
