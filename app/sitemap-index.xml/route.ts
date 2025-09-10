@@ -1,6 +1,6 @@
 export async function GET() {
   const baseUrl = 'https://calcshark.com';
-  const currentDate = new Date().toISOString();
+  const currentDate = '2025-09-01T00:00:00.000Z';
 
   // Generate sitemap index XML
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>

@@ -82,7 +82,7 @@ export const generateOrganizationSchema = () => {
     "url": "https://calcshark.com",
     "logo": "https://calcshark.com/favicon.svg",
     "description": "The ultimate collection of 735+ free online calculators across 17 categories including finance, health, construction, education, business, and more.",
-    "foundingDate": "2024",
+    "foundingDate": "2025-09-01",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",

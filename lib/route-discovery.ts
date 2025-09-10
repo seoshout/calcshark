@@ -21,7 +21,7 @@ export async function discoverAllWebsiteRoutes(): Promise<DiscoveredRoute[]> {
   }
 
   const routes: DiscoveredRoute[] = [];
-  const currentDate = new Date().toISOString();
+  const currentDate = '2025-09-01T00:00:00.000Z';
 
   try {
     // 1. Discover static pages by scanning app directory

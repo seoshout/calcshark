@@ -12,7 +12,7 @@ export async function GET() {
     // Convert discovered routes to sitemap format
     const allUrls = discoveredRoutes.map(route => ({
       url: route.url,
-      lastmod: route.lastmod || new Date().toISOString(),
+      lastmod: route.lastmod || '2025-09-01T00:00:00.000Z',
       changefreq: route.changefreq,
       priority: route.priority,
     }));
@@ -50,7 +50,7 @@ ${allUrls
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${baseUrl}/</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
+    <lastmod>2025-09-01T00:00:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

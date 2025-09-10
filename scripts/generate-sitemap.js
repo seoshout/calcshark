@@ -21,7 +21,7 @@ function getAllCalculators() {
 
 // Generate sitemap XML
 function generateSitemap() {
-  const currentDate = new Date().toISOString();
+  const currentDate = '2025-09-01T00:00:00.000Z';
   const allCalculators = getAllCalculators();
 
   console.log(`📊 Generating sitemap with ${allCalculators.length} calculators...`);

@@ -226,7 +226,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Difficulty:</span>
-                    <span className="font-medium">{calculator.difficulty}</span>
+                    <span className="font-medium">{calculator.difficulty.charAt(0).toUpperCase() + calculator.difficulty.slice(1)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Type:</span>
