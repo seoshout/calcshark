@@ -255,7 +255,11 @@ export default function AdvancedCatAgeCalculator() {
 
   // Breed categories for display
   const breedsBySize = useMemo(() => {
-    const categories = { small: [], medium: [], large: [] };
+    const categories: { small: string[]; medium: string[]; large: string[] } = {
+      small: [],
+      medium: [],
+      large: []
+    };
     Object.entries(CAT_BREEDS).forEach(([breed, data]) => {
       categories[data.size as keyof typeof categories].push(breed);
     });
