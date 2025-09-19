@@ -178,6 +178,19 @@ export const calculatorSEO = {
       'dog aging project', 'epigenetic dog age', 'scientific dog age calculator', 'accurate dog age calculator'
     ],
   },
+  'cat-age': {
+    title: 'Free Online Cat Age Calculator - No Login - 50+ Breeds',
+    description: 'Calculate your cat\'s age in human years with our advanced cat age calculator. Uses 2024 scientific research, supports 50+ breeds, includes health assessment and lifestyle analysis. Free and accurate.',
+    keywords: [
+      'cat age calculator', 'cat years to human years', 'pet age calculator', 'cat human age converter',
+      'kitten age calculator', 'cat life expectancy calculator', 'feline age calculator', 'cat years calculator',
+      'how old is my cat in human years', 'cat aging calculator', 'pet health calculator', 'cat breed age calculator',
+      'cat lifespan calculator', 'cat health assessment', 'feline health calculator', 'cat body condition score',
+      'cat weight calculator', 'pet care calculator', 'cat wellness calculator', 'veterinary age calculator',
+      'cat aging research', 'epigenetic cat age', 'scientific cat age calculator', 'accurate cat age calculator',
+      'indoor cat age', 'outdoor cat age', 'purebred cat lifespan', 'mixed breed cat age'
+    ],
+  },
 };
 
 export function generateCalculatorStructuredData(calculator: {
@@ -204,7 +217,7 @@ export function generateCalculatorStructuredData(calculator: {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
-      ratingCount: '1250',
+      ratingCount: '7',
       bestRating: '5',
       worstRating: '1',
     },

@@ -52,7 +52,7 @@ export const generateSoftwareSchema = (calculatorName: string, description: stri
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "ratingCount": "1247",
+      "ratingCount": "8",
       "bestRating": "5",
       "worstRating": "1"
     },

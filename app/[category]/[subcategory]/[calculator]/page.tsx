@@ -89,6 +89,7 @@ import AdvancedCompoundInterestCalculator from './calculators/AdvancedCompoundIn
 import AdvancedMortgageCalculator from './calculators/AdvancedMortgageCalculator';
 import AdvancedLoanPaymentCalculator from './calculators/AdvancedLoanPaymentCalculator';
 import AdvancedDogAgeCalculator from './calculators/AdvancedDogAgeCalculator';
+import AdvancedCatAgeCalculator from './calculators/AdvancedCatAgeCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
@@ -98,6 +99,7 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'mortgage-payment-calculator': AdvancedMortgageCalculator,
   'loan-payment-calculator': AdvancedLoanPaymentCalculator,
   'dog-age-calculator': AdvancedDogAgeCalculator,
+  'cat-age-calculator': AdvancedCatAgeCalculator,
   // Add more calculators as we create them
   // etc.
 };
