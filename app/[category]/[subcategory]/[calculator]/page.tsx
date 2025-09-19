@@ -88,6 +88,7 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
 import AdvancedCompoundInterestCalculator from './calculators/AdvancedCompoundInterestCalculator';
 import AdvancedMortgageCalculator from './calculators/AdvancedMortgageCalculator';
 import AdvancedLoanPaymentCalculator from './calculators/AdvancedLoanPaymentCalculator';
+import AdvancedDogAgeCalculator from './calculators/AdvancedDogAgeCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
@@ -96,6 +97,7 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'compound-interest-calculator': AdvancedCompoundInterestCalculator,
   'mortgage-payment-calculator': AdvancedMortgageCalculator,
   'loan-payment-calculator': AdvancedLoanPaymentCalculator,
+  'dog-age-calculator': AdvancedDogAgeCalculator,
   // Add more calculators as we create them
   // etc.
 };

@@ -35,17 +35,12 @@ export default function Header() {
     setIsSearchOpen(false);
   };
 
-  // Initialize theme from localStorage or default to dark
+  // Sync React state with theme set by initialization script
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        setIsDarkMode(false);
-        document.documentElement.classList.remove('dark');
-      } else {
-        setIsDarkMode(true);
-        document.documentElement.classList.add('dark');
-      }
+      const isDark = savedTheme !== 'light';
+      setIsDarkMode(isDark);
     }
   }, []);
 

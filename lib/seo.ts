@@ -166,6 +166,18 @@ export const calculatorSEO = {
     description: 'Calculate percentages, percentage increase/decrease, percentage of a number, and percentage difference with our free online percentage calculator.',
     keywords: ['percentage calculator', 'percent calculator', 'percentage increase', 'percentage decrease', 'percentage change'],
   },
+  'dog-age': {
+    title: 'Free Online Dog Age Calculator - No Login - 189 Breeds',
+    description: 'Calculate your dog\'s age in human years with our advanced dog age calculator. Uses 2025 scientific research, supports 189 breeds, includes health assessment and life expectancy analysis. Free and accurate.',
+    keywords: [
+      'dog age calculator', 'dog years to human years', 'pet age calculator', 'dog human age converter',
+      'puppy age calculator', 'dog life expectancy calculator', 'canine age calculator', 'dog years calculator',
+      'how old is my dog in human years', 'dog aging calculator', 'pet health calculator', 'dog breed age calculator',
+      'dog lifespan calculator', 'dog health assessment', 'canine health calculator', 'dog body condition score',
+      'dog weight calculator', 'pet care calculator', 'dog wellness calculator', 'veterinary age calculator',
+      'dog aging project', 'epigenetic dog age', 'scientific dog age calculator', 'accurate dog age calculator'
+    ],
+  },
 };
 
 export function generateCalculatorStructuredData(calculator: {
