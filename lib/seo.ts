@@ -191,18 +191,6 @@ export const calculatorSEO = {
       'indoor cat age', 'outdoor cat age', 'purebred cat lifespan', 'mixed breed cat age'
     ],
   },
-  'cooldown-reduction': {
-    title: 'Gaming Cooldown Reduction Calculator - CDR Optimizer for All Games',
-    description: 'Advanced cooldown reduction calculator for League of Legends, Dota 2, WoW, Diablo 4, and more. Calculate CDR, optimize builds, and master skill rotations. Free gaming tool.',
-    keywords: [
-      'cooldown reduction calculator', 'CDR calculator', 'gaming calculator', 'ability haste calculator',
-      'league of legends CDR', 'dota 2 cooldown', 'wow haste calculator', 'diablo 4 CDR',
-      'path of exile cooldown', 'skill rotation optimizer', 'gaming build calculator', 'CDR efficiency',
-      'ability cooldown calculator', 'gaming optimization tool', 'MOBA calculator', 'RPG calculator',
-      'skill calculator', 'gaming performance tool', 'cooldown optimizer', 'game mechanics calculator',
-      'esports calculator', 'gaming math', 'CDR build optimizer', 'cooldown timer calculator'
-    ],
-  },
 };
 
 export function generateCalculatorStructuredData(calculator: {
