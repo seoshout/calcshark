@@ -654,7 +654,7 @@ export default function AdvancedCropRotationCalculator() {
       {activeTab === 'planner' && (
         <div className="space-y-6">
           {/* Configuration */}
-          <div className="bg-card border rounded-xl p-6">
+          <div className="bg-card border rounded-xl p-6" style={{ overflow: 'visible', position: 'relative' }}>
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Calculator className="h-5 w-5 text-primary" />
               Rotation Configuration
@@ -674,7 +674,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={rotationYears}
                   onChange={(e) => setRotationYears(Number(e.target.value))}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background relative z-10"
                 >
                   <option value={3}>3-Year Rotation (Basic)</option>
                   <option value={4}>4-Year Rotation (Recommended)</option>
@@ -692,7 +692,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={gardenZone}
                   onChange={(e) => setGardenZone(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background relative z-10"
                 >
                   <option value="3a">Zone 3a (-40 to -35°F)</option>
                   <option value="3b">Zone 3b (-35 to -30°F)</option>
@@ -720,7 +720,7 @@ export default function AdvancedCropRotationCalculator() {
                     <HelpCircle className="h-3 w-3 text-muted-foreground" />
                   </Tooltip>
                 </label>
-                <select className="w-full p-3 border rounded-lg bg-background">
+                <select className="w-full p-3 border rounded-lg bg-background relative z-10">
                   <option value="traditional">Traditional Rows</option>
                   <option value="raised">Raised Beds</option>
                   <option value="container">Container Garden</option>
@@ -1170,7 +1170,7 @@ export default function AdvancedCropRotationCalculator() {
       {activeTab === 'succession' && (
         <div className="space-y-6">
           {/* Succession Calculator */}
-          <div className="bg-card border rounded-xl p-6">
+          <div className="bg-card border rounded-xl p-6" style={{ overflow: 'visible', position: 'relative' }}>
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Clock className="h-5 w-5 text-primary" />
               Succession Planting Calculator
@@ -1190,8 +1190,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={selectedCrop}
                   onChange={(e) => setSelectedCrop(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background min-w-0"
-                  style={{ minWidth: '250px' }}
+                  className="w-full p-3 border rounded-lg bg-background relative z-10"
                 >
                   {Object.entries(SUCCESSION_INTERVALS).map(([crop, data]) => (
                     <option key={crop} value={crop}>
@@ -1286,7 +1285,7 @@ export default function AdvancedCropRotationCalculator() {
       {activeTab === 'soil' && (
         <div className="space-y-6">
           {/* Soil Amendment Calculator */}
-          <div className="bg-card border rounded-xl p-6">
+          <div className="bg-card border rounded-xl p-6" style={{ overflow: 'visible', position: 'relative' }}>
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Sprout className="h-5 w-5 text-primary" />
               Soil Amendment Calculator
@@ -1306,8 +1305,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={soilAmendment}
                   onChange={(e) => setSoilAmendment(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background min-w-0"
-                  style={{ minWidth: '220px' }}
+                  className="w-full p-3 border rounded-lg bg-background relative z-10"
                 >
                   {Object.entries(SOIL_AMENDMENTS).map(([key, amendment]) => (
                     <option key={key} value={key}>
