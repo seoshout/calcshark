@@ -654,7 +654,7 @@ export default function AdvancedCropRotationCalculator() {
       {activeTab === 'planner' && (
         <div className="space-y-6">
           {/* Configuration */}
-          <div className="bg-card border rounded-xl p-6">
+          <div className="bg-card border rounded-xl p-6 overflow-hidden">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Calculator className="h-5 w-5 text-primary" />
               Rotation Configuration
@@ -663,7 +663,7 @@ export default function AdvancedCropRotationCalculator() {
               </Tooltip>
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div>
                 <label className="block text-sm font-medium mb-2 flex items-center gap-2">
                   Rotation Years
@@ -675,7 +675,7 @@ export default function AdvancedCropRotationCalculator() {
                   value={rotationYears}
                   onChange={(e) => setRotationYears(Number(e.target.value))}
                   className="w-full p-3 border rounded-lg bg-background min-w-0"
-                  style={{ minWidth: '280px' }}
+                  style={{ minWidth: '240px', maxWidth: '100%' }}
                 >
                   <option value={3}>3-Year Rotation (Basic)</option>
                   <option value={4}>4-Year Rotation (Recommended)</option>
