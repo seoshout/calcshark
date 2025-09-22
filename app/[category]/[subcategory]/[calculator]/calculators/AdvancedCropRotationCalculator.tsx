@@ -7,11 +7,15 @@ import { cn } from '@/lib/utils';
 // Add custom styles for dropdown borders
 const dropdownStyles = `
   .dropdown-container select {
-    border: 2px solid rgb(209 213 219) !important;
+    border: 1px solid rgb(209 213 219) !important;
     border-radius: 8px !important;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
-    background-color: white !important;
+    background-color: hsl(var(--background)) !important;
     position: relative !important;
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
   }
 
   .dropdown-container select:focus {
@@ -28,9 +32,15 @@ const dropdownStyles = `
   }
 
   .dropdown-container select option {
-    border: none !important;
     background-color: white !important;
     padding: 8px 12px !important;
+    border: none !important;
+  }
+
+  /* Ensure dropdown menus are fully visible */
+  .dropdown-container select:focus,
+  .dropdown-container select:active {
+    z-index: 50 !important;
   }
 `;
 
