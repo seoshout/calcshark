@@ -203,6 +203,18 @@ export const calculatorSEO = {
       'esports calculator', 'gaming math', 'CDR build optimizer', 'cooldown timer calculator'
     ],
   },
+  'crop-rotation': {
+    title: 'Free Online Crop Rotation Calculator - No Login - Garden Planner',
+    description: 'Advanced crop rotation calculator with plant families, companion planting, succession schedules, and soil management. Plan multi-year rotations for maximum garden productivity.',
+    keywords: [
+      'crop rotation calculator', 'garden rotation planner', 'succession planting calculator', 'companion planting guide',
+      'plant family rotation', 'soil management calculator', 'vegetable garden planner', 'organic gardening tool',
+      'brassicas rotation', 'nightshades rotation', 'legumes planting', 'garden bed planner',
+      'soil amendment calculator', 'cover crop planner', 'garden planning tool', 'sustainable gardening',
+      'square foot garden planner', 'harvest scheduling', 'garden yield optimizer', 'permaculture planner',
+      'organic farming calculator', 'home garden planner', 'vegetable succession planting', 'garden design tool'
+    ],
+  },
 };
 
 export function generateCalculatorStructuredData(calculator: {

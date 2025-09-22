@@ -11456,18 +11456,23 @@ export const calculatorCategories: Category[] = [
           {
             id: 'crop-rotation-calculator',
             name: 'Crop Rotation Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Plan multi-year crop rotations with plant families, companion planting, succession schedules, and soil management for maximum garden productivity.',
             slug: 'crop-rotation-calculator',
             category: 'gardening-landscaping',
             subcategory: 'garden-planning',
             tags: [
               'gardening & landscaping',
               'garden planning',
-              'crop rotation calculator'
+              'crop rotation calculator',
+              'succession planting',
+              'companion planting',
+              'soil management',
+              'plant families',
+              'garden planning'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
-            popular: false
+            difficulty: 'advanced',
+            popular: true
           },
           {
             id: 'companion-planting-calculator',

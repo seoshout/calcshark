@@ -65,7 +65,15 @@
       "WebFetch(domain:www.litter-robot.com)",
       "WebFetch(domain:www.frontiersin.org)",
       "WebFetch(domain:journals.sagepub.com)",
-      "WebFetch(domain:www.rvc.ac.uk)"
+      "WebFetch(domain:www.rvc.ac.uk)",
+      "Bash(git revert:*)",
+      "WebFetch(domain:leagueoflegendstools.com)",
+      "WebFetch(domain:maxroll.gg)",
+      "WebFetch(domain:frzyc.github.io)",
+      "WebFetch(domain:www.raidbots.com)",
+      "WebFetch(domain:minecraft-enchantment-order.vercel.app)",
+      "WebFetch(domain:landstewardshipproject.org)",
+      "WebFetch(domain:vegplotter.com)"
     ],
     "deny": [],
     "ask": []
