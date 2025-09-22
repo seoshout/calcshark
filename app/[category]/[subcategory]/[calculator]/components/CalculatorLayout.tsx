@@ -203,7 +203,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
       {/* Calculator Content */}
       <div className="container py-12 px-2 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             {/* Main Calculator Area */}
             <div className="lg:col-span-2">
               {children}

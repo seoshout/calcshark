@@ -8736,7 +8736,7 @@ export const calculatorCategories: Category[] = [
               'cooldown reduction calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
