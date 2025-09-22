@@ -4,6 +4,36 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Leaf, Sprout, TrendingUp, RotateCcw, BookOpen, Calculator, ChevronDown, ChevronUp, Info, CheckCircle, AlertCircle, Users, Clock, Target, Zap, HelpCircle, Plus, Minus, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Add custom styles for dropdown borders
+const dropdownStyles = `
+  .dropdown-container select {
+    border: 2px solid rgb(209 213 219) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+    background-color: white !important;
+    position: relative !important;
+  }
+
+  .dropdown-container select:focus {
+    border-color: rgb(139 92 246) !important;
+    outline: 2px solid rgb(139 92 246 / 0.2) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px rgb(139 92 246 / 0.1) !important;
+  }
+
+  .dropdown-container {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .dropdown-container select option {
+    border: none !important;
+    background-color: white !important;
+    padding: 8px 12px !important;
+  }
+`;
+
 // Tooltip component
 const Tooltip = ({ children, content }: { children: React.ReactNode; content: string }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -584,6 +614,9 @@ export default function AdvancedCropRotationCalculator() {
 
   return (
     <div className="w-full max-w-6xl mx-auto p-6 bg-background">
+      {/* Custom styles for dropdown borders */}
+      <style jsx>{dropdownStyles}</style>
+
       {/* Header */}
       <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-3 mb-4">
@@ -654,7 +687,7 @@ export default function AdvancedCropRotationCalculator() {
       {activeTab === 'planner' && (
         <div className="space-y-6">
           {/* Configuration */}
-          <div className="bg-card border rounded-xl p-6" style={{ overflow: 'visible', position: 'relative' }}>
+          <div className="bg-card border rounded-xl p-6 dropdown-container">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Calculator className="h-5 w-5 text-primary" />
               Rotation Configuration
@@ -674,7 +707,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={rotationYears}
                   onChange={(e) => setRotationYears(Number(e.target.value))}
-                  className="w-full p-3 border rounded-lg bg-background relative z-10"
+                  className="w-full p-3 border rounded-lg bg-background"
                 >
                   <option value={3}>3-Year Rotation (Basic)</option>
                   <option value={4}>4-Year Rotation (Recommended)</option>
@@ -692,7 +725,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={gardenZone}
                   onChange={(e) => setGardenZone(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background relative z-10"
+                  className="w-full p-3 border rounded-lg bg-background"
                 >
                   <option value="3a">Zone 3a (-40 to -35°F)</option>
                   <option value="3b">Zone 3b (-35 to -30°F)</option>
@@ -1170,7 +1203,7 @@ export default function AdvancedCropRotationCalculator() {
       {activeTab === 'succession' && (
         <div className="space-y-6">
           {/* Succession Calculator */}
-          <div className="bg-card border rounded-xl p-6" style={{ overflow: 'visible', position: 'relative' }}>
+          <div className="bg-card border rounded-xl p-6 dropdown-container">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Clock className="h-5 w-5 text-primary" />
               Succession Planting Calculator
@@ -1190,7 +1223,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={selectedCrop}
                   onChange={(e) => setSelectedCrop(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background relative z-10"
+                  className="w-full p-3 border rounded-lg bg-background"
                 >
                   {Object.entries(SUCCESSION_INTERVALS).map(([crop, data]) => (
                     <option key={crop} value={crop}>
@@ -1285,7 +1318,7 @@ export default function AdvancedCropRotationCalculator() {
       {activeTab === 'soil' && (
         <div className="space-y-6">
           {/* Soil Amendment Calculator */}
-          <div className="bg-card border rounded-xl p-6" style={{ overflow: 'visible', position: 'relative' }}>
+          <div className="bg-card border rounded-xl p-6 dropdown-container">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Sprout className="h-5 w-5 text-primary" />
               Soil Amendment Calculator
@@ -1305,7 +1338,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={soilAmendment}
                   onChange={(e) => setSoilAmendment(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background relative z-10"
+                  className="w-full p-3 border rounded-lg bg-background"
                 >
                   {Object.entries(SOIL_AMENDMENTS).map(([key, amendment]) => (
                     <option key={key} value={key}>
