@@ -192,7 +192,7 @@ export const calculatorSEO = {
     ],
   },
   'cooldown-reduction': {
-    title: 'Gaming Cooldown Reduction Calculator - CDR Optimizer for All Games',
+    title: 'Free Online Cooldown Reduction Calculator - No Login - Calcshark',
     description: 'Advanced cooldown reduction calculator for League of Legends, Dota 2, WoW, Diablo 4, and more. Calculate CDR, optimize builds, and master skill rotations. Free gaming tool.',
     keywords: [
       'cooldown reduction calculator', 'CDR calculator', 'gaming calculator', 'ability haste calculator',
