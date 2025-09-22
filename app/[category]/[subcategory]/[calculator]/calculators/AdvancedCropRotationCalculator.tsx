@@ -1,8 +1,31 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Leaf, Sprout, TrendingUp, RotateCcw, BookOpen, Calculator, ChevronDown, ChevronUp, Info, CheckCircle, AlertCircle, Users, Clock, Target, Zap } from 'lucide-react';
+import { Calendar, MapPin, Leaf, Sprout, TrendingUp, RotateCcw, BookOpen, Calculator, ChevronDown, ChevronUp, Info, CheckCircle, AlertCircle, Users, Clock, Target, Zap, HelpCircle, Plus, Minus, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+
+// Tooltip component
+const Tooltip = ({ children, content }: { children: React.ReactNode; content: string }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <div className="relative inline-block">
+      <div
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
+        className="cursor-help"
+      >
+        {children}
+      </div>
+      {isVisible && (
+        <div className="absolute z-50 px-3 py-2 text-sm bg-gray-900 text-white rounded-lg shadow-lg -top-2 left-full ml-2 w-64 transform -translate-y-full">
+          {content}
+          <div className="absolute top-full left-4 w-2 h-2 bg-gray-900 transform rotate-45 -translate-y-1"></div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 // Plant families with their characteristics
 const PLANT_FAMILIES = {
@@ -209,9 +232,253 @@ const SOIL_AMENDMENTS = {
   'kelp-meal': { ratePerSqFt: 0.5, unit: 'lbs per 100 sq ft', description: 'Trace minerals and growth hormones' }
 };
 
+// Individual crop database
+const CROP_DATABASE = {
+  // Brassicas
+  'broccoli': {
+    name: 'Broccoli',
+    family: 'brassicas',
+    daysToMaturity: 75,
+    spacing: '18 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '60-65°F',
+    season: 'Cool season',
+    companions: ['Onions', 'Carrots', 'Dill', 'Lettuce'],
+    antagonists: ['Tomatoes', 'Strawberries'],
+    successionInterval: 14,
+    plantingTimes: ['Early spring', 'Late summer'],
+    harvestTips: 'Cut central head, side shoots will develop',
+    commonProblems: ['Cabbage worms', 'Aphids', 'Clubroot'],
+    nutrition: 'Heavy feeder - needs nitrogen-rich soil'
+  },
+  'cabbage': {
+    name: 'Cabbage',
+    family: 'brassicas',
+    daysToMaturity: 90,
+    spacing: '12-18 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '60-65°F',
+    season: 'Cool season',
+    companions: ['Onions', 'Celery', 'Dill', 'Carrots'],
+    antagonists: ['Tomatoes', 'Peppers'],
+    successionInterval: 21,
+    plantingTimes: ['Early spring', 'Mid-summer'],
+    harvestTips: 'Harvest when heads feel firm and solid',
+    commonProblems: ['Cabbage worms', 'Flea beetles', 'Split heads'],
+    nutrition: 'Heavy feeder - benefits from compost'
+  },
+  'kale': {
+    name: 'Kale',
+    family: 'brassicas',
+    daysToMaturity: 55,
+    spacing: '12 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '60-65°F',
+    season: 'Cool season',
+    companions: ['Onions', 'Carrots', 'Herbs'],
+    antagonists: ['Tomatoes', 'Pole beans'],
+    successionInterval: 14,
+    plantingTimes: ['Early spring', 'Late summer', 'Fall'],
+    harvestTips: 'Pick outer leaves, center continues growing',
+    commonProblems: ['Aphids', 'Flea beetles'],
+    nutrition: 'Medium feeder - tolerates poor soil'
+  },
+
+  // Nightshades
+  'tomatoes': {
+    name: 'Tomatoes',
+    family: 'nightshades',
+    daysToMaturity: 80,
+    spacing: '24-36 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '70-75°F',
+    season: 'Warm season',
+    companions: ['Basil', 'Carrots', 'Onions', 'Parsley'],
+    antagonists: ['Brassicas', 'Fennel', 'Corn'],
+    successionInterval: null,
+    plantingTimes: ['Late spring after frost'],
+    harvestTips: 'Pick when fully colored but still firm',
+    commonProblems: ['Hornworms', 'Blight', 'Blossom end rot'],
+    nutrition: 'Heavy feeder - needs consistent watering'
+  },
+  'peppers': {
+    name: 'Peppers',
+    family: 'nightshades',
+    daysToMaturity: 75,
+    spacing: '18 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '75-80°F',
+    season: 'Warm season',
+    companions: ['Basil', 'Tomatoes', 'Onions'],
+    antagonists: ['Fennel', 'Kohlrabi'],
+    successionInterval: null,
+    plantingTimes: ['Late spring after soil warms'],
+    harvestTips: 'Harvest green or wait for full color',
+    commonProblems: ['Aphids', 'Cutworms', 'Bacterial spot'],
+    nutrition: 'Heavy feeder - loves warm, rich soil'
+  },
+
+  // Legumes
+  'green-beans': {
+    name: 'Green Beans',
+    family: 'legumes',
+    daysToMaturity: 55,
+    spacing: '6 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70°F',
+    season: 'Warm season',
+    companions: ['Corn', 'Carrots', 'Radishes', 'Cucumber'],
+    antagonists: ['Onions', 'Garlic'],
+    successionInterval: 14,
+    plantingTimes: ['Late spring through mid-summer'],
+    harvestTips: 'Pick regularly to keep plants producing',
+    commonProblems: ['Bean beetles', 'Rust'],
+    nutrition: 'Nitrogen fixer - improves soil'
+  },
+  'peas': {
+    name: 'Peas',
+    family: 'legumes',
+    daysToMaturity: 65,
+    spacing: '4 inches',
+    plantingDepth: '1-2 inches',
+    soilTemp: '45-55°F',
+    season: 'Cool season',
+    companions: ['Carrots', 'Radishes', 'Lettuce'],
+    antagonists: ['Onions', 'Garlic'],
+    successionInterval: 10,
+    plantingTimes: ['Early spring', 'Late summer'],
+    harvestTips: 'Harvest snap peas when pods are plump',
+    commonProblems: ['Aphids', 'Powdery mildew'],
+    nutrition: 'Nitrogen fixer - enriches soil for next crop'
+  },
+
+  // Cucurbits
+  'cucumbers': {
+    name: 'Cucumbers',
+    family: 'cucurbits',
+    daysToMaturity: 60,
+    spacing: '36 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70°F',
+    season: 'Warm season',
+    companions: ['Beans', 'Corn', 'Radishes'],
+    antagonists: ['Aromatic herbs'],
+    successionInterval: 21,
+    plantingTimes: ['Late spring after soil warms'],
+    harvestTips: 'Pick daily when 6-8 inches long',
+    commonProblems: ['Cucumber beetles', 'Powdery mildew'],
+    nutrition: 'Heavy feeder - needs rich, well-drained soil'
+  },
+  'zucchini': {
+    name: 'Zucchini',
+    family: 'cucurbits',
+    daysToMaturity: 55,
+    spacing: '48 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70°F',
+    season: 'Warm season',
+    companions: ['Beans', 'Corn', 'Nasturtiums'],
+    antagonists: ['Potatoes'],
+    successionInterval: 28,
+    plantingTimes: ['Late spring through early summer'],
+    harvestTips: 'Harvest when 6-8 inches for best flavor',
+    commonProblems: ['Squash bugs', 'Vine borers'],
+    nutrition: 'Heavy feeder - benefits from compost'
+  },
+
+  // Alliums
+  'onions': {
+    name: 'Onions',
+    family: 'alliums',
+    daysToMaturity: 110,
+    spacing: '4-6 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '55°F',
+    season: 'Cool season',
+    companions: ['Tomatoes', 'Carrots', 'Brassicas'],
+    antagonists: ['Beans', 'Peas'],
+    successionInterval: null,
+    plantingTimes: ['Early spring', 'Fall for overwintering'],
+    harvestTips: 'Harvest when tops begin to fall over',
+    commonProblems: ['Onion maggots', 'Thrips'],
+    nutrition: 'Light feeder - grows in poor soil'
+  },
+  'garlic': {
+    name: 'Garlic',
+    family: 'alliums',
+    daysToMaturity: 240,
+    spacing: '6 inches',
+    plantingDepth: '2 inches',
+    soilTemp: '60°F',
+    season: 'Fall planted',
+    companions: ['Tomatoes', 'Roses', 'Fruit trees'],
+    antagonists: ['Beans', 'Peas'],
+    successionInterval: null,
+    plantingTimes: ['Fall for spring harvest'],
+    harvestTips: 'Harvest when lower leaves turn brown',
+    commonProblems: ['White rot', 'Nematodes'],
+    nutrition: 'Light feeder - prefers well-drained soil'
+  },
+
+  // Umbellifers
+  'carrots': {
+    name: 'Carrots',
+    family: 'umbellifers',
+    daysToMaturity: 75,
+    spacing: '2 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '55-65°F',
+    season: 'Cool season',
+    companions: ['Onions', 'Leeks', 'Rosemary', 'Tomatoes'],
+    antagonists: ['Dill', 'Parsnips'],
+    successionInterval: 14,
+    plantingTimes: ['Early spring through late summer'],
+    harvestTips: 'Harvest when 3/4 inch diameter at top',
+    commonProblems: ['Carrot fly', 'Wireworms'],
+    nutrition: 'Light feeder - loose, deep soil preferred'
+  },
+
+  // Leafy Greens
+  'lettuce': {
+    name: 'Lettuce',
+    family: 'leafy-greens',
+    daysToMaturity: 45,
+    spacing: '8 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '60°F',
+    season: 'Cool season',
+    companions: ['Carrots', 'Radishes', 'Onions'],
+    antagonists: ['Broccoli'],
+    successionInterval: 10,
+    plantingTimes: ['Early spring through fall'],
+    harvestTips: 'Cut outer leaves or whole head',
+    commonProblems: ['Aphids', 'Slugs', 'Bolt in heat'],
+    nutrition: 'Light feeder - consistent moisture needed'
+  },
+  'spinach': {
+    name: 'Spinach',
+    family: 'leafy-greens',
+    daysToMaturity: 40,
+    spacing: '6 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '50-60°F',
+    season: 'Cool season',
+    companions: ['Strawberries', 'Radishes', 'Peas'],
+    antagonists: ['Sunflowers'],
+    successionInterval: 10,
+    plantingTimes: ['Early spring', 'Late summer'],
+    harvestTips: 'Cut outer leaves, center keeps growing',
+    commonProblems: ['Leafminers', 'Downy mildew'],
+    nutrition: 'Medium feeder - needs nitrogen'
+  }
+};
+
 export default function AdvancedCropRotationCalculator() {
   // State management
   const [selectedFamily, setSelectedFamily] = useState<string | null>(null);
+  const [selectedCropDetail, setSelectedCropDetail] = useState<string | null>(null);
+  const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
+  const [cropSearchTerm, setCropSearchTerm] = useState('');
   const [gardenBeds, setGardenBeds] = useState([
     { id: 1, name: 'Bed 1', size: 100, currentCrop: '', year: 1 },
     { id: 2, name: 'Bed 2', size: 100, currentCrop: '', year: 1 },
@@ -228,6 +495,38 @@ export default function AdvancedCropRotationCalculator() {
   const [showSuccession, setShowSuccession] = useState(false);
   const [showSoilCalc, setShowSoilCalc] = useState(false);
   const [activeTab, setActiveTab] = useState('planner');
+
+  // Helper functions
+  const addCropToSelection = (cropKey: string) => {
+    if (!selectedCrops.includes(cropKey)) {
+      setSelectedCrops([...selectedCrops, cropKey]);
+    }
+  };
+
+  const removeCropFromSelection = (cropKey: string) => {
+    setSelectedCrops(selectedCrops.filter(crop => crop !== cropKey));
+  };
+
+  const getFilteredCrops = () => {
+    return Object.entries(CROP_DATABASE).filter(([key, crop]) =>
+      crop.name.toLowerCase().includes(cropSearchTerm.toLowerCase()) ||
+      crop.family.toLowerCase().includes(cropSearchTerm.toLowerCase())
+    );
+  };
+
+  const generateCropRotationPlan = () => {
+    const cropsByFamily: { [family: string]: string[] } = {};
+
+    selectedCrops.forEach(cropKey => {
+      const crop = CROP_DATABASE[cropKey as keyof typeof CROP_DATABASE];
+      if (!cropsByFamily[crop.family]) {
+        cropsByFamily[crop.family] = [];
+      }
+      cropsByFamily[crop.family].push(cropKey);
+    });
+
+    return cropsByFamily;
+  };
 
   // Calculate succession planting dates
   const calculateSuccessionDates = () => {
@@ -301,24 +600,51 @@ export default function AdvancedCropRotationCalculator() {
         <div className="flex justify-center mb-6">
           <div className="flex bg-muted rounded-lg p-1">
             {[
-              { id: 'planner', label: 'Rotation Planner', icon: Calendar },
-              { id: 'families', label: 'Plant Families', icon: Leaf },
-              { id: 'succession', label: 'Succession', icon: Clock },
-              { id: 'soil', label: 'Soil Calculator', icon: Sprout }
+              {
+                id: 'planner',
+                label: 'Rotation Planner',
+                icon: Calendar,
+                tooltip: 'Plan multi-year crop rotations by plant families and garden beds'
+              },
+              {
+                id: 'crops',
+                label: 'Crop Selection',
+                icon: Sprout,
+                tooltip: 'Choose specific vegetables and get detailed growing information'
+              },
+              {
+                id: 'families',
+                label: 'Plant Families',
+                icon: Leaf,
+                tooltip: 'Learn about plant families and their rotation requirements'
+              },
+              {
+                id: 'succession',
+                label: 'Succession',
+                icon: Clock,
+                tooltip: 'Calculate succession planting schedules for continuous harvests'
+              },
+              {
+                id: 'soil',
+                label: 'Soil Calculator',
+                icon: Calculator,
+                tooltip: 'Calculate soil amendments and cover crop requirements'
+              }
             ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-md transition-all",
-                  activeTab === tab.id
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <tab.icon className="h-4 w-4" />
-                {tab.label}
-              </button>
+              <Tooltip key={tab.id} content={tab.tooltip}>
+                <button
+                  onClick={() => setActiveTab(tab.id)}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2 rounded-md transition-all",
+                    activeTab === tab.id
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  <tab.icon className="h-4 w-4" />
+                  {tab.label}
+                </button>
+              </Tooltip>
             ))}
           </div>
         </div>
@@ -332,50 +658,68 @@ export default function AdvancedCropRotationCalculator() {
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Calculator className="h-5 w-5 text-primary" />
               Rotation Configuration
+              <Tooltip content="Configure your garden's basic parameters to get customized rotation recommendations">
+                <HelpCircle className="h-4 w-4 text-muted-foreground" />
+              </Tooltip>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Rotation Years</label>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Rotation Years
+                  <Tooltip content="Number of years in your rotation cycle. Longer rotations provide better pest and disease control but require more planning.">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
                 <select
                   value={rotationYears}
                   onChange={(e) => setRotationYears(Number(e.target.value))}
                   className="w-full p-3 border rounded-lg bg-background"
                 >
-                  <option value={3}>3-Year Rotation</option>
-                  <option value={4}>4-Year Rotation</option>
-                  <option value={5}>5-Year Rotation</option>
+                  <option value={3}>3-Year Rotation (Basic)</option>
+                  <option value={4}>4-Year Rotation (Recommended)</option>
+                  <option value={5}>5-Year Rotation (Advanced)</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Hardiness Zone</label>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Hardiness Zone
+                  <Tooltip content="Your USDA Hardiness Zone determines frost dates and planting schedules. Find your zone at usda.gov">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
                 <select
                   value={gardenZone}
                   onChange={(e) => setGardenZone(e.target.value)}
                   className="w-full p-3 border rounded-lg bg-background"
                 >
-                  <option value="3a">Zone 3a</option>
-                  <option value="3b">Zone 3b</option>
-                  <option value="4a">Zone 4a</option>
-                  <option value="4b">Zone 4b</option>
-                  <option value="5a">Zone 5a</option>
-                  <option value="5b">Zone 5b</option>
-                  <option value="6a">Zone 6a</option>
-                  <option value="6b">Zone 6b</option>
-                  <option value="7a">Zone 7a</option>
-                  <option value="7b">Zone 7b</option>
-                  <option value="8a">Zone 8a</option>
-                  <option value="8b">Zone 8b</option>
-                  <option value="9a">Zone 9a</option>
-                  <option value="9b">Zone 9b</option>
-                  <option value="10a">Zone 10a</option>
-                  <option value="10b">Zone 10b</option>
+                  <option value="3a">Zone 3a (-40 to -35°F)</option>
+                  <option value="3b">Zone 3b (-35 to -30°F)</option>
+                  <option value="4a">Zone 4a (-30 to -25°F)</option>
+                  <option value="4b">Zone 4b (-25 to -20°F)</option>
+                  <option value="5a">Zone 5a (-20 to -15°F)</option>
+                  <option value="5b">Zone 5b (-15 to -10°F)</option>
+                  <option value="6a">Zone 6a (-10 to -5°F)</option>
+                  <option value="6b">Zone 6b (-5 to 0°F)</option>
+                  <option value="7a">Zone 7a (0 to 5°F)</option>
+                  <option value="7b">Zone 7b (5 to 10°F)</option>
+                  <option value="8a">Zone 8a (10 to 15°F)</option>
+                  <option value="8b">Zone 8b (15 to 20°F)</option>
+                  <option value="9a">Zone 9a (20 to 25°F)</option>
+                  <option value="9b">Zone 9b (25 to 30°F)</option>
+                  <option value="10a">Zone 10a (30 to 35°F)</option>
+                  <option value="10b">Zone 10b (35 to 40°F)</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Garden Type</label>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Garden Type
+                  <Tooltip content="Your garden layout affects spacing recommendations and rotation planning. Choose the style that best matches your setup.">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
                 <select className="w-full p-3 border rounded-lg bg-background">
                   <option value="traditional">Traditional Rows</option>
                   <option value="raised">Raised Beds</option>
@@ -461,6 +805,250 @@ export default function AdvancedCropRotationCalculator() {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Crop Selection Tab */}
+      {activeTab === 'crops' && (
+        <div className="space-y-6">
+          {/* Crop Search and Selection */}
+          <div className="bg-card border rounded-xl p-6">
+            <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+              <Sprout className="h-5 w-5 text-primary" />
+              Choose Your Crops
+              <Tooltip content="Select individual vegetables you want to grow. Get specific planting, spacing, and companion information for each crop.">
+                <HelpCircle className="h-4 w-4 text-muted-foreground" />
+              </Tooltip>
+            </h3>
+
+            {/* Search */}
+            <div className="relative mb-4">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder="Search crops by name or family..."
+                value={cropSearchTerm}
+                onChange={(e) => setCropSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border rounded-lg bg-background"
+              />
+            </div>
+
+            {/* Crop Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 max-h-96 overflow-y-auto">
+              {getFilteredCrops().map(([key, crop]) => (
+                <div
+                  key={key}
+                  className={cn(
+                    "p-3 border rounded-lg cursor-pointer transition-all hover:shadow-md",
+                    selectedCrops.includes(key) ? "ring-2 ring-primary bg-primary/5" : ""
+                  )}
+                  onClick={() => selectedCrops.includes(key) ? removeCropFromSelection(key) : addCropToSelection(key)}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-medium text-sm">{crop.name}</h4>
+                    <div className="flex items-center gap-1">
+                      {selectedCrops.includes(key) ? (
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                      ) : (
+                        <Plus className="h-4 w-4 text-muted-foreground" />
+                      )}
+                      <Tooltip content={`Days to maturity: ${crop.daysToMaturity} | Season: ${crop.season} | Family: ${crop.family}`}>
+                        <Info className="h-3 w-3 text-muted-foreground" />
+                      </Tooltip>
+                    </div>
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    <div>{crop.season} • {crop.daysToMaturity} days</div>
+                    <div className="mt-1 px-2 py-1 bg-muted rounded text-xs">{crop.family}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Selected Crops Display */}
+          {selectedCrops.length > 0 && (
+            <div className="bg-card border rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <Target className="h-5 w-5 text-primary" />
+                Your Selected Crops ({selectedCrops.length})
+                <Tooltip content="These are the crops you've selected. Click on any crop to see detailed growing information.">
+                  <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                </Tooltip>
+              </h3>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {/* Selected Crops List */}
+                <div className="space-y-2">
+                  {selectedCrops.map(cropKey => {
+                    const crop = CROP_DATABASE[cropKey as keyof typeof CROP_DATABASE];
+                    return (
+                      <div
+                        key={cropKey}
+                        className={cn(
+                          "p-3 border rounded-lg cursor-pointer transition-all hover:bg-accent",
+                          selectedCropDetail === cropKey ? "ring-2 ring-primary bg-primary/5" : ""
+                        )}
+                        onClick={() => setSelectedCropDetail(selectedCropDetail === cropKey ? null : cropKey)}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="font-medium">{crop.name}</div>
+                            <div className="text-sm text-muted-foreground">{crop.season} • {crop.spacing}</div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Tooltip content={`Remove ${crop.name} from selection`}>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  removeCropFromSelection(cropKey);
+                                }}
+                                className="p-1 hover:bg-red-100 rounded"
+                              >
+                                <Minus className="h-4 w-4 text-red-500" />
+                              </button>
+                            </Tooltip>
+                            <div
+                              className="w-3 h-3 rounded-full"
+                              style={{ backgroundColor: PLANT_FAMILIES[crop.family as keyof typeof PLANT_FAMILIES]?.color || '#gray' }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Crop Details */}
+                {selectedCropDetail && (
+                  <div className="bg-muted/50 rounded-lg p-4">
+                    <h4 className="font-semibold mb-3 flex items-center gap-2">
+                      {CROP_DATABASE[selectedCropDetail as keyof typeof CROP_DATABASE].name}
+                      <Tooltip content="Detailed growing information for this specific crop">
+                        <Info className="h-4 w-4 text-muted-foreground" />
+                      </Tooltip>
+                    </h4>
+
+                    {(() => {
+                      const crop = CROP_DATABASE[selectedCropDetail as keyof typeof CROP_DATABASE];
+                      return (
+                        <div className="space-y-3 text-sm">
+                          <div className="grid grid-cols-2 gap-2">
+                            <div>
+                              <strong>Days to Maturity:</strong> {crop.daysToMaturity}
+                            </div>
+                            <div>
+                              <strong>Spacing:</strong> {crop.spacing}
+                            </div>
+                            <div>
+                              <strong>Planting Depth:</strong> {crop.plantingDepth}
+                            </div>
+                            <div>
+                              <strong>Soil Temp:</strong> {crop.soilTemp}
+                            </div>
+                          </div>
+
+                          <div>
+                            <strong>Planting Times:</strong> {crop.plantingTimes.join(', ')}
+                          </div>
+
+                          <div>
+                            <strong>Good Companions:</strong>
+                            <div className="flex flex-wrap gap-1 mt-1">
+                              {crop.companions.map((companion, index) => (
+                                <span key={index} className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">
+                                  {companion}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <strong>Avoid Near:</strong>
+                            <div className="flex flex-wrap gap-1 mt-1">
+                              {crop.antagonists.map((antagonist, index) => (
+                                <span key={index} className="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">
+                                  {antagonist}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <strong>Harvest Tips:</strong> {crop.harvestTips}
+                          </div>
+
+                          <div>
+                            <strong>Common Problems:</strong> {crop.commonProblems.join(', ')}
+                          </div>
+
+                          <div>
+                            <strong>Nutrition:</strong> {crop.nutrition}
+                          </div>
+
+                          {crop.successionInterval && (
+                            <div className="bg-blue-50 p-2 rounded">
+                              <strong>Succession Planting:</strong> Plant every {crop.successionInterval} days for continuous harvest
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Crop Rotation Suggestions */}
+          {selectedCrops.length > 0 && (
+            <div className="bg-card border rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <RotateCcw className="h-5 w-5 text-primary" />
+                Rotation Plan for Your Crops
+                <Tooltip content="Based on your selected crops, here's how to organize them by plant families for optimal rotation">
+                  <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                </Tooltip>
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {Object.entries(generateCropRotationPlan()).map(([family, crops]) => (
+                  <div key={family} className="border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2">
+                      <div
+                        className="w-3 h-3 rounded-full"
+                        style={{ backgroundColor: PLANT_FAMILIES[family as keyof typeof PLANT_FAMILIES]?.color || '#gray' }}
+                      />
+                      {PLANT_FAMILIES[family as keyof typeof PLANT_FAMILIES]?.name || family}
+                    </h4>
+                    <div className="space-y-1">
+                      {crops.map(cropKey => {
+                        const crop = CROP_DATABASE[cropKey as keyof typeof CROP_DATABASE];
+                        return (
+                          <div key={cropKey} className="text-sm p-2 bg-muted/50 rounded">
+                            {crop.name}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-2">
+                      {PLANT_FAMILIES[family as keyof typeof PLANT_FAMILIES]?.category}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Rotation Tips:</h4>
+                <ul className="text-sm space-y-1">
+                  <li>• Rotate by plant families, not individual crops</li>
+                  <li>• Follow heavy feeders with light feeders or soil builders</li>
+                  <li>• Use legumes (beans, peas) to add nitrogen for following crops</li>
+                  <li>• Wait 3-4 years before replanting the same family in the same location</li>
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -586,11 +1174,19 @@ export default function AdvancedCropRotationCalculator() {
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Clock className="h-5 w-5 text-primary" />
               Succession Planting Calculator
+              <Tooltip content="Plan staggered plantings for continuous harvests throughout the growing season">
+                <HelpCircle className="h-4 w-4 text-muted-foreground" />
+              </Tooltip>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
-                <label className="block text-sm font-medium mb-2">Select Crop</label>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Select Crop
+                  <Tooltip content="Choose a crop that benefits from succession planting. The interval shows recommended time between plantings.">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
                 <select
                   value={selectedCrop}
                   onChange={(e) => setSelectedCrop(e.target.value)}
@@ -605,7 +1201,12 @@ export default function AdvancedCropRotationCalculator() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">First Planting Date</label>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  First Planting Date
+                  <Tooltip content="Choose your first planting date based on your local frost dates and growing season">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
                 <input
                   type="date"
                   value={plantingDate}
@@ -688,11 +1289,19 @@ export default function AdvancedCropRotationCalculator() {
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Sprout className="h-5 w-5 text-primary" />
               Soil Amendment Calculator
+              <Tooltip content="Calculate the right amount of organic matter and fertilizers needed for your garden beds">
+                <HelpCircle className="h-4 w-4 text-muted-foreground" />
+              </Tooltip>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
-                <label className="block text-sm font-medium mb-2">Amendment Type</label>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Amendment Type
+                  <Tooltip content="Different amendments serve different purposes. Compost improves soil structure, while fertilizers provide specific nutrients.">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
                 <select
                   value={soilAmendment}
                   onChange={(e) => setSoilAmendment(e.target.value)}
@@ -707,7 +1316,12 @@ export default function AdvancedCropRotationCalculator() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Garden Area (sq ft)</label>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Garden Area (sq ft)
+                  <Tooltip content="Measure length × width of your garden beds. For irregularly shaped beds, break into sections and add together.">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
                 <input
                   type="number"
                   value={amendmentArea}
