@@ -675,7 +675,7 @@ export default function AdvancedCropRotationCalculator() {
                   value={rotationYears}
                   onChange={(e) => setRotationYears(Number(e.target.value))}
                   className="w-full p-3 border rounded-lg bg-background min-w-0"
-                  style={{ minWidth: '200px' }}
+                  style={{ minWidth: '280px' }}
                 >
                   <option value={3}>3-Year Rotation (Basic)</option>
                   <option value={4}>4-Year Rotation (Recommended)</option>
