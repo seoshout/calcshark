@@ -73,7 +73,9 @@
       "WebFetch(domain:www.raidbots.com)",
       "WebFetch(domain:minecraft-enchantment-order.vercel.app)",
       "WebFetch(domain:landstewardshipproject.org)",
-      "WebFetch(domain:vegplotter.com)"
+      "WebFetch(domain:vegplotter.com)",
+      "WebFetch(domain:world-crops.com)",
+      "Bash(del:*)"
     ],
     "deny": [],
     "ask": []

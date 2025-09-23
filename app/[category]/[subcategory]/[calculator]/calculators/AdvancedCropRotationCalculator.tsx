@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Leaf, Sprout, TrendingUp, RotateCcw, BookOpen, Calculator, ChevronDown, ChevronUp, Info, CheckCircle, AlertCircle, Users, Clock, Target, Zap, HelpCircle, Plus, Minus, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Add custom styles for dropdown borders
+// Add custom styles for dropdown borders and text visibility
 const dropdownStyles = `
   .dropdown-container select {
     border: 1px solid rgb(209 213 219) !important;
     border-radius: 8px !important;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
     background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
     position: relative !important;
     width: 100% !important;
     padding: 12px !important;
@@ -32,9 +33,24 @@ const dropdownStyles = `
   }
 
   .dropdown-container select option {
-    background-color: white !important;
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
     padding: 8px 12px !important;
     border: none !important;
+  }
+
+  /* Dark mode specific styles */
+  [data-theme="dark"] .dropdown-container select option,
+  .dark .dropdown-container select option {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  /* Light mode specific styles */
+  [data-theme="light"] .dropdown-container select option,
+  .light .dropdown-container select option {
+    background-color: white !important;
+    color: black !important;
   }
 
   /* Ensure dropdown menus are fully visible */
@@ -272,12 +288,341 @@ const SOIL_AMENDMENTS = {
   'kelp-meal': { ratePerSqFt: 0.5, unit: 'lbs per 100 sq ft', description: 'Trace minerals and growth hormones' }
 };
 
-// Individual crop database
+// Hardiness zone data with growing seasons and recommendations
+const HARDINESS_ZONES = {
+  '3a': { lastFrost: 'May 15-31', firstFrost: 'September 1-15', growingSeason: 105, coolSeasonExtended: true },
+  '3b': { lastFrost: 'May 15-31', firstFrost: 'September 15-30', growingSeason: 120, coolSeasonExtended: true },
+  '4a': { lastFrost: 'May 1-15', firstFrost: 'September 15-30', growingSeason: 135, coolSeasonExtended: true },
+  '4b': { lastFrost: 'April 15-30', firstFrost: 'October 1-15', growingSeason: 150, coolSeasonExtended: true },
+  '5a': { lastFrost: 'April 15-30', firstFrost: 'October 15-31', growingSeason: 165, coolSeasonExtended: false },
+  '5b': { lastFrost: 'April 1-15', firstFrost: 'October 15-31', growingSeason: 180, coolSeasonExtended: false },
+  '6a': { lastFrost: 'April 1-15', firstFrost: 'October 15-31', growingSeason: 195, coolSeasonExtended: false },
+  '6b': { lastFrost: 'March 15-31', firstFrost: 'November 1-15', growingSeason: 210, coolSeasonExtended: false },
+  '7a': { lastFrost: 'March 15-31', firstFrost: 'November 15-30', growingSeason: 225, coolSeasonExtended: false },
+  '7b': { lastFrost: 'March 1-15', firstFrost: 'November 15-30', growingSeason: 240, coolSeasonExtended: false },
+  '8a': { lastFrost: 'March 1-15', firstFrost: 'December 1-15', growingSeason: 270, coolSeasonExtended: false },
+  '8b': { lastFrost: 'February 15-28', firstFrost: 'December 1-15', growingSeason: 285, coolSeasonExtended: false },
+  '9a': { lastFrost: 'February 1-15', firstFrost: 'December 15-31', growingSeason: 300, coolSeasonExtended: false },
+  '9b': { lastFrost: 'January 15-31', firstFrost: 'December 15-31', growingSeason: 330, coolSeasonExtended: false },
+  '10a': { lastFrost: 'January 1-15', firstFrost: 'No frost', growingSeason: 365, coolSeasonExtended: false },
+  '10b': { lastFrost: 'Rare frost', firstFrost: 'No frost', growingSeason: 365, coolSeasonExtended: false }
+};
+
+// Garden type configurations
+const GARDEN_TYPES = {
+  'traditional': {
+    name: 'Traditional Rows',
+    spacing: 'Wide rows (36-48 inches)',
+    efficiency: 'Low',
+    maintenance: 'Easy',
+    description: 'Traditional single-row planting with wide walkways'
+  },
+  'raised': {
+    name: 'Raised Beds',
+    spacing: 'Intensive (12-18 inches)',
+    efficiency: 'High',
+    maintenance: 'Moderate',
+    description: 'Raised beds allow for closer spacing and better soil control'
+  },
+  'square-foot': {
+    name: 'Square Foot Garden',
+    spacing: 'Grid-based (1-4 per square)',
+    efficiency: 'Very High',
+    maintenance: 'High',
+    description: 'Maximum space efficiency with precise grid layout'
+  },
+  'container': {
+    name: 'Container Garden',
+    spacing: 'Individual containers',
+    efficiency: 'Medium',
+    maintenance: 'High',
+    description: 'Perfect for small spaces and controlled growing conditions'
+  }
+};
+
+// Comprehensive worldwide crop database organized by climate zones and regions
 const CROP_DATABASE = {
-  // Brassicas
+  // TROPICAL ZONE CROPS (Year-round warm, high humidity)
+
+  // Asian Tropical Leafy Greens
+  'kangkung': {
+    name: 'Kangkung (Water Spinach)',
+    family: 'leafy-greens',
+    region: 'Southeast Asia',
+    climateZone: 'tropical',
+    daysToMaturity: 30,
+    spacing: '6 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '75-85°F',
+    season: 'Year-round in tropics',
+    companions: ['Rice', 'Beans', 'Chili peppers'],
+    antagonists: ['None known'],
+    successionInterval: 14,
+    plantingTimes: ['Year-round in tropical zones'],
+    harvestTips: 'Cut stems 2 inches above water level',
+    commonProblems: ['Aphids', 'Leaf miners'],
+    nutrition: 'Light feeder - grows in aquatic environments',
+    nativeRegion: 'Southeast Asia',
+    hardinesszones: ['9b', '10a', '10b'],
+    idealZones: ['10a', '10b']
+  },
+
+  'pak-choi': {
+    name: 'Pak Choi (Bok Choy)',
+    family: 'brassicas',
+    region: 'East Asia',
+    climateZone: 'temperate-tropical',
+    daysToMaturity: 45,
+    spacing: '8 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '60-70°F',
+    season: 'Cool season',
+    companions: ['Carrots', 'Onions', 'Herbs'],
+    antagonists: ['Tomatoes', 'Strawberries'],
+    successionInterval: 21,
+    plantingTimes: ['Spring', 'Fall', 'Winter in warm zones'],
+    harvestTips: 'Cut at base when leaves are tender',
+    commonProblems: ['Flea beetles', 'Aphids'],
+    nutrition: 'Medium feeder',
+    nativeRegion: 'China',
+    hardinesszones: ['4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b'],
+    idealZones: ['6a', '6b', '7a', '7b']
+  },
+
+  'chinese-mustard': {
+    name: 'Chinese Mustard Greens',
+    family: 'brassicas',
+    region: 'East Asia',
+    climateZone: 'temperate-subtropical',
+    daysToMaturity: 40,
+    spacing: '12 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '55-75°F',
+    season: 'Cool season',
+    companions: ['Radishes', 'Turnips', 'Cabbage'],
+    antagonists: ['Tomatoes'],
+    successionInterval: 14,
+    plantingTimes: ['Spring', 'Fall'],
+    harvestTips: 'Harvest young leaves for tender greens',
+    commonProblems: ['Flea beetles', 'Aphids'],
+    nutrition: 'Medium feeder',
+    nativeRegion: 'China',
+    hardinesszones: ['5a', '5b', '6a', '6b', '7a', '7b', '8a', '8b', '9a'],
+    idealZones: ['6a', '6b', '7a']
+  },
+
+  'choy-sum': {
+    name: 'Choy Sum (Chinese Flowering Cabbage)',
+    family: 'brassicas',
+    region: 'East Asia',
+    climateZone: 'subtropical',
+    daysToMaturity: 50,
+    spacing: '8 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '60-70°F',
+    season: 'Cool season',
+    companions: ['Lettuce', 'Spinach', 'Herbs'],
+    antagonists: ['Hot peppers'],
+    successionInterval: 21,
+    plantingTimes: ['Spring', 'Fall', 'Winter in mild zones'],
+    harvestTips: 'Harvest before flowers fully open',
+    commonProblems: ['Aphids', 'Cabbage worms'],
+    nutrition: 'Medium feeder',
+    nativeRegion: 'Southern China',
+    hardinesszones: ['6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b'],
+    idealZones: ['7a', '7b', '8a', '8b']
+  },
+
+  // African Indigenous Crops
+  'african-spinach': {
+    name: 'African Spinach (Amaranth)',
+    family: 'leafy-greens',
+    region: 'Africa',
+    climateZone: 'tropical-subtropical',
+    daysToMaturity: 45,
+    spacing: '12 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '70-85°F',
+    season: 'Warm season',
+    companions: ['Corn', 'Beans', 'Squash'],
+    antagonists: ['None known'],
+    successionInterval: 21,
+    plantingTimes: ['After last frost', 'Summer'],
+    harvestTips: 'Pick young leaves regularly',
+    commonProblems: ['Aphids', 'Leaf miners'],
+    nutrition: 'Light to medium feeder',
+    nativeRegion: 'Central Africa',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a']
+  },
+
+  'okra': {
+    name: 'Okra (Lady\'s Finger)',
+    family: 'malvaceae',
+    region: 'Africa/Asia',
+    climateZone: 'tropical-subtropical',
+    daysToMaturity: 60,
+    spacing: '18 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '75-85°F',
+    season: 'Hot season',
+    companions: ['Tomatoes', 'Peppers', 'Eggplant'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Late spring', 'Early summer'],
+    harvestTips: 'Harvest pods when 3-4 inches long',
+    commonProblems: ['Aphids', 'Corn earworm'],
+    nutrition: 'Medium feeder',
+    nativeRegion: 'Northeast Africa',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a', '10b']
+  },
+
+  // Tropical Root Vegetables
+  'sweet-potato': {
+    name: 'Sweet Potato',
+    family: 'convolvulaceae',
+    region: 'Americas/Global',
+    climateZone: 'tropical-subtropical',
+    daysToMaturity: 100,
+    spacing: '24 inches',
+    plantingDepth: 'Slips planted 4 inches deep',
+    soilTemp: '70-80°F',
+    season: 'Warm season',
+    companions: ['Beans', 'Peas', 'Oregano'],
+    antagonists: ['Tomatoes', 'Sunflowers'],
+    successionInterval: null,
+    plantingTimes: ['Late spring after soil warms'],
+    harvestTips: 'Harvest before first frost',
+    commonProblems: ['Sweet potato weevil', 'Wireworms'],
+    nutrition: 'Light feeder - tolerates poor soil',
+    nativeRegion: 'Central America',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a']
+  },
+
+  'cassava': {
+    name: 'Cassava (Yuca)',
+    family: 'euphorbiaceae',
+    region: 'Tropical Americas/Africa',
+    climateZone: 'tropical',
+    daysToMaturity: 300,
+    spacing: '36 inches',
+    plantingDepth: 'Stem cuttings 6 inches deep',
+    soilTemp: '75-85°F',
+    season: 'Year-round in tropics',
+    companions: ['Beans', 'Corn', 'Groundnuts'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Beginning of rainy season'],
+    harvestTips: 'Harvest roots 8-24 months after planting',
+    commonProblems: ['Cassava mosaic virus', 'Mealybugs'],
+    nutrition: 'Light feeder - drought tolerant',
+    nativeRegion: 'South America',
+    hardinesszones: ['10a', '10b'],
+    idealZones: ['10a', '10b']
+  },
+
+  // SUBTROPICAL ZONE CROPS
+
+  // Asian Subtropical Vegetables
+  'daikon': {
+    name: 'Daikon Radish',
+    family: 'brassicas',
+    region: 'East Asia',
+    climateZone: 'temperate-subtropical',
+    daysToMaturity: 70,
+    spacing: '6 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '50-65°F',
+    season: 'Cool season',
+    companions: ['Carrots', 'Lettuce', 'Spinach'],
+    antagonists: ['Hyssop'],
+    successionInterval: 21,
+    plantingTimes: ['Late summer', 'Fall', 'Winter'],
+    harvestTips: 'Harvest when roots are 6-8 inches long',
+    commonProblems: ['Flea beetles', 'Root maggots'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'East Asia',
+    hardinesszones: ['5a', '5b', '6a', '6b', '7a', '7b', '8a', '8b', '9a'],
+    idealZones: ['6a', '6b', '7a', '7b']
+  },
+
+  'bitter-melon': {
+    name: 'Bitter Melon (Bitter Gourd)',
+    family: 'cucurbitaceae',
+    region: 'Asia',
+    climateZone: 'subtropical-tropical',
+    daysToMaturity: 80,
+    spacing: '48 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '75-85°F',
+    season: 'Hot season',
+    companions: ['Beans', 'Corn', 'Nasturtiums'],
+    antagonists: ['Potatoes'],
+    successionInterval: null,
+    plantingTimes: ['Late spring', 'Early summer'],
+    harvestTips: 'Harvest when young and green',
+    commonProblems: ['Aphids', 'Cucumber beetles'],
+    nutrition: 'Heavy feeder',
+    nativeRegion: 'Asia',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a']
+  },
+
+  'yard-long-beans': {
+    name: 'Yard Long Beans (Snake Beans)',
+    family: 'legumes',
+    region: 'Southeast Asia',
+    climateZone: 'subtropical-tropical',
+    daysToMaturity: 70,
+    spacing: '12 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70-80°F',
+    season: 'Warm season',
+    companions: ['Corn', 'Squash', 'Cucumber'],
+    antagonists: ['Onions', 'Garlic'],
+    successionInterval: 21,
+    plantingTimes: ['Late spring', 'Summer'],
+    harvestTips: 'Harvest when pods are young and tender',
+    commonProblems: ['Bean beetles', 'Aphids'],
+    nutrition: 'Nitrogen fixer',
+    nativeRegion: 'Southeast Asia',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a']
+  },
+
+  // Mediterranean Crops
+  'eggplant': {
+    name: 'Eggplant (Aubergine)',
+    family: 'nightshades',
+    region: 'Mediterranean/Asia',
+    climateZone: 'subtropical-warm temperate',
+    daysToMaturity: 85,
+    spacing: '24 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '75-85°F',
+    season: 'Warm season',
+    companions: ['Tomatoes', 'Peppers', 'Basil'],
+    antagonists: ['Fennel'],
+    successionInterval: null,
+    plantingTimes: ['Late spring after soil warms'],
+    harvestTips: 'Harvest when skin is glossy',
+    commonProblems: ['Flea beetles', 'Colorado potato beetle'],
+    nutrition: 'Heavy feeder',
+    nativeRegion: 'India',
+    hardinesszones: ['7a', '7b', '8a', '8b', '9a', '9b', '10a'],
+    idealZones: ['8a', '8b', '9a', '9b']
+  },
+
+  // TEMPERATE ZONE CROPS
+
+  // European Classics
   'broccoli': {
     name: 'Broccoli',
     family: 'brassicas',
+    region: 'Mediterranean/Europe',
+    climateZone: 'temperate',
     daysToMaturity: 75,
     spacing: '18 inches',
     plantingDepth: '0.5 inches',
@@ -289,11 +634,17 @@ const CROP_DATABASE = {
     plantingTimes: ['Early spring', 'Late summer'],
     harvestTips: 'Cut central head, side shoots will develop',
     commonProblems: ['Cabbage worms', 'Aphids', 'Clubroot'],
-    nutrition: 'Heavy feeder - needs nitrogen-rich soil'
+    nutrition: 'Heavy feeder - needs nitrogen-rich soil',
+    nativeRegion: 'Mediterranean',
+    hardinesszones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b'],
+    idealZones: ['5a', '5b', '6a', '6b']
   },
+
   'cabbage': {
     name: 'Cabbage',
     family: 'brassicas',
+    region: 'Europe/Global',
+    climateZone: 'temperate',
     daysToMaturity: 90,
     spacing: '12-18 inches',
     plantingDepth: '0.5 inches',
@@ -310,6 +661,8 @@ const CROP_DATABASE = {
   'kale': {
     name: 'Kale',
     family: 'brassicas',
+    region: 'Mediterranean/Europe',
+    climateZone: 'temperate',
     daysToMaturity: 55,
     spacing: '12 inches',
     plantingDepth: '0.5 inches',
@@ -321,13 +674,292 @@ const CROP_DATABASE = {
     plantingTimes: ['Early spring', 'Late summer', 'Fall'],
     harvestTips: 'Pick outer leaves, center continues growing',
     commonProblems: ['Aphids', 'Flea beetles'],
-    nutrition: 'Medium feeder - tolerates poor soil'
+    nutrition: 'Medium feeder - tolerates poor soil',
+    nativeRegion: 'Mediterranean',
+    hardinesszones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['4a', '4b', '5a', '5b', '6a', '6b']
   },
 
-  // Nightshades
+  // COLD CLIMATE CROPS
+
+  'turnip': {
+    name: 'Turnip',
+    family: 'brassicas',
+    region: 'Northern Europe',
+    climateZone: 'cold-temperate',
+    daysToMaturity: 55,
+    spacing: '4 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '45-75°F',
+    season: 'Cool season',
+    companions: ['Peas', 'Beans', 'Carrots'],
+    antagonists: ['Potatoes'],
+    successionInterval: 21,
+    plantingTimes: ['Early spring', 'Late summer'],
+    harvestTips: 'Harvest when roots are 2-3 inches diameter',
+    commonProblems: ['Flea beetles', 'Root maggots'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Northern Europe',
+    hardinesszones: ['2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b'],
+    idealZones: ['3a', '3b', '4a', '4b', '5a']
+  },
+
+  'rutabaga': {
+    name: 'Rutabaga (Swede)',
+    family: 'brassicas',
+    region: 'Scandinavia',
+    climateZone: 'cold-temperate',
+    daysToMaturity: 90,
+    spacing: '8 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '45-65°F',
+    season: 'Cool season',
+    companions: ['Peas', 'Beans', 'Onions'],
+    antagonists: ['Tomatoes'],
+    successionInterval: null,
+    plantingTimes: ['Mid-summer for fall harvest'],
+    harvestTips: 'Harvest after first frost for sweetness',
+    commonProblems: ['Clubroot', 'Flea beetles'],
+    nutrition: 'Medium feeder',
+    nativeRegion: 'Scandinavia',
+    hardinesszones: ['2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a'],
+    idealZones: ['3a', '3b', '4a', '4b']
+  },
+
+  'parsnip': {
+    name: 'Parsnip',
+    family: 'umbellifers',
+    region: 'Northern Europe',
+    climateZone: 'cold-temperate',
+    daysToMaturity: 120,
+    spacing: '4 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '50-70°F',
+    season: 'Cool season',
+    companions: ['Carrots', 'Radishes', 'Onions'],
+    antagonists: ['Carrots (competition)'],
+    successionInterval: null,
+    plantingTimes: ['Early spring'],
+    harvestTips: 'Harvest after frost improves flavor',
+    commonProblems: ['Carrot fly', 'Canker'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Northern Europe',
+    hardinesszones: ['2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b'],
+    idealZones: ['3a', '3b', '4a', '4b', '5a']
+  },
+
+  // SOUTH AMERICAN CROPS
+
+  'quinoa': {
+    name: 'Quinoa',
+    family: 'amaranthaceae',
+    region: 'Andes',
+    climateZone: 'high-altitude-temperate',
+    daysToMaturity: 120,
+    spacing: '12 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '60-70°F',
+    season: 'Cool season',
+    companions: ['Beans', 'Corn', 'Potatoes'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Late spring'],
+    harvestTips: 'Harvest when seeds rub off easily',
+    commonProblems: ['Birds', 'Aphids'],
+    nutrition: 'Light feeder - drought tolerant',
+    nativeRegion: 'Bolivian Andes',
+    hardinesszones: ['4a', '4b', '5a', '5b', '6a', '6b', '7a'],
+    idealZones: ['5a', '5b', '6a', '6b']
+  },
+
+  'oca': {
+    name: 'Oca (Wood Sorrel)',
+    family: 'oxalidaceae',
+    region: 'Andes',
+    climateZone: 'high-altitude-temperate',
+    daysToMaturity: 150,
+    spacing: '12 inches',
+    plantingDepth: '3 inches',
+    soilTemp: '55-65°F',
+    season: 'Cool season',
+    companions: ['Potatoes', 'Quinoa', 'Beans'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Spring after frost danger'],
+    harvestTips: 'Harvest tubers after foliage dies back',
+    commonProblems: ['Colorado potato beetle'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Andes Mountains',
+    hardinesszones: ['6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['6a', '6b', '7a', '7b']
+  },
+
+  // NORTH AMERICAN INDIGENOUS CROPS
+
+  'jerusalem-artichoke': {
+    name: 'Jerusalem Artichoke (Sunchoke)',
+    family: 'asteraceae',
+    region: 'North America',
+    climateZone: 'temperate',
+    daysToMaturity: 120,
+    spacing: '18 inches',
+    plantingDepth: '4 inches',
+    soilTemp: '50-70°F',
+    season: 'Full season',
+    companions: ['Corn', 'Beans', 'Squash'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Early spring'],
+    harvestTips: 'Harvest tubers after first frost',
+    commonProblems: ['Can become invasive'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Eastern North America',
+    hardinesszones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['4a', '4b', '5a', '5b', '6a', '6b']
+  },
+
+  'tepary-beans': {
+    name: 'Tepary Beans',
+    family: 'legumes',
+    region: 'Southwestern North America',
+    climateZone: 'arid-hot',
+    daysToMaturity: 90,
+    spacing: '6 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70-85°F',
+    season: 'Hot season',
+    companions: ['Corn', 'Squash', 'Amaranth'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Late spring'],
+    harvestTips: 'Harvest when pods are dry',
+    commonProblems: ['Bean beetles'],
+    nutrition: 'Nitrogen fixer - drought tolerant',
+    nativeRegion: 'Sonoran Desert',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a'],
+    idealZones: ['9a', '9b', '10a']
+  },
+
+  // MIDDLE EASTERN CROPS
+
+  'za-atar': {
+    name: 'Za\'atar (Wild Thyme)',
+    family: 'herbs',
+    region: 'Middle East',
+    climateZone: 'mediterranean-arid',
+    daysToMaturity: 75,
+    spacing: '12 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '65-75°F',
+    season: 'Cool to warm season',
+    companions: ['Rosemary', 'Oregano', 'Lavender'],
+    antagonists: ['None known'],
+    successionInterval: 21,
+    plantingTimes: ['Spring', 'Fall'],
+    harvestTips: 'Harvest leaves before flowering',
+    commonProblems: ['Root rot in wet conditions'],
+    nutrition: 'Light feeder - drought tolerant',
+    nativeRegion: 'Eastern Mediterranean',
+    hardinesszones: ['7a', '7b', '8a', '8b', '9a', '9b'],
+    idealZones: ['8a', '8b', '9a', '9b']
+  },
+
+  'fava-beans': {
+    name: 'Fava Beans (Broad Beans)',
+    family: 'legumes',
+    region: 'Mediterranean/Middle East',
+    climateZone: 'cool-temperate',
+    daysToMaturity: 85,
+    spacing: '8 inches',
+    plantingDepth: '2 inches',
+    soilTemp: '50-65°F',
+    season: 'Cool season',
+    companions: ['Cabbage', 'Potatoes', 'Corn'],
+    antagonists: ['Onions', 'Garlic'],
+    successionInterval: null,
+    plantingTimes: ['Early spring', 'Fall in mild climates'],
+    harvestTips: 'Harvest when pods are plump but tender',
+    commonProblems: ['Aphids', 'Chocolate spot'],
+    nutrition: 'Nitrogen fixer',
+    nativeRegion: 'Mediterranean',
+    hardinesszones: ['4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['5a', '5b', '6a', '6b', '7a']
+  },
+
+  // AFRICAN CROPS
+
+  'cowpeas': {
+    name: 'Cowpeas (Black-eyed Peas)',
+    family: 'legumes',
+    region: 'West Africa',
+    climateZone: 'tropical-subtropical',
+    daysToMaturity: 75,
+    spacing: '6 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70-85°F',
+    season: 'Hot season',
+    companions: ['Corn', 'Sorghum', 'Millet'],
+    antagonists: ['None known'],
+    successionInterval: 21,
+    plantingTimes: ['Late spring', 'Summer'],
+    harvestTips: 'Harvest young pods as vegetables or mature for beans',
+    commonProblems: ['Aphids', 'Pod borers'],
+    nutrition: 'Nitrogen fixer',
+    nativeRegion: 'West Africa',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a', '10b']
+  },
+
+  'moringa': {
+    name: 'Moringa (Drumstick Tree)',
+    family: 'moringaceae',
+    region: 'Africa/Asia',
+    climateZone: 'tropical-subtropical',
+    daysToMaturity: 120,
+    spacing: '10 feet',
+    plantingDepth: '1 inch',
+    soilTemp: '75-85°F',
+    season: 'Year-round in tropics',
+    companions: ['Legumes', 'Grasses', 'Most vegetables'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Beginning of rainy season'],
+    harvestTips: 'Harvest young leaves and pods regularly',
+    commonProblems: ['Termites', 'Aphids'],
+    nutrition: 'Light feeder - drought tolerant',
+    nativeRegion: 'Northern Africa/India',
+    hardinesszones: ['9b', '10a', '10b'],
+    idealZones: ['10a', '10b']
+  },
+
+  'teff': {
+    name: 'Teff',
+    family: 'poaceae',
+    region: 'Ethiopia',
+    climateZone: 'high-altitude-tropical',
+    daysToMaturity: 100,
+    spacing: 'Broadcast seed',
+    plantingDepth: '0.125 inches',
+    soilTemp: '60-75°F',
+    season: 'Warm season',
+    companions: ['Legumes', 'Other grains'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Late spring'],
+    harvestTips: 'Harvest when seeds shatter easily',
+    commonProblems: ['Birds', 'Lodging'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Ethiopian Highlands',
+    hardinesszones: ['7a', '7b', '8a', '8b', '9a', '9b'],
+    idealZones: ['8a', '8b', '9a', '9b']
+  },
+
+  // NIGHTSHADES CONTINUED
   'tomatoes': {
     name: 'Tomatoes',
     family: 'nightshades',
+    region: 'South America/Global',
+    climateZone: 'warm-temperate-subtropical',
     daysToMaturity: 80,
     spacing: '24-36 inches',
     plantingDepth: '0.25 inches',
@@ -339,11 +971,17 @@ const CROP_DATABASE = {
     plantingTimes: ['Late spring after frost'],
     harvestTips: 'Pick when fully colored but still firm',
     commonProblems: ['Hornworms', 'Blight', 'Blossom end rot'],
-    nutrition: 'Heavy feeder - needs consistent watering'
+    nutrition: 'Heavy feeder - consistent watering needed',
+    nativeRegion: 'Andes Mountains',
+    hardinesszones: ['6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b', '10a'],
+    idealZones: ['7a', '7b', '8a', '8b', '9a']
   },
+
   'peppers': {
     name: 'Peppers',
     family: 'nightshades',
+    region: 'Central America/Global',
+    climateZone: 'warm-temperate-subtropical',
     daysToMaturity: 75,
     spacing: '18 inches',
     plantingDepth: '0.25 inches',
@@ -355,115 +993,65 @@ const CROP_DATABASE = {
     plantingTimes: ['Late spring after soil warms'],
     harvestTips: 'Harvest green or wait for full color',
     commonProblems: ['Aphids', 'Cutworms', 'Bacterial spot'],
-    nutrition: 'Heavy feeder - loves warm, rich soil'
+    nutrition: 'Heavy feeder - loves warm, rich soil',
+    nativeRegion: 'Central America',
+    hardinesszones: ['6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b', '10a'],
+    idealZones: ['7a', '7b', '8a', '8b', '9a']
   },
 
-  // Legumes
-  'green-beans': {
-    name: 'Green Beans',
-    family: 'legumes',
-    daysToMaturity: 55,
-    spacing: '6 inches',
+  // ASIAN TROPICAL HERBS AND AROMATICS
+
+  'lemongrass': {
+    name: 'Lemongrass',
+    family: 'herbs',
+    region: 'Southeast Asia',
+    climateZone: 'tropical-subtropical',
+    daysToMaturity: 90,
+    spacing: '24 inches',
     plantingDepth: '1 inch',
-    soilTemp: '70°F',
+    soilTemp: '70-85°F',
     season: 'Warm season',
-    companions: ['Corn', 'Carrots', 'Radishes', 'Cucumber'],
-    antagonists: ['Onions', 'Garlic'],
-    successionInterval: 14,
-    plantingTimes: ['Late spring through mid-summer'],
-    harvestTips: 'Pick regularly to keep plants producing',
-    commonProblems: ['Bean beetles', 'Rust'],
-    nutrition: 'Nitrogen fixer - improves soil'
-  },
-  'peas': {
-    name: 'Peas',
-    family: 'legumes',
-    daysToMaturity: 65,
-    spacing: '4 inches',
-    plantingDepth: '1-2 inches',
-    soilTemp: '45-55°F',
-    season: 'Cool season',
-    companions: ['Carrots', 'Radishes', 'Lettuce'],
-    antagonists: ['Onions', 'Garlic'],
-    successionInterval: 10,
-    plantingTimes: ['Early spring', 'Late summer'],
-    harvestTips: 'Harvest snap peas when pods are plump',
-    commonProblems: ['Aphids', 'Powdery mildew'],
-    nutrition: 'Nitrogen fixer - enriches soil for next crop'
+    companions: ['Citrus', 'Most vegetables', 'Other herbs'],
+    antagonists: ['None known'],
+    successionInterval: null,
+    plantingTimes: ['Spring after frost danger'],
+    harvestTips: 'Cut stalks near base when 12 inches tall',
+    commonProblems: ['Rust', 'Leaf spot'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Southeast Asia',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a', '10b']
   },
 
-  // Cucurbits
-  'cucumbers': {
-    name: 'Cucumbers',
-    family: 'cucurbits',
+  'thai-basil': {
+    name: 'Thai Basil',
+    family: 'herbs',
+    region: 'Southeast Asia',
+    climateZone: 'tropical-subtropical',
     daysToMaturity: 60,
-    spacing: '36 inches',
-    plantingDepth: '1 inch',
-    soilTemp: '70°F',
+    spacing: '12 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '70-80°F',
     season: 'Warm season',
-    companions: ['Beans', 'Corn', 'Radishes'],
-    antagonists: ['Aromatic herbs'],
+    companions: ['Tomatoes', 'Peppers', 'Eggplant'],
+    antagonists: ['Rue'],
     successionInterval: 21,
-    plantingTimes: ['Late spring after soil warms'],
-    harvestTips: 'Pick daily when 6-8 inches long',
-    commonProblems: ['Cucumber beetles', 'Powdery mildew'],
-    nutrition: 'Heavy feeder - needs rich, well-drained soil'
-  },
-  'zucchini': {
-    name: 'Zucchini',
-    family: 'cucurbits',
-    daysToMaturity: 55,
-    spacing: '48 inches',
-    plantingDepth: '1 inch',
-    soilTemp: '70°F',
-    season: 'Warm season',
-    companions: ['Beans', 'Corn', 'Nasturtiums'],
-    antagonists: ['Potatoes'],
-    successionInterval: 28,
-    plantingTimes: ['Late spring through early summer'],
-    harvestTips: 'Harvest when 6-8 inches for best flavor',
-    commonProblems: ['Squash bugs', 'Vine borers'],
-    nutrition: 'Heavy feeder - benefits from compost'
+    plantingTimes: ['Late spring', 'Summer'],
+    harvestTips: 'Pinch flowers to keep leaves tender',
+    commonProblems: ['Aphids', 'Japanese beetles'],
+    nutrition: 'Light to medium feeder',
+    nativeRegion: 'Southeast Asia',
+    hardinesszones: ['8a', '8b', '9a', '9b', '10a', '10b'],
+    idealZones: ['9a', '9b', '10a']
   },
 
-  // Alliums
-  'onions': {
-    name: 'Onions',
-    family: 'alliums',
-    daysToMaturity: 110,
-    spacing: '4-6 inches',
-    plantingDepth: '1 inch',
-    soilTemp: '55°F',
-    season: 'Cool season',
-    companions: ['Tomatoes', 'Carrots', 'Brassicas'],
-    antagonists: ['Beans', 'Peas'],
-    successionInterval: null,
-    plantingTimes: ['Early spring', 'Fall for overwintering'],
-    harvestTips: 'Harvest when tops begin to fall over',
-    commonProblems: ['Onion maggots', 'Thrips'],
-    nutrition: 'Light feeder - grows in poor soil'
-  },
-  'garlic': {
-    name: 'Garlic',
-    family: 'alliums',
-    daysToMaturity: 240,
-    spacing: '6 inches',
-    plantingDepth: '2 inches',
-    soilTemp: '60°F',
-    season: 'Fall planted',
-    companions: ['Tomatoes', 'Roses', 'Fruit trees'],
-    antagonists: ['Beans', 'Peas'],
-    successionInterval: null,
-    plantingTimes: ['Fall for spring harvest'],
-    harvestTips: 'Harvest when lower leaves turn brown',
-    commonProblems: ['White rot', 'Nematodes'],
-    nutrition: 'Light feeder - prefers well-drained soil'
-  },
+  // MORE TRADITIONAL CROPS UPDATED
 
-  // Umbellifers
   'carrots': {
     name: 'Carrots',
     family: 'umbellifers',
+    region: 'Central Asia/Global',
+    climateZone: 'temperate',
     daysToMaturity: 75,
     spacing: '2 inches',
     plantingDepth: '0.25 inches',
@@ -475,13 +1063,17 @@ const CROP_DATABASE = {
     plantingTimes: ['Early spring through late summer'],
     harvestTips: 'Harvest when 3/4 inch diameter at top',
     commonProblems: ['Carrot fly', 'Wireworms'],
-    nutrition: 'Light feeder - loose, deep soil preferred'
+    nutrition: 'Light feeder - loose, deep soil preferred',
+    nativeRegion: 'Central Asia',
+    hardinesszones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['4a', '4b', '5a', '5b', '6a', '6b']
   },
 
-  // Leafy Greens
   'lettuce': {
     name: 'Lettuce',
     family: 'leafy-greens',
+    region: 'Mediterranean/Global',
+    climateZone: 'temperate',
     daysToMaturity: 45,
     spacing: '8 inches',
     plantingDepth: '0.25 inches',
@@ -493,11 +1085,17 @@ const CROP_DATABASE = {
     plantingTimes: ['Early spring through fall'],
     harvestTips: 'Cut outer leaves or whole head',
     commonProblems: ['Aphids', 'Slugs', 'Bolt in heat'],
-    nutrition: 'Light feeder - consistent moisture needed'
+    nutrition: 'Light feeder - consistent moisture needed',
+    nativeRegion: 'Mediterranean',
+    hardinesszones: ['2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['4a', '4b', '5a', '5b', '6a', '6b']
   },
+
   'spinach': {
     name: 'Spinach',
     family: 'leafy-greens',
+    region: 'Central Asia/Global',
+    climateZone: 'temperate',
     daysToMaturity: 40,
     spacing: '6 inches',
     plantingDepth: '0.5 inches',
@@ -509,7 +1107,254 @@ const CROP_DATABASE = {
     plantingTimes: ['Early spring', 'Late summer'],
     harvestTips: 'Cut outer leaves, center keeps growing',
     commonProblems: ['Leafminers', 'Downy mildew'],
-    nutrition: 'Medium feeder - needs nitrogen'
+    nutrition: 'Medium feeder - needs nitrogen',
+    nativeRegion: 'Central Asia',
+    hardinesszones: ['2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b'],
+    idealZones: ['3a', '3b', '4a', '4b', '5a', '5b']
+  },
+
+  'green-beans': {
+    name: 'Green Beans',
+    family: 'legumes',
+    region: 'Central America/Global',
+    climateZone: 'warm-temperate',
+    daysToMaturity: 55,
+    spacing: '6 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70°F',
+    season: 'Warm season',
+    companions: ['Corn', 'Carrots', 'Radishes', 'Cucumber'],
+    antagonists: ['Onions', 'Garlic'],
+    successionInterval: 14,
+    plantingTimes: ['Late spring through mid-summer'],
+    harvestTips: 'Pick regularly to keep plants producing',
+    commonProblems: ['Bean beetles', 'Rust'],
+    nutrition: 'Nitrogen fixer - improves soil',
+    nativeRegion: 'Central America',
+    hardinesszones: ['4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a', '8b', '9a'],
+    idealZones: ['5a', '5b', '6a', '6b', '7a', '7b']
+  },
+
+  'peas': {
+    name: 'Peas',
+    family: 'legumes',
+    region: 'Mediterranean/Global',
+    climateZone: 'temperate',
+    daysToMaturity: 65,
+    spacing: '4 inches',
+    plantingDepth: '1-2 inches',
+    soilTemp: '45-55°F',
+    season: 'Cool season',
+    companions: ['Carrots', 'Radishes', 'Lettuce'],
+    antagonists: ['Onions', 'Garlic'],
+    successionInterval: 10,
+    plantingTimes: ['Early spring', 'Late summer'],
+    harvestTips: 'Harvest snap peas when pods are plump',
+    commonProblems: ['Aphids', 'Powdery mildew'],
+    nutrition: 'Nitrogen fixer - enriches soil for next crop',
+    nativeRegion: 'Mediterranean',
+    hardinesszones: ['2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a'],
+    idealZones: ['3a', '3b', '4a', '4b', '5a', '5b']
+  },
+
+  'cucumbers': {
+    name: 'Cucumbers',
+    family: 'cucurbits',
+    region: 'South Asia/Global',
+    climateZone: 'warm-temperate-subtropical',
+    daysToMaturity: 60,
+    spacing: '36 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70°F',
+    season: 'Warm season',
+    companions: ['Beans', 'Corn', 'Radishes'],
+    antagonists: ['Aromatic herbs'],
+    successionInterval: 21,
+    plantingTimes: ['Late spring after soil warms'],
+    harvestTips: 'Pick daily when 6-8 inches long',
+    commonProblems: ['Cucumber beetles', 'Powdery mildew'],
+    nutrition: 'Heavy feeder - needs rich, well-drained soil',
+    nativeRegion: 'Northern India',
+    hardinesszones: ['5a', '5b', '6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b'],
+    idealZones: ['6a', '6b', '7a', '7b', '8a', '8b']
+  },
+
+  'zucchini': {
+    name: 'Zucchini',
+    family: 'cucurbits',
+    region: 'Central America/Global',
+    climateZone: 'warm-temperate-subtropical',
+    daysToMaturity: 55,
+    spacing: '48 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '70°F',
+    season: 'Warm season',
+    companions: ['Beans', 'Corn', 'Nasturtiums'],
+    antagonists: ['Potatoes'],
+    successionInterval: 28,
+    plantingTimes: ['Late spring through early summer'],
+    harvestTips: 'Harvest when 6-8 inches for best flavor',
+    commonProblems: ['Squash bugs', 'Vine borers'],
+    nutrition: 'Heavy feeder - benefits from compost',
+    nativeRegion: 'Central America',
+    hardinesszones: ['5a', '5b', '6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b'],
+    idealZones: ['6a', '6b', '7a', '7b', '8a', '8b']
+  },
+
+  'onions': {
+    name: 'Onions',
+    family: 'alliums',
+    region: 'Central Asia/Global',
+    climateZone: 'temperate',
+    daysToMaturity: 110,
+    spacing: '4-6 inches',
+    plantingDepth: '1 inch',
+    soilTemp: '55°F',
+    season: 'Cool season',
+    companions: ['Tomatoes', 'Carrots', 'Brassicas'],
+    antagonists: ['Beans', 'Peas'],
+    successionInterval: null,
+    plantingTimes: ['Early spring', 'Fall for overwintering'],
+    harvestTips: 'Harvest when tops begin to fall over',
+    commonProblems: ['Onion maggots', 'Thrips'],
+    nutrition: 'Light feeder - grows in poor soil',
+    nativeRegion: 'Central Asia',
+    hardinesszones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a', '8b'],
+    idealZones: ['4a', '4b', '5a', '5b', '6a', '6b']
+  },
+
+  'garlic': {
+    name: 'Garlic',
+    family: 'alliums',
+    region: 'Central Asia/Global',
+    climateZone: 'temperate',
+    daysToMaturity: 240,
+    spacing: '6 inches',
+    plantingDepth: '2 inches',
+    soilTemp: '60°F',
+    season: 'Fall planted',
+    companions: ['Tomatoes', 'Roses', 'Fruit trees'],
+    antagonists: ['Beans', 'Peas'],
+    successionInterval: null,
+    plantingTimes: ['Fall for spring harvest'],
+    harvestTips: 'Harvest when lower leaves turn brown',
+    commonProblems: ['White rot', 'Nematodes'],
+    nutrition: 'Light feeder - prefers well-drained soil',
+    nativeRegion: 'Central Asia',
+    hardinesszones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['4a', '4b', '5a', '5b', '6a', '6b']
+  },
+
+  'radishes': {
+    name: 'Radishes',
+    family: 'brassicas',
+    region: 'Southeast Asia/Global',
+    climateZone: 'temperate',
+    daysToMaturity: 30,
+    spacing: '1 inch',
+    plantingDepth: '0.5 inches',
+    soilTemp: '50-65°F',
+    season: 'Cool season',
+    companions: ['Carrots', 'Spinach', 'Lettuce'],
+    antagonists: ['Hyssop'],
+    successionInterval: 7,
+    plantingTimes: ['Early spring through fall'],
+    harvestTips: 'Harvest when roots are 1 inch diameter',
+    commonProblems: ['Flea beetles', 'Root maggots'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Southeast Asia',
+    hardinesszones: ['2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a']
+  },
+
+  'basil': {
+    name: 'Basil',
+    family: 'herbs',
+    region: 'India/Global',
+    climateZone: 'warm-temperate-subtropical',
+    daysToMaturity: 65,
+    spacing: '12 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '70-80°F',
+    season: 'Warm season',
+    companions: ['Tomatoes', 'Peppers', 'Oregano'],
+    antagonists: ['Rue', 'Sage'],
+    successionInterval: 21,
+    plantingTimes: ['Late spring', 'Summer'],
+    harvestTips: 'Pinch flowers to keep leaves tender',
+    commonProblems: ['Aphids', 'Japanese beetles'],
+    nutrition: 'Light to medium feeder',
+    nativeRegion: 'Tropical Asia',
+    hardinesszones: ['6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b', '10a'],
+    idealZones: ['7a', '7b', '8a', '8b', '9a']
+  },
+
+  // EUROPEAN SPECIALTY CROPS
+
+  'fennel': {
+    name: 'Fennel (Florence)',
+    family: 'umbellifers',
+    region: 'Mediterranean',
+    climateZone: 'mediterranean-temperate',
+    daysToMaturity: 85,
+    spacing: '12 inches',
+    plantingDepth: '0.5 inches',
+    soilTemp: '60-70°F',
+    season: 'Cool season',
+    companions: ['Dill', 'Coriander'],
+    antagonists: ['Tomatoes', 'Beans', 'Most vegetables'],
+    successionInterval: null,
+    plantingTimes: ['Late summer for fall harvest'],
+    harvestTips: 'Harvest bulb when tennis ball size',
+    commonProblems: ['Aphids', 'Carrot fly'],
+    nutrition: 'Medium feeder',
+    nativeRegion: 'Mediterranean',
+    hardinesszones: ['6a', '6b', '7a', '7b', '8a', '8b', '9a'],
+    idealZones: ['7a', '7b', '8a', '8b']
+  },
+
+  'radicchio': {
+    name: 'Radicchio',
+    family: 'leafy-greens',
+    region: 'Northern Italy',
+    climateZone: 'temperate',
+    daysToMaturity: 85,
+    spacing: '8 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '60-65°F',
+    season: 'Cool season',
+    companions: ['Lettuce', 'Endive', 'Carrots'],
+    antagonists: ['None known'],
+    successionInterval: 21,
+    plantingTimes: ['Mid-summer for fall harvest'],
+    harvestTips: 'Cold weather improves color and flavor',
+    commonProblems: ['Aphids', 'Tipburn'],
+    nutrition: 'Medium feeder',
+    nativeRegion: 'Northern Italy',
+    hardinesszones: ['4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b'],
+    idealZones: ['5a', '5b', '6a', '6b']
+  },
+
+  'arugula': {
+    name: 'Arugula (Rocket)',
+    family: 'brassicas',
+    region: 'Mediterranean',
+    climateZone: 'temperate',
+    daysToMaturity: 35,
+    spacing: '6 inches',
+    plantingDepth: '0.25 inches',
+    soilTemp: '50-65°F',
+    season: 'Cool season',
+    companions: ['Lettuce', 'Spinach', 'Carrots'],
+    antagonists: ['None known'],
+    successionInterval: 7,
+    plantingTimes: ['Early spring', 'Late summer', 'Fall'],
+    harvestTips: 'Harvest young leaves before flowering',
+    commonProblems: ['Flea beetles'],
+    nutrition: 'Light feeder',
+    nativeRegion: 'Mediterranean',
+    hardinesszones: ['3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b', '7a', '7b', '8a'],
+    idealZones: ['4a', '4b', '5a', '5b', '6a', '6b']
   }
 };
 
@@ -519,6 +1364,8 @@ export default function AdvancedCropRotationCalculator() {
   const [selectedCropDetail, setSelectedCropDetail] = useState<string | null>(null);
   const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
   const [cropSearchTerm, setCropSearchTerm] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState<string>('all');
+  const [selectedClimateZone, setSelectedClimateZone] = useState<string>('all');
   const [gardenBeds, setGardenBeds] = useState([
     { id: 1, name: 'Bed 1', size: 100, currentCrop: '', year: 1 },
     { id: 2, name: 'Bed 2', size: 100, currentCrop: '', year: 1 },
@@ -529,6 +1376,7 @@ export default function AdvancedCropRotationCalculator() {
   const [selectedCrop, setSelectedCrop] = useState('lettuce');
   const [plantingDate, setPlantingDate] = useState('');
   const [gardenZone, setGardenZone] = useState('6a');
+  const [gardenType, setGardenType] = useState('traditional');
   const [soilAmendment, setSoilAmendment] = useState('compost');
   const [amendmentArea, setAmendmentArea] = useState(100);
   const [showCompanions, setShowCompanions] = useState(false);
@@ -548,10 +1396,23 @@ export default function AdvancedCropRotationCalculator() {
   };
 
   const getFilteredCrops = () => {
-    return Object.entries(CROP_DATABASE).filter(([key, crop]) =>
-      crop.name.toLowerCase().includes(cropSearchTerm.toLowerCase()) ||
-      crop.family.toLowerCase().includes(cropSearchTerm.toLowerCase())
-    );
+    return Object.entries(CROP_DATABASE).filter(([key, crop]) => {
+      // Text search filter
+      const matchesSearch = crop.name.toLowerCase().includes(cropSearchTerm.toLowerCase()) ||
+                           crop.family.toLowerCase().includes(cropSearchTerm.toLowerCase()) ||
+                           ((crop as any).region && (crop as any).region.toLowerCase().includes(cropSearchTerm.toLowerCase()));
+
+      // Region filter
+      const matchesRegion = selectedRegion === 'all' ||
+                           ((crop as any).region && (crop as any).region.toLowerCase().includes(selectedRegion.toLowerCase()));
+
+      // Climate zone filter
+      const matchesClimate = selectedClimateZone === 'all' ||
+                             ((crop as any).climateZone && (crop as any).climateZone.toLowerCase().includes(selectedClimateZone.toLowerCase())) ||
+                             ((crop as any).hardinesszones && (crop as any).hardinesszones.includes(gardenZone));
+
+      return matchesSearch && matchesRegion && matchesClimate;
+    });
   };
 
   const generateCropRotationPlan = () => {
@@ -607,15 +1468,38 @@ export default function AdvancedCropRotationCalculator() {
     const plan = ROTATION_PLANS[rotationYears as keyof typeof ROTATION_PLANS];
     if (!plan) return [];
 
+    const zoneData = HARDINESS_ZONES[gardenZone as keyof typeof HARDINESS_ZONES];
+    const gardenTypeData = GARDEN_TYPES[gardenType as keyof typeof GARDEN_TYPES];
+
     return gardenBeds.map(bed => {
       const schedule = [];
       for (let year = 0; year < rotationYears; year++) {
         const yearIndex = (bed.id - 1 + year) % rotationYears;
         const yearData = plan.schedule[yearIndex];
+
+        // Generate zone and garden type specific recommendations
+        const recommendations = [];
+
+        if (zoneData) {
+          recommendations.push(`Growing season: ${zoneData.growingSeason} days`);
+          recommendations.push(`Last frost: ${zoneData.lastFrost}`);
+          if (zoneData.firstFrost !== 'No frost') {
+            recommendations.push(`First frost: ${zoneData.firstFrost}`);
+          }
+        }
+
+        if (gardenTypeData) {
+          recommendations.push(`Spacing: ${gardenTypeData.spacing}`);
+          recommendations.push(`Efficiency: ${gardenTypeData.efficiency}`);
+        }
+
         schedule.push({
           year: year + 1,
           crops: yearData.crops,
-          focus: yearData.focus
+          focus: yearData.focus,
+          zoneInfo: zoneData,
+          gardenInfo: gardenTypeData,
+          recommendations: recommendations
         });
       }
       return { ...bed, schedule };
@@ -641,35 +1525,40 @@ export default function AdvancedCropRotationCalculator() {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-6">
-          <div className="flex bg-muted rounded-lg p-1">
+          <div className="inline-flex bg-muted rounded-lg p-1 gap-1">
             {[
               {
                 id: 'planner',
                 label: 'Rotation Planner',
+                shortLabel: 'Rotation',
                 icon: Calendar,
                 tooltip: 'Plan multi-year crop rotations by plant families and garden beds'
               },
               {
                 id: 'crops',
                 label: 'Crop Selection',
+                shortLabel: 'Crops',
                 icon: Sprout,
                 tooltip: 'Choose specific vegetables and get detailed growing information'
               },
               {
                 id: 'families',
                 label: 'Plant Families',
+                shortLabel: 'Families',
                 icon: Leaf,
                 tooltip: 'Learn about plant families and their rotation requirements'
               },
               {
                 id: 'succession',
                 label: 'Succession',
+                shortLabel: 'Succession',
                 icon: Clock,
                 tooltip: 'Calculate succession planting schedules for continuous harvests'
               },
               {
                 id: 'soil',
                 label: 'Soil Calculator',
+                shortLabel: 'Soil',
                 icon: Calculator,
                 tooltip: 'Calculate soil amendments and cover crop requirements'
               }
@@ -678,14 +1567,17 @@ export default function AdvancedCropRotationCalculator() {
                 <button
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-md transition-all",
+                    "flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-all min-w-[80px] sm:min-w-[120px]",
                     activeTab === tab.id
                       ? "bg-background text-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-background/50"
                   )}
                 >
-                  <tab.icon className="h-4 w-4" />
-                  {tab.label}
+                  <tab.icon className="h-4 w-4 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-center leading-tight">
+                    <span className="hidden sm:inline">{tab.label}</span>
+                    <span className="sm:hidden">{tab.shortLabel}</span>
+                  </span>
                 </button>
               </Tooltip>
             ))}
@@ -717,7 +1609,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={rotationYears}
                   onChange={(e) => setRotationYears(Number(e.target.value))}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
                 >
                   <option value={3}>3-Year Rotation (Basic)</option>
                   <option value={4}>4-Year Rotation (Recommended)</option>
@@ -735,7 +1627,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={gardenZone}
                   onChange={(e) => setGardenZone(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
                 >
                   <option value="3a">Zone 3a (-40 to -35°F)</option>
                   <option value="3b">Zone 3b (-35 to -30°F)</option>
@@ -763,7 +1655,11 @@ export default function AdvancedCropRotationCalculator() {
                     <HelpCircle className="h-3 w-3 text-muted-foreground" />
                   </Tooltip>
                 </label>
-                <select className="w-full p-3 border rounded-lg bg-background relative z-10">
+                <select
+                  value={gardenType}
+                  onChange={(e) => setGardenType(e.target.value)}
+                  className="w-full p-3 border rounded-lg bg-background text-foreground relative z-10"
+                >
                   <option value="traditional">Traditional Rows</option>
                   <option value="raised">Raised Beds</option>
                   <option value="container">Container Garden</option>
@@ -771,6 +1667,36 @@ export default function AdvancedCropRotationCalculator() {
                 </select>
               </div>
             </div>
+
+            {/* Zone & Garden Type Summary */}
+            {(gardenZone !== '6a' || gardenType !== 'traditional') && (
+              <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-semibold flex items-center gap-2 mb-2">
+                      <span className="text-blue-600">🌡️</span>
+                      Zone {gardenZone}
+                    </h4>
+                    <div className="text-sm space-y-1">
+                      <div>Last Frost: {HARDINESS_ZONES[gardenZone as keyof typeof HARDINESS_ZONES]?.lastFrost}</div>
+                      <div>First Frost: {HARDINESS_ZONES[gardenZone as keyof typeof HARDINESS_ZONES]?.firstFrost}</div>
+                      <div>Growing Season: {HARDINESS_ZONES[gardenZone as keyof typeof HARDINESS_ZONES]?.growingSeason} days</div>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold flex items-center gap-2 mb-2">
+                      <span className="text-green-600">🌱</span>
+                      {GARDEN_TYPES[gardenType as keyof typeof GARDEN_TYPES]?.name}
+                    </h4>
+                    <div className="text-sm space-y-1">
+                      <div>Spacing: {GARDEN_TYPES[gardenType as keyof typeof GARDEN_TYPES]?.spacing}</div>
+                      <div>Efficiency: {GARDEN_TYPES[gardenType as keyof typeof GARDEN_TYPES]?.efficiency}</div>
+                      <div className="text-muted-foreground">{GARDEN_TYPES[gardenType as keyof typeof GARDEN_TYPES]?.description}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Rotation Schedule */}
@@ -789,11 +1715,8 @@ export default function AdvancedCropRotationCalculator() {
 
                   <div className="space-y-2">
                     {bed.schedule.map((year, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
-                      >
-                        <div className="flex items-center gap-3">
+                      <div key={index} className="p-3 rounded-lg bg-muted/50 border">
+                        <div className="flex items-center gap-3 mb-2">
                           <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium">
                             {year.year}
                           </div>
@@ -802,6 +1725,21 @@ export default function AdvancedCropRotationCalculator() {
                             <div className="text-sm text-muted-foreground">{year.focus}</div>
                           </div>
                         </div>
+
+                        {/* Zone and Garden Type Recommendations */}
+                        {year.recommendations && year.recommendations.length > 0 && (
+                          <div className="mt-3 pt-2 border-t border-muted">
+                            <div className="text-xs font-medium text-muted-foreground mb-1">Zone & Garden Tips:</div>
+                            <div className="text-xs space-y-1">
+                              {year.recommendations.map((rec, recIndex) => (
+                                <div key={recIndex} className="flex items-center gap-1">
+                                  <div className="w-1 h-1 bg-primary rounded-full flex-shrink-0" />
+                                  <span>{rec}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -872,8 +1810,91 @@ export default function AdvancedCropRotationCalculator() {
                 placeholder="Search crops by name or family..."
                 value={cropSearchTerm}
                 onChange={(e) => setCropSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border rounded-lg bg-background"
+                className="w-full pl-10 pr-4 py-3 border rounded-lg bg-background text-foreground"
               />
+            </div>
+
+            {/* Region and Climate Zone Filters */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Filter by Region
+                  <Tooltip content="Filter crops by their native region or where they grow best">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
+                <select
+                  value={selectedRegion}
+                  onChange={(e) => setSelectedRegion(e.target.value)}
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
+                >
+                  <option value="all">All Regions</option>
+                  <option value="southeast asia">Southeast Asia</option>
+                  <option value="africa">Africa</option>
+                  <option value="europe">Europe</option>
+                  <option value="mediterranean">Mediterranean</option>
+                  <option value="south america">South America</option>
+                  <option value="central america">Central America</option>
+                  <option value="south asia">South Asia</option>
+                  <option value="global">Global/Worldwide</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2 flex items-center gap-2">
+                  Filter by Climate Zone
+                  <Tooltip content="Filter crops by their preferred climate conditions">
+                    <HelpCircle className="h-3 w-3 text-muted-foreground" />
+                  </Tooltip>
+                </label>
+                <select
+                  value={selectedClimateZone}
+                  onChange={(e) => setSelectedClimateZone(e.target.value)}
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
+                >
+                  <option value="all">All Climate Zones</option>
+                  <option value="tropical">Tropical</option>
+                  <option value="subtropical">Subtropical</option>
+                  <option value="temperate">Temperate</option>
+                  <option value="cold">Cold</option>
+                  <option value="mediterranean">Mediterranean</option>
+                  <option value="arid">Arid</option>
+                  <option value="warm">Warm Season</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Filter Summary */}
+            <div className="mb-4 p-3 bg-muted/50 rounded-lg">
+              <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center gap-4">
+                  <span className="font-medium">
+                    Showing {getFilteredCrops().length} of 45 crops
+                  </span>
+                  {selectedRegion !== 'all' && (
+                    <span className="px-2 py-1 bg-primary/10 text-primary rounded text-xs">
+                      Region: {selectedRegion}
+                    </span>
+                  )}
+                  {selectedClimateZone !== 'all' && (
+                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">
+                      Climate: {selectedClimateZone}
+                    </span>
+                  )}
+                </div>
+                {(selectedRegion !== 'all' || selectedClimateZone !== 'all' || cropSearchTerm) && (
+                  <button
+                    onClick={() => {
+                      setSelectedRegion('all');
+                      setSelectedClimateZone('all');
+                      setCropSearchTerm('');
+                    }}
+                    className="text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    Clear all filters
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Crop Grid */}
@@ -1233,7 +2254,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={selectedCrop}
                   onChange={(e) => setSelectedCrop(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
                 >
                   {Object.entries(SUCCESSION_INTERVALS).map(([crop, data]) => (
                     <option key={crop} value={crop}>
@@ -1254,7 +2275,7 @@ export default function AdvancedCropRotationCalculator() {
                   type="date"
                   value={plantingDate}
                   onChange={(e) => setPlantingDate(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
                 />
               </div>
             </div>
@@ -1348,7 +2369,7 @@ export default function AdvancedCropRotationCalculator() {
                 <select
                   value={soilAmendment}
                   onChange={(e) => setSoilAmendment(e.target.value)}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
                 >
                   {Object.entries(SOIL_AMENDMENTS).map(([key, amendment]) => (
                     <option key={key} value={key}>
@@ -1369,7 +2390,7 @@ export default function AdvancedCropRotationCalculator() {
                   type="number"
                   value={amendmentArea}
                   onChange={(e) => setAmendmentArea(Number(e.target.value))}
-                  className="w-full p-3 border rounded-lg bg-background"
+                  className="w-full p-3 border rounded-lg bg-background text-foreground"
                   placeholder="Enter area in square feet"
                 />
               </div>
