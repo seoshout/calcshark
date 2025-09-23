@@ -75,7 +75,8 @@
       "WebFetch(domain:landstewardshipproject.org)",
       "WebFetch(domain:vegplotter.com)",
       "WebFetch(domain:world-crops.com)",
-      "Bash(del:*)"
+      "Bash(del:*)",
+      "WebFetch(domain:localhost)"
     ],
     "deny": [],
     "ask": []
