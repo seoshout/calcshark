@@ -11862,7 +11862,7 @@ export const calculatorCategories: Category[] = [
               'wedding alcohol calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {

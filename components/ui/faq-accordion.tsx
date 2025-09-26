@@ -23,6 +23,11 @@ export default function FAQAccordion({
   className = "",
   defaultOpen = false
 }: FAQAccordionProps) {
+  // Safety check for faqs
+  if (!faqs || !Array.isArray(faqs) || faqs.length === 0) {
+    return null;
+  }
+
   const [openItems, setOpenItems] = useState<Set<number>>(
     defaultOpen ? new Set(Array.from({ length: faqs.length }, (_, i) => i)) : new Set()
   );

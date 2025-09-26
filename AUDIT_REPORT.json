@@ -1,0 +1,276 @@
+{
+  "summary": {
+    "health_score": 85,
+    "one_liner": "Well-architected Next.js calculator platform with strong security, SEO, and 735+ calculators across 17 categories",
+    "top_3_risks": [
+      "No testing framework - Zero test coverage increases deployment risk",
+      "Large calculator categories file (414KB) could impact performance",
+      "Missing bundle analysis - No monitoring of JavaScript bundle size"
+    ]
+  },
+  "meta": {
+    "repo": "calcverse",
+    "branch": "main",
+    "inspected_at": "2025-09-25T18:30:00Z",
+    "inspected_files": [
+      "package.json",
+      "next.config.js",
+      "middleware.ts",
+      "app/layout.tsx",
+      "app/page.tsx",
+      "lib/calculator-categories.ts",
+      "lib/seo.ts",
+      "lib/security.ts",
+      "components/layout/header.tsx",
+      "components/layout/footer.tsx",
+      "SECURITY.md",
+      "SITEMAP.md",
+      "public/manifest.json",
+      "public/robots.txt"
+    ]
+  },
+  "tech_stack": {
+    "frameworks": ["Next.js 14.2.32", "React 18.3.1", "TypeScript 5.5.4"],
+    "languages": ["TypeScript", "JavaScript", "CSS"],
+    "key_packages": {
+      "next": "^14.2.32",
+      "react": "^18.3.1",
+      "typescript": "^5.5.4",
+      "tailwindcss": "^3.4.9",
+      "mathjs": "^13.0.3",
+      "react-hook-form": "^7.52.2",
+      "zod": "^3.23.8",
+      "framer-motion": "^11.3.24",
+      "lucide-react": "^0.427.0",
+      "sonner": "^1.5.0",
+      "zustand": "^4.5.5"
+    }
+  },
+  "repo_surface": {
+    "top_dirs": ["app", "components", "lib", "public", "scripts"],
+    "entry_points": ["app/layout.tsx", "app/page.tsx", "middleware.ts", "next.config.js"],
+    "build_commands": ["npm run dev", "npm run build", "npm run start"],
+    "run_commands": ["npm run dev", "npm run lint", "npm run sitemap:generate"]
+  },
+  "components": [
+    {
+      "name": "Header",
+      "path": "components/layout/header.tsx",
+      "props": [],
+      "used_in": ["app/layout.tsx"]
+    },
+    {
+      "name": "Footer",
+      "path": "components/layout/footer.tsx",
+      "props": [],
+      "used_in": ["app/layout.tsx"]
+    },
+    {
+      "name": "CalculatorLayout",
+      "path": "app/calculator/[slug]/components/CalculatorLayout.tsx",
+      "props": ["calculator", "category", "children"],
+      "used_in": ["app/calculator/[slug]/page.tsx"]
+    },
+    {
+      "name": "AdvancedBMICalculator",
+      "path": "app/calculator/[slug]/calculators/AdvancedBMICalculator.tsx",
+      "props": [],
+      "used_in": ["app/calculator/[slug]/page.tsx"]
+    },
+    {
+      "name": "AdvancedMortgageCalculator",
+      "path": "app/calculator/[slug]/calculators/AdvancedMortgageCalculator.tsx",
+      "props": [],
+      "used_in": ["app/calculator/[slug]/page.tsx"]
+    },
+    {
+      "name": "AdvancedCompoundInterestCalculator",
+      "path": "app/calculator/[slug]/calculators/AdvancedCompoundInterestCalculator.tsx",
+      "props": [],
+      "used_in": ["app/calculator/[slug]/page.tsx"]
+    }
+  ],
+  "pages_routes": [
+    {
+      "route": "/",
+      "path": "app/page.tsx",
+      "data_fetch": "static",
+      "params": []
+    },
+    {
+      "route": "/calculator/[slug]",
+      "path": "app/calculator/[slug]/page.tsx",
+      "data_fetch": "dynamic_metadata",
+      "params": ["slug"]
+    },
+    {
+      "route": "/category/[slug]",
+      "path": "app/category/[slug]/page.tsx",
+      "data_fetch": "static",
+      "params": ["slug"]
+    },
+    {
+      "route": "/all-online-calculators",
+      "path": "app/all-online-calculators/page.tsx",
+      "data_fetch": "static",
+      "params": []
+    },
+    {
+      "route": "/categories",
+      "path": "app/categories/page.tsx",
+      "data_fetch": "static",
+      "params": []
+    },
+    {
+      "route": "/popular",
+      "path": "app/popular/page.tsx",
+      "data_fetch": "static",
+      "params": []
+    },
+    {
+      "route": "/sitemap.xml",
+      "path": "app/sitemap.xml/route.ts",
+      "data_fetch": "dynamic_api",
+      "params": []
+    }
+  ],
+  "api_endpoints": [
+    {
+      "method": "GET",
+      "path": "/sitemap.xml",
+      "request_shape": {},
+      "response_shape": {
+        "content_type": "application/xml",
+        "body": "XML sitemap with URLs, lastmod, changefreq, priority"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sitemap-index.xml",
+      "request_shape": {},
+      "response_shape": {
+        "content_type": "application/xml",
+        "body": "XML sitemap index"
+      }
+    }
+  ],
+  "state_management": {
+    "libs": ["React hooks (useState, useEffect)", "localStorage wrapper"],
+    "global_contexts": []
+  },
+  "infra": {
+    "deploy_target": "Vercel",
+    "ci": [],
+    "env_vars": [
+      "NODE_ENV",
+      "NEXT_PUBLIC_GA_ID",
+      "RATE_LIMIT_MAX_REQUESTS",
+      "RATE_LIMIT_WINDOW_MS",
+      "ALLOWED_ORIGINS",
+      "CSRF_SECRET",
+      "SESSION_SECRET"
+    ]
+  },
+  "performance": {
+    "bundle_hotspots": [
+      "lib/calculator-categories.ts (414KB)",
+      "Large number of calculator components",
+      "No bundle analysis configured"
+    ],
+    "image_issues": [
+      "Some favicon files may not exist",
+      "No automated image optimization verification"
+    ],
+    "recommendations": [
+      "Implement webpack-bundle-analyzer",
+      "Split calculator-categories.ts into smaller modules",
+      "Add Core Web Vitals monitoring",
+      "Implement performance budgets in CI"
+    ]
+  },
+  "a11y": {
+    "issues": [
+      "Missing skip navigation links",
+      "Some images lack descriptive alt text",
+      "No automated accessibility testing"
+    ],
+    "recommendations": [
+      "Add skip to content links",
+      "Implement automated a11y testing with axe-core",
+      "Audit with screen readers",
+      "Add more ARIA labels for complex interactions"
+    ]
+  },
+  "security": {
+    "issues": [],
+    "critical_finds": []
+  },
+  "seo": {
+    "missing_meta": [
+      "hreflang attributes for internationalization",
+      "Local business schema markup"
+    ],
+    "schema_present": true
+  },
+  "tests": {
+    "unit": false,
+    "e2e": false,
+    "coverage": null
+  },
+  "action_items": [
+    {
+      "title": "Implement Testing Framework",
+      "priority": "critical",
+      "files_to_change": [
+        "package.json",
+        "jest.config.js (new)",
+        "test/ directory (new)"
+      ],
+      "issue_template": "Add Jest, React Testing Library, and create tests for critical calculator functions to prevent regressions"
+    },
+    {
+      "title": "Add Bundle Analysis",
+      "priority": "critical",
+      "files_to_change": [
+        "package.json",
+        "next.config.js"
+      ],
+      "issue_template": "Install @next/bundle-analyzer and set up bundle size monitoring to identify performance bottlenecks"
+    },
+    {
+      "title": "Split Large Calculator File",
+      "priority": "high",
+      "files_to_change": [
+        "lib/calculator-categories.ts",
+        "lib/categories/ (new directory)"
+      ],
+      "issue_template": "Refactor 414KB calculator-categories.ts into smaller, more manageable modules for better performance"
+    },
+    {
+      "title": "Add Performance Monitoring",
+      "priority": "high",
+      "files_to_change": [
+        "app/layout.tsx",
+        "lib/analytics.ts (new)"
+      ],
+      "issue_template": "Implement Core Web Vitals tracking and performance monitoring to identify and fix performance issues"
+    },
+    {
+      "title": "Enhance Accessibility",
+      "priority": "medium",
+      "files_to_change": [
+        "components/layout/header.tsx",
+        "app/layout.tsx"
+      ],
+      "issue_template": "Add skip navigation links, improve alt text, and implement automated accessibility testing"
+    },
+    {
+      "title": "Remove Unused Dependencies",
+      "priority": "low",
+      "files_to_change": [
+        "package.json"
+      ],
+      "issue_template": "Remove Zustand and other unused dependencies to reduce bundle size"
+    }
+  ]
+}

@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="ccy55KcJU0ipM04D2NwEognPYdL2fiaJLlpxaeBeM_U" />
+        <meta name="yandex-verification" content="7b0686d059379d1c" />
         <meta name="theme-color" content="#1e293b" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="manifest" href="/manifest.json" />

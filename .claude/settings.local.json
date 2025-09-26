@@ -76,7 +76,18 @@
       "WebFetch(domain:vegplotter.com)",
       "WebFetch(domain:world-crops.com)",
       "Bash(del:*)",
-      "WebFetch(domain:localhost)"
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:www.theknot.com)",
+      "WebFetch(domain:www.brides.com)",
+      "WebFetch(domain:www.wedding-spot.com)",
+      "WebFetch(domain:withjoy.com)",
+      "WebFetch(domain:hubtap.com)",
+      "WebFetch(domain:www.evite.com)",
+      "WebFetch(domain:www.reventals.com)",
+      "Bash(timeout 10 curl -s http://localhost:3003/wedding-events/wedding-planning/wedding-alcohol-calculator/)",
+      "Bash(timeout 10 curl -s http://localhost:3004/wedding-events/wedding-planning/wedding-alcohol-calculator/)",
+      "Bash(timeout 10 curl -s http://localhost:3000/wedding-events/wedding-planning/wedding-alcohol-calculator/)",
+      "Bash(timeout 15 curl -s http://localhost:3000/wedding-events/wedding-planning/wedding-alcohol-calculator/)"
     ],
     "deny": [],
     "ask": []
