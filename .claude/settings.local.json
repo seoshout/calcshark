@@ -87,7 +87,8 @@
       "Bash(timeout 10 curl -s http://localhost:3003/wedding-events/wedding-planning/wedding-alcohol-calculator/)",
       "Bash(timeout 10 curl -s http://localhost:3004/wedding-events/wedding-planning/wedding-alcohol-calculator/)",
       "Bash(timeout 10 curl -s http://localhost:3000/wedding-events/wedding-planning/wedding-alcohol-calculator/)",
-      "Bash(timeout 15 curl -s http://localhost:3000/wedding-events/wedding-planning/wedding-alcohol-calculator/)"
+      "Bash(timeout 15 curl -s http://localhost:3000/wedding-events/wedding-planning/wedding-alcohol-calculator/)",
+      "Bash(ping:*)"
     ],
     "deny": [],
     "ask": []
