@@ -65,6 +65,8 @@ export const generateSoftwareSchema = (calculatorName: string, description: stri
     ],
     "keywords": [category, "calculator", "free", "online", "tool"],
     "inLanguage": "en-US",
+    "datePublished": "2025-01-28",
+    "dateModified": "2025-01-28",
     "copyrightYear": new Date().getFullYear(),
     "copyrightHolder": {
       "@type": "Organization",
