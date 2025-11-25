@@ -4,7 +4,8 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
   Calculator, RefreshCw, Info, CheckCircle, DollarSign,
   TrendingUp, AlertTriangle, Calendar, Gauge, Settings,
-  BarChart3, Clock, Award, Zap, Shield, TrendingDown, X, Check, Users
+  BarChart3, Clock, Award, Zap, Shield, TrendingDown, X, Check, Users,
+  ChevronDown, ChevronUp
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
@@ -116,6 +117,7 @@ export default function AdvancedTireLifeCalculator() {
 
   const [results, setResults] = useState<Results | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [isAdvancedMode, setIsAdvancedMode] = useState(false);
 
   // Handle escape key to close modal
   useEffect(() => {
@@ -444,94 +446,63 @@ export default function AdvancedTireLifeCalculator() {
     }
   ];
 
+  // Tooltip component using native HTML title
+  const Tooltip = ({ text, children }: { text: string; children: React.ReactNode }) => (
+    <span title={text} className="cursor-help">
+      {children}
+    </span>
+  );
+
   return (
     <div className="space-y-4 sm:space-y-8">
       {/* Main Calculator Card */}
       <div className="bg-background border rounded-xl p-3 sm:p-6">
 
+        {/* Mode Toggle */}
+        <div className="mb-6 flex items-center justify-between p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div>
+            <h3 className="font-semibold text-blue-900 dark:text-blue-100">
+              {isAdvancedMode ? 'Advanced Mode' : 'Simple Mode'}
+            </h3>
+            <p className="text-sm text-blue-800 dark:text-blue-200 mt-1">
+              {isAdvancedMode ? 'Comprehensive analysis with detailed parameters' : 'Quick calculation with essential inputs only'}
+            </p>
+          </div>
+          <button
+            onClick={() => setIsAdvancedMode(!isAdvancedMode)}
+            className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            {isAdvancedMode ? (
+              <>
+                <ChevronUp className="h-4 w-4 mr-2" />
+                Switch to Simple
+              </>
+            ) : (
+              <>
+                <ChevronDown className="h-4 w-4 mr-2" />
+                Advanced Options
+              </>
+            )}
+          </button>
+        </div>
+
         {/* Input Sections */}
         <div className="space-y-6">
 
-          {/* Tire Specifications */}
+          {/* SIMPLE MODE: Essential Inputs */}
           <div>
             <h3 className="text-xl font-semibold mb-4 flex items-center">
               <Gauge className="h-5 w-5 mr-2 text-primary" />
-              Tire Specifications
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  UTQG Treadwear Rating
-                  <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
-                </label>
-                <input
-                  type="number"
-                  value={inputs.treadwearRating}
-                  onChange={(e) => handleInputChange('treadwearRating', Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 400"
-                />
-                <p className="text-xs text-muted-foreground mt-1">Found on tire sidewall</p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Warranty Miles
-                </label>
-                <input
-                  type="number"
-                  value={inputs.warrantyMiles}
-                  onChange={(e) => handleInputChange('warrantyMiles', Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 50000"
-                />
-                <p className="text-xs text-muted-foreground mt-1">Manufacturer's warranty</p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Tire Age (years)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.tireAge}
-                  onChange={(e) => handleInputChange('tireAge', Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 2"
-                  step="0.5"
-                />
-                <p className="text-xs text-muted-foreground mt-1">Check DOT date code</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Tread Depth Measurements */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <TrendingDown className="h-5 w-5 mr-2 text-primary" />
-              Tread Depth (32nds of inch)
+              Essential Information
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Initial Tread Depth
-                </label>
-                <input
-                  type="number"
-                  value={inputs.initialDepth}
-                  onChange={(e) => handleInputChange('initialDepth', Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 10"
-                  step="0.5"
-                />
-                <p className="text-xs text-muted-foreground mt-1">New tire depth (typically 9-11/32")</p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Current Tread Depth
+                  Current Tread Depth (32nds)
+                  <Tooltip text="Measure with a tread depth gauge or penny test. New tires are typically 10-12/32 inches. Legal minimum is 2/32 inches.">
+                    <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                  </Tooltip>
                 </label>
                 <input
                   type="number"
@@ -543,26 +514,13 @@ export default function AdvancedTireLifeCalculator() {
                 />
                 <p className="text-xs text-muted-foreground mt-1">Measure with depth gauge or penny test</p>
               </div>
-            </div>
 
-            <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-              <p className="text-sm text-blue-900 dark:text-blue-100">
-                <strong>Tread Depth Guide:</strong> 10/32" = New | 6/32" = Half worn | 4/32" = Replace soon | 2/32" = Legal minimum (unsafe)
-              </p>
-            </div>
-          </div>
-
-          {/* Usage Data */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <Gauge className="h-5 w-5 mr-2 text-primary" />
-              Usage Data
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   Miles on Current Tires
+                  <Tooltip text="Total miles driven since these tires were installed on your vehicle.">
+                    <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                  </Tooltip>
                 </label>
                 <input
                   type="number"
@@ -575,7 +533,28 @@ export default function AdvancedTireLifeCalculator() {
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
+                  Tire Age (years)
+                  <Tooltip text="Check the DOT code on your tire sidewall. Last 4 digits show week/year of manufacture (e.g., '2319' = 23rd week of 2019). Tires should be replaced after 6-10 years regardless of tread.">
+                    <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                  </Tooltip>
+                </label>
+                <input
+                  type="number"
+                  value={inputs.tireAge}
+                  onChange={(e) => handleInputChange('tireAge', Number(e.target.value))}
+                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                  placeholder="e.g., 2"
+                  step="0.5"
+                />
+                <p className="text-xs text-muted-foreground mt-1">Check DOT date code</p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Average Miles Per Year
+                  <Tooltip text="Typical annual mileage. US average is 12,000-15,000 miles per year.">
+                    <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                  </Tooltip>
                 </label>
                 <input
                   type="number"
@@ -588,167 +567,261 @@ export default function AdvancedTireLifeCalculator() {
             </div>
           </div>
 
-          {/* Driving Conditions */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <Settings className="h-5 w-5 mr-2 text-primary" />
-              Driving Conditions
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* ADVANCED MODE: Additional Inputs */}
+          {isAdvancedMode && (
+            <>
+              {/* Tire Specifications */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Driving Style
-                </label>
-                <select
-                  value={inputs.drivingStyle}
-                  onChange={(e) => handleInputChange('drivingStyle', e.target.value)}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                >
-                  <option value="gentle">Gentle (smooth acceleration)</option>
-                  <option value="normal">Normal (average driver)</option>
-                  <option value="aggressive">Aggressive (hard braking/acceleration)</option>
-                </select>
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <Award className="h-5 w-5 mr-2 text-primary" />
+                  Tire Specifications
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      UTQG Treadwear Rating
+                      <Tooltip text="Uniform Tire Quality Grading number found on tire sidewall (typically 300-800). Higher numbers indicate longer tread life. A 400-rated tire should last twice as long as a 200-rated tire under test conditions.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.treadwearRating}
+                      onChange={(e) => handleInputChange('treadwearRating', Number(e.target.value))}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      placeholder="e.g., 400"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">Found on tire sidewall</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Warranty Miles
+                      <Tooltip text="Manufacturer's mileage warranty (if applicable). Typically ranges from 40,000 to 80,000 miles. Check your tire documentation.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.warrantyMiles}
+                      onChange={(e) => handleInputChange('warrantyMiles', Number(e.target.value))}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      placeholder="e.g., 50000"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">Manufacturer's warranty</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Initial Tread Depth (32nds)
+                      <Tooltip text="Original tread depth when tires were new. Most passenger tires start at 10-12/32 inches. Truck/SUV tires may be deeper.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.initialDepth}
+                      onChange={(e) => handleInputChange('initialDepth', Number(e.target.value))}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      placeholder="e.g., 10"
+                      step="0.5"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">New tire depth (typically 9-11/32")</p>
+                  </div>
+                </div>
               </div>
 
+              {/* Driving Conditions */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Road Type
-                </label>
-                <select
-                  value={inputs.roadType}
-                  onChange={(e) => handleInputChange('roadType', e.target.value)}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                >
-                  <option value="highway">Mostly Highway</option>
-                  <option value="city">Mostly City</option>
-                  <option value="mixed">Mixed (50/50)</option>
-                  <option value="offroad">Off-road/Gravel</option>
-                </select>
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <Settings className="h-5 w-5 mr-2 text-primary" />
+                  Driving Conditions
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Driving Style
+                      <Tooltip text="Aggressive driving (hard acceleration/braking) reduces tire life by 25-40%. Gentle driving can extend life by 15-25%.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <select
+                      value={inputs.drivingStyle}
+                      onChange={(e) => handleInputChange('drivingStyle', e.target.value)}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                    >
+                      <option value="gentle">Gentle (smooth acceleration)</option>
+                      <option value="normal">Normal (average driver)</option>
+                      <option value="aggressive">Aggressive (hard braking/acceleration)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Road Type
+                      <Tooltip text="Highway driving extends life by 10-15%. Off-road/gravel can reduce life by 25-40%.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <select
+                      value={inputs.roadType}
+                      onChange={(e) => handleInputChange('roadType', e.target.value)}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                    >
+                      <option value="highway">Mostly Highway</option>
+                      <option value="city">Mostly City</option>
+                      <option value="mixed">Mixed (50/50)</option>
+                      <option value="offroad">Off-road/Gravel</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Climate
+                      <Tooltip text="Extreme temperatures affect tire rubber. Hot climates soften rubber compounds. Cold climates can cause cracking.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <select
+                      value={inputs.climate}
+                      onChange={(e) => handleInputChange('climate', e.target.value)}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                    >
+                      <option value="cold">Cold (freezing winters)</option>
+                      <option value="moderate">Moderate (4 seasons)</option>
+                      <option value="hot">Hot (hot summers)</option>
+                      <option value="extreme">Extreme (desert/arctic)</option>
+                    </select>
+                  </div>
+                </div>
               </div>
 
+              {/* Maintenance */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Climate
-                </label>
-                <select
-                  value={inputs.climate}
-                  onChange={(e) => handleInputChange('climate', e.target.value)}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                >
-                  <option value="cold">Cold (freezing winters)</option>
-                  <option value="moderate">Moderate (4 seasons)</option>
-                  <option value="hot">Hot (hot summers)</option>
-                  <option value="extreme">Extreme (desert/arctic)</option>
-                </select>
-              </div>
-            </div>
-          </div>
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <Settings className="h-5 w-5 mr-2 text-primary" />
+                  Maintenance Status
+                </h3>
 
-          {/* Maintenance */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <Settings className="h-5 w-5 mr-2 text-primary" />
-              Maintenance Status
-            </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Rotation Frequency (miles)
+                      <Tooltip text="Regular rotation every 5,000-7,500 miles equalizes wear and extends tire life by 20-30%.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.rotationFrequency}
+                      onChange={(e) => handleInputChange('rotationFrequency', Number(e.target.value))}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      placeholder="e.g., 7500"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">Recommended: every 5,000-7,500 miles</p>
+                  </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Rotation Frequency (miles)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.rotationFrequency}
-                  onChange={(e) => handleInputChange('rotationFrequency', Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 7500"
-                />
-                <p className="text-xs text-muted-foreground mt-1">Recommended: every 5,000-7,500 miles</p>
-              </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Miles Since Last Rotation
+                      <Tooltip text="Tires should be rotated regularly. Overdue rotations cause uneven wear patterns.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.milesOnTire - inputs.lastRotation}
+                      onChange={(e) => handleInputChange('lastRotation', inputs.milesOnTire - Number(e.target.value))}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      placeholder="e.g., 5000"
+                    />
+                  </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Miles Since Last Rotation
-                </label>
-                <input
-                  type="number"
-                  value={inputs.milesOnTire - inputs.lastRotation}
-                  onChange={(e) => handleInputChange('lastRotation', inputs.milesOnTire - Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 5000"
-                />
-              </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Wheel Alignment Status
+                      <Tooltip text="Poor alignment causes rapid, uneven wear. Should be checked annually or after hitting potholes.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <select
+                      value={inputs.alignmentStatus}
+                      onChange={(e) => handleInputChange('alignmentStatus', e.target.value)}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                    >
+                      <option value="good">Good (recently aligned)</option>
+                      <option value="fair">Fair (1-2 years old)</option>
+                      <option value="poor">Poor (pulls to side)</option>
+                      <option value="unknown">Unknown</option>
+                    </select>
+                  </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Wheel Alignment Status
-                </label>
-                <select
-                  value={inputs.alignmentStatus}
-                  onChange={(e) => handleInputChange('alignmentStatus', e.target.value)}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                >
-                  <option value="good">Good (recently aligned)</option>
-                  <option value="fair">Fair (1-2 years old)</option>
-                  <option value="poor">Poor (pulls to side)</option>
-                  <option value="unknown">Unknown</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Pressure Check Frequency
-                </label>
-                <select
-                  value={inputs.pressureCheck}
-                  onChange={(e) => handleInputChange('pressureCheck', e.target.value)}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                >
-                  <option value="weekly">Weekly</option>
-                  <option value="monthly">Monthly</option>
-                  <option value="rarely">Rarely (few times/year)</option>
-                  <option value="never">Never</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          {/* Cost Analysis */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <DollarSign className="h-5 w-5 mr-2 text-primary" />
-              Cost Analysis
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Tire Cost (per tire)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.tireCost}
-                  onChange={(e) => handleInputChange('tireCost', Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 150"
-                />
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Pressure Check Frequency
+                      <Tooltip text="Proper inflation is crucial. Under-inflation causes shoulder wear and overheating. Check monthly with accurate gauge.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <select
+                      value={inputs.pressureCheck}
+                      onChange={(e) => handleInputChange('pressureCheck', e.target.value)}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                    >
+                      <option value="weekly">Weekly</option>
+                      <option value="monthly">Monthly</option>
+                      <option value="rarely">Rarely (few times/year)</option>
+                      <option value="never">Never</option>
+                    </select>
+                  </div>
+                </div>
               </div>
 
+              {/* Cost Analysis */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Installation Cost (per tire)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.installationCost}
-                  onChange={(e) => handleInputChange('installationCost', Number(e.target.value))}
-                  className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                  placeholder="e.g., 25"
-                />
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <DollarSign className="h-5 w-5 mr-2 text-primary" />
+                  Cost Analysis
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Tire Cost (per tire)
+                      <Tooltip text="Original purchase price per tire. Used to calculate cost-per-mile and total ownership cost.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.tireCost}
+                      onChange={(e) => handleInputChange('tireCost', Number(e.target.value))}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      placeholder="e.g., 150"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Installation Cost (per tire)
+                      <Tooltip text="Mounting, balancing, and installation fees per tire. Typically $15-$35 per tire.">
+                        <Info className="inline h-4 w-4 ml-1 text-muted-foreground" />
+                      </Tooltip>
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.installationCost}
+                      onChange={(e) => handleInputChange('installationCost', Number(e.target.value))}
+                      className="w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      placeholder="e.g., 25"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
 
           {/* Calculate Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
