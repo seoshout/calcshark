@@ -4,7 +4,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
   Calculator, RefreshCw, Info, CheckCircle, DollarSign,
   TrendingUp, AlertTriangle, Calendar, Gauge, Settings,
-  BarChart3, Clock, Award, Zap, Shield, TrendingDown, X
+  BarChart3, Clock, Award, Zap, Shield, TrendingDown, X, Check, Users
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
@@ -1074,6 +1074,156 @@ export default function AdvancedTireLifeCalculator() {
           </div>
         </div>
       )}
+
+      {/* How to Use Section */}
+      <div className="bg-background border rounded-xl p-6 sm:p-8 mb-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Free Online Tire Life Calculator</h2>
+
+        {/* Step-by-step guide */}
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">📋 Step-by-Step Guide</h3>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1️⃣ Enter Current Tire Information</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Start by measuring your tire's current tread depth using a tread depth gauge, penny test, or quarter test. Enter the current depth in 32nds of an inch. Most new tires start at 10/32" to 12/32". The legal minimum is 2/32", but replace at 4/32" for safety.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2️⃣ Add Tire Specifications</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Find the UTQG treadwear rating on your tire's sidewall (typically 300-800). Enter the manufacturer's warranty mileage if known. Input your tire's age (check the DOT code) and total miles driven on these tires.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3️⃣ Select Driving Conditions</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Choose your primary driving style (gentle, normal, aggressive), road conditions (excellent, good, mixed, poor), climate zone (mild, moderate, extreme), and how well you've maintained tire pressure and rotations.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4️⃣ Enter Cost Information</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Input the original purchase price and your typical annual mileage. The calculator will compute cost-per-mile and help you budget for replacement.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Results Dashboard */}
+        <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Your Results Dashboard</h3>
+          <p className="text-sm text-green-800 dark:text-green-200 mb-4">After clicking "Calculate Tire Life," you'll receive:</p>
+          <div className="space-y-3">
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Safety Status</h4>
+                <p className="text-xs text-muted-foreground">Immediate assessment: Safe, Monitor, Replace Soon, or Replace Now</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">📏</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Estimated Remaining Miles</h4>
+                <p className="text-xs text-muted-foreground">Multiple calculation methods: tread-based, UTQG-based, and warranty-based</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">$</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Cost Analysis</h4>
+                <p className="text-xs text-muted-foreground">Cost per mile, total value remaining, and budget recommendations</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">📊</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Overall Score</h4>
+                <p className="text-xs text-muted-foreground">Comprehensive scoring: maintenance (0-100), condition (0-100), and overall health</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Use This Calculator */}
+        <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-semibold mb-4">🎯 Why Use This Calculator?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-medium mb-2">💰 Save Money</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Avoid premature tire replacement</li>
+                <li>Maximize your tire investment ROI</li>
+                <li>Budget accurately for replacements</li>
+                <li>Track cost-per-mile efficiency</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">🛡️ Stay Safe</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Know when tires are unsafe</li>
+                <li>Prevent hydroplaning risks</li>
+                <li>Monitor age-related degradation</li>
+                <li>Get proactive replacement alerts</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">📈 Data-Driven Decisions</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Multi-method calculations</li>
+                <li>UTQG rating integration</li>
+                <li>Real wear rate analysis</li>
+                <li>Condition-adjusted estimates</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">🆓 Completely Free</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>No registration required</li>
+                <li>No hidden fees or paywalls</li>
+                <li>Unlimited calculations</li>
+                <li>Privacy-focused (no data stored)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+            <div className="flex items-center gap-2 mb-2">
+              <Check className="h-5 w-5 text-green-600 dark:text-green-400" />
+              <h3 className="font-semibold text-green-900 dark:text-green-100">100% Free</h3>
+            </div>
+            <p className="text-sm text-green-800 dark:text-green-200">No hidden costs or premium features</p>
+          </div>
+
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertTriangle className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="font-semibold text-blue-900 dark:text-blue-100">Instant Safety Alerts</h3>
+            </div>
+            <p className="text-sm text-blue-800 dark:text-blue-200">Real-time safety status assessment</p>
+          </div>
+
+          <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+            <div className="flex items-center gap-2 mb-2">
+              <Users className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+              <h3 className="font-semibold text-purple-900 dark:text-purple-100">No Registration</h3>
+            </div>
+            <p className="text-sm text-purple-800 dark:text-purple-200">Calculate anonymously, no account needed</p>
+          </div>
+        </div>
+      </div>
 
       {/* Educational Content */}
       <div className="bg-background border rounded-xl p-6 sm:p-8">
