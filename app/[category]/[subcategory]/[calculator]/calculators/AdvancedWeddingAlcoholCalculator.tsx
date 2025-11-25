@@ -12,6 +12,7 @@ import {
 import { cn } from '@/lib/utils';
 import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // FAQ Data
 const weddingAlcoholFAQs: FAQItem[] = [
@@ -2202,6 +2203,12 @@ export default function AdvancedWeddingAlcoholCalculator() {
 
         {/* FAQ Section */}
         <FAQAccordion faqs={weddingAlcoholFAQs} />
+
+        {/* Review Section */}
+        <CalculatorReview
+          calculatorName="Wedding Alcohol Calculator"
+          className="mt-6"
+        />
       </div>
     </div>
   );

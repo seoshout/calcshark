@@ -4,6 +4,7 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { Search, ChevronDown, Calculator, Cat, Heart, Info, Scale, Home, Moon, Sun, Sparkles, Brain, HelpCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // Pre-compute sorted breed names to prevent re-creation on every render
 const CAT_BREEDS = {
@@ -1125,6 +1126,12 @@ export default function AdvancedCatAgeCalculator() {
 
       {/* FAQ Section */}
       <FAQAccordion faqs={catAgeFAQs} />
+
+      {/* Review Section */}
+      <CalculatorReview
+        calculatorName="Cat Age Calculator"
+        className="mt-6"
+      />
     </div>
   );
 }

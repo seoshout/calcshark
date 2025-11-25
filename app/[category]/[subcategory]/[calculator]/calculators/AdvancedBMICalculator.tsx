@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
 import BMICharts from '@/components/ui/bmi-charts';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // Enhanced types for advanced BMI calculations
 interface BMIResult {
@@ -2758,9 +2759,15 @@ export default function AdvancedBMICalculator() {
       </div>
 
       {/* FAQ Section with Accordion */}
-      <FAQAccordion 
+      <FAQAccordion
         faqs={advancedBMIFAQs}
         title="Advanced BMI Calculator FAQ"
+      />
+
+      {/* Review Section */}
+      <CalculatorReview
+        calculatorName="BMI Calculator"
+        className="mt-6"
       />
     </div>
   );

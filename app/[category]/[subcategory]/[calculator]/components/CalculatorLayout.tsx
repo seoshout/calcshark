@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, Star, Bookmark, Share2, Calculator, TrendingUp, Users, Clock, Check, Copy } from 'lucide-react';
+import { ChevronRight, Star, Bookmark, Share2, Calculator, TrendingUp, Users, Clock, Check, Copy, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { secureStorage, validateCalculatorInput, sanitizeInput } from '@/lib/security';
 
@@ -77,6 +77,22 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
     }
   };
 
+  const handleWriteReview = () => {
+    // Scroll to the review section at the bottom of the page
+    const reviewSection = document.getElementById('calculator-review-section');
+    if (reviewSection) {
+      reviewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Focus on the review form after scrolling
+      setTimeout(() => {
+        const reviewForm = reviewSection.querySelector('form');
+        if (reviewForm) {
+          const firstInput = reviewForm.querySelector('input, textarea') as HTMLElement;
+          firstInput?.focus();
+        }
+      }, 500);
+    }
+  };
+
   // Check if calculator is saved on component mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -141,7 +157,9 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                 </div>
 
                 <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Free Online {calculator.name}
+                  {calculator.slug === 'smart-thermostat-savings-calculator'
+                    ? 'Free Online Smart Thermostat Savings Calculator & ROI Estimator (2026 Edition)'
+                    : `Free Online ${calculator.name}`}
                 </h1>
                 
                 <p className="text-lg text-muted-foreground mb-6 max-w-2xl">
@@ -166,19 +184,19 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-3">
-                <button 
+                <button
                   onClick={handleSave}
                   className={cn(
                     "inline-flex items-center px-4 py-2 border rounded-lg transition-colors",
-                    isSaved 
-                      ? "bg-primary text-primary-foreground border-primary" 
+                    isSaved
+                      ? "bg-primary text-primary-foreground border-primary"
                       : "bg-background hover:bg-accent border-border"
                   )}
                 >
                   <Bookmark className={cn("h-4 w-4 mr-2", isSaved && "fill-current")} />
                   {isSaved ? 'Saved' : 'Save'}
                 </button>
-                <button 
+                <button
                   onClick={handleShare}
                   className="inline-flex items-center px-4 py-2 bg-background border border-border rounded-lg hover:bg-accent transition-colors relative"
                 >
@@ -193,6 +211,13 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                       Share
                     </>
                   )}
+                </button>
+                <button
+                  onClick={handleWriteReview}
+                  className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground border border-primary rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  <MessageSquare className="h-4 w-4 mr-2" />
+                  Write a Review
                 </button>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug } fr
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
-import { generateSoftwareSchema, generateBreadcrumbSchema } from '@/lib/schemas';
+import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
@@ -93,6 +93,7 @@ import AdvancedCatAgeCalculator from './calculators/AdvancedCatAgeCalculator';
 import AdvancedCooldownCalculator from './calculators/AdvancedCooldownCalculator';
 import AdvancedCropRotationCalculator from './calculators/AdvancedCropRotationCalculator';
 import AdvancedWeddingAlcoholCalculator from './calculators/AdvancedWeddingAlcoholCalculator';
+import AdvancedSmartThermostatSavingsCalculator from './calculators/AdvancedSmartThermostatSavingsCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
@@ -106,6 +107,7 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'cooldown-reduction-calculator': AdvancedCooldownCalculator,
   'crop-rotation-calculator': AdvancedCropRotationCalculator,
   'wedding-alcohol-calculator': AdvancedWeddingAlcoholCalculator,
+  'smart-thermostat-savings-calculator': AdvancedSmartThermostatSavingsCalculator,
   // Add more calculators as we create them
   // etc.
 };
@@ -121,39 +123,63 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
   const subcategory = getSubcategoryBySlug(params.category, params.subcategory);
   const CalculatorComponent = calculatorComponents[calculator.slug];
 
-  // Generate schemas
-  const softwareSchema = generateSoftwareSchema(
-    calculator.name,
-    calculator.description,
-    category?.name || 'Calculator'
-  );
-
-  const breadcrumbSchema = generateBreadcrumbSchema([
+  // Prepare breadcrumb items
+  const breadcrumbItems = [
     { name: 'Home', url: '/' },
     { name: category?.name || 'Category', url: `/${params.category}/` },
     { name: subcategory?.name || 'Subcategory', url: `/${params.category}/${params.subcategory}/` },
     { name: calculator.name, url: `/${params.category}/${params.subcategory}/${calculator.slug}/` }
-  ]);
+  ];
+
+  // Check if this is the Smart Thermostat Calculator
+  const isSmartThermostat = calculator.slug === 'smart-thermostat-savings-calculator';
+
+  // Generate schemas based on calculator type
+  let combinedSchema;
+  if (isSmartThermostat) {
+    // Use comprehensive schema for Smart Thermostat Calculator
+    combinedSchema = generateSmartThermostatSchema(breadcrumbItems);
+  } else {
+    // Use standard schemas for other calculators
+    const softwareSchema = generateSoftwareSchema(
+      calculator.name,
+      calculator.description,
+      category?.name || 'Calculator'
+    );
+    const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+
+    // Keep both schemas separate for other calculators
+    combinedSchema = { software: softwareSchema, breadcrumb: breadcrumbSchema };
+  }
   
   // If we haven't implemented this calculator yet, show a coming soon message
   if (!CalculatorComponent) {
     return (
       <CalculatorLayout calculator={calculator} category={category}>
-        {/* Software Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(softwareSchema),
-          }}
-        />
-        
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema),
-          }}
-        />
+        {/* Schemas */}
+        {isSmartThermostat ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(combinedSchema),
+            }}
+          />
+        ) : (
+          <>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify((combinedSchema as any).software),
+              }}
+            />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify((combinedSchema as any).breadcrumb),
+              }}
+            />
+          </>
+        )}
           <div className="bg-background border rounded-xl p-8 text-center">
             <div className="mb-4">
               <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -179,22 +205,31 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
 
   return (
     <CalculatorLayout calculator={calculator} category={category}>
-      {/* Software Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(softwareSchema),
-        }}
-      />
-      
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
-      
+      {/* Schemas */}
+      {isSmartThermostat ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(combinedSchema),
+          }}
+        />
+      ) : (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify((combinedSchema as any).software),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify((combinedSchema as any).breadcrumb),
+            }}
+          />
+        </>
+      )}
+
       <CalculatorComponent />
     </CalculatorLayout>
   );

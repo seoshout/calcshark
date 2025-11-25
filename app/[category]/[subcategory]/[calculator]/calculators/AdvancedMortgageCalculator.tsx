@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
 import MortgageCharts from '@/components/ui/mortgage-charts';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // Advanced interfaces for comprehensive mortgage calculations
 interface MortgageResult {
@@ -1743,9 +1744,15 @@ export default function AdvancedMortgageCalculator() {
       </div>
 
       {/* FAQ Section */}
-      <FAQAccordion 
+      <FAQAccordion
         faqs={mortgageFAQs}
         title="Ultimate Mortgage Calculator FAQ"
+      />
+
+      {/* Review Section */}
+      <CalculatorReview
+        calculatorName="Mortgage Payment Calculator"
+        className="mt-6"
       />
     </div>
   );

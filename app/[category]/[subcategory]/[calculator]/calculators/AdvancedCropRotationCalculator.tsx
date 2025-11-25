@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Leaf, Sprout, TrendingUp, RotateCcw, BookOpen, Calculator, ChevronDown, ChevronUp, Info, CheckCircle, AlertCircle, Users, Clock, Target, Zap, HelpCircle, Plus, Minus, Search, Brain, Sparkles, BarChart3, LineChart, Award, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // Add custom styles for dropdown borders and text visibility
 const dropdownStyles = `
@@ -3834,6 +3835,12 @@ export default function AdvancedCropRotationCalculator() {
           }}
         />
         <FAQAccordion faqs={cropRotationFAQs} />
+
+        {/* Review Section */}
+        <CalculatorReview
+          calculatorName="Crop Rotation Calculator"
+          className="mt-6"
+        />
       </div>
 
       {/* Footer Info */}

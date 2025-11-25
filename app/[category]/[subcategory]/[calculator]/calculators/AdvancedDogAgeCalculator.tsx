@@ -12,6 +12,7 @@ import {
 import { cn } from '@/lib/utils';
 import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // Comprehensive interfaces for dog age and health analysis
 interface DogProfile {
@@ -2338,6 +2339,12 @@ export default function AdvancedDogAgeCalculator() {
 
         {/* FAQ Section */}
         <FAQAccordion faqs={dogAgeFAQs} />
+
+        {/* Review Section */}
+        <CalculatorReview
+          calculatorName="Dog Age Calculator"
+          className="mt-6"
+        />
       </div>
     </div>
   );

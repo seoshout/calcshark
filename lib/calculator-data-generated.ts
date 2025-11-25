@@ -10492,7 +10492,7 @@ export const calculatorCategories: Category[] = [
               'smart thermostat savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {

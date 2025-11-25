@@ -10,6 +10,7 @@ import {
 import { cn } from '@/lib/utils';
 import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
+import CalculatorReview from '@/components/ui/calculator-review';
 import CompoundInterestCharts from '@/components/ui/compound-interest-charts';
 
 // Enhanced types for advanced compound interest calculations
@@ -1169,9 +1170,15 @@ export default function AdvancedCompoundInterestCalculator() {
       </div>
 
       {/* FAQ Section with Accordion */}
-      <FAQAccordion 
+      <FAQAccordion
         faqs={compoundInterestFAQs}
         title="Advanced Compound Interest Calculator FAQ"
+      />
+
+      {/* Review Section */}
+      <CalculatorReview
+        calculatorName="Compound Interest Calculator"
+        className="mt-6"
       />
     </div>
   );

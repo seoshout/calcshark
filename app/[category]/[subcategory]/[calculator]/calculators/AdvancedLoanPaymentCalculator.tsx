@@ -16,6 +16,7 @@ import {
 import { cn } from '@/lib/utils';
 import { validateCalculatorInput, sanitizeInput } from '@/lib/security';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // Advanced interfaces for comprehensive loan calculations
 interface LoanResult {
@@ -1691,6 +1692,12 @@ export default function AdvancedLoanPaymentCalculator() {
 
         {/* FAQ Section */}
         <FAQAccordion faqs={loanPaymentFAQs} />
+
+        {/* Review Section */}
+        <CalculatorReview
+          calculatorName="Loan Payment Calculator"
+          className="mt-6"
+        />
       </div>
     </div>
   );

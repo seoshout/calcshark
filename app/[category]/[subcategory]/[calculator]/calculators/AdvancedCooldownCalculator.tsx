@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { Calculator, Gamepad2, Info, Settings, HelpCircle, ChevronDown, Search, Zap, Clock, BarChart3, Star, TrendingUp, Users, Award, Target, Globe, Gauge, Activity } from 'lucide-react';
+import CalculatorReview from '@/components/ui/calculator-review';
 
 // Game systems with comprehensive data - Updated September 2025
 const GAME_SYSTEMS = {
@@ -2422,6 +2423,12 @@ const AdvancedCooldownCalculator: React.FC = () => {
           </details>
         </div>
       </div>
+
+      {/* Review Section */}
+      <CalculatorReview
+        calculatorName="Cooldown Reduction Calculator"
+        className="mt-6"
+      />
     </div>
   );
 };
