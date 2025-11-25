@@ -4,7 +4,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
   Calculator, RefreshCw, Info, CheckCircle, DollarSign,
   TrendingUp, AlertTriangle, Calendar, Gauge, Settings,
-  BarChart3, Clock, Award, Zap, Shield, TrendingDown
+  BarChart3, Clock, Award, Zap, Shield, TrendingDown, X
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
@@ -115,7 +115,31 @@ export default function AdvancedTireLifeCalculator() {
   });
 
   const [results, setResults] = useState<Results | null>(null);
-  const [showResults, setShowResults] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && showModal) {
+        setShowModal(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [showModal]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showModal]);
 
   const handleInputChange = (field: keyof TireInputs, value: any) => {
     setInputs(prev => ({
@@ -307,11 +331,7 @@ export default function AdvancedTireLifeCalculator() {
       maintenanceActions
     });
 
-    setShowResults(true);
-
-    setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+    setShowModal(true);
   }, [inputs]);
 
   const resetCalculator = () => {
@@ -341,7 +361,7 @@ export default function AdvancedTireLifeCalculator() {
       ]
     });
     setResults(null);
-    setShowResults(false);
+    setShowModal(false);
   };
 
   const getSafetyColor = (status: string) => {
@@ -751,250 +771,267 @@ export default function AdvancedTireLifeCalculator() {
         </div>
       </div>
 
-      {/* Results Section */}
-      {showResults && results && (
-        <div ref={resultsRef} className="bg-gradient-to-br from-primary/5 via-background to-background border rounded-xl p-3 sm:p-8 space-y-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center">
-              <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3 text-primary" />
-              Your Tire Life Analysis
-            </h2>
-          </div>
+      {/* Results Modal */}
+      {showModal && results && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-background border rounded-xl w-full max-w-6xl max-h-[90vh] overflow-y-auto relative my-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="sticky top-4 right-4 float-right z-10 p-2 bg-background border rounded-lg hover:bg-accent transition-colors"
+              aria-label="Close results"
+            >
+              <X className="h-5 w-5" />
+            </button>
 
-          {/* Safety Status Alert */}
-          <div className={cn("p-6 rounded-xl border-2", getSafetyBg(results.safetyStatus))}>
-            <div className="flex items-start gap-4">
-              {results.safetyStatus === 'replace-now' && <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400 flex-shrink-0" />}
-              {results.safetyStatus === 'replace-soon' && <AlertTriangle className="h-8 w-8 text-orange-600 dark:text-orange-400 flex-shrink-0" />}
-              {results.safetyStatus === 'monitor' && <Info className="h-8 w-8 text-yellow-600 dark:text-yellow-400 flex-shrink-0" />}
-              {results.safetyStatus === 'safe' && <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400 flex-shrink-0" />}
+            <div className="p-3 sm:p-8 space-y-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center">
+                  <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3 text-primary" />
+                  Your Tire Life Analysis
+                </h2>
+              </div>
 
-              <div className="flex-1">
-                <h3 className={cn("text-xl font-bold mb-2", getSafetyColor(results.safetyStatus))}>
-                  {results.safetyStatus === 'replace-now' && 'Replace Immediately'}
-                  {results.safetyStatus === 'replace-soon' && 'Replace Soon'}
-                  {results.safetyStatus === 'monitor' && 'Monitor Closely'}
-                  {results.safetyStatus === 'safe' && 'Tires in Good Condition'}
-                </h3>
-                <p className="text-foreground">
-                  {results.safetyStatus === 'replace-now' && 'Your tires have reached or exceeded safe limits. Replace immediately for your safety.'}
-                  {results.safetyStatus === 'replace-soon' && 'Your tires are approaching the end of their safe lifespan. Plan replacement within the next few months.'}
-                  {results.safetyStatus === 'monitor' && 'Your tires are still safe but should be monitored regularly. Check tread depth monthly.'}
-                  {results.safetyStatus === 'safe' && 'Your tires are in good condition. Continue regular maintenance and monitoring.'}
-                </p>
-                {results.ageWarning && (
-                  <p className="mt-2 text-sm font-semibold text-orange-600 dark:text-orange-400">
-                    ⚠️ Warning: Tires are 6+ years old. Consider replacement regardless of tread depth.
+              {/* Safety Status Alert */}
+              <div className={cn("p-6 rounded-xl border-2", getSafetyBg(results.safetyStatus))}>
+                <div className="flex items-start gap-4">
+                  {results.safetyStatus === 'replace-now' && <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400 flex-shrink-0" />}
+                  {results.safetyStatus === 'replace-soon' && <AlertTriangle className="h-8 w-8 text-orange-600 dark:text-orange-400 flex-shrink-0" />}
+                  {results.safetyStatus === 'monitor' && <Info className="h-8 w-8 text-yellow-600 dark:text-yellow-400 flex-shrink-0" />}
+                  {results.safetyStatus === 'safe' && <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400 flex-shrink-0" />}
+
+                  <div className="flex-1">
+                    <h3 className={cn("text-xl font-bold mb-2", getSafetyColor(results.safetyStatus))}>
+                      {results.safetyStatus === 'replace-now' && 'Replace Immediately'}
+                      {results.safetyStatus === 'replace-soon' && 'Replace Soon'}
+                      {results.safetyStatus === 'monitor' && 'Monitor Closely'}
+                      {results.safetyStatus === 'safe' && 'Tires in Good Condition'}
+                    </h3>
+                    <p className="text-foreground">
+                      {results.safetyStatus === 'replace-now' && 'Your tires have reached or exceeded safe limits. Replace immediately for your safety.'}
+                      {results.safetyStatus === 'replace-soon' && 'Your tires are approaching the end of their safe lifespan. Plan replacement within the next few months.'}
+                      {results.safetyStatus === 'monitor' && 'Your tires are still safe but should be monitored regularly. Check tread depth monthly.'}
+                      {results.safetyStatus === 'safe' && 'Your tires are in good condition. Continue regular maintenance and monitoring.'}
+                    </p>
+                    {results.ageWarning && (
+                      <p className="mt-2 text-sm font-semibold text-orange-600 dark:text-orange-400">
+                        ⚠️ Warning: Tires are 6+ years old. Consider replacement regardless of tread depth.
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Key Metrics */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-background border rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-muted-foreground">Remaining Miles</span>
+                    <TrendingUp className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">
+                    {results.remainingMiles.toLocaleString()}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {results.remainingMonths.toFixed(1)} months
+                  </div>
+                </div>
+
+                <div className="bg-background border rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-muted-foreground">Replace By</span>
+                    <Calendar className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="text-lg font-bold text-foreground">
+                    {results.replaceByDate}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {results.daysUntilReplacement} days
+                  </div>
+                </div>
+
+                <div className="bg-background border rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-muted-foreground">Cost Per Mile</span>
+                    <DollarSign className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">
+                    ${results.costPerMile.toFixed(3)}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    ${results.costPerYear.toFixed(0)}/year
+                  </div>
+                </div>
+
+                <div className="bg-background border rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-muted-foreground">Wear Rate</span>
+                    <Gauge className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">
+                    {results.wearRate.toFixed(2)}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    32nds per 1,000 mi
+                  </div>
+                </div>
+              </div>
+
+              {/* Score Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-background border rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="font-semibold text-foreground">Maintenance Score</h4>
+                    <Settings className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className={cn("text-4xl font-bold mb-2", getScoreColor(results.maintenanceScore))}>
+                    {results.maintenanceScore.toFixed(0)}
+                  </div>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <div
+                      className={cn("h-2 rounded-full transition-all",
+                        results.maintenanceScore >= 80 ? "bg-green-500" :
+                        results.maintenanceScore >= 60 ? "bg-yellow-500" :
+                        results.maintenanceScore >= 40 ? "bg-orange-500" : "bg-red-500"
+                      )}
+                      style={{ width: `${results.maintenanceScore}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Based on rotation, alignment, and pressure checks
                   </p>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-background border rounded-xl p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Remaining Miles</span>
-                <TrendingUp className="h-4 w-4 text-primary" />
-              </div>
-              <div className="text-2xl font-bold text-foreground">
-                {results.remainingMiles.toLocaleString()}
-              </div>
-              <div className="text-xs text-muted-foreground mt-1">
-                {results.remainingMonths.toFixed(1)} months
-              </div>
-            </div>
-
-            <div className="bg-background border rounded-xl p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Replace By</span>
-                <Calendar className="h-4 w-4 text-primary" />
-              </div>
-              <div className="text-lg font-bold text-foreground">
-                {results.replaceByDate}
-              </div>
-              <div className="text-xs text-muted-foreground mt-1">
-                {results.daysUntilReplacement} days
-              </div>
-            </div>
-
-            <div className="bg-background border rounded-xl p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Cost Per Mile</span>
-                <DollarSign className="h-4 w-4 text-primary" />
-              </div>
-              <div className="text-2xl font-bold text-foreground">
-                ${results.costPerMile.toFixed(3)}
-              </div>
-              <div className="text-xs text-muted-foreground mt-1">
-                ${results.costPerYear.toFixed(0)}/year
-              </div>
-            </div>
-
-            <div className="bg-background border rounded-xl p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Wear Rate</span>
-                <Gauge className="h-4 w-4 text-primary" />
-              </div>
-              <div className="text-2xl font-bold text-foreground">
-                {results.wearRate.toFixed(2)}
-              </div>
-              <div className="text-xs text-muted-foreground mt-1">
-                32nds per 1,000 mi
-              </div>
-            </div>
-          </div>
-
-          {/* Score Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-background border rounded-xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold text-foreground">Maintenance Score</h4>
-                <Settings className="h-5 w-5 text-primary" />
-              </div>
-              <div className={cn("text-4xl font-bold mb-2", getScoreColor(results.maintenanceScore))}>
-                {results.maintenanceScore.toFixed(0)}
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <div
-                  className={cn("h-2 rounded-full transition-all",
-                    results.maintenanceScore >= 80 ? "bg-green-500" :
-                    results.maintenanceScore >= 60 ? "bg-yellow-500" :
-                    results.maintenanceScore >= 40 ? "bg-orange-500" : "bg-red-500"
-                  )}
-                  style={{ width: `${results.maintenanceScore}%` }}
-                />
-              </div>
-              <p className="text-xs text-muted-foreground mt-2">
-                Based on rotation, alignment, and pressure checks
-              </p>
-            </div>
-
-            <div className="bg-background border rounded-xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold text-foreground">Condition Score</h4>
-                <Shield className="h-5 w-5 text-primary" />
-              </div>
-              <div className={cn("text-4xl font-bold mb-2", getScoreColor(results.conditionScore))}>
-                {results.conditionScore.toFixed(0)}
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <div
-                  className={cn("h-2 rounded-full transition-all",
-                    results.conditionScore >= 80 ? "bg-green-500" :
-                    results.conditionScore >= 60 ? "bg-yellow-500" :
-                    results.conditionScore >= 40 ? "bg-orange-500" : "bg-red-500"
-                  )}
-                  style={{ width: `${results.conditionScore}%` }}
-                />
-              </div>
-              <p className="text-xs text-muted-foreground mt-2">
-                Based on tread depth and tire age
-              </p>
-            </div>
-
-            <div className="bg-background border rounded-xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold text-foreground">Overall Score</h4>
-                <Award className="h-5 w-5 text-primary" />
-              </div>
-              <div className={cn("text-4xl font-bold mb-2", getScoreColor(results.overallScore))}>
-                {results.overallScore.toFixed(0)}
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <div
-                  className={cn("h-2 rounded-full transition-all",
-                    results.overallScore >= 80 ? "bg-green-500" :
-                    results.overallScore >= 60 ? "bg-yellow-500" :
-                    results.overallScore >= 40 ? "bg-orange-500" : "bg-red-500"
-                  )}
-                  style={{ width: `${results.overallScore}%` }}
-                />
-              </div>
-              <p className="text-xs text-muted-foreground mt-2">
-                Combined maintenance and condition assessment
-              </p>
-            </div>
-          </div>
-
-          {/* Comparison Methods */}
-          <div className="bg-background border rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <BarChart3 className="h-5 w-5 mr-2 text-primary" />
-              Life Estimate Comparison
-            </h3>
-
-            <div className="space-y-4">
-              <div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-foreground">Warranty-Based Estimate</span>
-                  <span className="text-sm font-bold text-foreground">{results.warrantyBasedLife.toLocaleString()} miles</span>
                 </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${Math.min(100, (results.warrantyBasedLife / inputs.warrantyMiles) * 100)}%` }} />
+
+                <div className="bg-background border rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="font-semibold text-foreground">Condition Score</h4>
+                    <Shield className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className={cn("text-4xl font-bold mb-2", getScoreColor(results.conditionScore))}>
+                    {results.conditionScore.toFixed(0)}
+                  </div>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <div
+                      className={cn("h-2 rounded-full transition-all",
+                        results.conditionScore >= 80 ? "bg-green-500" :
+                        results.conditionScore >= 60 ? "bg-yellow-500" :
+                        results.conditionScore >= 40 ? "bg-orange-500" : "bg-red-500"
+                      )}
+                      style={{ width: `${results.conditionScore}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Based on tread depth and tire age
+                  </p>
+                </div>
+
+                <div className="bg-background border rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="font-semibold text-foreground">Overall Score</h4>
+                    <Award className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className={cn("text-4xl font-bold mb-2", getScoreColor(results.overallScore))}>
+                    {results.overallScore.toFixed(0)}
+                  </div>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <div
+                      className={cn("h-2 rounded-full transition-all",
+                        results.overallScore >= 80 ? "bg-green-500" :
+                        results.overallScore >= 60 ? "bg-yellow-500" :
+                        results.overallScore >= 40 ? "bg-orange-500" : "bg-red-500"
+                      )}
+                      style={{ width: `${results.overallScore}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Combined maintenance and condition assessment
+                  </p>
                 </div>
               </div>
 
-              <div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-foreground">UTQG Treadwear-Based</span>
-                  <span className="text-sm font-bold text-foreground">{results.treadwearBasedLife.toLocaleString()} miles</span>
-                </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-green-500 h-2 rounded-full" style={{ width: `${Math.min(100, (results.treadwearBasedLife / (inputs.treadwearRating / 100 * 25000)) * 100)}%` }} />
+              {/* Comparison Methods */}
+              <div className="bg-background border rounded-xl p-6">
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <BarChart3 className="h-5 w-5 mr-2 text-primary" />
+                  Life Estimate Comparison
+                </h3>
+
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-foreground">Warranty-Based Estimate</span>
+                      <span className="text-sm font-bold text-foreground">{results.warrantyBasedLife.toLocaleString()} miles</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${Math.min(100, (results.warrantyBasedLife / inputs.warrantyMiles) * 100)}%` }} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-foreground">UTQG Treadwear-Based</span>
+                      <span className="text-sm font-bold text-foreground">{results.treadwearBasedLife.toLocaleString()} miles</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: `${Math.min(100, (results.treadwearBasedLife / (inputs.treadwearRating / 100 * 25000)) * 100)}%` }} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-foreground">Usage-Based (Actual Wear)</span>
+                      <span className="text-sm font-bold text-foreground">{results.usageBasedLife.toLocaleString()} miles</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div className="bg-purple-500 h-2 rounded-full" style={{ width: `${Math.min(100, (results.usageBasedLife / results.estimatedTotalLife) * 100)}%` }} />
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-base font-bold text-foreground">Recommended Estimate</span>
+                      <span className="text-lg font-bold text-primary">{results.recommendedLife.toLocaleString()} miles</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Based on most conservative estimate with condition adjustments
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-foreground">Usage-Based (Actual Wear)</span>
-                  <span className="text-sm font-bold text-foreground">{results.usageBasedLife.toLocaleString()} miles</span>
+              {/* Recommendations */}
+              {results.recommendations.length > 0 && (
+                <div className="bg-background border rounded-xl p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <Zap className="h-5 w-5 mr-2 text-primary" />
+                    Recommendations
+                  </h3>
+                  <ul className="space-y-3">
+                    {results.recommendations.map((rec, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-foreground">{rec}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-purple-500 h-2 rounded-full" style={{ width: `${Math.min(100, (results.usageBasedLife / results.estimatedTotalLife) * 100)}%` }} />
-                </div>
-              </div>
+              )}
 
-              <div className="pt-4 border-t">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-base font-bold text-foreground">Recommended Estimate</span>
-                  <span className="text-lg font-bold text-primary">{results.recommendedLife.toLocaleString()} miles</span>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  Based on most conservative estimate with condition adjustments
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Recommendations */}
-          {results.recommendations.length > 0 && (
-            <div className="bg-background border rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Zap className="h-5 w-5 mr-2 text-primary" />
-                Recommendations
-              </h3>
-              <ul className="space-y-3">
-                {results.recommendations.map((rec, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground">{rec}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Maintenance Actions */}
-          {results.maintenanceActions.length > 0 && (
-            <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 flex items-center text-orange-900 dark:text-orange-100">
-                <AlertTriangle className="h-5 w-5 mr-2" />
-                Required Maintenance Actions
-              </h3>
-              <ul className="space-y-3">
-                {results.maintenanceActions.map((action, index) => (
+              {/* Maintenance Actions */}
+              {results.maintenanceActions.length > 0 && (
+                <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-orange-900 dark:text-orange-100">
+                    <AlertTriangle className="h-5 w-5 mr-2" />
+                    Required Maintenance Actions
+                  </h3>
+                  <ul className="space-y-3">
+                    {results.maintenanceActions.map((action, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <Settings className="h-5 w-5 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" />
                     <span className="text-orange-900 dark:text-orange-100">{action}</span>
@@ -1031,6 +1068,8 @@ export default function AdvancedTireLifeCalculator() {
                 <span className="text-sm font-medium text-muted-foreground">Total Ownership Cost</span>
                 <span className="text-lg font-bold text-foreground">${results.totalCostOfOwnership.toFixed(0)}</span>
               </div>
+            </div>
+          </div>
             </div>
           </div>
         </div>
