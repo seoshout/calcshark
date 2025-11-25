@@ -4,7 +4,7 @@ import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug } fr
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
-import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema } from '@/lib/schemas';
+import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
@@ -133,14 +133,18 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     { name: calculator.name, url: `/${params.category}/${params.subcategory}/${calculator.slug}/` }
   ];
 
-  // Check if this is the Smart Thermostat Calculator
+  // Check if this calculator has a special comprehensive schema
   const isSmartThermostat = calculator.slug === 'smart-thermostat-savings-calculator';
+  const isTireLife = calculator.slug === 'tire-life-calculator';
 
   // Generate schemas based on calculator type
   let combinedSchema;
   if (isSmartThermostat) {
     // Use comprehensive schema for Smart Thermostat Calculator
     combinedSchema = generateSmartThermostatSchema(breadcrumbItems);
+  } else if (isTireLife) {
+    // Use comprehensive schema for Tire Life Calculator
+    combinedSchema = generateTireLifeSchema(breadcrumbItems);
   } else {
     // Use standard schemas for other calculators
     const softwareSchema = generateSoftwareSchema(
@@ -159,7 +163,7 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     return (
       <CalculatorLayout calculator={calculator} category={category}>
         {/* Schemas */}
-        {isSmartThermostat ? (
+        {(isSmartThermostat || isTireLife) ? (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -208,7 +212,7 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
   return (
     <CalculatorLayout calculator={calculator} category={category}>
       {/* Schemas */}
-      {isSmartThermostat ? (
+      {(isSmartThermostat || isTireLife) ? (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

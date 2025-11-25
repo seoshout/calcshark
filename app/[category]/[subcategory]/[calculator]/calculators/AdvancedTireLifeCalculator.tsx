@@ -1392,6 +1392,191 @@ export default function AdvancedTireLifeCalculator() {
         </div>
       </div>
 
+      {/* Scientific References & Data Sources */}
+      <div className="bg-background border rounded-xl p-6 sm:p-8 mb-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+          <Shield className="h-6 w-6 mr-3 text-primary" />
+          Scientific References & Data Sources
+        </h2>
+
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+          <p className="text-blue-900 dark:text-blue-100">
+            • Our tire life calculator is based on the latest scientific research, government safety standards, and comprehensive data from leading automotive safety organizations worldwide.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Primary Research Sources */}
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-purple-600 dark:bg-purple-500 rounded-lg">
+                <Award className="h-5 w-5 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100">Primary Research Sources</h3>
+            </div>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 dark:text-purple-400 mt-1">•</span>
+                <a
+                  href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/811617"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-900 dark:text-purple-100 hover:underline"
+                >
+                  NHTSA Tire-Related Factors in Pre-Crash Phase Study
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 dark:text-purple-400 mt-1">•</span>
+                <a
+                  href="https://www.nhtsa.gov/sites/nhtsa.gov/files/811885_tireagingtestdevelopmentprojectphase2evallab.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-900 dark:text-purple-100 hover:underline"
+                >
+                  NHTSA Tire Aging Test Development Project
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 dark:text-purple-400 mt-1">•</span>
+                <a
+                  href="https://www.sciencedirect.com/science/article/pii/S2215098625001569"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-900 dark:text-purple-100 hover:underline"
+                >
+                  ScienceDirect: Tire Aging State-of-the-Art Review
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 dark:text-purple-400 mt-1">•</span>
+                <a
+                  href="https://www.sciencedirect.com/science/article/abs/pii/S0141391006002631"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-900 dark:text-purple-100 hover:underline"
+                >
+                  ScienceDirect: Rubber Aging in Tires Field Study
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 dark:text-purple-400 mt-1">•</span>
+                <a
+                  href="https://ppms.cit.cmu.edu/media/project_files/16_-_UTC_Tire_Tread_Final_Report.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-900 dark:text-purple-100 hover:underline"
+                >
+                  Carnegie Mellon UTC Tire Tread Research Report
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 dark:text-purple-400 mt-1">•</span>
+                <a
+                  href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9370404/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-900 dark:text-purple-100 hover:underline"
+                >
+                  PMC: Hydrothermal Aging Mechanisms Study
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Additional Data Sources */}
+          <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-6 rounded-xl border border-orange-200 dark:border-orange-800">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-orange-600 dark:bg-orange-500 rounded-lg">
+                <BarChart3 className="h-5 w-5 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100">Additional Data Sources</h3>
+            </div>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
+                <a
+                  href="https://www.nhtsa.gov/vehicle-safety/tires"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-900 dark:text-orange-100 hover:underline"
+                >
+                  NHTSA TireWise Safety Information
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
+                <a
+                  href="https://catalog.data.gov/dataset/uniform-tire-quality-grading-system-utqgs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-900 dark:text-orange-100 hover:underline"
+                >
+                  DOT Uniform Tire Quality Grading System (UTQG)
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
+                <a
+                  href="https://www.sae.org/standards/content/j918_201806/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-900 dark:text-orange-100 hover:underline"
+                >
+                  SAE International Tire Performance Standards (J918)
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
+                <a
+                  href="https://www.sae.org/standards/content/air5797a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-900 dark:text-orange-100 hover:underline"
+                >
+                  SAE Aircraft Tire Wear Profile Development
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
+                <a
+                  href="https://rosap.ntl.bts.gov/view/dot/63604"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-900 dark:text-orange-100 hover:underline"
+                >
+                  DOT Analysis of Tire Tread Deterioration Effects
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
+                <a
+                  href="https://safetyresearch.net/Library/tires.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-900 dark:text-orange-100 hover:underline"
+                >
+                  Safety Research & Strategies Tire Safety Library
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Data Accuracy Note */}
+        <div className="mt-6 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+          <div className="flex items-start gap-3">
+            <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+            <div>
+              <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">Data Accuracy & Updates</h4>
+              <p className="text-sm text-green-800 dark:text-green-200">
+                Our calculator algorithms are regularly updated to reflect the latest tire safety research, NHTSA guidelines, and industry standards. All calculations use validated formulas from peer-reviewed automotive safety studies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* FAQ Section */}
       <FAQAccordion
         faqs={faqs}

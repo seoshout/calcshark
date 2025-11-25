@@ -288,3 +288,184 @@ export const generateSmartThermostatSchema = (breadcrumbItems: BreadcrumbItem[])
     ]
   };
 };
+
+// Tire Life Calculator Comprehensive Schema
+export const generateTireLifeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive/vehicle-maintenance/tire-life-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      // WebApplication Schema
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Tire Life Calculator - Advanced Tread Depth & Safety Analysis Tool",
+        "url": baseUrl,
+        "description": "A comprehensive free tool to calculate tire remaining life, estimate replacement dates, analyze safety status, and optimize tire maintenance using UTQG ratings, tread depth, and wear patterns.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "1.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "UTQG Treadwear Rating Analysis",
+          "Multi-Method Life Estimation",
+          "Real-Time Safety Status Alerts",
+          "Tread Wear Rate Calculation",
+          "Cost-Per-Mile Analysis",
+          "Maintenance Score Assessment",
+          "Condition-Based Adjustments",
+          "Replacement Date Prediction"
+        ],
+        "author": {
+          "@type": "Organization",
+          "name": "Calcshark",
+          "url": "https://calcshark.com"
+        }
+      },
+      // HowTo Schema
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate Tire Life and Safety Status",
+        "description": "Step-by-step guide to estimating your tire's remaining lifespan, safety status, and replacement timeline using scientific methods.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Current Tire Information",
+            "text": "Measure your tire's current tread depth using a tread depth gauge, penny test, or quarter test. Enter the current depth in 32nds of an inch. Most new tires start at 10/32\" to 12/32\". The legal minimum is 2/32\", but replace at 4/32\" for safety.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Tire Specifications",
+            "text": "Find the UTQG treadwear rating on your tire's sidewall (typically 300-800). Enter the manufacturer's warranty mileage if known. Input your tire's age (check the DOT code) and total miles driven on these tires.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select Driving Conditions",
+            "text": "Choose your primary driving style (gentle, normal, aggressive), road conditions (excellent, good, mixed, poor), climate zone (mild, moderate, extreme), and how well you've maintained tire pressure and rotations.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Enter Cost Information",
+            "text": "Input the original purchase price and your typical annual mileage. The calculator will compute cost-per-mile and help you budget for replacement.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Analyze Safety & Remaining Life",
+            "text": "Review your safety status (Safe, Monitor, Replace Soon, Replace Now), estimated remaining miles, replacement date, wear rate, and maintenance recommendations.",
+            "position": 5
+          }
+        ]
+      },
+      // FAQPage Schema (using the 10 FAQs from the calculator)
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate is the tire life calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This calculator uses multiple validated methods: UTQG treadwear ratings (tested on government 400-mile courses), actual wear rate analysis based on your tread measurements, manufacturer warranty data, and condition adjustments. Results are estimates - actual tire life varies by driving habits, maintenance, climate, and road conditions. For most accurate predictions, measure tread depth regularly and update the calculator. Our algorithms follow NHTSA tire safety guidelines and SAE International standards."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should I replace my tires?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Replace tires when: 1) Tread depth reaches 4/32\" (legal minimum is 2/32\", but 4/32\" is safer, especially in wet conditions), 2) Tires are 6+ years old (rubber degrades over time regardless of tread), 3) Uneven wear patterns appear (indicates alignment issues), 4) Visible damage like cracks, bulges, or punctures in sidewall, 5) Frequent loss of tire pressure. In winter climates, replace at 6/32\" for adequate snow traction. The penny test: insert penny with Lincoln's head down - if you see his full head, replace immediately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the UTQG treadwear rating?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Uniform Tire Quality Grading (UTQG) treadwear rating is a comparative number assigned by manufacturers based on government testing. A tire rated 400 should last twice as long as one rated 200 under controlled conditions. Ratings typically range from 300-800: 300-400 = performance/sport tires (20,000-40,000 miles), 400-600 = standard all-season (40,000-60,000 miles), 600-800 = long-life touring (60,000-80,000 miles), 800+ = ultra-high mileage (80,000+ miles). Note: Actual mileage varies significantly based on driving style, vehicle weight, alignment, inflation, and road conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I measure tire tread depth?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Three methods: 1) Tread Depth Gauge ($5-15, most accurate): Insert probe into tread groove, read measurement in 32nds of an inch. Measure at multiple points across tire. 2) Penny Test (free): Insert penny with Lincoln's head upside-down into groove. If you see top of his head, tread is ≤2/32\" (replace now). If head is partially covered, you're at 2-4/32\". 3) Quarter Test: Same method - if you see top of Washington's head, you're at ≤4/32\" (replace soon). Always measure in the center of the tire and at both edges to check for uneven wear."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do tires age out even with good tread?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tire rubber degrades over time through oxidation and UV exposure, even without use. Studies show significant strength loss after 6 years. The rubber compounds harden, reducing grip and increasing crack risk. Microscopic cracks develop in sidewalls and tread, compromising structural integrity. Heat, ozone, and sunlight accelerate this process. Major tire manufacturers (Michelin, Bridgestone, Goodyear) recommend replacement at 6 years regardless of tread depth, with absolute maximum of 10 years. Check the DOT code on sidewall - last 4 digits show week/year of manufacture (e.g., '2319' = 23rd week of 2019)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does driving style affect tire life?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Driving style has dramatic impact: Aggressive driving (hard acceleration, hard braking, high-speed cornering) can reduce tire life by 25-40%. Rapid starts wear the center tread, hard braking flattens tread blocks, and aggressive cornering wears shoulders. Gentle driving (smooth acceleration, gradual braking, moderate speeds) can extend life by 15-25%. Highway vs. city matters too - highway driving is easier on tires (steady speeds, fewer stops) while city driving (frequent starts/stops, potholes, sharp turns) increases wear. Optimal: maintain steady speeds, brake gradually, take corners smoothly, avoid potholes when possible."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What maintenance extends tire life?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Key maintenance: 1) Proper Inflation: Check monthly with accurate gauge. Under-inflation (most common) causes shoulder wear and overheating. Over-inflation causes center wear. Correct PSI is on door jamb sticker, NOT sidewall. 2) Regular Rotation: Every 5,000-7,500 miles. Prevents uneven wear, extends life 20-30%. 3) Wheel Alignment: Check annually or after hitting potholes. Misalignment causes rapid, uneven wear. 4) Wheel Balance: Prevents vibration and uneven wear. 5) Visual Inspections: Monthly check for damage, objects, uneven wear. 6) Avoid Overloading: Exceeding vehicle weight capacity accelerates wear."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are premium tires worth the extra cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Often yes, when considering cost-per-mile: Premium tires ($150-250 each, 70,000-mile warranty) = $0.0025/mile. Budget tires ($80-120 each, 40,000-mile warranty) = $0.0025/mile. Same cost per mile! But premium tires offer: better wet/dry traction (shorter stopping distances = safety), superior handling and cornering, quieter ride (less road noise), better fuel economy (lower rolling resistance), longer warranties (better protection), and less frequent replacement hassle. In snow/ice regions, premium all-seasons perform significantly better. Exception: if you drive minimally (<7,500 miles/year), budget tires may be sufficient as you'll age out before wearing out."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What causes uneven tire wear?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Common causes: 1) Improper Inflation: Under-inflation wears outer edges, over-inflation wears center. 2) Alignment Issues: Toe misalignment causes feathering (one edge worn), camber issues wear inner/outer edge. 3) Suspension Problems: Worn shocks/struts cause cupping (scalloped dips). 4) Lack of Rotation: Front tires wear faster (steering, weight). 5) Aggressive Driving: Hard cornering wears shoulders. 6) Bent Wheels: From potholes/curbs. 7) Brake Issues: Dragging brakes wear flat spots. Solution: Check alignment annually, rotate every 5,000-7,500 miles, maintain correct pressure, inspect suspension, avoid potholes, drive smoothly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I replace just two tires instead of all four?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Depends on vehicle type: AWD/4WD: Replace all four. Tire diameter differences (from uneven tread) can damage transfer case and differentials. Some manufacturers allow 2/32\" tread difference maximum - check owner's manual. FWD: Best to replace front pair (they wear faster). Put new tires on REAR for better stability (prevents oversteer in wet conditions). 2WD/RWD: Can replace rear pair, but ensure tread depth difference is <4/32\". General rules: if existing tires have >50% tread (>5/32\"), replacing two is usually okay. If <50% tread, replace all four for optimal safety and performance. Always match tire specs (size, speed rating, load index) exactly."
+            }
+          }
+        ]
+      },
+      // Breadcrumb Schema
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
