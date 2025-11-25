@@ -94,6 +94,7 @@ import AdvancedCooldownCalculator from './calculators/AdvancedCooldownCalculator
 import AdvancedCropRotationCalculator from './calculators/AdvancedCropRotationCalculator';
 import AdvancedWeddingAlcoholCalculator from './calculators/AdvancedWeddingAlcoholCalculator';
 import AdvancedSmartThermostatSavingsCalculator from './calculators/AdvancedSmartThermostatSavingsCalculator';
+import AdvancedTireLifeCalculator from './calculators/AdvancedTireLifeCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
@@ -108,6 +109,7 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'crop-rotation-calculator': AdvancedCropRotationCalculator,
   'wedding-alcohol-calculator': AdvancedWeddingAlcoholCalculator,
   'smart-thermostat-savings-calculator': AdvancedSmartThermostatSavingsCalculator,
+  'tire-life-calculator': AdvancedTireLifeCalculator,
   // Add more calculators as we create them
   // etc.
 };

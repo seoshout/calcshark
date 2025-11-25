@@ -5089,7 +5089,7 @@ export const calculatorCategories: Category[] = [
               'tire life calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
