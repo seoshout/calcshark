@@ -806,10 +806,10 @@ const AdvancedPondVolumeCalculator = () => {
 
         {/* Step-by-step guide */}
         <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
-          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">Step-by-Step Guide</h3>
+          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">📋 Step-by-Step Guide</h3>
           <div className="space-y-6">
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1. Choose Your Mode</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1️⃣ Choose Your Mode</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
                 Start with <strong>Simple Mode</strong> for quick volume calculations using just pond shape and dimensions.
                 Switch to <strong>Advanced Mode</strong> for comprehensive analysis including liner sizing, pump requirements,
@@ -817,7 +817,7 @@ const AdvancedPondVolumeCalculator = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2. Select Measurement Units & Pond Shape</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2️⃣ Select Measurement Units & Pond Shape</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
                 Choose between <strong>Imperial (feet/gallons)</strong> or <strong>Metric (meters/liters)</strong> units.
                 Select your pond shape: <strong>Rectangular</strong> (length × width × depth), <strong>Circular</strong>
@@ -825,7 +825,7 @@ const AdvancedPondVolumeCalculator = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3. Enter Pond Dimensions</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3️⃣ Enter Pond Dimensions</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
                 Measure your pond at its <strong>longest, widest, and deepest points</strong>. For irregular or sloped ponds,
                 average the minimum and maximum depths. Use a measuring tape or string for accuracy—measure across the water surface
@@ -833,7 +833,7 @@ const AdvancedPondVolumeCalculator = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4. Configure Advanced Options (Optional)</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4️⃣ Configure Advanced Options (Optional)</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
                 In Advanced Mode, specify your <strong>pond type</strong> (Koi requires 1x/hour turnover, Goldfish 1.5x/hour,
                 Decorative 2x/hour). Enter current fish count to assess stocking levels. Add waterfall width to calculate
@@ -841,7 +841,7 @@ const AdvancedPondVolumeCalculator = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">5. Review Your Comprehensive Results</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">5️⃣ Review Your Comprehensive Results</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
                 Get instant volume in gallons, liters, cubic feet, and cubic meters. See <strong>liner size with 2ft overlap</strong>,
                 recommended pump flow rate, maximum fish capacity (50 gal/goldfish, 250 gal/koi), chemical dosing amounts,
@@ -853,12 +853,12 @@ const AdvancedPondVolumeCalculator = () => {
 
         {/* Results Dashboard */}
         <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mb-6">
-          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">Your Results Dashboard</h3>
+          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Your Results Dashboard</h3>
           <p className="text-sm text-green-800 dark:text-green-200 mb-4">After clicking "Calculate Pond Volume," you'll receive:</p>
           <div className="space-y-3">
             <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
               <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Droplet className="h-3 w-3 text-white" />
+                <span className="text-white text-xs font-bold">✓</span>
               </div>
               <div>
                 <h4 className="font-medium text-sm mb-1">Multi-Unit Volume Calculations</h4>
@@ -867,7 +867,7 @@ const AdvancedPondVolumeCalculator = () => {
             </div>
             <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
               <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Check className="h-3 w-3 text-white" />
+                <span className="text-white text-xs font-bold">📏</span>
               </div>
               <div>
                 <h4 className="font-medium text-sm mb-1">Liner Size with Overlap</h4>
@@ -876,7 +876,7 @@ const AdvancedPondVolumeCalculator = () => {
             </div>
             <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
               <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Filter className="h-3 w-3 text-white" />
+                <span className="text-white text-xs font-bold">⚙️</span>
               </div>
               <div>
                 <h4 className="font-medium text-sm mb-1">Pump & Filter Requirements</h4>
@@ -885,7 +885,7 @@ const AdvancedPondVolumeCalculator = () => {
             </div>
             <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
               <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Fish className="h-3 w-3 text-white" />
+                <span className="text-white text-xs font-bold">🐟</span>
               </div>
               <div>
                 <h4 className="font-medium text-sm mb-1">Fish Stocking Capacity & Assessment</h4>
@@ -897,10 +897,10 @@ const AdvancedPondVolumeCalculator = () => {
 
         {/* Why Use This Calculator */}
         <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg mb-6">
-          <h3 className="text-xl font-semibold mb-4">Why Use This Calculator?</h3>
+          <h3 className="text-xl font-semibold mb-4">🎯 Why Use This Calculator?</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h4 className="font-medium mb-2">Save Money on Equipment</h4>
+              <h4 className="font-medium mb-2">💰 Save Money on Equipment</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
                 <li>Buy the correct liner size first time</li>
                 <li>Size pumps and filters appropriately</li>
@@ -909,7 +909,7 @@ const AdvancedPondVolumeCalculator = () => {
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">Maintain Pond Health</h4>
+              <h4 className="font-medium mb-2">🛡️ Maintain Pond Health</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
                 <li>Ensure adequate filtration</li>
                 <li>Prevent overstocking fish</li>
@@ -918,7 +918,7 @@ const AdvancedPondVolumeCalculator = () => {
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">Plan New Pond Projects</h4>
+              <h4 className="font-medium mb-2">📋 Plan New Pond Projects</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
                 <li>Estimate total project costs</li>
                 <li>Compare different pond sizes</li>
@@ -927,7 +927,7 @@ const AdvancedPondVolumeCalculator = () => {
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">Completely Free Tool</h4>
+              <h4 className="font-medium mb-2">🆓 Completely Free Tool</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
                 <li>No registration required</li>
                 <li>No hidden fees or paywalls</li>
