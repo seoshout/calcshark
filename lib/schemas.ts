@@ -502,7 +502,7 @@ export const generateOilChangeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
           "ratingValue": "4.7",
           "ratingCount": "17",
           "bestRating": "5",
-          "worstRating": "1"
+          "worstRating": "3"
         }
       },
       {
