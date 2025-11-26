@@ -5093,6 +5093,28 @@ export const calculatorCategories: Category[] = [
             popular: false
           },
           {
+            id: 'oil-change-interval-calculator',
+            name: 'Oil Change Interval Calculator',
+            description: 'Calculate optimal oil change schedule based on oil type, driving conditions, and vehicle specifications',
+            slug: 'oil-change-interval-calculator',
+            category: 'automotive-transportation',
+            subcategory: 'maintenance-parts',
+            tags: [
+              'automotive & transportation',
+              'maintenance & parts',
+              'oil change calculator',
+              'oil change interval',
+              'synthetic oil',
+              'conventional oil',
+              'engine maintenance',
+              'oil life',
+              'vehicle maintenance'
+            ],
+            icon: 'Calculator',
+            difficulty: 'intermediate',
+            popular: true
+          },
+          {
             id: 'brake-pad-life-calculator',
             name: 'Brake Pad Life Calculator',
             description: 'Quick and accurate calculations',
