@@ -428,7 +428,7 @@ const AdvancedPondVolumeCalculator = () => {
                 type="number"
                 value={inputs.diameter}
                 onChange={(e) => setInputs({ ...inputs, diameter: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                 placeholder="e.g., 10"
                 step="0.1"
               />
@@ -443,7 +443,7 @@ const AdvancedPondVolumeCalculator = () => {
                   type="number"
                   value={inputs.length}
                   onChange={(e) => setInputs({ ...inputs, length: e.target.value })}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                   placeholder="e.g., 15"
                   step="0.1"
                 />
@@ -456,7 +456,7 @@ const AdvancedPondVolumeCalculator = () => {
                   type="number"
                   value={inputs.width}
                   onChange={(e) => setInputs({ ...inputs, width: e.target.value })}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                   placeholder="e.g., 10"
                   step="0.1"
                 />
@@ -475,7 +475,7 @@ const AdvancedPondVolumeCalculator = () => {
                 ...inputs,
                 [inputs.shape === 'irregular' ? 'avgDepth' : 'depth']: e.target.value
               })}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
               placeholder="e.g., 3"
               step="0.1"
             />
@@ -548,7 +548,7 @@ const AdvancedPondVolumeCalculator = () => {
                   type="number"
                   value={inputs.numberOfFish}
                   onChange={(e) => setInputs({ ...inputs, numberOfFish: e.target.value })}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                   placeholder="e.g., 10"
                 />
               </div>
@@ -574,7 +574,7 @@ const AdvancedPondVolumeCalculator = () => {
                       type="number"
                       value={inputs.waterfallHeight}
                       onChange={(e) => setInputs({ ...inputs, waterfallHeight: e.target.value })}
-                      className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                       placeholder="e.g., 24"
                     />
                     <p className="text-xs text-muted-foreground mt-1">
