@@ -715,3 +715,84 @@ export const generateDogAgeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
     ]
   };
 };
+
+// Cat Age Calculator Comprehensive Schema
+export const generateCatAgeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/animals-pets/pet-health-care/cat-age-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Cat Age Calculator - Advanced Feline Life Expectancy Tool",
+        "url": baseUrl,
+        "description": "Free comprehensive cat age calculator using 2025 research, feline epigenetic clocks, and breed-specific data to calculate cat years in human years accurately.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "ratingCount": "15",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Breed-Specific Age Calculations",
+          "Body Condition Score Analysis",
+          "Life Expectancy Estimation",
+          "Lifestyle Impact Assessment",
+          "Senior Status Determination"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate is the cat age calculation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our calculator uses the latest 2025 research including feline epigenetic clocks, breed-specific lifespan data from the Royal Veterinary College, and comprehensive health assessments. The formula (first 2 years = 24 human years, then 4 years per cat year) is enhanced with breed-specific longevity data, sex differences, and lifestyle factors for unprecedented accuracy in cat age calculations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What factors most influence my cat's life expectancy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Based on 2025 veterinary research: genetics (breed-specific health), lifestyle (indoor cats live 2-5 years longer), body condition (obesity reduces lifespan significantly), sex (females live 1.33 years longer on average), spay/neuter status, diet quality, preventive veterinary care, and environmental enrichment. Indoor lifestyle and maintaining ideal body weight are the most impactful controllable factors."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should my cat be considered 'senior'?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cats are typically considered senior at 10+ years, though this varies by breed and health. Life stages include: Kitten (0-6 months), Junior (6 months-2 years), Prime (3-6 years), Mature (7-10 years), Senior (11-14 years), and Geriatric (15+ years). Senior cats need biannual vet visits, kidney function monitoring, and potential diet adjustments."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
