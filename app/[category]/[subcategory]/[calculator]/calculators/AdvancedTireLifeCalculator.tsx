@@ -446,12 +446,26 @@ export default function AdvancedTireLifeCalculator() {
     }
   ];
 
-  // Tooltip component using native HTML title
-  const Tooltip = ({ text, children }: { text: string; children: React.ReactNode }) => (
-    <span title={text} className="cursor-help">
-      {children}
-    </span>
-  );
+  // Custom Tooltip component with hover states
+  const Tooltip = ({ text, children }: { text: string; children: React.ReactNode }) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    return (
+      <span
+        className="relative inline-block"
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
+      >
+        {children}
+        {isVisible && (
+          <span className="absolute z-50 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg shadow-lg whitespace-normal max-w-xs w-max pointer-events-none">
+            {text}
+            <span className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900 dark:border-t-gray-100" />
+          </span>
+        )}
+      </span>
+    );
+  };
 
   return (
     <div className="space-y-4 sm:space-y-8">
