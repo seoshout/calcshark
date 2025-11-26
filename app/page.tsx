@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, Calculator, TrendingUp, Users, Zap, ChevronRight, Star, BarChart3, Globe, Grid3X3, DollarSign, GraduationCap, Heart, Home, Hammer, Car, Briefcase, Baby, Dog, Gamepad, Clock, UtensilsCrossed, Leaf, Trophy, Sprout } from 'lucide-react';
-import { calculatorCategories, popularCalculators } from '@/lib/calculator-categories';
+import { calculatorCategories, popularCalculators, getCalculatorURL, getAllCalculators } from '@/lib/calculator-categories';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
@@ -208,19 +208,21 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {popularCalculators.slice(0, 6).map((calc, index) => {
+            {popularCalculators.slice(0, 6).map((calcSlug, index) => {
               const gradients = [
                 'from-blue-500 to-purple-600',
-                'from-green-500 to-teal-600', 
+                'from-green-500 to-teal-600',
                 'from-orange-500 to-red-600',
                 'from-pink-500 to-violet-600',
                 'from-yellow-500 to-orange-600',
                 'from-cyan-500 to-blue-600'
               ];
+              const calculator = getAllCalculators().find(c => c.slug === calcSlug);
+              if (!calculator) return null;
               return (
                 <Link
-                  key={calc}
-                  href={`/calculator/${calc}/`}
+                  key={calcSlug}
+                  href={getCalculatorURL(calculator)}
                   className="group p-6 rounded-xl border bg-card hover:shadow-lg transition-all duration-200 hover:border-primary/50"
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -229,11 +231,11 @@ export default function HomePage() {
                     </div>
                     <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h3 className="font-semibold text-lg mb-2 capitalize">
-                    {calc.replace('-', ' ')} Calculator
+                  <h3 className="font-semibold text-lg mb-2">
+                    {calculator.name}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Quick and accurate {calc.replace('-', ' ')} calculations with detailed results
+                    {calculator.description}
                   </p>
                 </Link>
               );

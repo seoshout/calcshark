@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight, Calculator, ArrowLeft, TrendingUp, Shield, Clock, CreditCard, Home, BarChart3, PiggyBank, DollarSign, Wallet, GraduationCap, BookOpen, School, Heart, Activity, Utensils, Building, Wrench, Paintbrush, Car, Fuel, Settings, Briefcase, Users, Target, Plus, Minus, Triangle, BarChart, Baby, Scale, PawPrint, Gamepad, User, ShoppingCart, Plane, ChefHat, Scale as KitchenScale, Leaf, Zap, Trophy, Medal, Sprout, TreePine, Flower } from 'lucide-react';
-import { calculatorCategories, getCategoryBySlug, getCalculatorsBySubcategory } from '@/lib/calculator-categories';
+import { calculatorCategories, getCategoryBySlug, getCalculatorsBySubcategory, getCalculatorURL } from '@/lib/calculator-categories';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { cn, slugify } from '@/lib/utils';
 import { FAQAccordion } from './components/faq-accordion';
@@ -336,8 +336,8 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                         <span className="text-xs text-primary font-medium">
                           Free • Instant Results
                         </span>
-                        <Link 
-                          href={`/calculator/${calculator.slug}/`}
+                        <Link
+                          href={getCalculatorURL(calculator)}
                           className="text-sm text-primary hover:underline"
                         >
                           Calculate →

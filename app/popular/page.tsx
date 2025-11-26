@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ChevronRight, Star, Calculator, TrendingUp, Heart, DollarSign } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { calculatorCategories, getAllCalculators, popularCalculators } from '@/lib/calculator-categories';
+import { calculatorCategories, getAllCalculators, popularCalculators, getCalculatorURL } from '@/lib/calculator-categories';
 import { generateBreadcrumbSchema } from '@/lib/schemas';
 
 export const metadata = {
@@ -137,7 +137,7 @@ export default function PopularCalculatorsPage() {
             return (
               <Link
                 key={calculator.id}
-                href={`/calculator/${calculator.slug}/`}
+                href={getCalculatorURL(calculator)}
                 className="group relative p-6 bg-background border rounded-xl hover:shadow-lg transition-all duration-200 hover:border-primary/50 hover:-translate-y-1"
               >
                 {/* Popular Badge */}
@@ -207,7 +207,7 @@ export default function PopularCalculatorsPage() {
                   {categoryData.calculators.slice(0, 3).map((calc: any) => (
                     <Link
                       key={calc.id}
-                      href={`/calculator/${calc.slug}/`}
+                      href={getCalculatorURL(calc)}
                       className="flex items-center justify-between p-2 rounded-lg hover:bg-accent transition-colors group"
                     >
                       <span className="text-sm font-medium group-hover:text-primary transition-colors">

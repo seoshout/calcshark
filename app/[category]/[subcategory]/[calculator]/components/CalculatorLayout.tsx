@@ -47,7 +47,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
   };
 
   const handleShare = async () => {
-    const url = `${window.location.origin}/calculator/${calculator.slug}`;
+    const url = `${window.location.origin}/${calculator.category}/${calculator.subcategory}/${calculator.slug}`;
     
     if (navigator.share) {
       // Use native sharing if available

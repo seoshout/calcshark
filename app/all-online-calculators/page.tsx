@@ -5,7 +5,7 @@ import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { ChevronRight, Calculator, Search, Filter, Grid3X3, List, Star, TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { calculatorCategories, getAllCalculators, getCategoryBySlug } from '@/lib/calculator-categories';
+import { calculatorCategories, getAllCalculators, getCategoryBySlug, getCalculatorURL } from '@/lib/calculator-categories';
 import { generateBreadcrumbSchema } from '@/lib/schemas';
 
 // Icon mapping for different calculator types
@@ -345,7 +345,7 @@ function AllCalculatorsContent() {
                   {categoryData.calculators.map((calculator) => (
                     <Link
                       key={calculator.id}
-                      href={`/calculator/${calculator.slug}/`}
+                      href={getCalculatorURL(calculator)}
                       className="group relative p-4 bg-background border rounded-lg hover:shadow-md transition-all duration-200 hover:border-primary/50"
                     >
                       {calculator.popular && (
@@ -409,7 +409,7 @@ function AllCalculatorsContent() {
                   {categoryData.calculators.map((calculator) => (
                     <Link
                       key={calculator.id}
-                      href={`/calculator/${calculator.slug}/`}
+                      href={getCalculatorURL(calculator)}
                       className="group flex items-center justify-between p-3 bg-background border rounded-lg hover:bg-accent transition-colors"
                     >
                       <div className="flex items-center space-x-3 flex-1 min-w-0">
