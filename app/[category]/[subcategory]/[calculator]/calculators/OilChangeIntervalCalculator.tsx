@@ -1170,75 +1170,162 @@ export default function OilChangeIntervalCalculator() {
 
       {/* How to Use Section */}
       <div className="bg-background border rounded-xl p-6 sm:p-8">
-        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-          <Settings className="h-6 w-6 mr-3 text-primary" />
-          How to Use the Oil Change Interval Calculator
-        </h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Free Online Oil Change Interval Calculator</h2>
 
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold mr-3">1</span>
-              Choose Your Mode
-            </h3>
-            <p className="text-muted-foreground ml-11">
-              Start with <strong>Simple Mode</strong> for a quick calculation using just your current mileage, last oil change, oil type, and annual driving.
-              Switch to <strong>Advanced Mode</strong> for a comprehensive analysis that factors in vehicle age, engine type, driving conditions, climate, and maintenance history for the most accurate recommendations.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold mr-3">2</span>
-              Enter Basic Information
-            </h3>
-            <p className="text-muted-foreground ml-11">
-              Input your current odometer reading and the mileage when you last changed your oil (check your service sticker or maintenance records).
-              Select your oil type—<strong>full synthetic</strong> lasts longest (7,500-10,000 mi), <strong>synthetic blend</strong> is mid-range (5,000-7,500 mi),
-              and <strong>conventional</strong> requires more frequent changes (3,000-5,000 mi). Enter your average annual mileage to calculate time-based intervals.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold mr-3">3</span>
-              Add Driving Conditions (Advanced Mode)
-            </h3>
-            <p className="text-muted-foreground ml-11">
-              In Advanced Mode, specify your driving style, primary driving type (highway vs city), and climate.
-              Check the boxes for severe driving conditions that apply to you: <strong>frequent short trips under 10 miles</strong>, <strong>dusty roads</strong>,
-              <strong>towing/heavy loads</strong>, or <strong>excessive idling</strong>. These factors can reduce your oil change interval by 25-50% from the standard recommendation.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold mr-3">4</span>
-              Review Your Personalized Schedule
-            </h3>
-            <p className="text-muted-foreground ml-11">
-              Click "Calculate" to see your next oil change mileage and date based on <strong>whichever comes first</strong>—mileage or time.
-              The calculator compares multiple calculation methods (oil type, manufacturer standard, and condition-adjusted) to recommend the most conservative interval for your engine protection.
-              You'll also see your annual maintenance cost, cost per mile, and a maintenance score showing how well you're caring for your vehicle.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold mr-3">5</span>
-              Follow the Recommendations
-            </h3>
-            <p className="text-muted-foreground ml-11">
-              Pay attention to the status indicator—<span className="text-green-600 font-semibold">Current</span> means you're good,
-              <span className="text-yellow-600 font-semibold">Due Soon</span> means plan within 2-4 weeks,
-              <span className="text-orange-600 font-semibold">Overdue</span> means schedule immediately, and
-              <span className="text-red-600 font-semibold">Severely Overdue</span> means you risk engine damage.
-              Review personalized recommendations like switching to synthetic oil for longer intervals and cost savings, or upgrading to a premium filter for better protection.
-            </p>
+        {/* Step-by-step guide */}
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">📋 Step-by-Step Guide</h3>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1️⃣ Choose Your Mode</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Start with <strong>Simple Mode</strong> for a quick calculation using just your current mileage, last oil change, oil type, and annual driving.
+                Switch to <strong>Advanced Mode</strong> for a comprehensive analysis that factors in vehicle age, engine type, driving conditions, climate, and maintenance history for the most accurate recommendations.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2️⃣ Enter Basic Information</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Input your current odometer reading and the mileage when you last changed your oil (check your service sticker or maintenance records).
+                Select your oil type—<strong>full synthetic</strong> lasts longest (7,500-10,000 mi), <strong>synthetic blend</strong> is mid-range (5,000-7,500 mi),
+                and <strong>conventional</strong> requires more frequent changes (3,000-5,000 mi). Enter your average annual mileage to calculate time-based intervals.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3️⃣ Add Driving Conditions (Advanced Mode)</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                In Advanced Mode, specify your driving style, primary driving type (highway vs city), and climate.
+                Check the boxes for severe driving conditions that apply to you: <strong>frequent short trips under 10 miles</strong>, <strong>dusty roads</strong>,
+                <strong>towing/heavy loads</strong>, or <strong>excessive idling</strong>. These factors can reduce your oil change interval by 25-50% from the standard recommendation.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4️⃣ Review Your Personalized Schedule</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Click "Calculate" to see your next oil change mileage and date based on <strong>whichever comes first</strong>—mileage or time.
+                The calculator compares multiple calculation methods (oil type, manufacturer standard, and condition-adjusted) to recommend the most conservative interval for your engine protection.
+                You'll also see your annual maintenance cost, cost per mile, and a maintenance score showing how well you're caring for your vehicle.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+        {/* Results Dashboard */}
+        <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Your Results Dashboard</h3>
+          <p className="text-sm text-green-800 dark:text-green-200 mb-4">After clicking "Calculate Oil Change Schedule," you'll receive:</p>
+          <div className="space-y-3">
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Oil Change Status</h4>
+                <p className="text-xs text-muted-foreground">Immediate assessment: Current, Due Soon, Overdue, or Severely Overdue</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">📏</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Next Service Mileage & Date</h4>
+                <p className="text-xs text-muted-foreground">Multiple calculation methods: oil type-based, manufacturer standard, and condition-adjusted intervals</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">$</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Cost Analysis</h4>
+                <p className="text-xs text-muted-foreground">Annual maintenance cost, cost per mile, and potential savings from synthetic oil upgrades</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">📊</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Maintenance Score</h4>
+                <p className="text-xs text-muted-foreground">Comprehensive scoring (0-100) showing how well you're maintaining your engine</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Use This Calculator */}
+        <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-semibold mb-4">🎯 Why Use This Calculator?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-medium mb-2">💰 Save Money</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Avoid unnecessary oil changes</li>
+                <li>Prevent expensive engine repairs</li>
+                <li>Optimize oil type selection for cost/value</li>
+                <li>Track annual maintenance budgets</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">🛡️ Protect Your Engine</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Prevent oil breakdown and sludge</li>
+                <li>Maintain proper lubrication</li>
+                <li>Extend engine lifespan</li>
+                <li>Get timely replacement alerts</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">📈 Data-Driven Decisions</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Multi-method calculation comparison</li>
+                <li>Severe condition adjustments</li>
+                <li>Time vs mileage-based tracking</li>
+                <li>Personalized recommendations</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">🆓 Completely Free</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>No registration required</li>
+                <li>No hidden fees or paywalls</li>
+                <li>Unlimited calculations</li>
+                <li>Privacy-focused (no data stored)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+            <div className="flex items-center gap-2 mb-2">
+              <Check className="h-5 w-5 text-green-600 dark:text-green-400" />
+              <h3 className="font-semibold text-green-900 dark:text-green-100">100% Free</h3>
+            </div>
+            <p className="text-sm text-green-800 dark:text-green-200">No hidden costs or premium features</p>
+          </div>
+
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertTriangle className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="font-semibold text-blue-900 dark:text-blue-100">Instant Status Alerts</h3>
+            </div>
+            <p className="text-sm text-blue-800 dark:text-blue-200">Real-time oil change status assessment</p>
+          </div>
+
+          <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+            <div className="flex items-center gap-2 mb-2">
+              <Users className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+              <h3 className="font-semibold text-purple-900 dark:text-purple-100">No Registration</h3>
+            </div>
+            <p className="text-sm text-purple-800 dark:text-purple-200">Calculate anonymously, no account needed</p>
+          </div>
+        </div>
+
+        {/* Pro Tips */}
+        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
           <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2 flex items-center">
             <Info className="h-5 w-5 mr-2" />
             Pro Tips for Accurate Results
