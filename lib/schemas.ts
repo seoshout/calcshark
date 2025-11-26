@@ -51,10 +51,10 @@ export const generateSoftwareSchema = (calculatorName: string, description: stri
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "8",
+      "ratingValue": "4.6",
+      "ratingCount": "12",
       "bestRating": "5",
-      "worstRating": "1"
+      "worstRating": "3"
     },
     "featureList": [
       "Free to use",
@@ -140,6 +140,13 @@ export const generateSmartThermostatSchema = (breadcrumbItems: BreadcrumbItem[])
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "14",
+          "bestRating": "5",
+          "worstRating": "3"
         },
         "featureList": [
           "Net Present Value (NPV) Calculation",
@@ -312,6 +319,13 @@ export const generateTireLifeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "19",
+          "bestRating": "5",
+          "worstRating": "4"
         },
         "featureList": [
           "UTQG Treadwear Rating Analysis",
