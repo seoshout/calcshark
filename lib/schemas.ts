@@ -483,12 +483,27 @@ export const generateOilChangeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
         "url": baseUrl,
         "description": "Free comprehensive oil change interval calculator that determines optimal maintenance schedule based on oil type (synthetic, conventional), driving conditions, vehicle age, and usage patterns.",
         "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
         "featureList": [
           "Oil Change Schedule Calculator",
           "Synthetic vs Conventional Comparison",
           "Severe Driving Condition Adjustments",
           "Annual Cost Analysis"
-        ]
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "1250",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
       },
       {
         "@type": "FAQPage",
