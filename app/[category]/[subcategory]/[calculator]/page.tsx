@@ -4,7 +4,7 @@ import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug } fr
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
-import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema } from '@/lib/schemas';
+import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema, generatePondVolumeSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
@@ -96,6 +96,7 @@ import AdvancedWeddingAlcoholCalculator from './calculators/AdvancedWeddingAlcoh
 import AdvancedSmartThermostatSavingsCalculator from './calculators/AdvancedSmartThermostatSavingsCalculator';
 import AdvancedTireLifeCalculator from './calculators/AdvancedTireLifeCalculator';
 import OilChangeIntervalCalculator from './calculators/OilChangeIntervalCalculator';
+import AdvancedPondVolumeCalculator from './calculators/AdvancedPondVolumeCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
@@ -112,6 +113,7 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'smart-thermostat-savings-calculator': AdvancedSmartThermostatSavingsCalculator,
   'tire-life-calculator': AdvancedTireLifeCalculator,
   'oil-change-interval-calculator': OilChangeIntervalCalculator,
+  'pond-volume-calculator': AdvancedPondVolumeCalculator,
   // Add more calculators as we create them
   // etc.
 };
@@ -147,7 +149,8 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     'compound-interest-calculator',
     'wedding-alcohol-calculator',
     'crop-rotation-calculator',
-    'cooldown-reduction-calculator'
+    'cooldown-reduction-calculator',
+    'pond-volume-calculator'
   ].includes(calculator.slug);
 
   // Generate schemas based on calculator type
@@ -174,6 +177,8 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     combinedSchema = generateCropRotationSchema(breadcrumbItems);
   } else if (calculator.slug === 'cooldown-reduction-calculator') {
     combinedSchema = generateCooldownSchema(breadcrumbItems);
+  } else if (calculator.slug === 'pond-volume-calculator') {
+    combinedSchema = generatePondVolumeSchema(breadcrumbItems);
   } else {
     // Use standard schemas for other calculators
     const softwareSchema = generateSoftwareSchema(

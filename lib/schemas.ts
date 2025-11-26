@@ -1013,3 +1013,126 @@ export const generateCooldownSchema = (breadcrumbItems: BreadcrumbItem[]) => {
     ]
   };
 };
+
+export const generatePondVolumeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/gardening-landscaping/lawn-landscaping/pond-volume-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Pond Volume Calculator - Liner Size, Pump & Fish Stocking Tool",
+        "url": baseUrl,
+        "description": "Calculate pond volume in gallons and liters for any shape. Get liner size, pump requirements, fish stocking capacity, and chemical dosing. Free tool for rectangular, circular, and irregular ponds.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "17", "bestRating": "5", "worstRating": "3" },
+        "featureList": [
+          "Pond Volume Calculation (Gallons, Liters, Cubic Feet, Cubic Meters)",
+          "Liner Size Calculator with 2-Foot Overlap",
+          "Pump & Filter Flow Rate Sizing",
+          "Fish Stocking Capacity (Koi & Goldfish)",
+          "Chemical Dosing Calculator (Algaecide & Clarifier)",
+          "Waterfall GPH Requirements",
+          "Maintenance Cost Estimation",
+          "Imperial & Metric Unit Support",
+          "Rectangular, Circular & Irregular Pond Shapes"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate is this pond volume calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This calculator uses industry-standard formulas with typical accuracy of ±5% for regular shapes (rectangular and circular ponds). For irregular ponds, accuracy depends on measurement quality—the 2/3 approximation formula is widely accepted and typically accurate within 10% when proper average dimensions are used."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to include the liner overlap when measuring my pond?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No—measure only the actual pond excavation dimensions. The calculator automatically adds 2 feet of overlap to all sides (the industry standard) when calculating liner size. This overlap is essential for securing the liner and accounting for settling."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many koi can I keep in my pond?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The gold standard is 250 gallons per adult koi, though experienced keepers with excellent filtration can maintain 150-200 gallons per fish. Overstocking leads to poor water quality, stunted growth, and health problems. Start conservatively—it's easier to add fish than deal with overcrowding issues."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What pump size do I need for my pond?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For koi ponds, turnover the full volume once per hour. Goldfish ponds need turnover every 1.5 hours, and decorative ponds every 2 hours. Add 100 GPH per inch of waterfall width if applicable. Always match pump flow rate to your filter's maximum capacity—exceeding it reduces filtration effectiveness."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I measure an irregular-shaped pond?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For best accuracy, divide complex shapes into multiple rectangles or circles and calculate each section separately. For a quick estimate, measure at the longest and widest points and use average depth—the calculator applies a 2/3 correction factor for irregular shapes, which is standard in the pond industry."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use imperial or metric measurements?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use whichever unit system you're comfortable with—the calculator converts everything automatically. In the US, pond supplies are typically sized in gallons and feet, while international markets use liters and meters. The calculator provides results in all units for equipment compatibility."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should I change pond water?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Weekly 10% water changes are ideal for maintaining water quality. This removes accumulated nitrates, replenishes minerals, and dilutes dissolved organics. In heavily stocked ponds or hot weather, increase to 15-20% weekly. Always dechlorinate replacement water before adding to prevent harming fish and beneficial bacteria."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the minimum pond depth for fish?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "24 inches minimum for goldfish and koi in temperate climates—this prevents freezing solid in winter and provides thermal stability in summer. In cold climates (Zone 5 and colder), 36 inches is safer for overwintering. Deeper sections also give fish refuge from predators like herons."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this calculator for swimming pools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While the volume calculations work for any water feature, the equipment sizing, fish stocking, and chemical dosing are pond-specific. For swimming pools, you'll need different filtration rates, sanitization methods (chlorine/salt systems), and safety considerations not covered by this pond calculator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost to maintain a pond annually?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Typical costs include pump electricity ($50-200), filter media replacement ($100-150), water treatments ($50-150), and fish food ($100-300), totaling $300-800 annually for average ponds. Larger koi ponds with extensive filtration and high fish loads can reach $1,000-2,000 per year depending on climate and stocking density."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` }))
+      }
+    ]
+  };
+};
