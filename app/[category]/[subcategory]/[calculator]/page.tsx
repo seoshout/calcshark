@@ -4,7 +4,7 @@ import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug } fr
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
-import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema } from '@/lib/schemas';
+import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
@@ -136,25 +136,44 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
   ];
 
   // Check if this calculator has a special comprehensive schema
-  const isSmartThermostat = calculator.slug === 'smart-thermostat-savings-calculator';
-  const isTireLife = calculator.slug === 'tire-life-calculator';
-  const isOilChange = calculator.slug === 'oil-change-interval-calculator';
-  const isDogAge = calculator.slug === 'dog-age-calculator';
+  const hasComprehensiveSchema = [
+    'smart-thermostat-savings-calculator',
+    'tire-life-calculator',
+    'oil-change-interval-calculator',
+    'dog-age-calculator',
+    'cat-age-calculator',
+    'mortgage-payment-calculator',
+    'loan-payment-calculator',
+    'compound-interest-calculator',
+    'wedding-alcohol-calculator',
+    'crop-rotation-calculator',
+    'cooldown-reduction-calculator'
+  ].includes(calculator.slug);
 
   // Generate schemas based on calculator type
   let combinedSchema;
-  if (isSmartThermostat) {
-    // Use comprehensive schema for Smart Thermostat Calculator
+  if (calculator.slug === 'smart-thermostat-savings-calculator') {
     combinedSchema = generateSmartThermostatSchema(breadcrumbItems);
-  } else if (isTireLife) {
-    // Use comprehensive schema for Tire Life Calculator
+  } else if (calculator.slug === 'tire-life-calculator') {
     combinedSchema = generateTireLifeSchema(breadcrumbItems);
-  } else if (isOilChange) {
-    // Use comprehensive schema for Oil Change Calculator
+  } else if (calculator.slug === 'oil-change-interval-calculator') {
     combinedSchema = generateOilChangeSchema(breadcrumbItems);
-  } else if (isDogAge) {
-    // Use comprehensive schema for Dog Age Calculator
+  } else if (calculator.slug === 'dog-age-calculator') {
     combinedSchema = generateDogAgeSchema(breadcrumbItems);
+  } else if (calculator.slug === 'cat-age-calculator') {
+    combinedSchema = generateCatAgeSchema(breadcrumbItems);
+  } else if (calculator.slug === 'mortgage-payment-calculator') {
+    combinedSchema = generateMortgageSchema(breadcrumbItems);
+  } else if (calculator.slug === 'loan-payment-calculator') {
+    combinedSchema = generateLoanPaymentSchema(breadcrumbItems);
+  } else if (calculator.slug === 'compound-interest-calculator') {
+    combinedSchema = generateCompoundInterestSchema(breadcrumbItems);
+  } else if (calculator.slug === 'wedding-alcohol-calculator') {
+    combinedSchema = generateWeddingAlcoholSchema(breadcrumbItems);
+  } else if (calculator.slug === 'crop-rotation-calculator') {
+    combinedSchema = generateCropRotationSchema(breadcrumbItems);
+  } else if (calculator.slug === 'cooldown-reduction-calculator') {
+    combinedSchema = generateCooldownSchema(breadcrumbItems);
   } else {
     // Use standard schemas for other calculators
     const softwareSchema = generateSoftwareSchema(
@@ -173,7 +192,7 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     return (
       <CalculatorLayout calculator={calculator} category={category}>
         {/* Schemas */}
-        {(isSmartThermostat || isTireLife || isOilChange || isDogAge) ? (
+        {hasComprehensiveSchema ? (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -222,7 +241,7 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
   return (
     <CalculatorLayout calculator={calculator} category={category}>
       {/* Schemas */}
-      {(isSmartThermostat || isTireLife || isOilChange || isDogAge) ? (
+      {hasComprehensiveSchema ? (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

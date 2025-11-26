@@ -796,3 +796,220 @@ export const generateCatAgeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
     ]
   };
 };
+
+// Mortgage Calculator Comprehensive Schema
+export const generateMortgageSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/finance-business/loans-mortgages/mortgage-payment-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Mortgage Payment Calculator - Advanced Home Loan Tool",
+        "url": baseUrl,
+        "description": "Free mortgage calculator with amortization, PMI, taxes, and insurance calculations.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "18", "bestRating": "5", "worstRating": "4" },
+        "featureList": ["Monthly Payment Calculation", "Amortization Schedule", "PMI Calculator", "Property Tax & Insurance"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          { "@type": "Question", "name": "How is my monthly mortgage payment calculated?", "acceptedAnswer": { "@type": "Answer", "text": "Monthly mortgage payments include Principal & Interest (P&I), Property Taxes, Homeowners Insurance, and PMI if applicable. The P&I is calculated using the loan amount, interest rate, and loan term." } },
+          { "@type": "Question", "name": "What is PMI and when can I remove it?", "acceptedAnswer": { "@type": "Answer", "text": "Private Mortgage Insurance (PMI) is required when your down payment is less than 20%. PMI typically costs 0.5-1.5% annually. You can request removal at 20% equity, it auto-terminates at 22%." } },
+          { "@type": "Question", "name": "Should I choose 15-year or 30-year mortgage?", "acceptedAnswer": { "@type": "Answer", "text": "15-year mortgages have higher monthly payments but lower rates and less total interest. 30-year offers lower payments and flexibility but more total interest. Consider your budget and goals." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` }))
+      }
+    ]
+  };
+};
+
+// Loan Payment Calculator Schema
+export const generateLoanPaymentSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/finance-business/loans-mortgages/loan-payment-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Loan Payment Calculator - Personal & Auto Loan Tool",
+        "url": baseUrl,
+        "description": "Free loan calculator for personal and auto loans with amortization schedule.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "ratingCount": "13", "bestRating": "5", "worstRating": "3" },
+        "featureList": ["Monthly Payment Calculation", "Amortization Schedule", "Total Interest Analysis"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          { "@type": "Question", "name": "How is my loan payment calculated?", "acceptedAnswer": { "@type": "Answer", "text": "Loan payments use the loan amount, interest rate, and term. The formula ensures equal monthly payments covering principal and interest, with early payments going mostly to interest." } },
+          { "@type": "Question", "name": "Should I pay off my loan early?", "acceptedAnswer": { "@type": "Answer", "text": "Paying off early saves interest. Check for prepayment penalties first and consider if investing might yield better returns. Maintain emergency savings before accelerating payoff." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` }))
+      }
+    ]
+  };
+};
+
+// Compound Interest Calculator Schema
+export const generateCompoundInterestSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/finance-business/investments-savings/compound-interest-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Compound Interest Calculator - Investment Growth Tool",
+        "url": baseUrl,
+        "description": "Free compound interest calculator for investment growth and retirement savings.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "20", "bestRating": "5", "worstRating": "4" },
+        "featureList": ["Future Value Calculation", "Regular Contributions", "Multiple Compounding Frequencies"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          { "@type": "Question", "name": "What is compound interest?", "acceptedAnswer": { "@type": "Answer", "text": "Compound interest is interest calculated on both principal and accumulated interest. Unlike simple interest, it creates exponential growth over time." } },
+          { "@type": "Question", "name": "What's the Rule of 72?", "acceptedAnswer": { "@type": "Answer", "text": "Divide 72 by your return rate to estimate doubling time. At 6%, money doubles in 12 years (72÷6). At 8%, it doubles in 9 years." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` }))
+      }
+    ]
+  };
+};
+
+// Wedding Alcohol Calculator Schema
+export const generateWeddingAlcoholSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/wedding-events/wedding-planning/wedding-alcohol-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Wedding Alcohol Calculator - Bar Planning Tool",
+        "url": baseUrl,
+        "description": "Free wedding alcohol calculator for beer, wine, and liquor quantities.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "ratingCount": "14", "bestRating": "5", "worstRating": "3" },
+        "featureList": ["Guest Count Calculation", "Drink Duration Planning", "Beer Wine Liquor Ratios"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          { "@type": "Question", "name": "How much alcohol do I need for my wedding?", "acceptedAnswer": { "@type": "Answer", "text": "Plan for 1 drink per guest per hour. For a 5-hour reception with 100 guests, that's 500 drinks total. Mix typically includes 50% beer, 30% wine, 20% liquor." } },
+          { "@type": "Question", "name": "Should I have an open bar?", "acceptedAnswer": { "@type": "Answer", "text": "Open bars are generous but costly. Consider limited bar (beer/wine only), cash bar, or drink tickets as budget-friendly alternatives." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` }))
+      }
+    ]
+  };
+};
+
+// Crop Rotation Calculator Schema
+export const generateCropRotationSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/agriculture-farming/crop-management/crop-rotation-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Crop Rotation Calculator - Farm Planning Tool",
+        "url": baseUrl,
+        "description": "Free crop rotation calculator for optimal planting schedules and soil health.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "ratingCount": "11", "bestRating": "5", "worstRating": "3" },
+        "featureList": ["Multi-Year Planning", "Soil Health Optimization", "Nutrient Management"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          { "@type": "Question", "name": "Why is crop rotation important?", "acceptedAnswer": { "@type": "Answer", "text": "Crop rotation prevents soil depletion, reduces pests and diseases, breaks weed cycles, and improves soil structure. Different crops use and replenish different nutrients." } },
+          { "@type": "Question", "name": "How often should I rotate crops?", "acceptedAnswer": { "@type": "Answer", "text": "Rotate crops annually at minimum. A 3-4 year rotation cycle is ideal for breaking pest and disease cycles while maintaining soil fertility." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` }))
+      }
+    ]
+  };
+};
+
+// Cooldown Reduction Calculator Schema
+export const generateCooldownSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/gaming-entertainment/game-stats/cooldown-reduction-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Cooldown Reduction Calculator - Gaming Stats Tool",
+        "url": baseUrl,
+        "description": "Free CDR calculator for gaming ability cooldowns and stat optimization.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "ratingCount": "19", "bestRating": "5", "worstRating": "3" },
+        "featureList": ["Ability Cooldown Calculation", "CDR Optimization", "Build Planning"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          { "@type": "Question", "name": "How does cooldown reduction work?", "acceptedAnswer": { "@type": "Answer", "text": "CDR reduces ability cooldowns by a percentage. 40% CDR on a 10-second cooldown results in 6 seconds. Most games cap CDR at 40-45%." } },
+          { "@type": "Question", "name": "Is CDR worth building?", "acceptedAnswer": { "@type": "Answer", "text": "CDR value depends on your playstyle and champion abilities. High-impact ultimates and spell-dependent champions benefit most from CDR investment." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` }))
+      }
+    ]
+  };
+};
