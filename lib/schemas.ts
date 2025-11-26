@@ -469,3 +469,123 @@ export const generateTireLifeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
     ]
   };
 };
+// Oil Change Interval Calculator Comprehensive Schema
+export const generateOilChangeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/maintenance-parts/oil-change-interval-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Oil Change Interval Calculator - Advanced Schedule & Cost Analysis Tool",
+        "url": baseUrl,
+        "description": "Free comprehensive oil change interval calculator that determines optimal maintenance schedule based on oil type (synthetic, conventional), driving conditions, vehicle age, and usage patterns.",
+        "applicationCategory": "UtilityApplication",
+        "featureList": [
+          "Oil Change Schedule Calculator",
+          "Synthetic vs Conventional Comparison",
+          "Severe Driving Condition Adjustments",
+          "Annual Cost Analysis"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How often should I change my oil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Modern vehicles with synthetic oil typically need oil changes every 7,500-10,000 miles or every 6-12 months, whichever comes first. Conventional oil should be changed every 3,000-5,000 miles or every 3-6 months. However, severe driving conditions like frequent short trips, extreme temperatures, dusty conditions, or towing can reduce these intervals by 25-50%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between synthetic and conventional oil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Synthetic oil is chemically engineered to provide superior lubrication, better performance in extreme temperatures, and longer service life compared to conventional oil. Full synthetic oil can last 10,000-15,000 miles between changes, while conventional oil typically requires changes every 3,000-5,000 miles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I go longer between oil changes with synthetic oil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, full synthetic oil can safely extend oil change intervals to 7,500-10,000 miles or even 15,000 miles in some modern vehicles, compared to 3,000-5,000 miles for conventional oil. However, even with synthetic oil, you should still change it at least once every 12 months due to time-based degradation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What qualifies as severe driving conditions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Severe driving conditions include: frequent short trips (less than 10 miles), stop-and-go city traffic, extreme hot or cold temperatures, dusty or dirty environments, towing or hauling heavy loads, excessive idling, and off-road driving. About 80% of drivers actually fall into the severe category. These conditions can reduce recommended oil change intervals by 25-50%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I change oil based on mileage or time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You should change your oil based on whichever comes first: mileage OR time. Even if you don't drive many miles, oil can degrade over time due to moisture accumulation, oxidation, and additive breakdown. A good rule is to change conventional oil every 6 months and synthetic oil every 12 months, regardless of mileage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the 3,000-mile oil change rule still valid?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, the 3,000-mile rule is largely outdated for modern vehicles. Today's synthetic oils and improved engine technology allow most vehicles to safely go 5,000-10,000 miles between changes. However, the 3,000-mile interval may still apply to older vehicles (pre-2000), vehicles using conventional oil, or those operating under severe conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I mix synthetic and conventional oil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, synthetic and conventional oils can be mixed safely in an emergency, as they're chemically compatible. However, mixing them dilutes the performance benefits of synthetic oil. If you mix oils, you should follow the shorter oil change interval of conventional oil (3,000-5,000 miles)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if I wait too long to change my oil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Delaying oil changes can cause serious engine damage. Old oil loses its lubricating properties, leading to increased friction, heat, and wear on engine components. This can result in: reduced fuel economy, increased emissions, sludge buildup, overheating, premature engine wear, and potentially catastrophic engine failure requiring expensive repairs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know what type of oil my car needs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Check your owner's manual for the manufacturer-recommended oil type and viscosity (like 5W-30). The oil cap under your hood may also display this information. Modern vehicles (2010+) typically benefit from full synthetic oil, while older vehicles may use conventional or synthetic blend. High-mileage vehicles (75,000+ miles) may benefit from high-mileage formula oils."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does my vehicle have an oil life monitoring system?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most vehicles manufactured after 2010 include an Oil Life Monitoring System (OLMS) that tracks driving conditions, engine temperature, miles driven, and time to predict optimal oil change timing. This appears as a percentage or indicator light on your dashboard. However, you should still check your oil level monthly and change oil at least annually regardless of what the monitor shows."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
