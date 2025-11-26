@@ -4,7 +4,7 @@ import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug } fr
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
-import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema } from '@/lib/schemas';
+import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
@@ -139,6 +139,7 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
   const isSmartThermostat = calculator.slug === 'smart-thermostat-savings-calculator';
   const isTireLife = calculator.slug === 'tire-life-calculator';
   const isOilChange = calculator.slug === 'oil-change-interval-calculator';
+  const isDogAge = calculator.slug === 'dog-age-calculator';
 
   // Generate schemas based on calculator type
   let combinedSchema;
@@ -151,6 +152,9 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
   } else if (isOilChange) {
     // Use comprehensive schema for Oil Change Calculator
     combinedSchema = generateOilChangeSchema(breadcrumbItems);
+  } else if (isDogAge) {
+    // Use comprehensive schema for Dog Age Calculator
+    combinedSchema = generateDogAgeSchema(breadcrumbItems);
   } else {
     // Use standard schemas for other calculators
     const softwareSchema = generateSoftwareSchema(
@@ -169,7 +173,7 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     return (
       <CalculatorLayout calculator={calculator} category={category}>
         {/* Schemas */}
-        {(isSmartThermostat || isTireLife || isOilChange) ? (
+        {(isSmartThermostat || isTireLife || isOilChange || isDogAge) ? (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -218,7 +222,7 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
   return (
     <CalculatorLayout calculator={calculator} category={category}>
       {/* Schemas */}
-      {(isSmartThermostat || isTireLife || isOilChange) ? (
+      {(isSmartThermostat || isTireLife || isOilChange || isDogAge) ? (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

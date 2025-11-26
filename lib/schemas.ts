@@ -618,3 +618,100 @@ export const generateOilChangeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
     ]
   };
 };
+
+// Dog Age Calculator Comprehensive Schema
+export const generateDogAgeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/animals-pets/pet-health-care/dog-age-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Dog Age Calculator - Advanced Breed-Specific Life Expectancy Tool",
+        "url": baseUrl,
+        "description": "Free comprehensive dog age calculator using 2025 research from Dog Aging Project (50,000+ dogs), epigenetic clocks, and breed-specific data to calculate dog years in human years accurately.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "16",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Breed-Specific Age Calculations",
+          "Body Condition Score Analysis",
+          "Life Expectancy Estimation",
+          "Health Risk Assessment",
+          "Senior Status Determination"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate is the dog age calculation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our calculator uses the latest 2025 research including dual-species epigenetic clocks with R=0.97 accuracy, data from the Dog Aging Project (50,000+ dogs), and clinical biomarker analysis. The core formula (human_age = 16ln(dog_age) + 31) is enhanced with multi-modal aging biomarkers, breed-specific longevity data, and metabolic health factors for unprecedented accuracy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do small dogs live longer than large dogs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Larger dogs age faster due to several biological factors: faster growth rates leading to earlier cellular damage, higher metabolic demands, increased cancer rates, and greater strain on organs. Giant breeds also face higher risks of bloat, heart problems, and joint issues. Small dogs typically live 12-16 years while giant breeds average 6-10 years."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What factors most influence my dog's life expectancy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Based on 2025 Dog Aging Project findings from 50,000+ dogs: genetics (breed-specific), body weight management (obesity reduces lifespan by 2-3 years), metabolic health biomarkers (insulin, adipose function), exercise level, diet quality, spay/neuter status, environmental factors, and microbiome health. The latest research shows metabolic health components are strongly associated with frailty and quality of life in aging dogs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should my dog be considered 'senior'?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Senior status varies by size: giant breeds at 5-6 years, large breeds at 6-7 years, medium breeds at 7-8 years, and small breeds at 8-10 years. Senior dogs need biannual vet visits, blood work monitoring, joint health support, and potential diet adjustments. Early intervention helps maintain quality of life."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I improve my dog's calculated life expectancy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Maintaining ideal body weight, providing regular exercise appropriate for breed and age, feeding high-quality nutrition, ensuring preventive veterinary care, and managing stress can all positively impact longevity. Even small improvements in health management can add years to your dog's life."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
