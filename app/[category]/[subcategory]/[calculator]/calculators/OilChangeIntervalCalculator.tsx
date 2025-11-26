@@ -843,7 +843,7 @@ export default function OilChangeIntervalCalculator() {
       {/* Results Modal */}
       {showModal && results && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
-          <div className="bg-background rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-background rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
             <div className="sticky top-0 bg-background border-b px-6 py-4 flex items-center justify-between rounded-t-xl">
               <h3 className="text-2xl font-bold text-foreground">Oil Change Analysis Results</h3>
               <button
@@ -854,7 +854,7 @@ export default function OilChangeIntervalCalculator() {
               </button>
             </div>
 
-            <div className="p-6 space-y-6">
+            <div className="p-6 space-y-6 overflow-y-auto flex-1">
               {/* Status Alert */}
               <div className={cn(
                 "p-6 rounded-lg border-2",
