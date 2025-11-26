@@ -1671,7 +1671,7 @@ export default function AdvancedTireLifeCalculator() {
       />
 
       {/* Review Section */}
-      <CalculatorReview calculatorId="tire-life-calculator" />
+      <CalculatorReview calculatorName="Tire Life Calculator" />
     </div>
   );
 }
