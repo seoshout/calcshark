@@ -499,8 +499,8 @@ export const generateOilChangeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1250",
+          "ratingValue": "4.7",
+          "ratingCount": "17",
           "bestRating": "5",
           "worstRating": "1"
         }
