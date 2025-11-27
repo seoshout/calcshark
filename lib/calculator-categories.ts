@@ -11808,7 +11808,7 @@ export const calculatorCategories: Category[] = [
               'pond pump sizing'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]

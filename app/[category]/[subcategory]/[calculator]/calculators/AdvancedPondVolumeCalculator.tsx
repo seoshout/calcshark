@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Info, AlertTriangle, X, Check, Droplet, Fish, Filter, Beaker, Calculator as CalcIcon, Users } from 'lucide-react';
+import { Info, AlertTriangle, X, Check, Droplet, Fish, Filter, Beaker, Calculator as CalcIcon, Users, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
 import CalculatorReview from '@/components/ui/calculator-review';
@@ -60,7 +60,7 @@ interface PondResults {
 }
 
 const AdvancedPondVolumeCalculator = () => {
-  const [mode, setMode] = useState<'simple' | 'advanced'>('simple');
+  const [isAdvancedMode, setIsAdvancedMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [inputs, setInputs] = useState<PondInputs>({
     shape: 'rectangular',
@@ -315,34 +315,36 @@ const AdvancedPondVolumeCalculator = () => {
 
   return (
     <div className="space-y-6">
-      {/* Mode Toggle */}
-      <div className="flex items-center justify-center gap-2 p-1 bg-muted rounded-lg w-fit mx-auto">
-        <button
-          onClick={() => setMode('simple')}
-          className={cn(
-            "px-6 py-2 rounded-md text-sm font-medium transition-colors",
-            mode === 'simple'
-              ? "bg-primary text-primary-foreground"
-              : "text-muted-foreground hover:text-foreground"
-          )}
-        >
-          Simple Mode
-        </button>
-        <button
-          onClick={() => setMode('advanced')}
-          className={cn(
-            "px-6 py-2 rounded-md text-sm font-medium transition-colors",
-            mode === 'advanced'
-              ? "bg-primary text-primary-foreground"
-              : "text-muted-foreground hover:text-foreground"
-          )}
-        >
-          Advanced Mode
-        </button>
-      </div>
-
       {/* Calculator Card */}
       <div className="bg-background border rounded-xl p-6 space-y-6">
+
+        {/* Mode Toggle */}
+        <div className="mb-6 flex items-center justify-between p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div>
+            <h3 className="font-semibold text-blue-900 dark:text-blue-100">
+              {isAdvancedMode ? 'Advanced Mode' : 'Simple Mode'}
+            </h3>
+            <p className="text-sm text-blue-800 dark:text-blue-200 mt-1">
+              {isAdvancedMode ? 'Comprehensive pond analysis with fish stocking, pump sizing, and chemical dosing' : 'Quick volume calculation with essential inputs only'}
+            </p>
+          </div>
+          <button
+            onClick={() => setIsAdvancedMode(!isAdvancedMode)}
+            className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            {isAdvancedMode ? (
+              <>
+                <ChevronUp className="h-4 w-4 mr-2" />
+                Switch to Simple
+              </>
+            ) : (
+              <>
+                <ChevronDown className="h-4 w-4 mr-2" />
+                Advanced Options
+              </>
+            )}
+          </button>
+        </div>
         {/* Measurement Unit Selection */}
         <div>
           <label className="block text-sm font-medium mb-2">Measurement Unit</label>
@@ -488,7 +490,7 @@ const AdvancedPondVolumeCalculator = () => {
         </div>
 
         {/* Advanced Mode Options */}
-        {mode === 'advanced' && (
+        {isAdvancedMode && (
           <>
             <div className="border-t pt-6 space-y-4">
               <h3 className="font-semibold text-lg">Advanced Options</h3>
@@ -693,7 +695,7 @@ const AdvancedPondVolumeCalculator = () => {
                 </p>
               </div>
 
-              {mode === 'advanced' && (
+              {isAdvancedMode && (
                 <>
                   {/* Pump & Filter Requirements */}
                   <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
