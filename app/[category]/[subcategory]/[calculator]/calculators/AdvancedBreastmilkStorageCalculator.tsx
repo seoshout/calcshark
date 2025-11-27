@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { Calculator, Droplet, Clock, AlertTriangle, CheckCircle, Thermometer, Calendar, Info, RefreshCw, X, Check, Home, Snowflake, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calculator, Droplet, Clock, AlertTriangle, CheckCircle, Thermometer, Calendar, Info, RefreshCw, X, Check, Home, Snowflake, ExternalLink, ChevronDown, ChevronUp, Users } from 'lucide-react';
+import { Calculator as CalcIcon } from 'lucide-react';
 import { RefrigeratorIcon as Fridge } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import CalculatorReview from '@/components/ui/calculator-review';
@@ -46,7 +47,6 @@ export default function AdvancedBreastmilkStorageCalculator() {
   const resultsRef = useRef<HTMLDivElement>(null);
   const [isAdvancedMode, setIsAdvancedMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [showReferences, setShowReferences] = useState(false);
 
   const [inputs, setInputs] = useState<StorageInputs>({
     expressedDate: new Date().toISOString().split('T')[0],
@@ -438,28 +438,6 @@ export default function AdvancedBreastmilkStorageCalculator() {
     }
   ];
 
-  const referenceLinks = [
-    {
-      title: "CDC - Breast Milk Storage and Preparation",
-      url: "https://www.cdc.gov/breastfeeding/breast-milk-preparation-and-storage/handling-breastmilk.html",
-      description: "Official CDC guidelines for proper breast milk storage and handling"
-    },
-    {
-      title: "La Leche League - Storing Human Milk",
-      url: "https://llli.org/breastfeeding-info/storing-human-milk/",
-      description: "Comprehensive breastmilk storage information from La Leche League International"
-    },
-    {
-      title: "Mayo Clinic - Breast Milk Storage: Do's and Don'ts",
-      url: "https://www.mayoclinic.org/healthy-lifestyle/infant-and-toddler-health/in-depth/breast-milk-storage/art-20046350",
-      description: "Expert advice on breast milk storage best practices"
-    },
-    {
-      title: "AAP - Milk Storage Guidelines",
-      url: "https://www.aap.org/en/patient-care/breastfeeding/milk-storage-guidelines/",
-      description: "American Academy of Pediatrics guidelines for human milk storage"
-    }
-  ];
 
   return (
     <div className="w-full space-y-8">
@@ -1064,87 +1042,227 @@ export default function AdvancedBreastmilkStorageCalculator() {
         </p>
       </div>
 
-      {/* Reference URLs */}
-      <div className="bg-background border rounded-xl p-6 shadow-sm">
-        <button
-          onClick={() => setShowReferences(!showReferences)}
-          className="w-full flex items-center justify-between text-left mb-4"
-        >
-          <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
-            <ExternalLink className="h-5 w-5 text-primary" />
-            Reference Sources & Guidelines
-          </h3>
-          {showReferences ? (
-            <ChevronUp className="h-5 w-5 text-muted-foreground" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-muted-foreground" />
-          )}
-        </button>
-
-        {showReferences && (
-          <div className="space-y-4">
-            {referenceLinks.map((link, index) => (
-              <div key={index} className="border border-border rounded-lg p-4 hover:bg-accent/50 transition-colors">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 group"
-                >
-                  <ExternalLink className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {link.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground mt-1">{link.description}</p>
-                    <p className="text-xs text-muted-foreground mt-2 break-all">{link.url}</p>
-                  </div>
-                </a>
-              </div>
-            ))}
+      {/* Scientific References */}
+      <div className="bg-background border rounded-xl p-6 sm:p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Scientific References & Resources</h2>
+        <div className="space-y-3 text-sm">
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">CDC & WHO Guidelines</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.cdc.gov/breastfeeding/recommendations/handling_breastmilk.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Proper Storage and Preparation of Breast Milk - CDC</a></li>
+              <li>• <a href="https://www.who.int/health-topics/breastfeeding" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breastfeeding - World Health Organization</a></li>
+              <li>• <a href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/Storing-and-Preparing-Expressed-Breast-Milk.aspx" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Storing & Preparing Breast Milk - AAP</a></li>
+            </ul>
           </div>
-        )}
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">Lactation & Storage Research</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.llli.org/breastfeeding-info/milk-storage/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Milk Storage Guidelines - La Leche League International</a></li>
+              <li>• <a href="https://www.mayoclinic.org/healthy-lifestyle/infant-and-toddler-health/in-depth/breast-milk-storage/art-20046350" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breast Milk Storage: Do's and Don'ts - Mayo Clinic</a></li>
+              <li>• <a href="https://kellymom.com/bf/pumpingmoms/milkstorage/milkstorage/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Milk Storage Guidelines - KellyMom</a></li>
+            </ul>
+          </div>
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">Container Safety & Best Practices</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.fda.gov/food/people-risk-foodborne-illness/food-safety-moms-be" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Food Safety for Moms to Be - FDA</a></li>
+              <li>• <a href="https://www.cdc.gov/hygiene/personal-hygiene/handwashing.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hand Hygiene Guidelines - CDC</a></li>
+              <li>• <a href="https://www.medela.us/breastfeeding/articles/breast-milk-storage-guidelines" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breast Milk Storage Guidelines - Medela</a></li>
+            </ul>
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground mt-4 italic">
+          All calculations based on CDC, WHO, and Academy of Breastfeeding Medicine evidence-based guidelines for breast milk storage safety.
+        </p>
+      </div>
+
+      {/* Introduction Section */}
+      <div className="bg-background border rounded-xl p-6 sm:p-8 mb-6">
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          Calculate safe breastmilk storage duration based on CDC and WHO guidelines for room temperature, refrigerator, and freezer storage.
+          Get expiration dates, safety status, container recommendations, and quality indicators for freshly expressed milk, thawed milk,
+          and warmed milk. Free tool for nursing mothers with comprehensive storage safety guidance.
+        </p>
       </div>
 
       {/* How to Use Section */}
-      <div className="bg-background border rounded-xl p-6 shadow-sm">
-        <h3 className="text-xl font-bold text-foreground mb-4">How to Use This Free Online Breastmilk Storage Calculator</h3>
-        <div className="space-y-4 text-foreground">
-          <div className="flex items-start gap-3">
-            <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">1</div>
+      <div className="bg-background border rounded-xl p-6 sm:p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Free Online Breastmilk Storage Calculator</h2>
+
+        {/* Step-by-step guide */}
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">📋 Step-by-Step Guide</h3>
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold mb-1">Enter Expression Date and Time</h4>
-              <p className="text-muted-foreground">Input when you expressed or pumped the breast milk. This helps calculate exactly how long the milk has been stored.</p>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1️⃣ Choose Your Mode</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Start with <strong>Simple Mode</strong> for quick storage calculations using just expression date/time, storage location, and milk state.
+                Switch to <strong>Advanced Mode</strong> for comprehensive analysis including container type recommendations, cleanliness level considerations,
+                baby age factors, and special needs guidance.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2️⃣ Enter Expression Date & Time</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Input when you <strong>pumped or expressed the milk</strong>. This allows the calculator to determine exact storage duration
+                and provide real-time safety status. The calculator accounts for elapsed time to show remaining safe storage hours/days.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3️⃣ Select Storage Location & Milk State</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Choose storage location: <strong>Room Temperature</strong> (4 hours), <strong>Refrigerator</strong> (4 days),
+                <strong>Freezer</strong> (6 months), <strong>Deep Freezer</strong> (12 months), or <strong>Cooler</strong> (24 hours).
+                Specify milk state: Fresh, Thawed (previously frozen), or Warmed—each has different safety windows per CDC guidelines.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4️⃣ Configure Advanced Options (Optional)</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                In Advanced Mode, select <strong>container type</strong> (glass/plastic/storage bags), specify milk amount for portioning guidance,
+                indicate cleanliness level (very clean conditions extend storage 50-100%), enter baby's age for tailored recommendations,
+                and mark special needs (premature/hospitalized/immunocompromised require stricter guidelines).
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">5️⃣ Review Your Comprehensive Results</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Get instant <strong>expiration date and time</strong>, safety status (safe/caution/expired), time remaining in hours or days,
+                optimal vs maximum storage durations, temperature guidelines, detailed safety recommendations, container-specific tips,
+                and quality indicators to ensure your baby receives the safest milk possible.
+              </p>
             </div>
           </div>
-          <div className="flex items-start gap-3">
-            <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">2</div>
-            <div>
-              <h4 className="font-semibold mb-1">Select Storage Location</h4>
-              <p className="text-muted-foreground">Choose where the milk is being stored: room temperature, refrigerator, standard freezer, deep freezer, or insulated cooler. Each location has different safe storage durations based on CDC guidelines.</p>
+        </div>
+
+        {/* Results Dashboard */}
+        <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Your Results Dashboard</h3>
+          <p className="text-sm text-green-800 dark:text-green-200 mb-4">After clicking "Calculate Storage Duration," you'll receive:</p>
+          <div className="space-y-3">
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Expiration Date & Safety Status</h4>
+                <p className="text-xs text-muted-foreground">Precise expiration date/time with safety indicator (safe/caution/expired)</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">⏱️</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Time Remaining Analysis</h4>
+                <p className="text-xs text-muted-foreground">Hours/days until expiration with optimal vs maximum duration guidelines</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">🌡️</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Storage & Temperature Guidelines</h4>
+                <p className="text-xs text-muted-foreground">Location-specific temperature requirements and storage best practices</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">🛡️</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Safety Recommendations & Container Tips</h4>
+                <p className="text-xs text-muted-foreground">Comprehensive safety guidance, container selection advice, and quality indicators</p>
+              </div>
             </div>
           </div>
-          <div className="flex items-start gap-3">
-            <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">3</div>
+        </div>
+
+        {/* Why Use This Calculator */}
+        <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-semibold mb-4">🎯 Why Use This Calculator?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h4 className="font-semibold mb-1">Specify Milk State</h4>
-              <p className="text-muted-foreground">Indicate whether the milk is freshly expressed, previously frozen and thawed, or warmed for feeding. This significantly affects safe storage time.</p>
+              <h4 className="font-medium mb-2">🍼 Ensure Baby's Safety</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Follow CDC evidence-based guidelines</li>
+                <li>Prevent foodborne illness from spoiled milk</li>
+                <li>Get real-time expiration tracking</li>
+                <li>Know exactly when milk is no longer safe</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">💰 Minimize Wasted Milk</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>Avoid discarding milk too early</li>
+                <li>Maximize storage duration safely</li>
+                <li>Learn optimal portioning strategies</li>
+                <li>Understand thawed milk limitations</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">📚 Evidence-Based Guidance</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>CDC & WHO official guidelines</li>
+                <li>La Leche League recommendations</li>
+                <li>Mayo Clinic best practices</li>
+                <li>AAP storage protocols</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">🆓 Completely Free Tool</h4>
+              <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
+                <li>No registration required</li>
+                <li>No hidden fees or paywalls</li>
+                <li>Unlimited calculations</li>
+                <li>Privacy-focused (no data stored)</li>
+              </ul>
             </div>
           </div>
-          <div className="flex items-start gap-3">
-            <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">4</div>
-            <div>
-              <h4 className="font-semibold mb-1">Enable Advanced Mode (Optional)</h4>
-              <p className="text-muted-foreground">Switch to advanced mode for additional options like container type, milk amount, cleanliness level, baby age, and special needs considerations for more personalized recommendations.</p>
+        </div>
+
+        {/* Key Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+            <div className="flex items-center gap-2 mb-2">
+              <Check className="h-5 w-5 text-green-600 dark:text-green-400" />
+              <h3 className="font-semibold text-green-900 dark:text-green-100">100% Free</h3>
             </div>
+            <p className="text-sm text-green-800 dark:text-green-200">No hidden costs or premium features</p>
           </div>
-          <div className="flex items-start gap-3">
-            <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">5</div>
-            <div>
-              <h4 className="font-semibold mb-1">Calculate and Review Results</h4>
-              <p className="text-muted-foreground">Click calculate to see the expiration date, time remaining, safety status, and comprehensive recommendations. A popup will show key information, with full details available below.</p>
+
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+            <div className="flex items-center gap-2 mb-2">
+              <CalcIcon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="font-semibold text-blue-900 dark:text-blue-100">CDC Guidelines</h3>
             </div>
+            <p className="text-sm text-blue-800 dark:text-blue-200">Evidence-based safety recommendations</p>
           </div>
+
+          <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+            <div className="flex items-center gap-2 mb-2">
+              <Users className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+              <h3 className="font-semibold text-purple-900 dark:text-purple-100">No Registration</h3>
+            </div>
+            <p className="text-sm text-purple-800 dark:text-purple-200">Calculate anonymously, no account needed</p>
+          </div>
+        </div>
+
+        {/* Pro Tips */}
+        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2 flex items-center">
+            <Info className="h-5 w-5 mr-2" />
+            Pro Tips for Safe Milk Storage
+          </h4>
+          <ul className="space-y-1 text-sm text-blue-800 dark:text-blue-200">
+            <li>• Label every container with date and time—use permanent marker or waterproof labels</li>
+            <li>• Store milk in back of refrigerator/freezer where temperature is most stable (not door)</li>
+            <li>• Never refreeze thawed milk—bacterial growth accelerates after thawing</li>
+            <li>• Use 2-4 oz portions to minimize waste—babies' feeding amounts vary by session</li>
+            <li>• Swirl gently to mix (don't shake)—shaking damages proteins and breaks down fat molecules</li>
+            <li>• Trust your senses—discard milk that smells sour, rancid, or looks clumpy beyond normal separation</li>
+          </ul>
         </div>
       </div>
 
