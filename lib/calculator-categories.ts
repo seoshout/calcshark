@@ -5636,18 +5636,26 @@ export const calculatorCategories: Category[] = [
           {
             id: 'breastmilk-storage-calculator',
             name: 'Breastmilk Storage Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Calculate safe breastmilk storage duration based on CDC guidelines for room temperature, refrigerator, and freezer storage with expiration tracking and safety recommendations.',
             slug: 'breastmilk-storage-calculator',
-            category: 'pregnancy-parenting',
-            subcategory: 'baby-child-development',
+            category: 'parenting-family',
+            subcategory: 'baby-care',
             tags: [
-              'pregnancy & parenting',
-              'baby & child development',
-              'breastmilk storage calculator'
+              'parenting & family',
+              'baby care',
+              'breastmilk storage calculator',
+              'breast milk storage',
+              'breastfeeding',
+              'lactation',
+              'milk storage safety',
+              'CDC guidelines',
+              'baby feeding',
+              'pumping',
+              'expressed milk'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
-            popular: true
+            difficulty: 'advanced',
+            popular: false
           },
           {
             id: 'baby-sleep-calculator',

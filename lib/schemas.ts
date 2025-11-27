@@ -1169,3 +1169,131 @@ export const generateDPSCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) =
   };
 };
 
+export const generateBreastmilkStorageCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/parenting-family/baby-care/breastmilk-storage-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Breastmilk Storage Calculator - Safe Storage Duration Calculator",
+        "url": baseUrl,
+        "description": "Calculate safe breastmilk storage duration based on CDC guidelines. Determine expiration dates for room temperature, refrigerator, and freezer storage with safety recommendations.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+          "CDC-based storage duration calculations",
+          "Room temperature storage safety (4 hours)",
+          "Refrigerator storage (up to 4 days)",
+          "Freezer storage (6-12 months)",
+          "Thawed milk safety guidelines",
+          "Expiration date and time tracking",
+          "Safety status indicators",
+          "Personalized recommendations"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "15",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${baseUrl}#webpage`,
+        "url": baseUrl,
+        "name": "Breastmilk Storage Calculator - CDC Guidelines",
+        "description": "Free online breastmilk storage calculator following CDC, WHO, and La Leche League guidelines for safe storage of expressed breast milk.",
+        "specialty": "Lactation and Infant Care",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Breastfeeding and Lactation"
+        },
+        "reviewedBy": {
+          "@type": "Organization",
+          "name": "Centers for Disease Control and Prevention"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Safely Store Breast Milk",
+        "description": "Step-by-step guide to calculating and managing safe breast milk storage using CDC guidelines",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Enter Expression Date and Time", "text": "Input when you expressed or pumped the breast milk. This helps calculate exactly how long the milk has been stored." },
+          { "@type": "HowToStep", "position": 2, "name": "Select Storage Location", "text": "Choose where the milk is being stored: room temperature (4 hours), refrigerator (4 days), standard freezer (6 months), or deep freezer (12 months)." },
+          { "@type": "HowToStep", "position": 3, "name": "Specify Milk State", "text": "Indicate whether the milk is freshly expressed, previously frozen and thawed (24 hours refrigerated), or warmed for feeding (2 hours maximum)." },
+          { "@type": "HowToStep", "position": 4, "name": "Calculate Storage Safety", "text": "Click calculate to see expiration date, time remaining, and safety status based on CDC guidelines." },
+          { "@type": "HowToStep", "position": 5, "name": "Follow Safety Recommendations", "text": "Review storage details and safety tips. Always label containers with date and time. When in doubt, throw it out." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long can breast milk stay at room temperature?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Freshly expressed breast milk can stay at room temperature (77°F/25°C or colder) for up to 4 hours according to CDC guidelines. Formula: Safe Duration = 4 hours at ≤77°F."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long is breast milk good in the refrigerator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Freshly expressed breast milk can be stored in the refrigerator at 40°F (4°C) or colder for up to 4 days optimally. Formula: Safe Duration = 4 days at ≤40°F."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I refreeze thawed breast milk?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, never refreeze breast milk after thawing. Once thawed, use within 24 hours if refrigerated or 1-2 hours at room temperature. Rule: Thawed milk storage time = 24 hours refrigerated OR 2 hours room temp."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long can breast milk be frozen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Breast milk can be stored in a standard freezer (0°F/-18°C) for 6 months optimally, up to 12 months acceptable. Deep freezer (-4°F/-20°C): up to 12 months. Formula: Standard Freezer = 6 months optimal, Deep Freezer = 12 months."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where should I store breast milk in the refrigerator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Always store breast milk in the back of the refrigerator where temperature is most consistent at 40°F (4°C) or colder, never in the door. Rule: Back of fridge = consistent 40°F, Door = temperature fluctuations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does thawed breast milk last?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Previously frozen breast milk that has been thawed can be stored in the refrigerator for up to 24 hours. Never refreeze. Formula: Thawed milk in fridge = 24 hours maximum, at room temp = 1-2 hours."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+

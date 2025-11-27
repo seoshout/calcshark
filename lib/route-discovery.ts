@@ -185,7 +185,8 @@ function componentNameToSlug(componentName: string): string {
     'AdvancedMortgageCalculator': 'mortgage-payment-calculator',
     'AdvancedCompoundInterestCalculator': 'compound-interest-calculator',
     'AdvancedPondVolumeCalculator': 'pond-volume-calculator',
-    'AdvancedDPSCalculator': 'dps-calculator'
+    'AdvancedDPSCalculator': 'dps-calculator',
+    'AdvancedBreastmilkStorageCalculator': 'breastmilk-storage-calculator'
   };
 
   if (knownMappings[componentName]) {
