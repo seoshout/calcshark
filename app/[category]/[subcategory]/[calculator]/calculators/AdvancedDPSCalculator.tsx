@@ -864,7 +864,7 @@ export default function AdvancedDPSCalculator() {
 
       {/* Review Section */}
       <div id="calculator-review-section">
-        <CalculatorReview calculatorId="dps-calculator" calculatorName="DPS Calculator" />
+        <CalculatorReview calculatorName="DPS Calculator" />
       </div>
     </div>
   );
