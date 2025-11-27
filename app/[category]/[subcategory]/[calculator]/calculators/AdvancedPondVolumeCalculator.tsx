@@ -333,6 +333,19 @@ const AdvancedPondVolumeCalculator = () => {
 
   return (
     <div className="space-y-6">
+      {/* Header Section */}
+      <div className="text-center space-y-4 py-8">
+        <div className="flex items-center justify-center gap-3">
+          <Droplet className="h-10 w-10 text-primary" />
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+            Pond Volume Calculator
+          </h1>
+        </div>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Calculate your pond's volume with precision, determine optimal liner size, select the right pump capacity, and assess fish stocking levels for a healthy aquatic environment
+        </p>
+      </div>
+
       {/* Calculator Card */}
       <div className="bg-background border rounded-xl p-6 space-y-6">
 
