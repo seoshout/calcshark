@@ -1290,11 +1290,136 @@ export default function AdvancedBreastmilkStorageCalculator() {
               The guidelines provide both optimal and maximum storage durations. <strong className="text-foreground">Optimal times (4 hours at room temp, 4 days refrigerated, 6 months frozen)</strong> represent the best balance of safety and nutritional quality. Maximum times (6-8 hours room temp, 5-8 days refrigerated, 12 months frozen) apply under very clean conditions with proper hygiene practices but should be used with caution. Milk quality—including vitamin C content, fat composition, and antibody levels—decreases the longer it's stored. When storing milk, aim for optimal durations to ensure the highest nutritional quality and safety for your baby.
             </p>
           </div>
+
+          {/* Special Considerations for Thawed Milk */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Special Considerations for Thawed Milk</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Previously frozen breast milk that has been thawed requires special attention due to changes in milk composition. Once thawed in the refrigerator, use within 24 hours - never refreeze. Thawed milk brought to room temperature should be used within 1-2 hours. The freeze-thaw process changes milk composition: fat globules become smaller, some proteins denature slightly, and the milk becomes more susceptible to bacterial growth. This is why storage times are significantly shorter than fresh milk. Always thaw milk in the refrigerator overnight for best quality, or under warm running water if needed quickly.
+            </p>
+          </div>
+
+          {/* Best Practices for Safe Storage */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Best Practices for Safe Storage</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Always wash hands thoroughly with soap for at least 20 seconds before expressing or handling breast milk</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Label every container with the date and time of expression using waterproof labels or permanent markers</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Store milk in 2-4 oz portions to reduce waste—babies' feeding amounts vary and you can always thaw more</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Cool fresh milk in refrigerator for 30-60 minutes before adding to already-cooled or frozen milk</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Store in the back of refrigerator/freezer where temperature is most stable (40°F/4°C for fridge, 0°F/-18°C for freezer)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Use oldest milk first using the FIFO method (first in, first out) to prevent milk from expiring</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Leave 1 inch of space at top of container when freezing as breast milk expands during freezing</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Never microwave breast milk—it creates hot spots that can burn baby's mouth and destroys beneficial antibodies and enzymes</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>Trust your senses—if milk smells sour, rancid, or looks clumpy (beyond normal separation), discard it immediately</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span>When in doubt, throw it out—your baby's safety comes first, and breast milk makes excellent plant fertilizer if expired</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Nutritional Quality Across Storage Methods */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Nutritional Quality Across Storage Methods</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Fresh refrigerated breast milk retains the most anti-infective properties, living cells, and heat-sensitive nutrients (like vitamin C) compared to frozen milk. Research shows that freezing reduces some immune factors by 10-30% and vitamin C by up to 40% after 3 months. However, frozen milk still maintains most nutritional value and antibodies that make breast milk superior to formula. While freezing is safe and maintains most benefits, refrigerate milk when possible for maximum nutritional quality. Room temperature storage is acceptable for short periods but refrigerate or freeze milk promptly (within 4 hours) to preserve maximum nutritional quality and minimize bacterial growth.
+            </p>
+          </div>
+
+          {/* Normal Appearance Changes */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Normal Appearance Changes</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Breast milk naturally separates into layers when stored, with cream (fat) rising to the top and a bluish-white watery layer at the bottom. This is completely normal—breast milk is not homogenized like cow's milk. Simply swirl gently (avoid vigorous shaking as it can damage proteins and break down fat molecules) to mix before feeding. Fresh milk may have a soapy or metallic smell due to lipase enzyme breaking down fats, which is safe and normal. Some mothers produce milk with high lipase that causes a stronger soapy smell when frozen—this milk is safe but some babies may refuse it. However, truly sour or rancid smells (like spoiled cow's milk) indicate spoilage and the milk should be discarded. Color can range from bluish-white to yellowish to creamy depending on diet, stage of lactation (colostrum is more yellow), and fat content.
+            </p>
+          </div>
+
+          {/* Container Selection Guide */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Container Selection Guide</h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Choosing the right container impacts both milk safety and convenience:
+            </p>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span><strong className="text-foreground">Glass containers:</strong> Best for preserving nutrients and antibodies. Easy to clean and sterilize. No chemical leaching. Can break if dropped. Ideal for refrigerator storage.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span><strong className="text-foreground">BPA-free plastic containers:</strong> Lightweight and durable. Use food-grade, BPA-free hard plastic only. Good for refrigerator and freezer. Replace if scratched (bacteria harbor in scratches).</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span><strong className="text-foreground">Breast milk storage bags:</strong> Most convenient for freezer storage. Pre-sterilized options available. Space-efficient when laid flat. Remove excess air before sealing. Double-bag if bag quality uncertain.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-1">•</span>
+                <span><strong className="text-foreground">Never use:</strong> Disposable bottle liners (not designed for storage), regular plastic bags, containers that aren't food-grade, or containers with scratches/cracks.</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Traveling with Breast Milk */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Traveling with Breast Milk</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              When traveling, use an insulated cooler bag with frozen ice packs to keep milk cold. Breast milk can remain in a properly packed cooler for up to 24 hours. TSA allows breast milk in carry-on luggage in quantities greater than 3.4 ounces—inform the TSA officer at security screening. For longer trips, consider shipping frozen milk on dry ice in insulated containers. Upon arrival, immediately transfer milk to a refrigerator or freezer. If ice packs have completely thawed and milk feels warm, use within 2 hours or refrigerate and use within 24 hours.
+            </p>
+          </div>
+
+          {/* Special Circumstances */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Special Circumstances</h3>
+            <div className="space-y-3">
+              <p className="text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">For premature infants:</strong> NICUs often require stricter storage guidelines (24-48 hours refrigerated, 3 months frozen) due to immature immune systems. Always follow your NICU's specific protocols.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">For hospitalized infants:</strong> Hospital-grade storage may require 48-hour refrigerated limits and monthly frozen limits. Consult your healthcare team.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">For infants with health conditions:</strong> Immunocompromised babies may need freshly expressed milk only. Consult your pediatrician for personalized guidelines.
+              </p>
+            </div>
+          </div>
+
+          {/* Medical Disclaimer */}
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+            <p className="text-sm text-foreground">
+              <strong>Medical Disclaimer:</strong> This calculator provides guidance based on CDC, WHO, and La Leche League International guidelines for healthy, full-term infants. If your baby was born prematurely (before 37 weeks), is currently hospitalized, has special health needs, or is immunocompromised, consult your pediatrician, neonatologist, or IBCLC lactation consultant for specific storage guidelines. These may be more strict than general recommendations. The information provided is for educational purposes and does not replace professional medical advice.
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* FAQ Section */}
-      <FAQAccordion faqs={faqItems} />
 
       {/* Scientific References */}
       <div className="bg-background border rounded-xl p-6 sm:p-8">
@@ -1329,6 +1454,9 @@ export default function AdvancedBreastmilkStorageCalculator() {
           All calculations based on CDC, WHO, and Academy of Breastfeeding Medicine evidence-based guidelines for breast milk storage safety.
         </p>
       </div>
+
+      {/* FAQ Section */}
+      <FAQAccordion faqs={faqItems} />
 
       {/* Review Section */}
       <div id="calculator-review-section">
