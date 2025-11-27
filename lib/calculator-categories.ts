@@ -8572,17 +8572,23 @@ export const calculatorCategories: Category[] = [
           {
             id: 'dps-calculator',
             name: 'DPS Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Calculate damage per second with burst DPS, sustained DPS, critical hits, and armor penetration for optimal gaming performance.',
             slug: 'dps-calculator',
             category: 'gaming-entertainment',
             subcategory: 'gaming-performance',
             tags: [
               'gaming & entertainment',
               'gaming performance',
-              'dps calculator'
+              'dps calculator',
+              'damage per second',
+              'burst dps',
+              'sustained dps',
+              'critical hits',
+              'armor penetration',
+              'weapon damage'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {

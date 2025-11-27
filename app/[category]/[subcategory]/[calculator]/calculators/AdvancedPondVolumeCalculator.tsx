@@ -410,41 +410,41 @@ const AdvancedPondVolumeCalculator = () => {
         {/* Pond Shape Selection */}
         <div>
           <label className="block text-sm font-medium mb-2">Pond Shape</label>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-2">
             <button
               onClick={() => setInputs({ ...inputs, shape: 'rectangular' })}
               className={cn(
-                "p-3 rounded-lg border-2 transition-all text-center",
+                "p-2 sm:p-3 rounded-lg border-2 transition-all text-center",
                 inputs.shape === 'rectangular'
                   ? "border-primary bg-primary/5"
                   : "border-border hover:border-primary/50"
               )}
             >
-              <div className="font-medium text-sm sm:text-base break-words">Rectangular</div>
+              <div className="font-medium text-xs sm:text-sm truncate">Rectangular</div>
               <div className="text-xs text-muted-foreground">L × W × D</div>
             </button>
             <button
               onClick={() => setInputs({ ...inputs, shape: 'circular' })}
               className={cn(
-                "p-3 rounded-lg border-2 transition-all text-center",
+                "p-2 sm:p-3 rounded-lg border-2 transition-all text-center",
                 inputs.shape === 'circular'
                   ? "border-primary bg-primary/5"
                   : "border-border hover:border-primary/50"
               )}
             >
-              <div className="font-medium text-sm sm:text-base break-words">Circular</div>
+              <div className="font-medium text-xs sm:text-sm truncate">Circular</div>
               <div className="text-xs text-muted-foreground">π × r² × D</div>
             </button>
             <button
               onClick={() => setInputs({ ...inputs, shape: 'irregular' })}
               className={cn(
-                "p-3 rounded-lg border-2 transition-all text-center",
+                "p-2 sm:p-3 rounded-lg border-2 transition-all text-center",
                 inputs.shape === 'irregular'
                   ? "border-primary bg-primary/5"
                   : "border-border hover:border-primary/50"
               )}
             >
-              <div className="font-medium text-sm sm:text-base break-words">Irregular</div>
+              <div className="font-medium text-xs sm:text-sm truncate">Irregular</div>
               <div className="text-xs text-muted-foreground">Approx.</div>
             </button>
           </div>

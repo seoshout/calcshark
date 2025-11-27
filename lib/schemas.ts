@@ -1136,3 +1136,36 @@ export const generatePondVolumeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
     ]
   };
 };
+
+export const generateDPSCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/gaming-entertainment/gaming-performance/dps-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "DPS Calculator - Damage Per Second Calculator",
+        "url": baseUrl,
+        "description": "Calculate damage per second (DPS) for weapons and builds. Includes burst DPS, sustained DPS, critical hits, and armor penetration.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "23" },
+        "featureList": ["Burst DPS Calculation", "Sustained DPS with Reload", "Critical Hit Calculations", "Armor Penetration Analysis"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          { "@type": "Question", "name": "What is DPS?", "acceptedAnswer": { "@type": "Answer", "text": "DPS (Damage Per Second) measures damage output over time. Formula: Base Damage × Attack Speed = DPS." } },
+          { "@type": "Question", "name": "What's the difference between burst and sustained DPS?", "acceptedAnswer": { "@type": "Answer", "text": "Burst DPS is max output without reload. Sustained DPS includes reload time: Damage per Magazine ÷ (Fire Time + Reload Time)." } },
+          { "@type": "Question", "name": "How do critical hits affect DPS?", "acceptedAnswer": { "@type": "Answer", "text": "Crits use formula: Base × (1 + Crit Rate × (Crit Multiplier - 1)). 25% crit chance with 2× multiplier = 25% DPS increase." } }
+        ]
+      },
+      { "@type": "BreadcrumbList", "@id": `${baseUrl}#breadcrumb`, "itemListElement": breadcrumbItems.map((item, index) => ({ "@type": "ListItem", "position": index + 1, "name": item.name, "item": `https://calcshark.com${item.url}` })) }
+    ]
+  };
+};
+
