@@ -692,10 +692,10 @@ export default function AdvancedBreastmilkStorageCalculator() {
 
       {/* Results Modal */}
       {showModal && result && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-background border rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="bg-background rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="sticky top-0 bg-background border-b px-6 py-4 flex items-center justify-between rounded-t-xl">
+              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
                 {result.safetyStatus === 'expired' ? (
                   <AlertTriangle className="h-6 w-6 text-red-500" />
                 ) : result.safetyStatus === 'caution' ? (
@@ -713,72 +713,140 @@ export default function AdvancedBreastmilkStorageCalculator() {
               </button>
             </div>
 
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-muted/50 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground mb-1">Expiration Date</div>
-                  <div className="text-lg font-bold text-foreground">{result.expirationDate}</div>
-                  <div className="text-sm text-muted-foreground">{result.expirationTime}</div>
+            <div className="p-6 space-y-6 overflow-y-auto flex-1">
+              {/* Expiration Results */}
+              <div className={cn(
+                "p-6 rounded-lg border-2",
+                result.safetyStatus === 'expired'
+                  ? "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800"
+                  : result.safetyStatus === 'caution'
+                  ? "bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800"
+                  : "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800"
+              )}>
+                <div className="flex items-center gap-3 mb-4">
+                  <Calendar className="h-6 w-6 text-primary" />
+                  <h4 className="text-xl font-bold text-foreground">Storage Timeline</h4>
                 </div>
-
-                <div className="bg-muted/50 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground mb-1">Time Remaining</div>
-                  {result.hoursRemaining > 0 ? (
-                    <>
-                      <div className="text-lg font-bold text-foreground">
-                        {result.daysRemaining >= 1
-                          ? `${Math.floor(result.daysRemaining)} day${Math.floor(result.daysRemaining) !== 1 ? 's' : ''}`
-                          : `${Math.round(result.hoursRemaining)} hour${Math.round(result.hoursRemaining) !== 1 ? 's' : ''}`
-                        }
-                      </div>
-                      {result.daysRemaining >= 1 && (
-                        <div className="text-sm text-muted-foreground">
-                          ({Math.round(result.hoursRemaining)} hours)
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground mb-1">Expiration Date</div>
+                    <div className="text-2xl font-bold text-foreground">{result.expirationDate}</div>
+                    <div className="text-sm text-muted-foreground">{result.expirationTime}</div>
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground mb-1">Time Remaining</div>
+                    {result.hoursRemaining > 0 ? (
+                      <>
+                        <div className="text-2xl font-bold text-foreground">
+                          {result.daysRemaining >= 1
+                            ? `${Math.floor(result.daysRemaining)} day${Math.floor(result.daysRemaining) !== 1 ? 's' : ''}`
+                            : `${Math.round(result.hoursRemaining)} hour${Math.round(result.hoursRemaining) !== 1 ? 's' : ''}`
+                          }
                         </div>
-                      )}
-                    </>
-                  ) : (
-                    <div className="text-lg font-bold text-red-500">Expired</div>
-                  )}
-                </div>
-              </div>
-
-              <div className="bg-muted/30 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">Storage Details</h4>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div>
-                    <span className="text-muted-foreground">Optimal:</span>
-                    <span className="font-semibold ml-2">{result.storageDetails.optimalDuration}</span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Maximum:</span>
-                    <span className="font-semibold ml-2">{result.storageDetails.maxDuration}</span>
+                        <div className="text-sm text-muted-foreground">
+                          {result.daysRemaining >= 1 && `(${Math.round(result.hoursRemaining)} hours)`}
+                        </div>
+                      </>
+                    ) : (
+                      <div className="text-2xl font-bold text-red-500">Expired</div>
+                    )}
                   </div>
                 </div>
               </div>
 
-              <div>
-                <h4 className="font-semibold mb-2">Key Recommendations:</h4>
-                <ul className="space-y-1">
-                  {result.recommendations.slice(0, 5).map((rec, index) => (
-                    <li key={index} className="text-sm text-foreground flex items-start gap-2">
+              {/* Storage Details */}
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+                <h4 className="text-lg font-bold text-blue-900 dark:text-blue-100 mb-4">Storage Details</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground mb-1">Optimal Duration</div>
+                    <div className="text-xl font-bold text-blue-600">{result.storageDetails.optimalDuration}</div>
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground mb-1">Maximum Duration</div>
+                    <div className="text-xl font-bold text-blue-600">{result.storageDetails.maxDuration}</div>
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground mb-1">Temperature</div>
+                    <div className="text-xl font-bold text-blue-600">{result.storageDetails.temperature}</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Recommendations */}
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
+                <h4 className="text-lg font-bold text-purple-900 dark:text-purple-100 mb-4">Key Recommendations</h4>
+                <div className="space-y-2">
+                  {result.recommendations.slice(0, 6).map((rec, index) => (
+                    <div key={index} className="flex items-start gap-2 text-sm">
                       {rec.startsWith('⚠️') ? (
                         <AlertTriangle className="h-4 w-4 text-yellow-500 mt-0.5 flex-shrink-0" />
                       ) : (
                         <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                       )}
-                      <span>{rec.replace('⚠️ ', '').replace('✓ ', '')}</span>
-                    </li>
+                      <span className="text-foreground">{rec.replace('⚠️ ', '').replace('✓ ', '')}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              <button
-                onClick={() => setShowModal(false)}
-                className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                View Full Results Below
-              </button>
+              {/* Safety Tips */}
+              <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
+                <h4 className="text-lg font-bold text-orange-900 dark:text-orange-100 mb-4">Safety Tips</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {result.storageDetails.safetyTips.slice(0, 6).map((tip, index) => (
+                    <div key={index} className="flex items-start gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-foreground">{tip}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Advanced Mode - Container & Quality */}
+              {isAdvancedMode && (
+                <>
+                  <div className="bg-cyan-50 dark:bg-cyan-900/20 p-6 rounded-lg border border-cyan-200 dark:border-cyan-800">
+                    <h4 className="text-lg font-bold text-cyan-900 dark:text-cyan-100 mb-4">Container Recommendations</h4>
+                    <div className="space-y-2">
+                      {result.containerRecommendations.map((rec, index) => (
+                        <div key={index} className="flex items-start gap-2 text-sm">
+                          <Check className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground">{rec}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg border border-indigo-200 dark:border-indigo-800">
+                    <h4 className="text-lg font-bold text-indigo-900 dark:text-indigo-100 mb-4">Quality Indicators</h4>
+                    <div className="space-y-2">
+                      {result.qualityIndicators.map((indicator, index) => (
+                        <div key={index} className="flex items-start gap-2 text-sm">
+                          <Info className="h-4 w-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground">{indicator}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Action Buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => window.print()}
+                  className="flex-1 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+                >
+                  Print Results
+                </button>
+              </div>
             </div>
           </div>
         </div>
