@@ -1170,7 +1170,7 @@ export const generateDPSCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) =
 };
 
 export const generateBreastmilkStorageCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
-  const baseUrl = "https://calcshark.com/parenting-family/baby-care/breastmilk-storage-calculator";
+  const baseUrl = "https://calcshark.com/pregnancy-parenting/baby-child-development/breastmilk-storage-calculator";
   return {
     "@context": "https://schema.org",
     "@graph": [
