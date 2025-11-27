@@ -1232,6 +1232,66 @@ export default function AdvancedBreastmilkStorageCalculator() {
         </div>
       </div>
 
+      {/* Understanding Breastmilk Storage Safety */}
+      <div className="bg-background border rounded-xl p-6 sm:p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6">Understanding Breastmilk Storage Safety</h2>
+
+        <div className="space-y-6">
+          {/* Why Storage Guidelines Matter */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Why Storage Guidelines Matter</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Proper breast milk storage is crucial for maintaining the nutritional and immunological properties of your milk while ensuring your baby's safety. The Centers for Disease Control and Prevention (CDC), World Health Organization (WHO), and Academy of Breastfeeding Medicine have established evidence-based guidelines to help parents safely store expressed breast milk. These guidelines balance the need to preserve milk quality with the prevention of bacterial growth that could harm infants.
+            </p>
+          </div>
+
+          {/* Factors Affecting Storage Duration */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Factors Affecting Storage Duration</h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Several factors influence how long breast milk remains safe for your baby:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <p className="text-sm text-muted-foreground"><strong className="text-foreground">Temperature:</strong> Colder temperatures slow bacterial growth significantly. Room temperature milk lasts 4 hours, refrigerated milk lasts 4 days, and frozen milk lasts 6-12 months.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <p className="text-sm text-muted-foreground"><strong className="text-foreground">Cleanliness:</strong> Proper hand hygiene (washing for 20 seconds with soap) and sterilized containers prevent contamination and can extend storage time.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <p className="text-sm text-muted-foreground"><strong className="text-foreground">Milk State:</strong> Fresh milk lasts longer than thawed milk. Never refreeze thawed milk as the freeze-thaw cycle damages milk components.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <p className="text-sm text-muted-foreground"><strong className="text-foreground">Container Type:</strong> Use breast milk storage bags or BPA-free containers with tight-fitting lids. Glass is ideal as it doesn't leach chemicals.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <p className="text-sm text-muted-foreground"><strong className="text-foreground">Storage Location:</strong> Back of refrigerator/freezer maintains more consistent temperature (-18°C/0°F) than doors which experience frequent temperature fluctuations.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* The Science Behind Storage Times */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">The Science Behind Storage Times</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Breast milk contains living cells, antibodies, and beneficial bacteria that help protect your baby from infection. However, these same protective properties don't prevent all bacterial growth in stored milk. Research shows that bacterial counts in milk increase over time, even when refrigerated. The CDC's recommendations are based on studies showing that bacterial levels remain safe for 4 days in the refrigerator, after which the risk of harmful bacteria increases. The 4-hour room temperature guideline is based on research demonstrating that harmful bacteria can multiply rapidly at temperatures above 77°F (25°C).
+            </p>
+          </div>
+
+          {/* Optimal vs Maximum Storage Times */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Optimal vs. Maximum Storage Times</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              The guidelines provide both optimal and maximum storage durations. <strong className="text-foreground">Optimal times (4 hours at room temp, 4 days refrigerated, 6 months frozen)</strong> represent the best balance of safety and nutritional quality. Maximum times (6-8 hours room temp, 5-8 days refrigerated, 12 months frozen) apply under very clean conditions with proper hygiene practices but should be used with caution. Milk quality—including vitamin C content, fat composition, and antibody levels—decreases the longer it's stored. When storing milk, aim for optimal durations to ensure the highest nutritional quality and safety for your baby.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* FAQ Section */}
       <FAQAccordion faqs={faqItems} />
