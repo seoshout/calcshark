@@ -611,7 +611,7 @@ const AdvancedPondVolumeCalculator = () => {
         <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
           <button
             onClick={calculateVolume}
-            className="flex-1 flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+            className="flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
           >
             <CalcIcon className="h-4 w-4 mr-2" />
             Calculate Volume
@@ -619,7 +619,7 @@ const AdvancedPondVolumeCalculator = () => {
 
           <button
             onClick={resetCalculator}
-            className="flex-1 sm:flex-initial flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors font-medium"
+            className="flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors font-medium"
           >
             <RefreshCw className="h-4 w-4 mr-2" />
             Reset
