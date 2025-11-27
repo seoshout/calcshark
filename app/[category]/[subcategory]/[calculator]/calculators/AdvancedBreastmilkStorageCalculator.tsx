@@ -1042,40 +1042,6 @@ export default function AdvancedBreastmilkStorageCalculator() {
         </p>
       </div>
 
-      {/* Scientific References */}
-      <div className="bg-background border rounded-xl p-6 sm:p-8">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Scientific References & Resources</h2>
-        <div className="space-y-3 text-sm">
-          <div className="p-4 bg-muted rounded-lg">
-            <h3 className="font-semibold mb-2">CDC & WHO Guidelines</h3>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>• <a href="https://www.cdc.gov/breastfeeding/recommendations/handling_breastmilk.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Proper Storage and Preparation of Breast Milk - CDC</a></li>
-              <li>• <a href="https://www.who.int/health-topics/breastfeeding" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breastfeeding - World Health Organization</a></li>
-              <li>• <a href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/Storing-and-Preparing-Expressed-Breast-Milk.aspx" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Storing & Preparing Breast Milk - AAP</a></li>
-            </ul>
-          </div>
-          <div className="p-4 bg-muted rounded-lg">
-            <h3 className="font-semibold mb-2">Lactation & Storage Research</h3>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>• <a href="https://www.llli.org/breastfeeding-info/milk-storage/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Milk Storage Guidelines - La Leche League International</a></li>
-              <li>• <a href="https://www.mayoclinic.org/healthy-lifestyle/infant-and-toddler-health/in-depth/breast-milk-storage/art-20046350" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breast Milk Storage: Do's and Don'ts - Mayo Clinic</a></li>
-              <li>• <a href="https://kellymom.com/bf/pumpingmoms/milkstorage/milkstorage/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Milk Storage Guidelines - KellyMom</a></li>
-            </ul>
-          </div>
-          <div className="p-4 bg-muted rounded-lg">
-            <h3 className="font-semibold mb-2">Container Safety & Best Practices</h3>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>• <a href="https://www.fda.gov/food/people-risk-foodborne-illness/food-safety-moms-be" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Food Safety for Moms to Be - FDA</a></li>
-              <li>• <a href="https://www.cdc.gov/hygiene/personal-hygiene/handwashing.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hand Hygiene Guidelines - CDC</a></li>
-              <li>• <a href="https://www.medela.us/breastfeeding/articles/breast-milk-storage-guidelines" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breast Milk Storage Guidelines - Medela</a></li>
-            </ul>
-          </div>
-        </div>
-        <p className="text-xs text-muted-foreground mt-4 italic">
-          All calculations based on CDC, WHO, and Academy of Breastfeeding Medicine evidence-based guidelines for breast milk storage safety.
-        </p>
-      </div>
-
       {/* Introduction Section */}
       <div className="bg-background border rounded-xl p-6 sm:p-8 mb-6">
         <p className="text-lg text-muted-foreground leading-relaxed">
@@ -1385,6 +1351,40 @@ export default function AdvancedBreastmilkStorageCalculator() {
 
       {/* FAQ Section */}
       <FAQAccordion faqs={faqItems} />
+
+      {/* Scientific References */}
+      <div className="bg-background border rounded-xl p-6 sm:p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Scientific References & Resources</h2>
+        <div className="space-y-3 text-sm">
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">CDC & WHO Guidelines</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.cdc.gov/breastfeeding/recommendations/handling_breastmilk.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Proper Storage and Preparation of Breast Milk - CDC</a></li>
+              <li>• <a href="https://www.who.int/health-topics/breastfeeding" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breastfeeding - World Health Organization</a></li>
+              <li>• <a href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/Storing-and-Preparing-Expressed-Breast-Milk.aspx" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Storing & Preparing Breast Milk - AAP</a></li>
+            </ul>
+          </div>
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">Lactation & Storage Research</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.llli.org/breastfeeding-info/milk-storage/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Milk Storage Guidelines - La Leche League International</a></li>
+              <li>• <a href="https://www.mayoclinic.org/healthy-lifestyle/infant-and-toddler-health/in-depth/breast-milk-storage/art-20046350" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breast Milk Storage: Do's and Don'ts - Mayo Clinic</a></li>
+              <li>• <a href="https://kellymom.com/bf/pumpingmoms/milkstorage/milkstorage/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Milk Storage Guidelines - KellyMom</a></li>
+            </ul>
+          </div>
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">Container Safety & Best Practices</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.fda.gov/food/people-risk-foodborne-illness/food-safety-moms-be" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Food Safety for Moms to Be - FDA</a></li>
+              <li>• <a href="https://www.cdc.gov/hygiene/personal-hygiene/handwashing.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hand Hygiene Guidelines - CDC</a></li>
+              <li>• <a href="https://www.medela.us/breastfeeding/articles/breast-milk-storage-guidelines" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breast Milk Storage Guidelines - Medela</a></li>
+            </ul>
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground mt-4 italic">
+          All calculations based on CDC, WHO, and Academy of Breastfeeding Medicine evidence-based guidelines for breast milk storage safety.
+        </p>
+      </div>
 
       {/* Review Section */}
       <div id="calculator-review-section">
