@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Info, AlertTriangle, X, Check, Droplet, Fish, Filter, Beaker, Calculator as CalcIcon, Users, ChevronDown, ChevronUp } from 'lucide-react';
+import { Info, AlertTriangle, X, Check, Droplet, Fish, Filter, Beaker, Calculator as CalcIcon, Users, ChevronDown, ChevronUp, RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import FAQAccordion, { FAQItem } from '@/components/ui/faq-accordion';
 import CalculatorReview from '@/components/ui/calculator-review';
@@ -258,6 +258,24 @@ const AdvancedPondVolumeCalculator = () => {
 
     setResults(calculatedResults);
     setShowModal(true);
+  };
+
+  const resetCalculator = () => {
+    setInputs({
+      shape: 'rectangular',
+      length: '',
+      width: '',
+      diameter: '',
+      depth: '',
+      avgDepth: '',
+      pondType: 'goldfish',
+      measurementUnit: 'imperial',
+      numberOfFish: '',
+      hasWaterfall: false,
+      waterfallHeight: ''
+    });
+    setResults(null);
+    setShowModal(false);
   };
 
   const faqs: FAQItem[] = [
@@ -589,13 +607,24 @@ const AdvancedPondVolumeCalculator = () => {
           </>
         )}
 
-        {/* Calculate Button */}
-        <button
-          onClick={calculateVolume}
-          className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-        >
-          Calculate Pond Volume
-        </button>
+        {/* Calculate Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
+          <button
+            onClick={calculateVolume}
+            className="flex-1 flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+          >
+            <CalcIcon className="h-4 w-4 mr-2" />
+            Calculate Volume
+          </button>
+
+          <button
+            onClick={resetCalculator}
+            className="flex-1 sm:flex-initial flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors font-medium"
+          >
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Reset
+          </button>
+        </div>
       </div>
 
       {/* Info Cards */}
