@@ -11794,7 +11794,7 @@ export const calculatorCategories: Category[] = [
           {
             id: 'pond-volume-calculator',
             name: 'Pond Volume Calculator',
-            description: 'Calculate pond volume in gallons and liters for rectangular, circular, and irregular ponds. Get liner size with overlap, pump flow rate requirements, fish stocking capacity (koi and goldfish), chemical dosing recommendations, and maintenance cost estimates. Free tool with imperial and metric unit support.',
+            description: 'Calculate pond volume, liner size, pump requirements, and fish stocking capacity for any pond shape.',
             slug: 'pond-volume-calculator',
             category: 'gardening-landscaping',
             subcategory: 'lawn-landscaping',

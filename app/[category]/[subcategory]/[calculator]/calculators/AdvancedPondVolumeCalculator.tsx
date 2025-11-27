@@ -855,6 +855,15 @@ const AdvancedPondVolumeCalculator = () => {
         </div>
       )}
 
+      {/* Introduction Section */}
+      <div className="bg-background border rounded-xl p-6 sm:p-8 mb-6">
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          Calculate pond volume in gallons and liters for rectangular, circular, and irregular ponds. Get liner size with overlap,
+          pump flow rate requirements, fish stocking capacity (koi and goldfish), chemical dosing recommendations, and maintenance
+          cost estimates. Free tool with imperial and metric unit support.
+        </p>
+      </div>
+
       {/* How to Use Section */}
       <div className="bg-background border rounded-xl p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Free Online Pond Volume Calculator</h2>
