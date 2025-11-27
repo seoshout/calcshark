@@ -414,37 +414,37 @@ const AdvancedPondVolumeCalculator = () => {
             <button
               onClick={() => setInputs({ ...inputs, shape: 'rectangular' })}
               className={cn(
-                "p-3 rounded-lg border-2 transition-all",
+                "p-3 rounded-lg border-2 transition-all text-center",
                 inputs.shape === 'rectangular'
                   ? "border-primary bg-primary/5"
                   : "border-border hover:border-primary/50"
               )}
             >
-              <div className="font-medium">Rectangular</div>
+              <div className="font-medium text-sm sm:text-base break-words">Rectangular</div>
               <div className="text-xs text-muted-foreground">L × W × D</div>
             </button>
             <button
               onClick={() => setInputs({ ...inputs, shape: 'circular' })}
               className={cn(
-                "p-3 rounded-lg border-2 transition-all",
+                "p-3 rounded-lg border-2 transition-all text-center",
                 inputs.shape === 'circular'
                   ? "border-primary bg-primary/5"
                   : "border-border hover:border-primary/50"
               )}
             >
-              <div className="font-medium">Circular</div>
+              <div className="font-medium text-sm sm:text-base break-words">Circular</div>
               <div className="text-xs text-muted-foreground">π × r² × D</div>
             </button>
             <button
               onClick={() => setInputs({ ...inputs, shape: 'irregular' })}
               className={cn(
-                "p-3 rounded-lg border-2 transition-all",
+                "p-3 rounded-lg border-2 transition-all text-center",
                 inputs.shape === 'irregular'
                   ? "border-primary bg-primary/5"
                   : "border-border hover:border-primary/50"
               )}
             >
-              <div className="font-medium">Irregular</div>
+              <div className="font-medium text-sm sm:text-base break-words">Irregular</div>
               <div className="text-xs text-muted-foreground">Approx.</div>
             </button>
           </div>
