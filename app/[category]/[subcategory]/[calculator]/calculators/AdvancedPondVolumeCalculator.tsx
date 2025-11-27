@@ -319,8 +319,8 @@ const AdvancedPondVolumeCalculator = () => {
       <div className="bg-background border rounded-xl p-6 space-y-6">
 
         {/* Mode Toggle */}
-        <div className="mb-6 flex items-center justify-between p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-          <div>
+        <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div className="flex-1">
             <h3 className="font-semibold text-blue-900 dark:text-blue-100">
               {isAdvancedMode ? 'Advanced Mode' : 'Simple Mode'}
             </h3>
@@ -330,7 +330,7 @@ const AdvancedPondVolumeCalculator = () => {
           </div>
           <button
             onClick={() => setIsAdvancedMode(!isAdvancedMode)}
-            className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors whitespace-nowrap"
           >
             {isAdvancedMode ? (
               <>
