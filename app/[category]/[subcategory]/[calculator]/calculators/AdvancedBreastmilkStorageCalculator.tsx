@@ -463,43 +463,43 @@ export default function AdvancedBreastmilkStorageCalculator() {
 
   return (
     <div className="w-full space-y-8">
-      {/* Mode Toggle */}
+      {/* Calculator Card */}
       <div className="bg-background border rounded-xl p-6 shadow-sm">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-primary/10 rounded-lg">
-              <Droplet className="h-6 w-6 text-primary" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-foreground">Breastmilk Storage Calculator</h2>
-              <p className="text-muted-foreground">Calculate safe storage duration based on CDC guidelines</p>
-            </div>
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-3 bg-primary/10 rounded-lg">
+            <Droplet className="h-6 w-6 text-primary" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-foreground">Breastmilk Storage Calculator</h2>
+            <p className="text-muted-foreground">Calculate safe storage duration based on CDC guidelines</p>
           </div>
         </div>
 
-        {/* Mode Selector */}
-        <div className="flex gap-2 mb-6 p-1 bg-muted rounded-lg w-fit">
+        {/* Mode Toggle */}
+        <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div className="flex-1">
+            <h3 className="font-semibold text-blue-900 dark:text-blue-100">
+              {isAdvancedMode ? 'Advanced Mode' : 'Simple Mode'}
+            </h3>
+            <p className="text-sm text-blue-800 dark:text-blue-200 mt-1">
+              {isAdvancedMode ? 'Comprehensive storage analysis with container type, cleanliness level, and special needs considerations' : 'Quick storage calculation with essential inputs only'}
+            </p>
+          </div>
           <button
-            onClick={() => setIsAdvancedMode(false)}
-            className={cn(
-              "px-6 py-2 rounded-md font-medium transition-all",
-              !isAdvancedMode
-                ? "bg-primary text-primary-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            )}
+            onClick={() => setIsAdvancedMode(!isAdvancedMode)}
+            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors whitespace-nowrap"
           >
-            Simple Mode
-          </button>
-          <button
-            onClick={() => setIsAdvancedMode(true)}
-            className={cn(
-              "px-6 py-2 rounded-md font-medium transition-all",
-              isAdvancedMode
-                ? "bg-primary text-primary-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
+            {isAdvancedMode ? (
+              <>
+                <ChevronUp className="h-4 w-4 mr-2" />
+                Switch to Simple
+              </>
+            ) : (
+              <>
+                <ChevronDown className="h-4 w-4 mr-2" />
+                Advanced Options
+              </>
             )}
-          >
-            Advanced Mode
           </button>
         </div>
 
