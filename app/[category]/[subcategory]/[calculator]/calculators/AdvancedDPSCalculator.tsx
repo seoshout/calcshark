@@ -90,6 +90,7 @@ export default function AdvancedDPSCalculator() {
     const damageBonus = parseFloat(inputs.damageBonus) / 100 || 0;
     const armorPenetration = parseFloat(inputs.armorPenetration) / 100 || 0;
     const targetArmor = parseFloat(inputs.targetArmor) / 100 || 0;
+    const weaponType = inputs.weaponType;
 
     if (!baseDamage || !attackSpeed) {
       alert('Please enter base damage and attack speed');
