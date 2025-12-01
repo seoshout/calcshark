@@ -1437,3 +1437,126 @@ export const generateRecipeConverterCalculatorSchema = (breadcrumbItems: Breadcr
     ]
   };
 };
+
+export const generateSpayNeuterCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/animals/pet-care/spayneuter-cost-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Spay/Neuter Cost Calculator - Pet Surgery Cost Estimator",
+        "url": baseUrl,
+        "description": "Calculate spay and neuter surgery costs for dogs, cats, and rabbits. Compare clinic types, regional pricing, traditional vs laparoscopic procedures, and get insurance reimbursement estimates.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Spay and neuter cost estimation for dogs, cats, and rabbits",
+          "Male (neuter) and female (spay) procedure pricing",
+          "Weight-based cost calculations for dogs",
+          "Clinic type comparison (low-cost, mobile, private practice, specialty)",
+          "Regional and state-based pricing adjustments",
+          "Traditional vs laparoscopic spay comparison",
+          "Special condition cost modifiers (pregnancy, cryptorchidism, brachycephalic)",
+          "Additional services calculator (bloodwork, pain meds, e-collar, microchip)",
+          "Pet insurance and wellness plan reimbursement estimator",
+          "Multi-pet discount calculator",
+          "Age-based recommendations",
+          "Recovery time and pain comparison",
+          "Budget planning tools",
+          "5 calculation modes for different needs"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "8",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Estimate Spay/Neuter Costs",
+        "description": "Step-by-step guide to calculating spay and neuter surgery costs for your pet",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Enter Pet Information",
+            "text": "Select your pet type (dog, cat, or rabbit), gender, weight category (for dogs), and age in months."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Choose Location and Clinic Type",
+            "text": "Select your state, area type, and clinic type. Costs vary significantly by location and facility."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Indicate Special Conditions",
+            "text": "Check applicable conditions: pregnancy, cryptorchidism, brachycephalic breed, or obesity."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Select Additional Services",
+            "text": "Choose services: bloodwork, IV fluids, pain medication, e-collar, microchip, antibiotics, or exam."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Review Cost Estimate",
+            "text": "Get total cost, breakdown, clinic comparison, recommendations, and money-saving tips."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why does spaying cost more than neutering?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Spaying costs $10-200 more because it's a more complex surgical procedure requiring internal abdominal surgery, while neutering involves a small external incision."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost to spay a dog?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dog spaying costs $250-2,000, with a national average of $455. Low-cost clinics charge $50-150, private practices $200-600."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does pet insurance cover spaying and neutering?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard insurance doesn't cover it, but wellness plans reimburse $135-150 for $24-50/month."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};

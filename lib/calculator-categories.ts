@@ -8126,6 +8126,28 @@ export const calculatorCategories: Category[] = [
             popular: false
           },
           {
+            id: 'spayneuter-cost-calculator',
+            name: 'Spay/Neuter Cost Calculator',
+            description: 'Estimate spay and neuter surgery costs for dogs, cats, and rabbits. Compare clinic types, regional pricing, traditional vs laparoscopic procedures, and calculate insurance reimbursements.',
+            slug: 'spayneuter-cost-calculator',
+            category: 'pet-care',
+            subcategory: 'pet-health-nutrition',
+            tags: [
+              'pet care',
+              'pet health & nutrition',
+              'spay neuter cost',
+              'dog spay cost',
+              'cat neuter cost',
+              'veterinary cost',
+              'pet surgery calculator',
+              'laparoscopic spay',
+              'low cost spay neuter'
+            ],
+            icon: 'Heart',
+            difficulty: 'intermediate',
+            popular: true
+          },
+          {
             id: 'dog-calorie-calculator',
             name: 'Dog Calorie Calculator',
             description: 'Quick and accurate calculations',

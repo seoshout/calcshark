@@ -4,7 +4,7 @@ import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug } fr
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
-import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema, generatePondVolumeSchema, generateDPSCalculatorSchema, generateBreastmilkStorageCalculatorSchema, generateRecipeConverterCalculatorSchema } from '@/lib/schemas';
+import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema, generatePondVolumeSchema, generateDPSCalculatorSchema, generateBreastmilkStorageCalculatorSchema, generateRecipeConverterCalculatorSchema, generateSpayNeuterCalculatorSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
@@ -100,6 +100,7 @@ import AdvancedPondVolumeCalculator from './calculators/AdvancedPondVolumeCalcul
 import AdvancedDPSCalculator from './calculators/AdvancedDPSCalculator';
 import AdvancedBreastmilkStorageCalculator from './calculators/AdvancedBreastmilkStorageCalculator';
 import AdvancedRecipeConverterCalculator from './calculators/AdvancedRecipeConverterCalculator';
+import AdvancedSpayNeuterCalculator from './calculators/AdvancedSpayNeuterCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
@@ -120,6 +121,7 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'dps-calculator': AdvancedDPSCalculator,
   'breastmilk-storage-calculator': AdvancedBreastmilkStorageCalculator,
   'recipe-converter-calculator': AdvancedRecipeConverterCalculator,
+  'spayneuter-cost-calculator': AdvancedSpayNeuterCalculator,
   // Add more calculators as we create them
   // etc.
 };
@@ -159,7 +161,8 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     'pond-volume-calculator',
     'dps-calculator',
     'breastmilk-storage-calculator',
-    'recipe-converter-calculator'
+    'recipe-converter-calculator',
+    'spayneuter-cost-calculator'
   ].includes(calculator.slug);
 
   // Generate schemas based on calculator type
@@ -194,6 +197,8 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     combinedSchema = generateBreastmilkStorageCalculatorSchema(breadcrumbItems);
   } else if (calculator.slug === 'recipe-converter-calculator') {
     combinedSchema = generateRecipeConverterCalculatorSchema(breadcrumbItems);
+  } else if (calculator.slug === 'spayneuter-cost-calculator') {
+    combinedSchema = generateSpayNeuterCalculatorSchema(breadcrumbItems);
   } else {
     // Use standard schemas for other calculators
     const softwareSchema = generateSoftwareSchema(
