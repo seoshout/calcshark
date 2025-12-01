@@ -94,7 +94,9 @@
       "Bash(timeout 10 curl:*)",
       "Bash(npm run sitemap:generate:*)",
       "Bash(nul)",
-      "Bash(python -c:*)"
+      "Bash(python -c:*)",
+      "Bash(timeout 15 bash:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

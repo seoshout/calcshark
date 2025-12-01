@@ -2523,6 +2523,25 @@ export const calculatorCategories: Category[] = [
             icon: 'Calculator',
             difficulty: 'basic',
             popular: false
+          },
+          {
+            id: 'recipe-converter-calculator',
+            name: 'Recipe Converter Calculator',
+            description: 'Convert recipe measurements between cups, tablespoons, grams, ounces, and more. Scale recipes for different serving sizes with ingredient-specific conversions.',
+            slug: 'recipe-converter-calculator',
+            category: 'health-fitness',
+            subcategory: 'nutrition-diet',
+            tags: [
+              'health & fitness',
+              'nutrition & diet',
+              'recipe converter',
+              'measurement converter',
+              'cooking calculator',
+              'baking calculator'
+            ],
+            icon: 'Calculator',
+            difficulty: 'intermediate',
+            popular: true
           }
         ]
       },

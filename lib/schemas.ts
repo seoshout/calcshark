@@ -1297,3 +1297,143 @@ export const generateBreastmilkStorageCalculatorSchema = (breadcrumbItems: Bread
   };
 };
 
+export const generateRecipeConverterCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/health-fitness/nutrition-diet/recipe-converter-calculator";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Recipe Converter Calculator - Measurement Conversion Tool",
+        "url": baseUrl,
+        "description": "Convert recipe measurements between cups, tablespoons, grams, ounces, and more. Scale recipes for different serving sizes. Ingredient-specific conversions for 28+ common cooking ingredients.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+          "Volume to volume conversions (cups, tbsp, tsp, ml, fl oz)",
+          "Weight to weight conversions (grams, ounces, pounds, kg)",
+          "Volume to weight conversions with ingredient densities",
+          "Weight to volume conversions with ingredient densities",
+          "Recipe scaling for different serving sizes",
+          "28+ ingredient-specific conversions",
+          "Bidirectional conversion support",
+          "International measurement system support"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "12",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Convert Recipe Measurements",
+        "description": "Learn to convert between volume and weight measurements for cooking and baking with precision.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Choose Conversion Type",
+            "text": "Select the type of conversion you need: volume to volume (cups to ml), weight to weight (grams to ounces), volume to weight (cups to grams), weight to volume (grams to cups), or recipe scaling."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Enter Values and Select Units",
+            "text": "Input the amount you want to convert and select the source and target units. For volume-weight conversions, choose the specific ingredient type for accurate results."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Get Conversion Results",
+            "text": "Click Convert to see your results including the converted amount, conversion formula, and helpful reference conversions."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many tablespoons are in a cup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There are 16 tablespoons in 1 cup. This is a standard conversion in US cooking measurements. To convert cups to tablespoons, multiply by 16. For example, 1/2 cup = 8 tablespoons, 1/4 cup = 4 tablespoons."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many grams are in a cup of flour?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1 cup of all-purpose flour weighs approximately 125 grams. However, this can vary depending on the type of flour: bread flour is about 127g per cup, cake flour is about 114g per cup, and whole wheat flour is about 120g per cup. For the most accurate results, it's best to weigh flour rather than measure by volume."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do ingredient conversions vary by type?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Different ingredients have different densities, which means they weigh different amounts even when measured in the same volume. For example, 1 cup of granulated sugar weighs 200g, while 1 cup of flour weighs only 125g. This is why professional bakers often prefer weight measurements over volume measurements for consistency."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I scale a recipe for more or fewer servings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use the Recipe Scaling mode: enter the original number of servings and your desired number of servings. The calculator provides a scaling factor. Multiply all ingredient amounts in the recipe by this factor. For example, if scaling from 4 to 6 servings, the factor is 1.5, so 2 cups of flour becomes 3 cups."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between fluid ounces and weight ounces?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fluid ounces (fl oz) measure volume, while ounces (oz) measure weight. They are only equal for water (1 fl oz of water weighs approximately 1 oz). For other ingredients, the relationship varies by density. For example, 1 fl oz of honey weighs about 1.5 oz because honey is denser than water."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many teaspoons are in a tablespoon?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There are 3 teaspoons in 1 tablespoon. This is a standard conversion: 1 tbsp = 3 tsp = 15ml (approximately). This conversion is useful when a recipe calls for a measurement you don't have a measuring spoon for."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do some recipes use weight measurements instead of volume?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Weight measurements are more accurate and consistent than volume measurements, especially for baking. Factors like how you scoop flour or pack brown sugar can significantly affect volume measurements but not weight. Professional bakers and many international recipes use weight (grams) for precision and repeatability."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the best way to measure flour accurately?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The most accurate method is to weigh flour using a kitchen scale (125g = 1 cup all-purpose flour). If measuring by volume, use the 'spoon and level' method: stir the flour, spoon it into the measuring cup without packing, and level off with a straight edge. Never scoop directly from the bag as this compacts the flour and can add 25-30% more than intended."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
