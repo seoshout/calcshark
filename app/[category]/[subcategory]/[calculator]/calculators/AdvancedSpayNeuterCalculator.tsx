@@ -754,9 +754,9 @@ const AdvancedSpayNeuterCalculator = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <div className="w-full space-y-8">
       {/* Calculator Card */}
-      <div className="bg-background border rounded-xl p-6 sm:p-8 shadow-lg">
+      <div className="bg-background border rounded-xl p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
             <Heart className="h-8 w-8 text-green-600 dark:text-green-400" />
@@ -1224,16 +1224,16 @@ const AdvancedSpayNeuterCalculator = () => {
       </div>
 
       {/* About This Calculator - Introduction Section */}
-      <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-xl p-8 shadow-lg">
+      <div className="bg-background border rounded-xl p-6 shadow-sm">
         <div className="flex items-start gap-4 mb-6">
           <div className="flex-shrink-0">
-            <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-md">
-              <Heart className="h-6 w-6 text-white" />
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <Info className="h-6 w-6 text-primary" />
             </div>
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">About This Spay/Neuter Cost Calculator</h2>
-            <p className="text-sm text-muted-foreground">The most comprehensive and accurate pet surgery cost estimator available online</p>
+            <h2 className="text-2xl font-bold text-foreground">About This Calculator</h2>
+            <p className="text-muted-foreground mt-1">Comprehensive spay/neuter cost estimator for dogs, cats, and rabbits</p>
           </div>
         </div>
 
@@ -1513,7 +1513,7 @@ const AdvancedSpayNeuterCalculator = () => {
 
       {/* Full Results Section (below calculator) */}
       {result && (
-        <div ref={resultsRef} className="bg-background border-2 border-green-500 rounded-xl p-6 sm:p-8 shadow-lg">
+        <div ref={resultsRef} className="bg-background border-2 border-green-500 rounded-xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
             <CheckCircle className="h-6 w-6 text-green-500" />
             Your Spay/Neuter Cost Estimate
@@ -1711,7 +1711,7 @@ const AdvancedSpayNeuterCalculator = () => {
       )}
 
       {/* How to Use Section */}
-      <div className="bg-background border rounded-xl p-6 sm:p-8">
+      <div className="bg-background border rounded-xl p-6">
         <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Free Online Spay/Neuter Cost Calculator</h2>
 
         {/* Step-by-step guide */}
@@ -1889,7 +1889,7 @@ const AdvancedSpayNeuterCalculator = () => {
       </div>
 
       {/* Understanding Spay/Neuter Costs */}
-      <div className="bg-background border rounded-xl p-6 sm:p-8">
+      <div className="bg-background border rounded-xl p-6">
         <h2 className="text-2xl font-bold text-foreground mb-6">Understanding Spay/Neuter Costs</h2>
 
         <div className="space-y-6">
@@ -2248,13 +2248,13 @@ const AdvancedSpayNeuterCalculator = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-background border rounded-xl p-6 sm:p-8">
+      <div className="bg-background border rounded-xl p-6">
         <h2 className="text-2xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
         <FAQAccordion faqs={faqItems} />
       </div>
 
       {/* Review Section */}
-      <div className="bg-background border rounded-xl p-6 sm:p-8">
+      <div className="bg-background border rounded-xl p-6">
         <CalculatorReview calculatorName="Spay/Neuter Cost Calculator" />
       </div>
     </div>
