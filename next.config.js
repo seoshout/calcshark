@@ -96,6 +96,106 @@ const nextConfig = {
         destination: '/pet-care/pet-health-nutrition/spayneuter-cost-calculator/',
         permanent: true,
       },
+      {
+        source: '/calculator/tire-life-calculator',
+        destination: '/automotive-transportation/maintenance-parts/tire-life-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/tire-life-calculator/',
+        destination: '/automotive-transportation/maintenance-parts/tire-life-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/dps-calculator',
+        destination: '/gaming-entertainment/gaming-performance/dps-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/dps-calculator/',
+        destination: '/gaming-entertainment/gaming-performance/dps-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/smart-thermostat-savings-calculator',
+        destination: '/environmental-sustainability/energy-utilities/smart-thermostat-savings-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/smart-thermostat-savings-calculator/',
+        destination: '/environmental-sustainability/energy-utilities/smart-thermostat-savings-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/oil-change-interval-calculator',
+        destination: '/automotive-transportation/maintenance-parts/oil-change-interval-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/oil-change-interval-calculator/',
+        destination: '/automotive-transportation/maintenance-parts/oil-change-interval-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/breastmilk-storage-calculator',
+        destination: '/pregnancy-parenting/baby-child-development/breastmilk-storage-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/breastmilk-storage-calculator/',
+        destination: '/pregnancy-parenting/baby-child-development/breastmilk-storage-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/cat-age-calculator',
+        destination: '/pet-care/pet-health-nutrition/cat-age-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/cat-age-calculator/',
+        destination: '/pet-care/pet-health-nutrition/cat-age-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/crop-rotation-calculator',
+        destination: '/gardening-landscaping/garden-planning/crop-rotation-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/crop-rotation-calculator/',
+        destination: '/gardening-landscaping/garden-planning/crop-rotation-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/pond-volume-calculator',
+        destination: '/gardening-landscaping/lawn-landscaping/pond-volume-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/pond-volume-calculator/',
+        destination: '/gardening-landscaping/lawn-landscaping/pond-volume-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/wedding-alcohol-calculator',
+        destination: '/wedding-events/wedding-planning/wedding-alcohol-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/wedding-alcohol-calculator/',
+        destination: '/wedding-events/wedding-planning/wedding-alcohol-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/loan-payment-calculator',
+        destination: '/finance-personal-finance/loans-debt/loan-payment-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/loan-payment-calculator/',
+        destination: '/finance-personal-finance/loans-debt/loan-payment-calculator/',
+        permanent: true,
+      },
     ];
   },
 
