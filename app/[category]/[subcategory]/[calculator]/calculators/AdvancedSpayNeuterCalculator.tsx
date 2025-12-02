@@ -2248,61 +2248,57 @@ const AdvancedSpayNeuterCalculator = () => {
       </div>
 
       {/* Scientific References & Resources */}
-      <div className="bg-background border rounded-xl p-6 shadow-sm">
+      <div className="bg-background border rounded-xl p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-4">Scientific References & Resources</h2>
-        <p className="text-muted-foreground mb-6">
-          Our calculator is based on data from reputable veterinary organizations, peer-reviewed studies, and industry standards.
-        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
+        <div className="space-y-3 text-sm">
+          <div className="p-4 bg-muted rounded-lg">
             <h3 className="font-semibold mb-2">Veterinary Medical Associations</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• American Veterinary Medical Association (AVMA) - Spay/Neuter Guidelines</li>
-              <li>• American Animal Hospital Association (AAHA) - Canine and Feline Life Stage Guidelines</li>
-              <li>• Association of Shelter Veterinarians - Pediatric Spay/Neuter Guidelines</li>
-              <li>• American Association of Feline Practitioners (AAFP) - Feline Life Stage Guidelines</li>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.avma.org/resources-tools/pet-owners/petcare/spaying-and-neutering" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Veterinary Medical Association (AVMA)</a> - Official spay/neuter guidelines and recommendations</li>
+              <li>• <a href="https://www.aaha.org/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Animal Hospital Association (AAHA)</a> - Canine and feline life stage guidelines</li>
+              <li>• <a href="https://www.sheltervet.org/assets/docs/shelter-standards-oct2011-wforward.pdf" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Association of Shelter Veterinarians</a> - Pediatric spay/neuter best practices</li>
+              <li>• <a href="https://catvets.com/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Association of Feline Practitioners (AAFP)</a> - Feline-specific life stage guidelines</li>
             </ul>
           </div>
 
-          <div>
+          <div className="p-4 bg-muted rounded-lg">
             <h3 className="font-semibold mb-2">Research & Clinical Studies</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Journal of the American Veterinary Medical Association (JAVMA) - Age at Spay/Neuter Studies</li>
-              <li>• Veterinary Surgery Journal - Laparoscopic vs Traditional Spay Research</li>
-              <li>• PubMed/NIH Database - Peer-reviewed veterinary research</li>
-              <li>• UC Davis Veterinary Medicine - Large breed spay/neuter timing studies</li>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7691399/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">UC Davis Veterinary Medicine</a> - Long-term health effects of spay/neuter timing in large breed dogs</li>
+              <li>• <a href="https://pubmed.ncbi.nlm.nih.gov/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">PubMed/NIH Database</a> - Peer-reviewed veterinary research on spay/neuter procedures</li>
+              <li>• <a href="https://onlinelibrary.wiley.com/journal/1532950x" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Veterinary Surgery Journal</a> - Laparoscopic vs traditional spay comparative studies</li>
+              <li>• "Determining the Optimal Age for Gonadectomy of Dogs and Cats" (JAVMA 2013) - Comprehensive age timing research</li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-2">Cost Data Sources</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• National averages from ASPCA and Humane Society veterinary cost surveys</li>
-              <li>• Regional pricing data from veterinary practice management studies</li>
-              <li>• Low-cost clinic pricing from municipal and nonprofit spay/neuter programs</li>
-              <li>• Pet insurance reimbursement data from major providers</li>
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">Cost Data & Financial Resources</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.aspca.org/pet-care/general-pet-care/low-cost-spayneuter-programs" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">ASPCA Low-Cost Spay/Neuter Programs</a> - National database of affordable spay/neuter clinics</li>
+              <li>• <a href="https://www.spayusa.org/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">SpayUSA</a> - National referral network for affordable spay/neuter services</li>
+              <li>• <a href="https://petsmartcharities.org/pro/grants" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">PetSmart Charities Grant Programs</a> - Funding for spay/neuter initiatives</li>
+              <li>• <a href="https://www.humanesociety.org/resources/why-you-should-spayneuter-your-pet" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Humane Society of the United States</a> - Cost surveys and financial assistance resources</li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-2">Additional Resources</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• ASPCA - Free and Low-Cost Spay/Neuter Programs Database</li>
-              <li>• SpayUSA - National referral network for affordable spay/neuter</li>
-              <li>• PetSmart Charities - Spay/Neuter Grant Programs</li>
-              <li>• Best Friends Animal Society - Community spay/neuter resources</li>
+          <div className="p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">Health Benefits & Educational Resources</h3>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• <a href="https://www.akc.org/expert-advice/health/spaying-and-neutering-your-dog-faqs/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Kennel Club (AKC)</a> - Comprehensive spay/neuter FAQs and breed-specific considerations</li>
+              <li>• <a href="https://www.vet.cornell.edu/departments-centers-and-institutes/cornell-feline-health-center" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Cornell Feline Health Center</a> - Evidence-based feline spay/neuter research</li>
+              <li>• <a href="https://bestfriends.org/our-work/spay-neuter" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Best Friends Animal Society</a> - Community spay/neuter resources and impact data</li>
+              <li>• "Small Animal Surgery Textbook" by Theresa Welch Fossum DVM - Surgical technique standards and best practices</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
-          <p className="text-sm text-amber-900 dark:text-amber-100">
-            <strong>Disclaimer:</strong> This calculator provides estimates based on national averages and industry data.
-            Actual costs vary by location, clinic, pet characteristics, and specific circumstances. Always consult with
-            your veterinarian for personalized recommendations and accurate pricing for your pet's specific needs.
-          </p>
-        </div>
+        <p className="text-xs text-muted-foreground mt-4 italic">
+          This calculator uses cost data from ASPCA and Humane Society surveys, regional veterinary pricing studies, and insurance reimbursement data.
+          Procedure information is based on AVMA guidelines, peer-reviewed research, and established veterinary standards. While we strive for accuracy,
+          actual costs vary significantly by location, clinic type, pet characteristics, and specific circumstances. Always consult your veterinarian
+          for personalized recommendations and accurate pricing for your pet's individual needs.
+        </p>
       </div>
 
       {/* FAQ Section */}
