@@ -754,9 +754,9 @@ const AdvancedSpayNeuterCalculator = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <div className="w-full space-y-8">
       {/* Calculator Card */}
-      <div className="bg-background border rounded-xl p-6 sm:p-8 shadow-lg">
+      <div className="bg-background border rounded-xl p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
             <Heart className="h-8 w-8 text-green-600 dark:text-green-400" />
@@ -1226,102 +1226,75 @@ const AdvancedSpayNeuterCalculator = () => {
       </div>
 
       {/* About This Calculator - Introduction Section */}
-      <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-xl p-8 shadow-lg">
+      <div className="bg-background border rounded-xl p-6 shadow-sm">
         <div className="flex items-start gap-4 mb-6">
           <div className="flex-shrink-0">
-            <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-md">
-              <Heart className="h-6 w-6 text-white" />
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <Info className="h-6 w-6 text-primary" />
             </div>
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">About This Spay/Neuter Cost Calculator</h2>
-            <p className="text-sm text-muted-foreground">The most comprehensive and accurate pet surgery cost estimator available online</p>
+            <h2 className="text-2xl font-bold text-foreground">About This Calculator</h2>
+            <p className="text-muted-foreground mt-1">Comprehensive spay/neuter cost estimator for dogs, cats, and rabbits</p>
           </div>
         </div>
 
-        <div className="prose prose-sm max-w-none">
-          <p className="text-base text-foreground leading-relaxed mb-4">
+        <div className="space-y-4">
+          <p className="text-foreground leading-relaxed">
             Calculate spay and neuter surgery costs for <strong>dogs, cats, and rabbits</strong> with the most comprehensive
             cost estimator available. Our advanced calculator considers <strong>15+ cost factors</strong> to provide highly
             accurate estimates tailored to your specific situation.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-            <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-8 w-8 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
-                  <Calculator className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="font-semibold text-foreground">5 Calculation Modes</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+              <Calculator className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">5 Calculation Modes</h3>
+                <p className="text-sm text-muted-foreground">
+                  Basic, Comprehensive, Clinic Comparison, Budget Planner, and Break-Even Analysis
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Basic, Comprehensive, Clinic Comparison, Budget Planner, and Break-Even Analysis modes
-              </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 border border-indigo-200 dark:border-indigo-800">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-8 w-8 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-                  <Building2 className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <h3 className="font-semibold text-foreground">Clinic Type Comparison</h3>
+            <div className="flex items-start gap-3 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-200 dark:border-indigo-800">
+              <Building2 className="h-5 w-5 text-indigo-600 dark:text-indigo-400 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Clinic Comparison</h3>
+                <p className="text-sm text-muted-foreground">
+                  Compare costs across nonprofit, mobile, private practice, and specialty clinics
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Compare costs across nonprofit, mobile, private practice, and specialty clinics
-              </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-8 w-8 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
-                  <MapPin className="h-4 w-4 text-purple-600 dark:text-purple-400" />
-                </div>
-                <h3 className="font-semibold text-foreground">Regional Pricing</h3>
+            <div className="flex items-start gap-3 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+              <MapPin className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Regional Pricing</h3>
+                <p className="text-sm text-muted-foreground">
+                  Cost adjustments for 11 states and urban/suburban/rural areas
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Accurate cost adjustments for 11 states and urban/suburban/rural areas
-              </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 border border-pink-200 dark:border-pink-800">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-8 w-8 bg-pink-100 dark:bg-pink-900/50 rounded-lg flex items-center justify-center">
-                  <Stethoscope className="h-4 w-4 text-pink-600 dark:text-pink-400" />
-                </div>
-                <h3 className="font-semibold text-foreground">Procedure Comparison</h3>
+            <div className="flex items-start gap-3 p-4 bg-pink-50 dark:bg-pink-900/20 rounded-lg border border-pink-200 dark:border-pink-800">
+              <Stethoscope className="h-5 w-5 text-pink-600 dark:text-pink-400 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Procedure Analysis</h3>
+                <p className="text-sm text-muted-foreground">
+                  Traditional vs laparoscopic spay (65% less pain, 3-5 day recovery)
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Traditional vs laparoscopic spay analysis (65% less pain, 3-5 day recovery)
-              </p>
             </div>
           </div>
 
-          <p className="text-base text-foreground leading-relaxed">
+          <p className="text-foreground leading-relaxed">
             Get <strong>personalized recommendations</strong> based on your pet&apos;s age, size, breed, and location.
             Our calculator includes special conditions (pregnancy, cryptorchidism, brachycephalic breeds, obesity),
             additional services (bloodwork, pain medication, e-collar, microchip), insurance reimbursements, and
             multi-pet discounts. Make informed decisions about your pet&apos;s surgical care with detailed breakdowns,
             <strong>money-saving tips</strong>, and <strong>evidence-based recommendations</strong> from veterinary professionals.
           </p>
-
-          <div className="flex flex-wrap gap-2 mt-6">
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-xs font-medium">
-              <CheckCircle className="h-3 w-3" />
-              15+ Cost Factors
-            </span>
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">
-              <CheckCircle className="h-3 w-3" />
-              Clinic Comparison
-            </span>
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-xs font-medium">
-              <CheckCircle className="h-3 w-3" />
-              Insurance Integration
-            </span>
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-xs font-medium">
-              <CheckCircle className="h-3 w-3" />
-              18 Comprehensive FAQs
-            </span>
-          </div>
         </div>
       </div>
 
@@ -1515,7 +1488,7 @@ const AdvancedSpayNeuterCalculator = () => {
 
       {/* Full Results Section (below calculator) */}
       {result && (
-        <div ref={resultsRef} className="bg-background border-2 border-green-500 rounded-xl p-6 sm:p-8 shadow-lg">
+        <div ref={resultsRef} className="bg-background border-2 border-green-500 rounded-xl p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
             <CheckCircle className="h-6 w-6 text-green-500" />
             Your Spay/Neuter Cost Estimate
