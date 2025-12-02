@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Info, DollarSign, Calendar, Building2, PawPrint, MapPin, Sparkles, TrendingUp, Clock, Heart, Shield, Star, CheckCircle2, AlertCircle, HelpCircle, ChevronDown, ChevronUp, Calculator, RefreshCw, Lightbulb, Waves, Fish, Target } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import CalculatorReview from '@/components/ui/calculator-review';
@@ -22,6 +22,8 @@ export default function AdvancedFishingLineCapacityCalculator() {
   const [isAdvancedMode, setIsAdvancedMode] = useState<boolean>(true);
   const [calculationMode, setCalculationMode] = useState<CalculationMode>('basic');
   const [unitSystem, setUnitSystem] = useState<UnitSystem>('imperial');
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   // Reel Specifications
   const [reelSize, setReelSize] = useState<ReelSize>('3000');
@@ -49,8 +51,7 @@ export default function AdvancedFishingLineCapacityCalculator() {
   // Multi-Spool
   const [numberOfSpools, setNumberOfSpools] = useState<number>(2);
 
-  // Modal State
-  const [showResults, setShowResults] = useState<boolean>(false);
+  // Results State
   const [results, setResults] = useState<any>(null);
 
   // Line diameter data based on research (in mm)
@@ -386,7 +387,11 @@ export default function AdvancedFishingLineCapacityCalculator() {
     }
 
     setResults(calculationResults);
-    setShowResults(true);
+    setShowModal(true);
+
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   const handleReset = () => {
@@ -404,7 +409,7 @@ export default function AdvancedFishingLineCapacityCalculator() {
     setNewLinePoundTest(20);
     setNewLineType('braided');
     setNumberOfSpools(2);
-    setShowResults(false);
+    setShowModal(false);
     setResults(null);
   };
 
@@ -506,8 +511,8 @@ export default function AdvancedFishingLineCapacityCalculator() {
   ];
 
   return (
-    <div className="space-y-6">
-      {/* Header Section with Icon */}
+    <div className="w-full space-y-8">
+      {/* Calculator Card */}
       <div className="bg-background border rounded-xl p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
@@ -985,10 +990,10 @@ export default function AdvancedFishingLineCapacityCalculator() {
         )}
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex gap-3">
           <button
             onClick={handleCalculate}
-            className="flex-1 min-w-[200px] bg-primary text-primary-foreground py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors font-medium flex items-center justify-center gap-2"
+            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium flex items-center gap-2"
           >
             <Calculator className="h-5 w-5" />
             Calculate Capacity
@@ -1004,300 +1009,694 @@ export default function AdvancedFishingLineCapacityCalculator() {
       </div>
 
       {/* Results Modal */}
-      {showResults && results && (
-        <div className="bg-background border rounded-xl p-6 shadow-lg">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-foreground">Calculation Results</h3>
-            <button
-              onClick={() => setShowResults(false)}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              ✕
-            </button>
-          </div>
-
-          {/* Mode-Specific Results */}
-          {results.mode === 'basic' && (
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Line Capacity</h4>
-                <div className="space-y-2">
-                  <p className="text-sm">
-                    <span className="font-medium">Line Type:</span>{' '}
-                    <span className="capitalize">{results.lineType}</span>
-                  </p>
-                  <p className="text-sm">
-                    <span className="font-medium">Pound Test:</span> {results.poundTest} lb
-                  </p>
-                  <p className="text-sm">
-                    <span className="font-medium">Line Diameter:</span> {formatNumber(results.diameter.mm, 2)} mm ({formatNumber(results.diameter.inches, 3)} inches)
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">Total Capacity</h4>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-green-600 dark:text-green-400">
-                      {formatNumber(results.capacity.yards)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Yards</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-green-600 dark:text-green-400">
-                      {formatNumber(results.capacity.meters)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Meters</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-green-600 dark:text-green-400">
-                      {formatNumber(results.capacity.feet, 0)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Feet</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Reel:</strong> {results.reelInfo.size === 'custom' ? 'Custom' : `Size ${results.reelInfo.size}`} - {results.reelInfo.referenceCapacity}
-                </p>
-              </div>
+      {showModal && results && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="bg-background rounded-xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-background border-b px-6 py-4 flex items-center justify-between">
+              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                <CheckCircle2 className="h-6 w-6 text-green-500" />
+                Capacity Calculation Results
+              </h3>
+              <button
+                onClick={() => setShowModal(false)}
+                className="p-2 hover:bg-accent rounded-lg transition-colors"
+              >
+                <ChevronUp className="h-5 w-5" />
+              </button>
             </div>
-          )}
 
-          {results.mode === 'comparison' && (
-            <div className="space-y-4">
-              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg mb-4">
-                <h4 className="font-semibold text-purple-900 dark:text-purple-100">
-                  Comparing {results.poundTest}lb test across all line types
-                </h4>
-              </div>
-
-              {results.comparisons.map((comp: any, index: number) => {
-                const color = getLineTypeColor(comp.lineType);
-                return (
-                  <div key={index} className={`p-4 bg-${color}-50 dark:bg-${color}-900/20 rounded-lg border border-${color}-200 dark:border-${color}-800`}>
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-semibold capitalize text-foreground">{comp.lineType}</h4>
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium bg-${color}-100 dark:bg-${color}-900/50 text-${color}-800 dark:text-${color}-200`}>
-                        {formatNumber(comp.percentage, 0)}% capacity
-                      </span>
+            {/* Modal Content */}
+            <div className="p-6 space-y-6 overflow-y-auto flex-1">
+              {/* Mode-Specific Results */}
+              {results.mode === 'basic' && (
+                <div className="space-y-4">
+                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Line Capacity</h4>
+                    <div className="space-y-2">
+                      <p className="text-sm">
+                        <span className="font-medium">Line Type:</span>{' '}
+                        <span className="capitalize">{results.lineType}</span>
+                      </p>
+                      <p className="text-sm">
+                        <span className="font-medium">Pound Test:</span> {results.poundTest} lb
+                      </p>
+                      <p className="text-sm">
+                        <span className="font-medium">Line Diameter:</span> {formatNumber(results.diameter.mm, 2)} mm ({formatNumber(results.diameter.inches, 3)} inches)
+                      </p>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      <div>
+                  </div>
+
+                  <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">Total Capacity</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      <div className="text-center">
+                        <p className="text-3xl font-bold text-green-600 dark:text-green-400">
+                          {formatNumber(results.capacity.yards)}
+                        </p>
                         <p className="text-sm text-muted-foreground">Yards</p>
-                        <p className="text-lg font-bold">{formatNumber(comp.capacity.yards)}</p>
                       </div>
-                      <div>
+                      <div className="text-center">
+                        <p className="text-3xl font-bold text-green-600 dark:text-green-400">
+                          {formatNumber(results.capacity.meters)}
+                        </p>
                         <p className="text-sm text-muted-foreground">Meters</p>
-                        <p className="text-lg font-bold">{formatNumber(comp.capacity.meters)}</p>
                       </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Diameter (mm)</p>
-                        <p className="text-lg font-bold">{formatNumber(comp.diameter.mm, 2)}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Diameter (in)</p>
-                        <p className="text-lg font-bold">{formatNumber(comp.diameter.inches, 3)}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          {results.mode === 'backing' && (
-            <div className="space-y-4">
-              {results.error ? (
-                <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
-                  <div className="flex items-center gap-2 mb-2">
-                    <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
-                    <h4 className="font-semibold text-red-900 dark:text-red-100">Error</h4>
-                  </div>
-                  <p className="text-sm text-red-800 dark:text-red-200">{results.message}</p>
-                </div>
-              ) : (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                      <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Main Line</h4>
-                      <div className="space-y-2 text-sm">
-                        <p><span className="font-medium">Type:</span> <span className="capitalize">{results.mainLine.type}</span></p>
-                        <p><span className="font-medium">Test:</span> {results.mainLine.poundTest} lb</p>
-                        <p><span className="font-medium">Length:</span> {formatNumber(results.mainLine.length.yards)} yards ({formatNumber(results.mainLine.length.meters)} m)</p>
-                        <p><span className="font-medium">Diameter:</span> {formatNumber(results.mainLine.diameter.mm, 2)} mm</p>
-                      </div>
-                    </div>
-
-                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                      <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">Backing Line</h4>
-                      <div className="space-y-2 text-sm">
-                        <p><span className="font-medium">Type:</span> <span className="capitalize">{results.backingLine.type}</span></p>
-                        <p><span className="font-medium">Test:</span> {results.backingLine.poundTest} lb</p>
-                        <p><span className="font-medium">Length:</span> {formatNumber(results.backingLine.length.yards)} yards ({formatNumber(results.backingLine.length.meters)} m)</p>
-                        <p><span className="font-medium">Diameter:</span> {formatNumber(results.backingLine.diameter.mm, 2)} mm</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                    <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-3">Total Capacity</h4>
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-                          {formatNumber(results.total.yards)}
+                      <div className="text-center">
+                        <p className="text-3xl font-bold text-green-600 dark:text-green-400">
+                          {formatNumber(results.capacity.feet, 0)}
                         </p>
-                        <p className="text-sm text-muted-foreground">Total Yards</p>
-                      </div>
-                      <div>
-                        <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-                          {formatNumber(results.total.meters)}
-                        </p>
-                        <p className="text-sm text-muted-foreground">Total Meters</p>
-                      </div>
-                      <div>
-                        <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-                          {formatNumber(results.reelInfo.fillPercentage, 0)}%
-                        </p>
-                        <p className="text-sm text-muted-foreground">Spool Fill</p>
+                        <p className="text-sm text-muted-foreground">Feet</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="p-4 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
                     <p className="text-sm text-muted-foreground">
-                      Main line: {formatNumber(results.percentages.mainLine, 0)}% • Backing: {formatNumber(results.percentages.backing, 0)}%
+                      <strong>Reel:</strong> {results.reelInfo.size === 'custom' ? 'Custom' : `Size ${results.reelInfo.size}`} - {results.reelInfo.referenceCapacity}
                     </p>
                   </div>
-                </>
+                </div>
+              )}
+
+              {results.mode === 'comparison' && (
+                <div className="space-y-4">
+                  <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg mb-4">
+                    <h4 className="font-semibold text-purple-900 dark:text-purple-100">
+                      Comparing {results.poundTest}lb test across all line types
+                    </h4>
+                  </div>
+
+                  {results.comparisons.map((comp: any, index: number) => {
+                    const bgColor = comp.lineType === 'monofilament' ? 'blue' : comp.lineType === 'fluorocarbon' ? 'purple' : 'green';
+                    return (
+                      <div key={index} className={`p-4 bg-${bgColor}-50 dark:bg-${bgColor}-900/20 rounded-lg border border-${bgColor}-200 dark:border-${bgColor}-800`}>
+                        <div className="flex items-center justify-between mb-3">
+                          <h4 className="font-semibold capitalize text-foreground">{comp.lineType}</h4>
+                          <span className={`px-3 py-1 rounded-full text-sm font-medium bg-${bgColor}-100 dark:bg-${bgColor}-900/50`}>
+                            {formatNumber(comp.percentage, 0)}% capacity
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                          <div>
+                            <p className="text-sm text-muted-foreground">Yards</p>
+                            <p className="text-lg font-bold">{formatNumber(comp.capacity.yards)}</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-muted-foreground">Meters</p>
+                            <p className="text-lg font-bold">{formatNumber(comp.capacity.meters)}</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-muted-foreground">Diameter (mm)</p>
+                            <p className="text-lg font-bold">{formatNumber(comp.diameter.mm, 2)}</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-muted-foreground">Diameter (in)</p>
+                            <p className="text-lg font-bold">{formatNumber(comp.diameter.inches, 3)}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {results.mode === 'backing' && (
+                <div className="space-y-4">
+                  {results.error ? (
+                    <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
+                      <div className="flex items-center gap-2 mb-2">
+                        <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
+                        <h4 className="font-semibold text-red-900 dark:text-red-100">Error</h4>
+                      </div>
+                      <p className="text-sm text-red-800 dark:text-red-200">{results.message}</p>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Main Line</h4>
+                          <div className="space-y-2 text-sm">
+                            <p><span className="font-medium">Type:</span> <span className="capitalize">{results.mainLine.type}</span></p>
+                            <p><span className="font-medium">Test:</span> {results.mainLine.poundTest} lb</p>
+                            <p><span className="font-medium">Length:</span> {formatNumber(results.mainLine.length.yards)} yards ({formatNumber(results.mainLine.length.meters)} m)</p>
+                            <p><span className="font-medium">Diameter:</span> {formatNumber(results.mainLine.diameter.mm, 2)} mm</p>
+                          </div>
+                        </div>
+
+                        <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">Backing Line</h4>
+                          <div className="space-y-2 text-sm">
+                            <p><span className="font-medium">Type:</span> <span className="capitalize">{results.backingLine.type}</span></p>
+                            <p><span className="font-medium">Test:</span> {results.backingLine.poundTest} lb</p>
+                            <p><span className="font-medium">Length:</span> {formatNumber(results.backingLine.length.yards)} yards ({formatNumber(results.backingLine.length.meters)} m)</p>
+                            <p><span className="font-medium">Diameter:</span> {formatNumber(results.backingLine.diameter.mm, 2)} mm</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                        <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-3">Total Capacity</h4>
+                        <div className="grid grid-cols-3 gap-4 text-center">
+                          <div>
+                            <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                              {formatNumber(results.total.yards)}
+                            </p>
+                            <p className="text-sm text-muted-foreground">Total Yards</p>
+                          </div>
+                          <div>
+                            <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                              {formatNumber(results.total.meters)}
+                            </p>
+                            <p className="text-sm text-muted-foreground">Total Meters</p>
+                          </div>
+                          <div>
+                            <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                              {formatNumber(results.reelInfo.fillPercentage, 0)}%
+                            </p>
+                            <p className="text-sm text-muted-foreground">Spool Fill</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="p-4 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
+                        <p className="text-sm text-muted-foreground">
+                          Main line: {formatNumber(results.percentages.mainLine, 0)}% • Backing: {formatNumber(results.percentages.backing, 0)}%
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {results.mode === 'conversion' && (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                      <h4 className="font-semibold text-red-900 dark:text-red-100 mb-3">Current Line</h4>
+                      <div className="space-y-2 text-sm">
+                        <p><span className="font-medium">Type:</span> <span className="capitalize">{results.oldLine.type}</span></p>
+                        <p><span className="font-medium">Test:</span> {results.oldLine.poundTest} lb</p>
+                        <p><span className="font-medium">Capacity:</span> {formatNumber(results.oldLine.capacity.yards)} yards</p>
+                        <p><span className="font-medium">Diameter:</span> {formatNumber(results.oldLine.diameter.mm, 2)} mm</p>
+                      </div>
+                    </div>
+
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">New Line</h4>
+                      <div className="space-y-2 text-sm">
+                        <p><span className="font-medium">Type:</span> <span className="capitalize">{results.newLine.type}</span></p>
+                        <p><span className="font-medium">Test:</span> {results.newLine.poundTest} lb</p>
+                        <p><span className="font-medium">Capacity:</span> {formatNumber(results.newLine.capacity.yards)} yards</p>
+                        <p><span className="font-medium">Diameter:</span> {formatNumber(results.newLine.diameter.mm, 2)} mm</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={`p-4 rounded-lg ${results.recommendation === 'gain' ? 'bg-green-50 dark:bg-green-900/20' : 'bg-orange-50 dark:bg-orange-900/20'}`}>
+                    <h4 className={`font-semibold mb-3 ${results.recommendation === 'gain' ? 'text-green-900 dark:text-green-100' : 'text-orange-900 dark:text-orange-100'}`}>
+                      {results.recommendation === 'gain' ? 'Capacity Gain' : 'Capacity Loss'}
+                    </h4>
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      <div>
+                        <p className={`text-2xl font-bold ${results.recommendation === 'gain' ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
+                          {results.difference.yards > 0 ? '+' : ''}{formatNumber(results.difference.yards)}
+                        </p>
+                        <p className="text-sm text-muted-foreground">Yards</p>
+                      </div>
+                      <div>
+                        <p className={`text-2xl font-bold ${results.recommendation === 'gain' ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
+                          {results.difference.meters > 0 ? '+' : ''}{formatNumber(results.difference.meters)}
+                        </p>
+                        <p className="text-sm text-muted-foreground">Meters</p>
+                      </div>
+                      <div>
+                        <p className={`text-2xl font-bold ${results.recommendation === 'gain' ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
+                          {results.difference.percentage > 0 ? '+' : ''}{formatNumber(results.difference.percentage, 0)}%
+                        </p>
+                        <p className="text-sm text-muted-foreground">Change</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {results.mode === 'multi-spool' && (
+                <div className="space-y-4">
+                  <div className="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                    <h4 className="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">Per Spool Capacity</h4>
+                    <div className="grid grid-cols-3 gap-3 text-center">
+                      <div>
+                        <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                          {formatNumber(results.perSpool.yards)}
+                        </p>
+                        <p className="text-sm text-muted-foreground">Yards</p>
+                      </div>
+                      <div>
+                        <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                          {formatNumber(results.perSpool.meters)}
+                        </p>
+                        <p className="text-sm text-muted-foreground">Meters</p>
+                      </div>
+                      <div>
+                        <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                          {results.numberOfSpools}
+                        </p>
+                        <p className="text-sm text-muted-foreground">Spools</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">Total Line Needed</h4>
+                    <div className="grid grid-cols-2 gap-3 text-center">
+                      <div>
+                        <p className="text-3xl font-bold text-green-600 dark:text-green-400">
+                          {formatNumber(results.total.yards, 0)}
+                        </p>
+                        <p className="text-sm text-muted-foreground">Total Yards</p>
+                      </div>
+                      <div>
+                        <p className="text-3xl font-bold text-green-600 dark:text-green-400">
+                          {formatNumber(results.total.meters, 0)}
+                        </p>
+                        <p className="text-sm text-muted-foreground">Total Meters</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Bulk Purchase Guide</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">100-yard spools needed:</p>
+                        <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.yards100}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">300-yard spools needed:</p>
+                        <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.yards300}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">100-meter spools needed:</p>
+                        <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.meters100}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">300-meter spools needed:</p>
+                        <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.meters300}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
-          )}
-
-          {results.mode === 'conversion' && (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                  <h4 className="font-semibold text-red-900 dark:text-red-100 mb-3">Current Line</h4>
-                  <div className="space-y-2 text-sm">
-                    <p><span className="font-medium">Type:</span> <span className="capitalize">{results.oldLine.type}</span></p>
-                    <p><span className="font-medium">Test:</span> {results.oldLine.poundTest} lb</p>
-                    <p><span className="font-medium">Capacity:</span> {formatNumber(results.oldLine.capacity.yards)} yards</p>
-                    <p><span className="font-medium">Diameter:</span> {formatNumber(results.oldLine.diameter.mm, 2)} mm</p>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                  <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3">New Line</h4>
-                  <div className="space-y-2 text-sm">
-                    <p><span className="font-medium">Type:</span> <span className="capitalize">{results.newLine.type}</span></p>
-                    <p><span className="font-medium">Test:</span> {results.newLine.poundTest} lb</p>
-                    <p><span className="font-medium">Capacity:</span> {formatNumber(results.newLine.capacity.yards)} yards</p>
-                    <p><span className="font-medium">Diameter:</span> {formatNumber(results.newLine.diameter.mm, 2)} mm</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`p-4 rounded-lg ${results.recommendation === 'gain' ? 'bg-green-50 dark:bg-green-900/20' : 'bg-orange-50 dark:bg-orange-900/20'}`}>
-                <h4 className={`font-semibold mb-3 ${results.recommendation === 'gain' ? 'text-green-900 dark:text-green-100' : 'text-orange-900 dark:text-orange-100'}`}>
-                  {results.recommendation === 'gain' ? 'Capacity Gain 📈' : 'Capacity Loss 📉'}
-                </h4>
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <p className={`text-2xl font-bold ${results.recommendation === 'gain' ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
-                      {results.difference.yards > 0 ? '+' : ''}{formatNumber(results.difference.yards)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Yards</p>
-                  </div>
-                  <div>
-                    <p className={`text-2xl font-bold ${results.recommendation === 'gain' ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
-                      {results.difference.meters > 0 ? '+' : ''}{formatNumber(results.difference.meters)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Meters</p>
-                  </div>
-                  <div>
-                    <p className={`text-2xl font-bold ${results.recommendation === 'gain' ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
-                      {results.difference.percentage > 0 ? '+' : ''}{formatNumber(results.difference.percentage, 0)}%
-                    </p>
-                    <p className="text-sm text-muted-foreground">Change</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {results.mode === 'multi-spool' && (
-            <div className="space-y-4">
-              <div className="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
-                <h4 className="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">Per Spool Capacity</h4>
-                <div className="grid grid-cols-3 gap-3 text-center">
-                  <div>
-                    <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                      {formatNumber(results.perSpool.yards)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Yards</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                      {formatNumber(results.perSpool.meters)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Meters</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                      {results.numberOfSpools}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Spools</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">Total Line Needed</h4>
-                <div className="grid grid-cols-2 gap-3 text-center">
-                  <div>
-                    <p className="text-3xl font-bold text-green-600 dark:text-green-400">
-                      {formatNumber(results.total.yards, 0)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Total Yards</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-bold text-green-600 dark:text-green-400">
-                      {formatNumber(results.total.meters, 0)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">Total Meters</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Bulk Purchase Guide</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">100-yard spools needed:</p>
-                    <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.yards100}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">300-yard spools needed:</p>
-                    <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.yards300}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">100-meter spools needed:</p>
-                    <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.meters100}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">300-meter spools needed:</p>
-                    <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{results.bulkPurchase.meters300}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       )}
+
+      {/* How to Use Section */}
+      <div className="bg-background border rounded-xl p-6">
+        <h2 className="text-2xl font-bold text-foreground mb-6">How to Use This Free Online Fishing Line Capacity Calculator</h2>
+
+        {/* Step-by-step guide */}
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
+          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">Step-by-Step Guide</h3>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1️⃣ Select Your Reel Size</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Choose your <strong>reel size</strong> from common spinning reel sizes (1000-10000) or select <strong>custom</strong>
+                to enter your specific reel capacity. Enter the <strong>reference line test</strong> and <strong>line type</strong> that
+                your reel is rated for (typically found on the spool or in the manual). This establishes your baseline spool capacity.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2️⃣ Choose Calculation Mode (Advanced Only)</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Select your <strong>calculation mode</strong>: <strong>Basic Capacity</strong> for single line calculations,
+                <strong> Line Comparison</strong> to compare mono/fluoro/braid, <strong>Backing Calculator</strong> for main line
+                plus backing setup, <strong>Line Conversion</strong> to compare old vs new line capacity, or <strong>Multi-Spool</strong>
+                to calculate line needed for multiple identical reels.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3️⃣ Enter Line Specifications</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Input your desired <strong>line type</strong> (monofilament, fluorocarbon, or braided) and <strong>pound test</strong>
+                (4-80lb range). For backing mode, specify both main line and backing line details including length. The calculator uses
+                research-based diameter data for accurate capacity calculations.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4️⃣ Set Unit Preferences</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Toggle between <strong>Imperial (yards/pounds)</strong> and <strong>Metric (meters/kilograms)</strong> units
+                to match your preference or regional standards. Results will display in both unit systems for convenience.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">5️⃣ Calculate and Review Results</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Click <strong>"Calculate Capacity"</strong> to see comprehensive results including line capacity in yards,
+                meters, and feet, line diameter specifications, and mode-specific data like comparison charts, backing
+                requirements, or bulk purchase recommendations.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">6️⃣ Use Results for Line Planning</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Apply the results to purchase the correct amount of line, set up backing configurations, or decide whether
+                to switch line types. Remember to leave 1/8 inch (3mm) gap from spool rim and fill to only 85-90% capacity
+                for optimal performance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Results Dashboard */}
+        <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800 mb-6">
+          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">Your Results Dashboard</h3>
+          <p className="text-sm text-green-800 dark:text-green-200 mb-4">After clicking "Calculate Capacity," you'll receive:</p>
+          <div className="space-y-3">
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">1</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Exact Line Capacity</h4>
+                <p className="text-xs text-muted-foreground">Precise capacity in yards, meters, and feet based on your line's actual diameter</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">2</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Line Diameter Specifications</h4>
+                <p className="text-xs text-muted-foreground">Actual line diameter in mm and inches for verification and technical reference</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">3</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Comparison Charts (Comparison Mode)</h4>
+                <p className="text-xs text-muted-foreground">Side-by-side capacity comparison across all 3 line types showing percentage differences</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+              <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-white text-xs font-bold">4</span>
+              </div>
+              <div>
+                <h4 className="font-medium text-sm mb-1">Backing Calculator Results</h4>
+                <p className="text-xs text-muted-foreground">Exact backing line length needed, spool fill percentage, and main/backing ratio breakdown</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Use This Calculator */}
+        <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
+          <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100 mb-4">Why Use This Calculator?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <Calculator className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                <h4 className="font-semibold text-sm">Precise Calculations</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Uses actual line diameter data (not estimates) for accurate capacity based on cylinder volume formula
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <DollarSign className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                <h4 className="font-semibold text-sm">Save Money</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Buy exactly the right amount of line - no waste from over-purchasing or under-filling your spool
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <Target className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                <h4 className="font-semibold text-sm">Optimize Setup</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Compare line types to maximize capacity, plan backing configurations, and convert between lines
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <Lightbulb className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                <h4 className="font-semibold text-sm">Expert Knowledge</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Access research-based diameter data and industry-standard calculations used by professional anglers
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Understanding Section */}
+      <div className="bg-background border rounded-xl p-6">
+        <h2 className="text-2xl font-bold text-foreground mb-6">Understanding Fishing Line Capacity</h2>
+
+        <div className="prose prose-sm max-w-none text-muted-foreground space-y-6">
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+            <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-3">How Line Capacity Works</h3>
+            <p className="text-sm text-blue-800 dark:text-blue-200 mb-4">
+              Fishing reel line capacity is determined by the <strong>cylinder volume formula</strong> adapted for spool geometry.
+              The capacity depends primarily on <strong>line diameter</strong>, not pound test rating. Two lines with the same
+              pound test but different diameters will have dramatically different capacities.
+            </p>
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <p className="text-sm font-medium text-blue-900 dark:text-blue-100 mb-2">The Capacity Formula:</p>
+              <p className="text-sm text-blue-800 dark:text-blue-200 font-mono bg-blue-100 dark:bg-blue-900/30 p-3 rounded">
+                Spool Capacity Constant = Reference Length × (Reference Diameter)²<br/>
+                New Line Capacity = Spool Capacity Constant / (New Line Diameter)²
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
+            <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-3">Why Braided Line Holds More</h3>
+            <p className="text-sm text-green-800 dark:text-green-200 mb-4">
+              Braided line is <strong>35-45% thinner</strong> than monofilament or fluorocarbon at the same pound test.
+              Since capacity is inversely proportional to the <strong>square</strong> of the diameter, even small diameter
+              differences result in large capacity changes.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                <h4 className="font-semibold text-sm mb-2">10lb Monofilament</h4>
+                <p className="text-xs text-muted-foreground mb-1">Diameter: 0.279mm</p>
+                <p className="text-xs text-muted-foreground">Capacity: 230 yards (baseline)</p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                <h4 className="font-semibold text-sm mb-2">10lb Fluorocarbon</h4>
+                <p className="text-xs text-muted-foreground mb-1">Diameter: 0.279mm</p>
+                <p className="text-xs text-muted-foreground">Capacity: 230 yards (same)</p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border-2 border-green-300">
+                <h4 className="font-semibold text-sm mb-2">10lb Braided</h4>
+                <p className="text-xs text-muted-foreground mb-1">Diameter: 0.203mm</p>
+                <p className="text-xs font-semibold text-green-600">Capacity: 442 yards (92% more!)</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
+            <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-3">Reel Size Guide</h3>
+            <p className="text-sm text-purple-800 dark:text-purple-200 mb-4">
+              Spinning reel sizes are numbered from 1000 to 10000+, with each size designed for specific fishing applications.
+              The number roughly correlates to line capacity and overall reel size.
+            </p>
+            <div className="space-y-3">
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg flex items-start gap-3">
+                <div className="font-bold text-purple-600 dark:text-purple-400 min-w-[80px]">1000-2500</div>
+                <div className="text-sm">
+                  <p className="font-medium mb-1">Ultralight to Light</p>
+                  <p className="text-xs text-muted-foreground">140-200 yards • Trout, panfish, crappie, small bass • 4-8lb line</p>
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg flex items-start gap-3">
+                <div className="font-bold text-purple-600 dark:text-purple-400 min-w-[80px]">2500-3000</div>
+                <div className="text-sm">
+                  <p className="font-medium mb-1">Medium-Light (Most Popular)</p>
+                  <p className="text-xs text-muted-foreground">200-230 yards • Bass, walleye, inshore saltwater • 8-12lb line</p>
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg flex items-start gap-3">
+                <div className="font-bold text-purple-600 dark:text-purple-400 min-w-[80px]">3000-4000</div>
+                <div className="text-sm">
+                  <p className="font-medium mb-1">Medium</p>
+                  <p className="text-xs text-muted-foreground">230-260 yards • Larger bass, catfish, redfish • 10-15lb line</p>
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg flex items-start gap-3">
+                <div className="font-bold text-purple-600 dark:text-purple-400 min-w-[80px]">4000-5000</div>
+                <div className="text-sm">
+                  <p className="font-medium mb-1">Medium-Heavy</p>
+                  <p className="text-xs text-muted-foreground">260-300 yards • Pike, muskie, salmon, surf fishing • 15-25lb line</p>
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg flex items-start gap-3">
+                <div className="font-bold text-purple-600 dark:text-purple-400 min-w-[80px]">5000+</div>
+                <div className="text-sm">
+                  <p className="font-medium mb-1">Heavy to Extra Heavy</p>
+                  <p className="text-xs text-muted-foreground">300-550+ yards • Offshore, big game, deep water • 20-80lb+ line</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
+            <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100 mb-3">Line Diameter by Type</h3>
+            <p className="text-sm text-orange-800 dark:text-orange-200 mb-4">
+              Understanding line diameter differences is key to capacity planning. Here's how the three main line types
+              compare across common pound tests:
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-white dark:bg-gray-800">
+                  <tr>
+                    <th className="text-left p-2">Pound Test</th>
+                    <th className="text-left p-2">Monofilament</th>
+                    <th className="text-left p-2">Fluorocarbon</th>
+                    <th className="text-left p-2">Braided</th>
+                    <th className="text-left p-2">Capacity Ratio*</th>
+                  </tr>
+                </thead>
+                <tbody className="text-xs">
+                  <tr className="border-t border-orange-200 dark:border-orange-700">
+                    <td className="p-2 font-medium">8 lb</td>
+                    <td className="p-2">0.254mm</td>
+                    <td className="p-2">0.254mm</td>
+                    <td className="p-2 text-green-600 dark:text-green-400">0.152mm</td>
+                    <td className="p-2">1.0 : 1.0 : 2.8</td>
+                  </tr>
+                  <tr className="border-t border-orange-200 dark:border-orange-700">
+                    <td className="p-2 font-medium">12 lb</td>
+                    <td className="p-2">0.305mm</td>
+                    <td className="p-2">0.305mm</td>
+                    <td className="p-2 text-green-600 dark:text-green-400">0.203mm</td>
+                    <td className="p-2">1.0 : 1.0 : 2.3</td>
+                  </tr>
+                  <tr className="border-t border-orange-200 dark:border-orange-700">
+                    <td className="p-2 font-medium">20 lb</td>
+                    <td className="p-2">0.381mm</td>
+                    <td className="p-2">0.381mm</td>
+                    <td className="p-2 text-green-600 dark:text-green-400">0.254mm</td>
+                    <td className="p-2">1.0 : 1.0 : 2.3</td>
+                  </tr>
+                  <tr className="border-t border-orange-200 dark:border-orange-700">
+                    <td className="p-2 font-medium">30 lb</td>
+                    <td className="p-2">0.483mm</td>
+                    <td className="p-2">0.483mm</td>
+                    <td className="p-2 text-green-600 dark:text-green-400">0.305mm</td>
+                    <td className="p-2">1.0 : 1.0 : 2.5</td>
+                  </tr>
+                  <tr className="border-t border-orange-200 dark:border-orange-700">
+                    <td className="p-2 font-medium">50 lb</td>
+                    <td className="p-2">0.686mm</td>
+                    <td className="p-2 text-orange-600 dark:text-orange-400">0.711mm</td>
+                    <td className="p-2 text-green-600 dark:text-green-400">0.406mm</td>
+                    <td className="p-2">1.0 : 0.93 : 2.9</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className="text-xs text-orange-700 dark:text-orange-300 mt-2">
+                * Capacity ratio shows how much more line fits on the same spool (mono : fluoro : braid)
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
+            <h3 className="text-xl font-semibold text-yellow-900 dark:text-yellow-100 mb-3">Backing Line Strategies</h3>
+            <p className="text-sm text-yellow-800 dark:text-yellow-200 mb-4">
+              Using backing line is a cost-effective strategy that combines different line types to optimize your setup.
+              Fill the bottom portion of your spool with inexpensive braided backing, then top it with your main fishing line.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-green-600" />
+                  Benefits of Backing
+                </h4>
+                <ul className="text-xs space-y-1 text-muted-foreground">
+                  <li>• Cost savings: Fill spool with cheap braid instead of expensive fluoro/mono</li>
+                  <li>• Increased capacity: Use thinner braid backing to fit more main line</li>
+                  <li>• Line rotation: Move main line to backing position to extend life</li>
+                  <li>• Proper spool fill: Achieve correct fill level without wasting main line</li>
+                  <li>• Reduced waste: Buy exactly what you need for the working length</li>
+                </ul>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
+                  <Info className="h-4 w-4 text-blue-600" />
+                  Backing Setup Tips
+                </h4>
+                <ul className="text-xs space-y-1 text-muted-foreground">
+                  <li>• Use 20-30lb braid for backing (strong and thin)</li>
+                  <li>• Main line: 100-200 yards (what you actually use)</li>
+                  <li>• Backing: Fills remaining spool space</li>
+                  <li>• Connection: FG knot or double uni knot</li>
+                  <li>• Mark connection point for line rotation</li>
+                  <li>• Leave 1/8" gap at spool rim</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border border-red-200 dark:border-red-800">
+            <h3 className="text-xl font-semibold text-red-900 dark:text-red-100 mb-3">Important Considerations</h3>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-medium text-sm mb-1">Don't Overfill Your Spool</h4>
+                  <p className="text-xs text-red-800 dark:text-red-200">
+                    Leave 1/8 inch (3mm) gap from the spool rim. Fill to only 85-90% of maximum capacity. Overfilling causes
+                    line spillage, tangling, reduced casting distance, wind knots, and drag malfunction.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-medium text-sm mb-1">Calculations Are Theoretical</h4>
+                  <p className="text-xs text-red-800 dark:text-red-200">
+                    Actual capacity varies by ±5-15% based on winding tension, line roundness, spool shape, and manufacturing
+                    tolerances. Tight winding can fit 10-20% more but may cause line digging under pressure.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-medium text-sm mb-1">Line Stretch Affects Performance</h4>
+                  <p className="text-xs text-red-800 dark:text-red-200">
+                    Monofilament stretches 15-30%, fluorocarbon 10-15%, braid less than 3%. Under load from fighting fish,
+                    stretchy lines compress and dig into the spool, which can make retrieval difficult later.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-medium text-sm mb-1">Replace Line Regularly</h4>
+                  <p className="text-xs text-red-800 dark:text-red-200">
+                    Replace line annually for freshwater or every 6 months for saltwater. Old line becomes compressed,
+                    abraded, and weakened, changing diameter by 10-20% and affecting capacity calculations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* About This Calculator */}
       <div className="bg-background border rounded-xl p-6">
@@ -1308,9 +1707,12 @@ export default function AdvancedFishingLineCapacityCalculator() {
           <h2 className="text-xl font-bold text-foreground">About This Calculator</h2>
         </div>
 
-        <div className="prose prose-sm max-w-none text-muted-foreground space-y-3">
+        <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
           <p>
-            Our <strong>Fishing Line Capacity Calculator</strong> helps anglers determine exactly how much fishing line their reel can hold based on line type, diameter, and pound test. Whether you're spooling monofilament, fluorocarbon, or braided line, our calculator uses precise formulas to calculate capacity, backing requirements, and line conversions.
+            Our <strong>Fishing Line Capacity Calculator</strong> helps anglers determine exactly how much fishing line
+            their reel can hold based on line type, diameter, and pound test. Whether you're spooling monofilament,
+            fluorocarbon, or braided line, our calculator uses precise formulas and research-based diameter data to
+            calculate capacity, backing requirements, and line conversions.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
@@ -1375,54 +1777,12 @@ export default function AdvancedFishingLineCapacityCalculator() {
             <li><strong>Bulk Purchase Guide:</strong> See how many spools you need for multi-spool setups</li>
           </ul>
 
-          <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">How to Use</h3>
-          <ol className="list-decimal list-inside space-y-2 text-sm">
-            <li><strong>Select Your Reel:</strong> Choose from common sizes (1000-10000) or enter custom capacity</li>
-            <li><strong>Enter Reference Specs:</strong> Input the pound test your reel is rated for</li>
-            <li><strong>Choose Calculation Mode:</strong> Basic capacity, comparison, backing, conversion, or multi-spool</li>
-            <li><strong>Input Line Specifications:</strong> Select line type (mono/fluoro/braid) and pound test</li>
-            <li><strong>Calculate:</strong> Get instant results with capacity in yards, meters, and feet</li>
-            <li><strong>Review Results:</strong> See detailed breakdown including line diameter and recommendations</li>
-          </ol>
-
-          <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">Understanding Line Capacity</h3>
-          <p>
-            Line capacity is calculated using the cylinder volume formula adapted for fishing reels: <strong>new line length = spool capacity / new line diameter²</strong>. The spool capacity constant is determined from your reel's rated capacity (e.g., 200 yards of 12lb mono).
-          </p>
-
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg my-4">
-            <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Why Braided Line Has More Capacity</h4>
-            <p className="text-sm text-blue-800 dark:text-blue-200">
-              Braided line is 35-45% thinner than mono or fluoro at the same pound test. Since capacity is inversely proportional to diameter squared, a 10lb braid (0.203mm) allows 2-3x more line than 10lb mono (0.279mm) on the same spool. This is why anglers prefer braid for deep water fishing or backing line applications.
-            </p>
-          </div>
-
-          <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">Reel Size Guide</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
-            <div className="p-3 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
-              <p className="font-semibold text-sm">1000-2500 (Small)</p>
-              <p className="text-xs text-muted-foreground">Trout, panfish, ultralight | 140-200 yards</p>
-            </div>
-            <div className="p-3 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
-              <p className="font-semibold text-sm">2500-3000 (Medium-Light)</p>
-              <p className="text-xs text-muted-foreground">Bass, walleye, most popular | 200-230 yards</p>
-            </div>
-            <div className="p-3 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
-              <p className="font-semibold text-sm">3000-4000 (Medium)</p>
-              <p className="text-xs text-muted-foreground">Larger freshwater species | 230-260 yards</p>
-            </div>
-            <div className="p-3 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
-              <p className="font-semibold text-sm">4000-5000 (Heavy)</p>
-              <p className="text-xs text-muted-foreground">Pike, salmon, inshore saltwater | 260-300 yards</p>
-            </div>
-          </div>
-
           <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">Important Notes</h3>
           <ul className="list-disc list-inside space-y-2 text-sm">
             <li>Calculated capacity is theoretical - actual capacity varies by ±5-15% based on winding tension, line roundness, and spool shape</li>
             <li>Fill to 85-90% capacity (1/8 inch from rim) for optimal casting and to prevent line spilling</li>
             <li>Tight winding can fit 10-20% more line but may cause issues with line digging under pressure</li>
-            <li>Line stretch affects capacity: mono (15-30%), fluoro (10-15%), braid (&lt;3%)</li>
+            <li>Line stretch affects capacity: mono (15-30%), fluoro (10-15%), braid (less than 3%)</li>
             <li>Replace line annually (freshwater) or every 6 months (saltwater) for consistent performance</li>
             <li>Always leave space at the top - overfilling causes tangles, reduced casting distance, and drag malfunction</li>
             <li>When mixing lines for backing, use braided backing with mono/fluoro main line for maximum capacity</li>
@@ -1440,9 +1800,11 @@ export default function AdvancedFishingLineCapacityCalculator() {
           <h2 className="text-xl font-bold text-foreground">Scientific References</h2>
         </div>
 
-        <div className="prose prose-sm max-w-none text-muted-foreground">
-          <p className="mb-4">
-            This calculator is based on industry-standard line diameter measurements, reel capacity specifications, and the cylinder volume formula adapted for fishing reels. All calculations follow established fishing industry standards and are verified against manufacturer specifications.
+        <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
+          <p>
+            This calculator is based on industry-standard line diameter measurements, reel capacity specifications, and
+            the cylinder volume formula adapted for fishing reels. All calculations follow established fishing industry
+            standards and are verified against manufacturer specifications.
           </p>
 
           <h3 className="text-lg font-semibold text-foreground mt-4 mb-3">Line Diameter Research Sources</h3>
@@ -1523,7 +1885,10 @@ export default function AdvancedFishingLineCapacityCalculator() {
 
           <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
             <p className="text-sm text-blue-800 dark:text-blue-200">
-              <strong>Calculation Formula:</strong> This calculator uses the cylinder volume formula: spool capacity constant = line length × diameter². For new line: new line length = spool capacity constant / new diameter². This provides theoretical capacity; actual capacity may vary ±5-15% based on winding technique, line characteristics, and spool manufacturing tolerances.
+              <strong>Calculation Formula:</strong> This calculator uses the cylinder volume formula: spool capacity
+              constant = line length × diameter². For new line: new line length = spool capacity constant / new diameter².
+              This provides theoretical capacity; actual capacity may vary ±5-15% based on winding technique, line
+              characteristics, and spool manufacturing tolerances.
             </p>
           </div>
         </div>
