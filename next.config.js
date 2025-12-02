@@ -69,7 +69,7 @@ const nextConfig = {
     ];
   },
 
-  // Redirects for security
+  // Redirects for security and legacy URLs
   async redirects() {
     return [
       // Redirect HTTP to HTTPS in production
@@ -83,6 +83,17 @@ const nextConfig = {
           },
         ],
         destination: 'https://calcshark.com/:path*',
+        permanent: true,
+      },
+      // Redirect old calculator URL format to new nested format
+      {
+        source: '/calculator/spayneuter-cost-calculator',
+        destination: '/pet-care/pet-health-nutrition/spayneuter-cost-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/spayneuter-cost-calculator/',
+        destination: '/pet-care/pet-health-nutrition/spayneuter-cost-calculator/',
         permanent: true,
       },
     ];
