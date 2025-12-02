@@ -2247,6 +2247,64 @@ const AdvancedSpayNeuterCalculator = () => {
         </div>
       </div>
 
+      {/* Scientific References & Resources */}
+      <div className="bg-background border rounded-xl p-6 shadow-sm">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Scientific References & Resources</h2>
+        <p className="text-muted-foreground mb-6">
+          Our calculator is based on data from reputable veterinary organizations, peer-reviewed studies, and industry standards.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 className="font-semibold mb-2">Veterinary Medical Associations</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• American Veterinary Medical Association (AVMA) - Spay/Neuter Guidelines</li>
+              <li>• American Animal Hospital Association (AAHA) - Canine and Feline Life Stage Guidelines</li>
+              <li>• Association of Shelter Veterinarians - Pediatric Spay/Neuter Guidelines</li>
+              <li>• American Association of Feline Practitioners (AAFP) - Feline Life Stage Guidelines</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">Research & Clinical Studies</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• Journal of the American Veterinary Medical Association (JAVMA) - Age at Spay/Neuter Studies</li>
+              <li>• Veterinary Surgery Journal - Laparoscopic vs Traditional Spay Research</li>
+              <li>• PubMed/NIH Database - Peer-reviewed veterinary research</li>
+              <li>• UC Davis Veterinary Medicine - Large breed spay/neuter timing studies</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">Cost Data Sources</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• National averages from ASPCA and Humane Society veterinary cost surveys</li>
+              <li>• Regional pricing data from veterinary practice management studies</li>
+              <li>• Low-cost clinic pricing from municipal and nonprofit spay/neuter programs</li>
+              <li>• Pet insurance reimbursement data from major providers</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">Additional Resources</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• ASPCA - Free and Low-Cost Spay/Neuter Programs Database</li>
+              <li>• SpayUSA - National referral network for affordable spay/neuter</li>
+              <li>• PetSmart Charities - Spay/Neuter Grant Programs</li>
+              <li>• Best Friends Animal Society - Community spay/neuter resources</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+          <p className="text-sm text-amber-900 dark:text-amber-100">
+            <strong>Disclaimer:</strong> This calculator provides estimates based on national averages and industry data.
+            Actual costs vary by location, clinic, pet characteristics, and specific circumstances. Always consult with
+            your veterinarian for personalized recommendations and accurate pricing for your pet's specific needs.
+          </p>
+        </div>
+      </div>
+
       {/* FAQ Section */}
       <div className="bg-background border rounded-xl p-6">
         <h2 className="text-2xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
