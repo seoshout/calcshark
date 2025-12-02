@@ -206,6 +206,16 @@ const nextConfig = {
         destination: '/pet-care/pet-care-costs/boarding-cost-calculator/',
         permanent: true,
       },
+      {
+        source: '/calculator/fishing-line-capacity-calculator',
+        destination: '/sports-recreation/outdoor-activities/fishing-line-capacity-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/fishing-line-capacity-calculator/',
+        destination: '/sports-recreation/outdoor-activities/fishing-line-capacity-calculator/',
+        permanent: true,
+      },
     ];
   },
 

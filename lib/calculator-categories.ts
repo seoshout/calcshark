@@ -11183,17 +11183,20 @@ export const calculatorCategories: Category[] = [
           {
             id: 'fishing-line-capacity-calculator',
             name: 'Fishing Line Capacity Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Calculate fishing line capacity, backing, and conversions for monofilament, fluorocarbon, and braided lines',
             slug: 'fishing-line-capacity-calculator',
             category: 'sports-recreation',
             subcategory: 'outdoor-activities',
             tags: [
               'sports & recreation',
               'outdoor activities',
-              'fishing line capacity calculator'
+              'fishing line capacity calculator',
+              'fishing reel capacity',
+              'line backing calculator',
+              'mono fluoro braid'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {

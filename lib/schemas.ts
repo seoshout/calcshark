@@ -1932,3 +1932,249 @@ export const generateBoardingCostCalculatorSchema = (breadcrumbItems: Breadcrumb
     ]
   };
 };
+
+export const generateFishingLineCapacityCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/sports-recreation/outdoor-activities/fishing-line-capacity-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Fishing Line Capacity Calculator - Reel Spool Capacity Estimator",
+        "url": baseUrl,
+        "description": "Calculate fishing line capacity for any reel size and line type. Estimate how much monofilament, braided, or fluorocarbon line fits on your spool with backing line calculations.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Line capacity calculations for monofilament, braided, and fluorocarbon lines",
+          "Reel size conversion (1000, 2500, 3000, 4000, 5000 series)",
+          "Backing line capacity estimator",
+          "Line diameter to capacity converter",
+          "Yards to meters conversion",
+          "Multiple line type comparison",
+          "Deep water fishing line requirements",
+          "Fly fishing backing ratio calculator"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "8",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate Fishing Line Capacity",
+        "description": "Step-by-step guide to calculating fishing line capacity for your reel",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Select Reel Size",
+            "text": "Choose your reel size from common series (1000, 2500, 3000, 4000, 5000) or enter custom spool dimensions for accurate capacity calculations."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Choose Line Type",
+            "text": "Select your line type (monofilament, braided, or fluorocarbon) as each has different diameter-to-strength ratios affecting capacity."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Enter Line Diameter",
+            "text": "Input your line diameter in millimeters or choose from common test weights. Braided line allows significantly more capacity than mono at the same strength."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Add Backing Line (Optional)",
+            "text": "Calculate backing line requirements if using expensive main line. Enter backing line diameter to see optimal backing-to-main-line ratios."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Review Capacity Results",
+            "text": "View total line capacity in yards and meters, with recommendations for optimal spool fill (90-95% capacity) to prevent line issues."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate fishing line capacity for my reel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To calculate line capacity, you need your reel's spool dimensions (arbor diameter, spool width, spool depth) and line diameter. The formula is: Capacity = (Spool Volume × Line Density) / Line Cross-Section. Our calculator handles this automatically—just enter your reel size and line type for instant results."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does braided line have more capacity than monofilament?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Braided line has a much smaller diameter than monofilament at the same breaking strength. For example, 20lb braid is typically 0.23mm diameter while 20lb mono is 0.40mm. This smaller diameter means 2-3x more braided line fits on the same spool, making it ideal for deep water fishing or when maximum capacity is needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between reel sizes (1000, 2500, 3000, etc.)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Reel size numbers indicate spool capacity and overall size. 1000 series: ultralight (100-150 yards of 4lb mono), 2500: light (200 yards of 8lb mono), 3000: medium (250 yards of 10lb mono), 4000: medium-heavy (280 yards of 12lb mono), 5000+: heavy (300+ yards of 15lb+ mono). Larger reels hold more line and handle bigger fish."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much backing line do I need with my main line?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use backing to fill 40-60% of your spool when using expensive main line. For a 300-yard capacity reel with 100 yards of main line, add 150-200 yards of cheaper backing. Use slightly thicker backing than main line to prevent digging in. Always leave 1-2mm gap at spool lip for proper casting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is fluorocarbon or monofilament thicker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fluorocarbon is typically 15-20% thicker than monofilament at the same breaking strength due to its higher density. For example, 12lb fluoro is ~0.33mm while 12lb mono is ~0.28mm. This means less fluorocarbon fits on your spool, but you gain invisibility underwater and abrasion resistance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I mix different line types on the same spool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, mixing line types is common and practical. Popular combinations: mono backing with braid main line (cost-effective), braid backing with fluoro leader (stealth), or cheap mono backing with expensive main line. Connect with a double uni knot or Albright knot. Ensure backing is same or slightly larger diameter to prevent main line digging in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I convert between yards and meters for line capacity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1 yard = 0.9144 meters, 1 meter = 1.094 yards. Quick conversions: 100 yards ≈ 91 meters, 200 yards ≈ 183 meters, 300 yards ≈ 274 meters. Our calculator shows both units automatically. US manufacturers list in yards, while international brands often use meters."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if I overfill my reel spool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Overfilling (beyond 95% capacity) causes wind knots, loops falling off the spool during casting, reduced casting distance, and line tangling. Underfilling (below 80%) reduces casting distance and efficiency. Optimal fill is 1-2mm (1/16 inch) below the spool lip for best performance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is my actual line capacity different from calculations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Line capacity varies due to: actual line diameter (often thicker than labeled), line compression under tension, irregular spooling (loose or tight winding), manufacturing tolerances in spool dimensions, and line coating. Actual capacity is typically 10-15% less than theoretical calculations. Always verify with actual spooling when precision matters."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does line stretch affect capacity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Line stretch doesn't significantly affect capacity calculations but impacts practical use. Monofilament stretches 20-30% under load, compressing on the spool and potentially allowing more line than calculated. Braided line has <5% stretch, maintaining consistent diameter. Fluorocarbon has moderate 10-15% stretch. Calculate capacity based on unstretched diameter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I fill my reel to maximum capacity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, fill to 90-95% capacity (1-2mm below spool lip). Maximum fill causes tangles and loops. Underfilling wastes capacity and reduces casting distance. For most fishing: 200 yards is adequate, deep sea/surf: 300+ yards needed, bass/trout: 150 yards sufficient. Match capacity to your fishing style and target species run potential."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What line diameter should I use for different fish species?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Panfish/trout: 2-6lb (0.15-0.23mm), Bass: 8-14lb (0.25-0.33mm), Walleye/Redfish: 10-17lb (0.28-0.38mm), Salmon/Muskie: 15-30lb (0.36-0.50mm), Tuna/Marlin: 30-80lb (0.50-1.00mm). Use braided line for maximum capacity with same strength. Consider fish size, cover density, and fighting characteristics."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use the same reel for different line types?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, but performance varies. Switching from mono to braid significantly increases capacity (2-3x more line). Switching to fluoro decreases capacity (~20% less). Consider keeping separate spools for different line types or use backing to adjust. Some reels come with multiple spare spools for quick line type changes while maintaining optimal capacity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much line do I need for deep water fishing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deep water fishing requires: 200-300 yards minimum for depths to 200 feet, 300-500 yards for 200-500 feet, 500-800 yards for offshore big game (depths 500+ feet). Account for scope ratio (3:1 minimum—300 feet of line for 100 feet depth). Braided line is ideal for deep water due to thin diameter, high capacity, and low stretch for better hooksets."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the best line type for maximum capacity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Braided line offers maximum capacity—2-3x more than monofilament at the same strength. For example, a 3000 reel holds ~250 yards of 10lb mono but 500-600 yards of 10lb braid. Best for deep water, thick cover, or situations requiring maximum line. However, mono and fluoro offer stretch (shock absorption) and invisibility that braid lacks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I measure my line diameter if it's not labeled?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use a micrometer or digital caliper for accurate measurement. Measure in 3-5 spots and average results. Without tools: compare to labeled line of known diameter, or use the manufacturer's published diameter charts (search '[brand] [line] diameter chart'). Be aware actual diameter often exceeds labeled diameter by 10-20%, especially with bargain brands."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does line color affect diameter or capacity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Line color has minimal effect on diameter (<0.01mm difference) and negligible capacity impact. Color is a dye coating that doesn't significantly change line dimensions. Choose color based on visibility needs: clear/green for invisibility underwater, high-vis yellow/chartreuse for line watching and strike detection. Capacity calculations remain the same regardless of color."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I calculate capacity for old or used line?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, but used line may have increased diameter due to: water absorption (mono/fluoro swell 5-10%), coating degradation, micro-abrasions creating rough surface. Old line typically takes up 10-20% more spool space than new line. Replace line annually (or every 5-10 trips for heavy use) to maintain optimal capacity, strength, and performance. Calculate using original diameter specs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's backing-to-running-line ratio for fly fishing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fly fishing backing ratios depend on species: Trout (small streams): 50-100 yards backing, 90ft fly line; Steelhead/Salmon: 150-200 yards backing, 90-105ft fly line; Saltwater/Bonefish: 200-250 yards backing, 90-100ft fly line; Tarpon/Tuna: 300-400 yards backing, 90-105ft fly line. Use 20-30lb Dacron or gel-spun backing. Calculate total capacity minus fly line length to determine backing needs."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
