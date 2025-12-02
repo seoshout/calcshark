@@ -8144,7 +8144,7 @@ export const calculatorCategories: Category[] = [
               'low cost spay neuter'
             ],
             icon: 'Heart',
-            difficulty: 'intermediate',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -8487,7 +8487,7 @@ export const calculatorCategories: Category[] = [
               'spay/neuter cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
