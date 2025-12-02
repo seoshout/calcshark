@@ -1688,3 +1688,203 @@ export const generateSpayNeuterCalculatorSchema = (breadcrumbItems: BreadcrumbIt
     ]
   };
 };
+
+export const generateBoardingCostCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = 'https://calcshark.com/pet-care/pet-care-costs/boarding-cost-calculator/';
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#webapp`,
+        "name": "Pet Boarding Cost Calculator",
+        "url": baseUrl,
+        "description": "Calculate pet boarding costs across different facilities, compare options, and plan boarding expenses. Includes traditional kennels, veterinary boarding, luxury hotels, pet sitters, and multi-pet discounts.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Compare 6 facility types",
+          "Multi-pet boarding costs",
+          "Extended stay discounts",
+          "Location-based pricing",
+          "Holiday premium calculations",
+          "Additional service costs"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How far in advance should I book pet boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For regular periods, book 2-4 weeks in advance. For holidays (Christmas, Thanksgiving, summer), book 2-3 months ahead as facilities fill up quickly and prices increase 25-50%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What vaccinations are required for boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dogs need rabies, DHPP (distemper, hepatitis, parvovirus, parainfluenza), and bordetella. Cats need rabies and FVRCP. Vaccinations must be current within the past year."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I bring my pet's own food?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, it's recommended to prevent digestive upset. Most facilities encourage this and don't charge for food you provide. They typically charge $5-15/day if using their food."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if my pet gets sick during boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Facilities have veterinary relationships and emergency protocols. They'll contact you immediately if illness occurs. Provide emergency contact info and vet authorization. Some include basic care; others charge separately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is boarding stressful for pets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Initial stress is normal, but most adjust within 24-48 hours. Minimize stress by: visiting beforehand, bringing familiar items, considering trial stays, choosing facilities matching pet personality."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often will my pet be walked or exercised?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Traditional kennels: 2-4 bathroom breaks daily. Daycare facilities: 4-8 hours supervised play. Luxury hotels: 3-5 individual walks plus playtime. Always ask about specific schedules."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I visit my pet during boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Policies vary. Some allow scheduled visits; others discourage it to prevent anxiety. Many offer webcam access for remote checking without disrupting routine."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between boarding and daycare?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Daycare is daytime-only (7am-7pm) focused on socialization, averaging $25-40/day. Boarding includes overnight stays with 24-hour supervision. Some offer combined packages."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there age restrictions for boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puppies/kittens must be 4+ months and fully vaccinated. Elderly pets may need veterinary clearance or vet boarding recommended. Always disclose age and health conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do boarding facilities provide medication?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most administer medication you provide for $5-15/day depending on complexity. Provide detailed instructions and sufficient medication. Veterinary boarding best for complex needs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I pack for my pet's boarding stay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pack: enough food plus extra, medications with instructions, favorite toys/blankets, leash and ID tags, vaccination records, emergency contacts, and vet details. Label everything."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is pet insurance helpful for boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Insurance doesn't cover boarding costs, but some plans cover boarding if you're hospitalized. Insurance DOES cover emergency veterinary care during boarding, saving hundreds or thousands."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can aggressive or reactive dogs be boarded?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Some accept reactive dogs but may charge more for individual accommodations. Others specialize in difficult behaviors. Always be honest about temperament—facilities need this for safety."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the cancellation policy for boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Typically 48-72 hours notice for full refunds. Holiday bookings often require 7-14 days notice and may have 25-50% non-refundable deposits. Always read cancellation terms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know if my pet enjoyed boarding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Happy pets show excitement returning to facility, eat normally, maintain regular behavior. Stress signs: appetite loss, lethargy, behavioral changes lasting 2-3+ days. Many facilities provide daily reports."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What questions should I ask when touring facilities?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ask about: staff-to-pet ratios, emergency protocols, vet relationships, 24/7 supervision, cleaning procedures, exercise schedules, temperature control, anxious pet handling, communication, viewing actual boarding areas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are cats and dogs boarded together?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, reputable facilities keep them completely separate to reduce stress. Cat areas are quieter with vertical space, hiding spots, no dog visibility/sounds. This separation is crucial."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's included in luxury pet hotel packages?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Luxury includes: private suites with raised beds, TVs/music, webcam access, multiple daily walks, one-on-one playtime, grooming, bedtime treats, photo updates, climate control, spa services. Expect $75-150/night."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I tip pet boarding staff?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tipping isn't required but appreciated for exceptional care. For extended/holiday stays, consider $20-50 or 15-20% of total, distributed among caretakers. Some bring treats or thank-you cards."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};

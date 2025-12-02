@@ -188,7 +188,8 @@ function componentNameToSlug(componentName: string): string {
     'AdvancedDPSCalculator': 'dps-calculator',
     'AdvancedBreastmilkStorageCalculator': 'breastmilk-storage-calculator',
     'AdvancedRecipeConverterCalculator': 'recipe-converter-calculator',
-    'AdvancedSpayNeuterCalculator': 'spayneuter-cost-calculator'
+    'AdvancedSpayNeuterCalculator': 'spayneuter-cost-calculator',
+    'AdvancedBoardingCostCalculator': 'boarding-cost-calculator'
   };
 
   if (knownMappings[componentName]) {

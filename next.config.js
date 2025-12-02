@@ -196,6 +196,16 @@ const nextConfig = {
         destination: '/finance-personal-finance/loans-debt/loan-payment-calculator/',
         permanent: true,
       },
+      {
+        source: '/calculator/boarding-cost-calculator',
+        destination: '/pet-care/pet-care-costs/boarding-cost-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/boarding-cost-calculator/',
+        destination: '/pet-care/pet-care-costs/boarding-cost-calculator/',
+        permanent: true,
+      },
     ];
   },
 

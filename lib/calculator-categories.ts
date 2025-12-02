@@ -8491,6 +8491,24 @@ export const calculatorCategories: Category[] = [
             popular: false
           },
           {
+            id: 'boarding-cost-calculator',
+            name: 'Pet Boarding Cost Calculator',
+            description: 'Calculate pet boarding costs across different facilities and compare options',
+            slug: 'boarding-cost-calculator',
+            category: 'pet-care',
+            subcategory: 'pet-care-costs',
+            tags: [
+              'pet care',
+              'pet care costs',
+              'boarding cost calculator',
+              'pet boarding',
+              'kennel costs'
+            ],
+            icon: 'Calculator',
+            difficulty: 'advanced',
+            popular: false
+          },
+          {
             id: 'pet-emergency-fund-calculator',
             name: 'Pet Emergency Fund Calculator',
             description: 'Quick and accurate calculations',
