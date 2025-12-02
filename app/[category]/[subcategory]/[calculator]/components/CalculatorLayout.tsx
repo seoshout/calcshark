@@ -126,8 +126,8 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
               Home
             </Link>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <Link 
-              href={`/category/${calculator.category}/`} 
+            <Link
+              href={`/${calculator.category}/`}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               {category?.name ? toTitleCase(category.name) : ''}
@@ -242,8 +242,8 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Category:</span>
-                    <Link 
-                      href={`/category/${calculator.category}/`}
+                    <Link
+                      href={`/${calculator.category}/`}
                       className="text-primary hover:underline"
                     >
                       {category?.name ? toTitleCase(category.name) : ''}
@@ -287,8 +287,8 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
                     <div className="text-xs text-muted-foreground">Health & Fitness</div>
                   </Link>
                 </div>
-                <Link 
-                  href={`/category/${calculator.category}/`}
+                <Link
+                  href={`/${calculator.category}/`}
                   className="block mt-4 text-sm text-primary hover:underline"
                 >
                   View all {category?.name ? toTitleCase(category.name) : ''} calculators →

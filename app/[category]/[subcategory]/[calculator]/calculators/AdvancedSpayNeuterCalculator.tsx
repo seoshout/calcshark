@@ -762,10 +762,8 @@ const AdvancedSpayNeuterCalculator = () => {
             <Heart className="h-8 w-8 text-green-600 dark:text-green-400" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Spay/Neuter Cost Calculator</h1>
-            <p className="text-muted-foreground mt-1">
-              Estimate spay and neuter surgery costs for your pet
-            </p>
+            <h2 className="text-2xl font-bold text-foreground">Spay/Neuter Cost Calculator</h2>
+            <p className="text-muted-foreground">Estimate spay and neuter surgery costs for your pet</p>
           </div>
         </div>
 

@@ -162,7 +162,7 @@ export default function Header() {
                     return (
                       <Link
                         key={category.slug}
-                        href={`/category/${category.slug}/`}
+                        href={`/${category.slug}/`}
                         className="group flex items-center space-x-3 p-2 rounded-lg hover:bg-accent transition-all duration-200"
                       >
                         <div className={cn("p-2 rounded-lg bg-gradient-to-br group-hover:scale-110 transition-transform duration-200", colorClass)}>
@@ -396,7 +396,7 @@ export default function Header() {
                   return (
                     <Link
                       key={category.slug}
-                      href={`/category/${category.slug}/`}
+                      href={`/${category.slug}/`}
                       className="flex items-center space-x-3 p-3 rounded-xl hover:bg-accent transition-colors"
                       onClick={() => {
                         setIsMenuOpen(false);
