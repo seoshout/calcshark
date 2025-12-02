@@ -1715,6 +1715,50 @@ export const generateBoardingCostCalculatorSchema = (breadcrumbItems: Breadcrumb
           "Location-based pricing",
           "Holiday premium calculations",
           "Additional service costs"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "8",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate Pet Boarding Costs",
+        "description": "Step-by-step guide to estimating pet boarding expenses for your trip",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Enter Pet Information",
+            "text": "Select your pet type (dog or cat), pet size (small, medium, or large), and the number of pets you'll be boarding."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Choose Facility Type and Location",
+            "text": "Select your preferred facility type (traditional kennel, veterinary boarding, luxury hotel, in-home sitting, daycare with overnight, or cage-free facility). Then choose your location type (urban, suburban, or rural) as pricing varies significantly by area."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Set Stay Duration and Dates",
+            "text": "Enter the number of nights your pet will be boarding. If boarding during peak holiday periods (Christmas, Thanksgiving, summer vacation), check the holiday box as this adds 25-50% premium pricing."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Select Additional Services",
+            "text": "Choose any add-on services: medication administration, grooming, training sessions, special diet, or webcam monitoring. Each service has additional daily or one-time costs."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Review Cost Breakdown",
+            "text": "View your total estimated cost with detailed breakdown including base rate, extended stay discounts (if applicable), multi-pet discounts, location adjustments, holiday premiums, and additional service costs. Compare different calculation modes for comprehensive planning."
+          }
         ]
       },
       {
