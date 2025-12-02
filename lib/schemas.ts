@@ -1526,7 +1526,7 @@ export const generateSpayNeuterCalculatorSchema = (breadcrumbItems: BreadcrumbIt
             "name": "Why does spaying cost more than neutering?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Spaying costs $10-200 more because it's a more complex surgical procedure requiring internal abdominal surgery, while neutering involves a small external incision."
+              "text": "Spaying costs $10-200 more because it requires internal abdominal surgery to remove ovaries and often the uterus, while neutering involves a simple external incision to remove testicles. Spaying requires working inside the abdominal cavity, ligating blood vessels, and closing multiple tissue layers."
             }
           },
           {
@@ -1534,7 +1534,31 @@ export const generateSpayNeuterCalculatorSchema = (breadcrumbItems: BreadcrumbIt
             "name": "How much does it cost to spay a dog?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Dog spaying costs $250-2,000, with a national average of $455. Low-cost clinics charge $50-150, private practices $200-600."
+              "text": "Dog spaying costs $250-2,000 with a national average of $455. Low-cost clinics charge $50-150, mobile clinics $100-250, private practices $200-600, specialty clinics $500-2,000+. Costs vary by size, age, location, and procedure type."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost to neuter a dog?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dog neutering costs $250-885 with average $487. Low-cost clinics $50-150, private practices $200-600. Cryptorchidism adds $50-199, brachycephalic breeds $50-200 extra."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's included in the spay/neuter cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Basic packages include surgery, anesthesia, green tattoo mark, and recovery. Extra costs: exam/bloodwork $60-100, pain medication $10-20, e-collar $10-15, IV fluids $45, microchip $15-20."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are low-cost clinics safe and high-quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, low-cost clinics are safe, meeting the same licensing and safety standards. Staffed by licensed veterinarians using identical techniques. Lower costs from high-volume operations, subsidies, and streamlined procedures."
             }
           },
           {
@@ -1542,7 +1566,111 @@ export const generateSpayNeuterCalculatorSchema = (breadcrumbItems: BreadcrumbIt
             "name": "Does pet insurance cover spaying and neutering?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Standard insurance doesn't cover it, but wellness plans reimburse $135-150 for $24-50/month."
+              "text": "Standard insurance doesn't cover spay/neuter. Optional wellness plans costing $24-50/month reimburse $135-150 toward procedures. Examples: ASPCA Prime $24.95/month, Pets Best $26/month."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I reduce spay/neuter costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use low-cost clinics (50-75% savings), check state voucher programs, contact shelters for assistance, ask about multi-pet discounts (5% per pet), use wellness plans, consider payment plans, look for community events, check veterinary schools."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best age to spay or neuter my pet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cats: before 5 months. Dogs vary by size: small breeds 4-6 months, medium 6-9 months, large 9-12 months, giant 12-18 months. Spaying before first heat reduces mammary cancer 90%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is pediatric spay/neuter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Surgery performed at 6-16 weeks (before 4 months). Safe with 30+ years research. Benefits: faster surgery, quicker recovery (24 hours), less pain, reduced complications, prevents overpopulation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it safe to spay a pregnant dog?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, spay-abortion is safe but more complex. Costs increase $15-150+ due to enlarged uterus and higher surgical complexity. Safest early in pregnancy (first 3-4 weeks)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is cryptorchidism and how does it affect cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When testicles don't descend, occurring in 10% of male dogs. Increases neutering costs by $50-199 (total $375-725) due to abdominal surgery needed. Retained testicles have 10x higher cancer risk."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do brachycephalic breeds cost more?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Breeds like Bulldogs and Pugs incur $50-200 extra for increased anesthesia risks from airway abnormalities. Require specialized protocols, anti-nausea meds, extended monitoring, and oxygen therapy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is laparoscopic spay and is it worth it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Minimally invasive surgery using small incisions and camera. Costs $200-250 more but offers 65% less pain, 3-5 day recovery vs 10-14 days, smaller incisions, reduced bleeding. Worth it for significantly improved comfort."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does the spay/neuter procedure take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Surgery: dog neuter 15-30 min, cat neuter 5-15 min, dog spay 30-60 min, cat spay 15-30 min. Total clinic time: 4-8 hours for exam, sedation, surgery, recovery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the recovery time after spay/neuter surgery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Neuter: 5-7 days, traditional spay: 10-14 days, laparoscopic spay: 3-5 days. NO running, jumping, stairs, rough play during recovery. E-collar must be worn 24/7 to prevent licking."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the risks of spay/neuter surgery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Very safe with <5% complication rates, <1% serious. Risks: anesthesia reactions, bleeding, infection (2-3%), incision dehiscence. Higher risk in brachycephalic breeds, seniors, obese pets. Benefits far outweigh risks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to do anything before the surgery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fast 12 hours before surgery (water until 2-3 hours before). Puppies/kittens 6-8 hours. Ensure vaccinations current, complete bloodwork for seniors, bring records and payment, arrive on time. Don't feed morning of surgery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I care for my pet after surgery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "E-collar 24/7 for 10-14 days. Give prescribed pain medication. Restrict activity: NO running, jumping, stairs for 10-14 days. Monitor incision daily. Offer small amounts water/food after 2-4 hours. NO bathing 10-14 days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When can my pet return to normal activity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Neuter: 5-7 days, traditional spay: 10-14 days, laparoscopic: 3-5 days. Gradual increase: Days 1-3 strict rest, 4-7 short walks, 8-10 moderate activity. After day 14 with vet approval: full normal activity permitted."
             }
           }
         ]
