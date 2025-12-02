@@ -96,7 +96,8 @@
       "Bash(nul)",
       "Bash(python -c:*)",
       "Bash(timeout 15 bash:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []
