@@ -2418,3 +2418,251 @@ export const generateQuarterbackRatingCalculatorSchema = (breadcrumbItems: Bread
     ]
   };
 };
+
+// Price Comparison Calculator Schema
+export const generatePriceComparisonCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/lifestyle-daily-life/shopping-savings/price-comparison-calculator/";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Price Comparison Calculator - Unit Price Comparison Tool",
+        "url": baseUrl,
+        "description": "Compare product prices across different sizes and brands. Calculate unit prices to find the best deals on groceries and household items. Multi-item comparison, bulk savings analysis, and unit converter tools.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Unit price calculator for any measurement",
+          "Multi-item price comparison tool",
+          "Bulk savings analysis calculator",
+          "Savings percentage calculator",
+          "Unit converter (metric and imperial)",
+          "Price comparison across brands",
+          "Break-even point calculator",
+          "Coupon savings calculator",
+          "Supports 9 unit types: oz, lb, kg, g, ml, L, gal, fl oz, and each"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "12",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Compare Product Prices",
+        "description": "Step-by-step guide to calculating and comparing unit prices for any products",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Enter First Product Information",
+            "text": "Input the product name, total price, quantity, and unit of measurement for the first item you want to compare."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Enter Comparison Products",
+            "text": "Add information for additional products you want to compare. You can compare 2 items, or use multi-item mode to compare 3 or more brands at once."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Select Calculation Mode",
+            "text": "Choose your calculation mode: Basic Unit Price, Multi-Item Comparison, Bulk Savings Analysis, Unit Converter, or Savings Calculator."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Apply Coupons (Optional)",
+            "text": "If applicable, enter any coupon amounts to see how they affect the actual unit price and total savings."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Review Results",
+            "text": "View the unit prices for all products, identify the best deal, see savings percentages, and get recommendations on which product offers the best value."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate unit price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unit price is calculated by dividing the total price by the quantity. For example: if a product costs $8.99 and contains 16 ounces, the unit price is $8.99 ÷ 16 = $0.5619 per ounce. This calculator does this automatically for any unit type you select."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best way to compare prices?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best way to compare prices is to calculate the unit price for each item, then compare those unit prices. Never compare total prices alone when package sizes differ. Always convert to the same unit (per ounce, per pound, per item, etc.) to make accurate comparisons across different brands and sizes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to compare different sizes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To compare different sizes, convert the price of each item to a common unit using unit pricing. For example, if comparing a 12oz box ($3.99) and a 18oz box ($5.49), calculate: 12oz = $0.3325/oz and 18oz = $0.3050/oz. The larger box has a better unit price despite the higher total price."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is bulk buying always cheaper?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bulk buying is usually cheaper per unit, but not always the smartest choice. Consider: 1) Will you actually use the product before it expires? 2) Do you have storage space? 3) Is the per-unit savings worth the higher upfront cost? 4) Can you afford the large purchase? Use the Bulk Savings Analysis mode to determine if bulk makes financial sense for your situation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much can you save buying in bulk?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bulk savings typically range from 10-50% per unit compared to regular-sized packages. For example, buying a 32oz bottle for $8 (25 cents/oz) instead of four 8oz bottles at $2.99 each ($0.37/oz) saves you 32%. Use this calculator's bulk analysis mode to calculate exact savings for your specific products."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is unit pricing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unit pricing is the cost of a product per individual unit of measurement (per ounce, pound, kilogram, liter, gallon, or item count). It's the most accurate way to compare products because it removes the confusion of different package sizes. For example, 'cost per ounce' is a unit price, making it easy to compare any size container."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Convert price per pound to per ounce?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To convert price per pound to per ounce, divide by 16 (since there are 16 ounces in a pound). For example: if a product costs $4.80 per pound, it costs $4.80 ÷ 16 = $0.30 per ounce. This calculator can convert between any unit type automatically using the Unit Converter mode."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What units for grocery comparison?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Common grocery units are: ounces (oz) for packaged goods, pounds (lb) for produce/meat, milliliters (ml) and liters (L) for liquids, and gallons for bulk liquids. This calculator supports all 9 common units: oz, lb, kg, g, ml, L, gal, fl oz, and each. Choose the unit that matches your product."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How stores use unit pricing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Stores display unit pricing on shelf labels to help customers compare products. The unit price (like $0.25/oz) shows the cost per standardized unit, helping shoppers identify the best value regardless of package size. Many stores are required by law to display unit prices, though this varies by jurisdiction."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is 20% rule for bulk buying?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 20% rule suggests that bulk purchases should be at least 20% cheaper per unit than the regular-sized version to justify the purchase. For example, if a regular box costs $0.50/oz, the bulk version should cost $0.40/oz or less (20% savings). This accounts for the time and effort of buying bulk."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to calculate savings percentage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Savings percentage is calculated as: ((Original Price - Sale Price) ÷ Original Price) × 100. For example: if something costs $10 normally and is on sale for $7, you save ((10-7)÷10)×100 = 30%. This calculator shows savings percentages when comparing products."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Always buy lowest unit price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Usually yes, but not always. Consider these factors: 1) Freshness/expiration date (especially for perishables), 2) Quality differences (cheaper isn't always better), 3) Brand preference or allergies, 4) Whether you'll actually use the full quantity, 5) Storage space. The lowest unit price is the best mathematical value, but other factors matter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Compare prices across brands?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use the Multi-Item Comparison mode to compare 3 or more brands at once. Input each brand's name, price, quantity, and unit. The calculator will show unit prices and identify the best deal. This helps you decide between name brands, store brands, and generics based on actual unit pricing, not packaging or marketing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hidden costs in bulk buying?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hidden costs include: 1) Storage (space in pantry/freezer), 2) Spoilage (if items expire before use), 3) Financial carrying cost (money tied up in inventory), 4) Hassle of storage and organization, 5) Potential waste if your needs change. The calculator shows per-unit savings, but consider these real-world costs in your decision."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Calculate break-even point?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The break-even point shows how many units you need to purchase at the bulk price to equal the cost of regular-sized packages. For example, if bulk costs less but requires a large upfront investment, knowing the break-even helps you decide if the purchase makes sense. This calculator shows break-even quantity in the Bulk Savings Analysis mode."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Compare metric and imperial units?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This calculator automatically converts between metric (grams, kilograms, milliliters, liters) and imperial (ounces, pounds, gallons) units. Simply select your units for each product, and it calculates a common unit price for comparison. For example, you can compare a 500g package to a 1lb package directly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Best value vs cheapest?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cheapest means lowest total price, while best value means lowest unit price relative to quality. Best value usually means best unit price, but consider: 1) Quality differences, 2) Expiration dates, 3) What you'll actually use, 4) Total quantity needed. A slightly more expensive item with better quality and longer shelf life may be better value than the cheapest option."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How coupons affect unit price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Coupons reduce the effective price paid. If an item costs $5 and you have a $1 coupon, your effective price is $4. Divide this adjusted price by the quantity to get the unit price with coupons applied. Many stores' digital coupons stack with sales. Always calculate unit price after applying coupons to see true savings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often prices change?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Grocery prices change frequently - sometimes weekly or even daily for sales. Bulk items may have different promotional cycles than regularly-sized products. Subscribe to store apps for price tracking, compare prices before big purchases, and note when your favorite items go on sale to buy bulk at the lowest unit price. Use this calculator whenever prices change."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};

@@ -9427,17 +9427,20 @@ export const calculatorCategories: Category[] = [
           {
             id: 'price-comparison-calculator',
             name: 'Price Comparison Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Compare prices with 5 modes: basic comparison, multi-item analysis, bulk savings calculator, unit converter, and budget optimizer',
             slug: 'price-comparison-calculator',
             category: 'lifestyle-daily-life',
             subcategory: 'shopping-savings',
             tags: [
               'lifestyle & daily life',
               'shopping & savings',
-              'price comparison calculator'
+              'price comparison calculator',
+              'unit price',
+              'bulk savings',
+              'budget optimizer'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {

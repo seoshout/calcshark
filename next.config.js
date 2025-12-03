@@ -226,6 +226,16 @@ const nextConfig = {
         destination: '/sports-recreation/sports-performance/quarterback-rating-calculator/',
         permanent: true,
       },
+      {
+        source: '/calculator/price-comparison-calculator',
+        destination: '/lifestyle-daily-life/shopping-savings/price-comparison-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/price-comparison-calculator/',
+        destination: '/lifestyle-daily-life/shopping-savings/price-comparison-calculator/',
+        permanent: true,
+      },
     ];
   },
 
