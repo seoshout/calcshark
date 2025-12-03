@@ -58,6 +58,7 @@ export default function AdvancedQuarterbackRatingCalculator() {
   const [isAdvancedMode, setIsAdvancedMode] = useState<boolean>(true);
   const [calculationMode, setCalculationMode] = useState<CalculationMode>('basic');
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModeDropdown, setShowModeDropdown] = useState<boolean>(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   // Basic Stats
@@ -461,17 +462,109 @@ export default function AdvancedQuarterbackRatingCalculator() {
             <label className="block text-sm font-medium text-purple-900 dark:text-purple-100 mb-2">
               Calculation Mode
             </label>
-            <select
-              value={calculationMode}
-              onChange={(e) => setCalculationMode(e.target.value as CalculationMode)}
-              className="w-full px-4 py-2 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-            >
-              <option value="basic">Basic Calculator - Single game NFL passer rating</option>
-              <option value="comparison">QB Comparison - Compare two quarterbacks side-by-side</option>
-              <option value="season">Season Analyzer - Calculate season-long averages</option>
-              <option value="perfect">Perfect Rating - See what's needed for 158.3</option>
-              <option value="ncaa">NCAA Calculator - College passer efficiency rating</option>
-            </select>
+            <div className="relative">
+              <button
+                onClick={() => setShowModeDropdown(!showModeDropdown)}
+                className="w-full px-4 py-3 border border-purple-300 dark:border-purple-700 rounded-lg bg-background text-foreground hover:bg-purple-100 dark:hover:bg-purple-900/30 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors flex items-center justify-between"
+              >
+                <span className="font-medium">
+                  {calculationMode === 'basic' && 'Basic Calculator - Single game NFL passer rating'}
+                  {calculationMode === 'comparison' && 'QB Comparison - Compare two quarterbacks side-by-side'}
+                  {calculationMode === 'season' && 'Season Analyzer - Calculate season-long averages'}
+                  {calculationMode === 'perfect' && 'Perfect Rating - See what\'s needed for 158.3'}
+                  {calculationMode === 'ncaa' && 'NCAA Calculator - College passer efficiency rating'}
+                </span>
+                <ChevronDown className={cn(
+                  "h-5 w-5 text-purple-600 dark:text-purple-400 transition-transform",
+                  showModeDropdown && "rotate-180"
+                )} />
+              </button>
+
+              {showModeDropdown && (
+                <>
+                  {/* Backdrop to close dropdown */}
+                  <div
+                    className="fixed inset-0 z-10"
+                    onClick={() => setShowModeDropdown(false)}
+                  />
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute z-20 w-full mt-2 bg-background border border-purple-300 dark:border-purple-700 rounded-lg shadow-xl overflow-hidden">
+                    <div className="py-1">
+                      <button
+                        onClick={() => {
+                          setCalculationMode('basic');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors",
+                          calculationMode === 'basic' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Basic Calculator</div>
+                        <div className="text-sm text-muted-foreground">Single game NFL passer rating</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('comparison');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'comparison' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">QB Comparison</div>
+                        <div className="text-sm text-muted-foreground">Compare two quarterbacks side-by-side</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('season');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'season' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Season Analyzer</div>
+                        <div className="text-sm text-muted-foreground">Calculate season-long averages</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('perfect');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'perfect' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Perfect Rating</div>
+                        <div className="text-sm text-muted-foreground">See what's needed for 158.3</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('ncaa');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'ncaa' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">NCAA Calculator</div>
+                        <div className="text-sm text-muted-foreground">College passer efficiency rating</div>
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         )}
 
