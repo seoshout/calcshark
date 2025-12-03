@@ -23,6 +23,7 @@ export default function AdvancedFishingLineCapacityCalculator() {
   const [calculationMode, setCalculationMode] = useState<CalculationMode>('basic');
   const [unitSystem, setUnitSystem] = useState<UnitSystem>('imperial');
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModeDropdown, setShowModeDropdown] = useState<boolean>(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   // Reel Specifications
@@ -560,17 +561,109 @@ export default function AdvancedFishingLineCapacityCalculator() {
             <label className="block text-sm font-medium text-purple-900 dark:text-purple-100 mb-2">
               Calculation Mode
             </label>
-            <select
-              value={calculationMode}
-              onChange={(e) => setCalculationMode(e.target.value as CalculationMode)}
-              className="w-full px-4 py-2 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-            >
-              <option value="basic">Basic Capacity - Calculate line capacity for single line type</option>
-              <option value="comparison">Line Comparison - Compare all 3 line types (mono, fluoro, braid)</option>
-              <option value="backing">Backing Calculator - Calculate backing line with main line</option>
-              <option value="conversion">Line Conversion - Compare old vs new line capacity</option>
-              <option value="multi-spool">Multi-Spool - Calculate total line needed for multiple spools</option>
-            </select>
+            <div className="relative">
+              <button
+                onClick={() => setShowModeDropdown(!showModeDropdown)}
+                className="w-full px-4 py-3 border border-purple-300 dark:border-purple-700 rounded-lg bg-background text-foreground hover:bg-purple-100 dark:hover:bg-purple-900/30 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors flex items-center justify-between"
+              >
+                <span className="font-medium">
+                  {calculationMode === 'basic' && 'Basic Capacity - Calculate line capacity for single line type'}
+                  {calculationMode === 'comparison' && 'Line Comparison - Compare all 3 line types (mono, fluoro, braid)'}
+                  {calculationMode === 'backing' && 'Backing Calculator - Calculate backing line with main line'}
+                  {calculationMode === 'conversion' && 'Line Conversion - Compare old vs new line capacity'}
+                  {calculationMode === 'multi-spool' && 'Multi-Spool - Calculate total line needed for multiple spools'}
+                </span>
+                <ChevronDown className={cn(
+                  "h-5 w-5 text-purple-600 dark:text-purple-400 transition-transform",
+                  showModeDropdown && "rotate-180"
+                )} />
+              </button>
+
+              {showModeDropdown && (
+                <>
+                  {/* Backdrop to close dropdown */}
+                  <div
+                    className="fixed inset-0 z-10"
+                    onClick={() => setShowModeDropdown(false)}
+                  />
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute z-20 w-full mt-2 bg-background border border-purple-300 dark:border-purple-700 rounded-lg shadow-xl overflow-hidden">
+                    <div className="py-1">
+                      <button
+                        onClick={() => {
+                          setCalculationMode('basic');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors",
+                          calculationMode === 'basic' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Basic Capacity</div>
+                        <div className="text-sm text-muted-foreground">Calculate line capacity for single line type</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('comparison');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'comparison' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Line Comparison</div>
+                        <div className="text-sm text-muted-foreground">Compare all 3 line types (mono, fluoro, braid)</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('backing');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'backing' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Backing Calculator</div>
+                        <div className="text-sm text-muted-foreground">Calculate backing line with main line</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('conversion');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'conversion' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Line Conversion</div>
+                        <div className="text-sm text-muted-foreground">Compare old vs new line capacity</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('multi-spool');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'multi-spool' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Multi-Spool</div>
+                        <div className="text-sm text-muted-foreground">Calculate total line needed for multiple spools</div>
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         )}
 

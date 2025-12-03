@@ -106,6 +106,7 @@ interface SpayNeuterResult {
 const AdvancedSpayNeuterCalculator = () => {
   const [isAdvancedMode, setIsAdvancedMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showModeDropdown, setShowModeDropdown] = useState(false);
   const [result, setResult] = useState<SpayNeuterResult | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -803,17 +804,109 @@ const AdvancedSpayNeuterCalculator = () => {
             <label className="block text-sm font-medium text-purple-900 dark:text-purple-100 mb-2">
               Calculation Mode
             </label>
-            <select
-              value={inputs.calculationMode}
-              onChange={(e) => handleInputChange('calculationMode', e.target.value as CalculationMode)}
-              className="w-full px-4 py-2 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-            >
-              <option value="basic">Basic Estimator - Quick cost estimate</option>
-              <option value="comprehensive">Comprehensive Calculator - All factors included</option>
-              <option value="clinic-comparison">Clinic Type Comparison - Compare costs across clinics</option>
-              <option value="budget-planner">Budget Planner - Include insurance & multi-pet discounts</option>
-              <option value="break-even-analysis">Break-Even Analysis - Wellness plan comparison</option>
-            </select>
+            <div className="relative">
+              <button
+                onClick={() => setShowModeDropdown(!showModeDropdown)}
+                className="w-full px-4 py-3 border border-purple-300 dark:border-purple-700 rounded-lg bg-background text-foreground hover:bg-purple-100 dark:hover:bg-purple-900/30 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors flex items-center justify-between"
+              >
+                <span className="font-medium">
+                  {inputs.calculationMode === 'basic' && 'Basic Estimator - Quick cost estimate'}
+                  {inputs.calculationMode === 'comprehensive' && 'Comprehensive Calculator - All factors included'}
+                  {inputs.calculationMode === 'clinic-comparison' && 'Clinic Type Comparison - Compare costs across clinics'}
+                  {inputs.calculationMode === 'budget-planner' && 'Budget Planner - Include insurance & multi-pet discounts'}
+                  {inputs.calculationMode === 'break-even-analysis' && 'Break-Even Analysis - Wellness plan comparison'}
+                </span>
+                <ChevronDown className={cn(
+                  "h-5 w-5 text-purple-600 dark:text-purple-400 transition-transform",
+                  showModeDropdown && "rotate-180"
+                )} />
+              </button>
+
+              {showModeDropdown && (
+                <>
+                  {/* Backdrop to close dropdown */}
+                  <div
+                    className="fixed inset-0 z-10"
+                    onClick={() => setShowModeDropdown(false)}
+                  />
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute z-20 w-full mt-2 bg-background border border-purple-300 dark:border-purple-700 rounded-lg shadow-xl overflow-hidden">
+                    <div className="py-1">
+                      <button
+                        onClick={() => {
+                          handleInputChange('calculationMode', 'basic' as CalculationMode);
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors",
+                          inputs.calculationMode === 'basic' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Basic Estimator</div>
+                        <div className="text-sm text-muted-foreground">Quick cost estimate</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          handleInputChange('calculationMode', 'comprehensive' as CalculationMode);
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          inputs.calculationMode === 'comprehensive' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Comprehensive Calculator</div>
+                        <div className="text-sm text-muted-foreground">All factors included</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          handleInputChange('calculationMode', 'clinic-comparison' as CalculationMode);
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          inputs.calculationMode === 'clinic-comparison' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Clinic Type Comparison</div>
+                        <div className="text-sm text-muted-foreground">Compare costs across clinics</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          handleInputChange('calculationMode', 'budget-planner' as CalculationMode);
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          inputs.calculationMode === 'budget-planner' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Budget Planner</div>
+                        <div className="text-sm text-muted-foreground">Include insurance & multi-pet discounts</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          handleInputChange('calculationMode', 'break-even-analysis' as CalculationMode);
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          inputs.calculationMode === 'break-even-analysis' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Break-Even Analysis</div>
+                        <div className="text-sm text-muted-foreground">Wellness plan comparison</div>
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         )}
 

@@ -44,6 +44,7 @@ interface ExtendedStayResult {
 const AdvancedBoardingCostCalculator = () => {
   // Mode state
   const [isAdvancedMode, setIsAdvancedMode] = useState<boolean>(true);
+  const [showModeDropdown, setShowModeDropdown] = useState<boolean>(false);
 
   // Form state
   const [calculationMode, setCalculationMode] = useState<CalculationMode>('basic');
@@ -739,17 +740,109 @@ const AdvancedBoardingCostCalculator = () => {
             <label className="block text-sm font-medium text-purple-900 dark:text-purple-100 mb-2">
               Calculation Mode
             </label>
-            <select
-              value={calculationMode}
-              onChange={(e) => setCalculationMode(e.target.value as CalculationMode)}
-              className="w-full px-4 py-2 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-            >
-              <option value="basic">Basic Estimator - Simple cost estimate</option>
-              <option value="comparison">Facility Comparison - Compare all facility types</option>
-              <option value="extended">Extended Stay - Long-term cost planning</option>
-              <option value="budget">Budget Analysis - Compare price tiers</option>
-              <option value="multi-pet">Multi-Pet Calculator - Multiple pets with discounts</option>
-            </select>
+            <div className="relative">
+              <button
+                onClick={() => setShowModeDropdown(!showModeDropdown)}
+                className="w-full px-4 py-3 border border-purple-300 dark:border-purple-700 rounded-lg bg-background text-foreground hover:bg-purple-100 dark:hover:bg-purple-900/30 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors flex items-center justify-between"
+              >
+                <span className="font-medium">
+                  {calculationMode === 'basic' && 'Basic Estimator - Simple cost estimate'}
+                  {calculationMode === 'comparison' && 'Facility Comparison - Compare all facility types'}
+                  {calculationMode === 'extended' && 'Extended Stay - Long-term cost planning'}
+                  {calculationMode === 'budget' && 'Budget Analysis - Compare price tiers'}
+                  {calculationMode === 'multi-pet' && 'Multi-Pet Calculator - Multiple pets with discounts'}
+                </span>
+                <ChevronDown className={cn(
+                  "h-5 w-5 text-purple-600 dark:text-purple-400 transition-transform",
+                  showModeDropdown && "rotate-180"
+                )} />
+              </button>
+
+              {showModeDropdown && (
+                <>
+                  {/* Backdrop to close dropdown */}
+                  <div
+                    className="fixed inset-0 z-10"
+                    onClick={() => setShowModeDropdown(false)}
+                  />
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute z-20 w-full mt-2 bg-background border border-purple-300 dark:border-purple-700 rounded-lg shadow-xl overflow-hidden">
+                    <div className="py-1">
+                      <button
+                        onClick={() => {
+                          setCalculationMode('basic');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors",
+                          calculationMode === 'basic' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Basic Estimator</div>
+                        <div className="text-sm text-muted-foreground">Simple cost estimate</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('comparison');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'comparison' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Facility Comparison</div>
+                        <div className="text-sm text-muted-foreground">Compare all facility types</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('extended');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'extended' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Extended Stay</div>
+                        <div className="text-sm text-muted-foreground">Long-term cost planning</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('budget');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'budget' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Budget Analysis</div>
+                        <div className="text-sm text-muted-foreground">Compare price tiers</div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setCalculationMode('multi-pet');
+                          setShowModeDropdown(false);
+                        }}
+                        className={cn(
+                          "w-full px-4 py-3 text-left hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border-t border-purple-200 dark:border-purple-800",
+                          calculationMode === 'multi-pet' && "bg-purple-100 dark:bg-purple-900/40 font-semibold"
+                        )}
+                      >
+                        <div className="font-medium">Multi-Pet Calculator</div>
+                        <div className="text-sm text-muted-foreground">Multiple pets with discounts</div>
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         )}
 
