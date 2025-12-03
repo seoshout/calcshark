@@ -190,7 +190,8 @@ function componentNameToSlug(componentName: string): string {
     'AdvancedRecipeConverterCalculator': 'recipe-converter-calculator',
     'AdvancedSpayNeuterCalculator': 'spayneuter-cost-calculator',
     'AdvancedBoardingCostCalculator': 'boarding-cost-calculator',
-    'AdvancedFishingLineCapacityCalculator': 'fishing-line-capacity-calculator'
+    'AdvancedFishingLineCapacityCalculator': 'fishing-line-capacity-calculator',
+    'AdvancedQuarterbackRatingCalculator': 'quarterback-rating-calculator'
   };
 
   if (knownMappings[componentName]) {

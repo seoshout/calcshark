@@ -10920,17 +10920,20 @@ export const calculatorCategories: Category[] = [
           {
             id: 'quarterback-rating-calculator',
             name: 'Quarterback Rating Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Calculate NFL and NCAA passer ratings with 5 modes: basic, comparison, season analyzer, perfect rating, and college efficiency',
             slug: 'quarterback-rating-calculator',
             category: 'sports-recreation',
             subcategory: 'sports-performance',
             tags: [
               'sports & recreation',
               'sports performance',
-              'quarterback rating calculator'
+              'quarterback rating calculator',
+              'NFL passer rating',
+              'NCAA passer efficiency',
+              'QB stats'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {

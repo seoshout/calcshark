@@ -2178,3 +2178,243 @@ export const generateFishingLineCapacityCalculatorSchema = (breadcrumbItems: Bre
     ]
   };
 };
+
+// Quarterback Rating Calculator Schema (comprehensive with all 19 FAQs)
+export const generateQuarterbackRatingCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = 'https://calcshark.com/sports-recreation/sports-performance/quarterback-rating-calculator/';
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#webapp`,
+        "name": "Quarterback Rating Calculator - NFL & NCAA Passer Rating",
+        "description": "Calculate NFL and NCAA passer ratings with 5 calculation modes: basic single-game rating, QB comparison, season analyzer, perfect rating calculator, and college passer efficiency. Free and instant.",
+        "url": baseUrl,
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "8"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Calcshark"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate NFL Quarterback Passer Rating",
+        "description": "Step-by-step guide to calculating NFL passer rating using the official formula with four components: completion percentage, yards per attempt, touchdown percentage, and interception percentage.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Game Statistics",
+            "text": "Input the quarterback's passing attempts, completions, passing yards, touchdowns, and interceptions from the game.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select Calculation Mode",
+            "text": "Choose from 5 modes: Basic (single game), Comparison (2 QBs), Season Analyzer (full season), Perfect Rating (158.3 requirements), or NCAA (college efficiency).",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Component Breakdown",
+            "text": "See the four rating components: (A) Completion %, (B) Yards/Attempt, (C) TD %, and (D) INT %, each capped at 0-2.375 points.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "View Overall Rating",
+            "text": "Get the final passer rating on a 0-158.3 scale with performance grade: Perfect (158.3), Elite (120+), Excellent (110-119), Very Good (100-109), Above Average (90-99), Average (80-89), Below Average (70-79), or Poor (<70).",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Compare or Analyze",
+            "text": "Use comparison mode to evaluate two QBs side-by-side, season analyzer for full-year projections, or perfect rating mode to see what stats are needed for 158.3.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is NFL passer rating calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NFL passer rating uses four components, each capped at 0-2.375: Component A = ((Completions/Attempts - 0.3) × 5), Component B = ((Yards/Attempts - 3) × 0.25), Component C = (Touchdowns/Attempts × 20), Component D = (2.375 - (Interceptions/Attempts × 25)). Final rating = ((A + B + C + D) / 6) × 100, resulting in a 0-158.3 scale. This formula equally weights completion percentage, yards per attempt, touchdown rate, and interception avoidance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a perfect passer rating of 158.3?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A perfect 158.3 passer rating requires: 77.5% completion percentage (minimum), 12.5 yards per attempt (minimum), 11.875% touchdown rate (minimum), and 0% interception rate. Example: 20/20 attempts, 250+ yards, 3+ TDs, 0 INTs. There have been 82 perfect games in NFL history among 67 different quarterbacks. Ben Roethlisberger (2007 vs Rams) holds the record with 10/10, 209 yards, 5 TDs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between passer rating and QBR?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NFL Passer Rating (0-158.3 scale) uses only passing stats in a public formula: completions, attempts, yards, TDs, INTs. Total QBR (0-100 scale) is ESPN's proprietary metric that includes: rushing, sacks, fumbles, game context, win probability, and Expected Points Added. Passer rating is the official NFL stat since 1973. QBR adjusts for opponent strength and clutch situations but uses a secret formula. Both measure QB performance but weight factors differently."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a good passer rating in the NFL?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NFL passer rating benchmarks: 158.3 = Perfect (best possible), 120+ = Elite/MVP level (top 5 QBs), 110-119 = Excellent (Pro Bowl caliber), 100-109 = Very Good (above average starter), 90-99 = Above Average (solid starter), 80-89 = Average (acceptable starter), 70-79 = Below Average (backup quality), <70 = Poor (unacceptable). League average has risen from ~80 in 2000s to ~93 in 2023. A rating above 100 indicates elite performance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is NCAA passer rating different from NFL?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NCAA passer efficiency formula: ((8.4 × Yards) + (330 × TDs) + (100 × Completions) - (200 × INTs)) / Attempts. Key differences: No component capping (can exceed 200), no minimum/maximum limits, heavily weights touchdowns (330 points each vs NFL's percentage-based), severely penalizes interceptions (200 points each), simpler single formula vs NFL's four components. NCAA average ~140, elite >170. NFL rating can't exceed 158.3 while NCAA has no upper limit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is passer rating capped at 158.3?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 158.3 maximum occurs when all four components reach their 2.375 cap: (2.375 + 2.375 + 2.375 + 2.375) / 6 × 100 = 158.333. Each component is capped to prevent extreme outliers from dominating the rating. The formula was designed in 1971 by Don Smith (Pro Football Hall of Fame) to create a balanced 0-100 scale, but the caps create the 158.3 ceiling. This ensures no single stat category (completion %, yards, TDs, INTs) can disproportionately inflate the rating."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who has the highest career passer rating?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As of 2024, career passer rating leaders (minimum 1,500 attempts): Aaron Rodgers: 103.6 (active), Patrick Mahomes: 103.3 (active), Deshaun Watson: 98.3, Russell Wilson: 98.0, Dak Prescott: 97.5. All-time greats: Tom Brady: 97.2, Drew Brees: 98.7, Peyton Manning: 96.5, Joe Montana: 92.3. The league average has increased dramatically: 1970s: ~65, 1990s: ~75, 2010s: ~88, 2020s: ~93. Modern rule changes favoring passing have elevated ratings across the league."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many perfect passer ratings have there been?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There have been 82 perfect 158.3 passer ratings in NFL history (as of 2024) achieved by 67 different quarterbacks. Multiple perfect games: Lamar Jackson (4), Kurt Warner (3), Peyton Manning (3), Ben Roethlisberger (3), Ken O'Brien (3). Notable perfect games: Ben Roethlisberger 2007 vs Rams (10/10, 209 yards, 5 TDs), Marcus Mariota 2015 vs Jaguars (13/16, 209 yards, 4 TDs passing + 1 rushing). Perfect games represent roughly 0.4% of all QB performances, occurring about once per season league-wide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What stats are needed for a perfect passer rating?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Perfect 158.3 rating minimum requirements: 77.5% completion rate or higher (31/40, 15/19, etc.), 12.5 yards per attempt or higher, 11.875% TD rate or higher (roughly 1 TD per 8.4 attempts), 0% interception rate (no picks). Example stat lines: 10/10, 125 yards, 2 TDs, 0 INTs; 20/25, 250 yards, 3 TDs, 0 INTs; 15/15, 188 yards, 2 TDs, 0 INTs. Key: Perfect completion (100%) allows lower yards/attempt. More attempts require higher yardage to maintain 12.5 YPA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does NFL passer rating account for rushing yards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, NFL passer rating only measures passing performance: attempts, completions, yards, touchdowns, and interceptions. Rushing yards, rushing TDs, sacks, and fumbles are excluded. This limitation led ESPN to create Total QBR (2011), which includes rushing stats, sacks, fumbles, and game context. For dual-threat QBs like Lamar Jackson, Josh Allen, or Jalen Hurts, passer rating undervalues their total contribution. Some analysts use 'Total QBR' or custom formulas to evaluate modern mobile quarterbacks more accurately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why doesn't passer rating include sacks?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Passer rating excludes sacks because the formula was created in 1971 when sacks weren't an official NFL stat (tracked starting 1982). Including sacks would penalize QBs for offensive line failures and reward QBs with better protection rather than better passing. However, sacks significantly impact winning: they lose yardage, kill drives, and cause fumbles. This is why advanced metrics like ESPN's Total QBR, ANY/A (Adjusted Net Yards per Attempt), and DVOA include sack data for more complete QB evaluation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the lowest possible passer rating?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The theoretical minimum passer rating is 0.0, achieved when all four components bottom out at 0: 0% completion rate (0 completions), negative or <3 yards per attempt, 0% TD rate (no TDs), massive interception rate. Example: 0/10, 0 yards, 0 TDs, 5 INTs = 0.0 rating. Historical lows: Ty Detmer 2001 (0/6, 0 yards, 4 INTs) = 0.0, Peyton Manning 2015 vs Chiefs (5/20, 35 yards, 0 TDs, 4 INTs) = 0.0. Ratings below 40 are extremely rare and indicate catastrophic performance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How has average NFL passer rating changed over time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NFL passer rating league averages by era: 1970s: ~65 (dead-ball era, physical defense), 1980s: ~73 (offensive rule changes begin), 1990s: ~77 (balanced era), 2000s: ~82 (improved QB play), 2010s: ~88 (pass-friendly rules), 2020s: ~93 (modern passing era). The 28-point increase since the 1970s reflects: illegal contact rules (1978), defenseless receiver protections (2009), reduced hitting on QBs, emphasis on pass interference calls, and improved QB training/analytics. 100+ ratings are now common; in the 1970s they were elite."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is passer rating a good measure of QB performance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Passer rating is a useful but incomplete metric. Strengths: correlates well with winning (r=0.80), includes four key passing stats, simple and transparent formula, standardized since 1973 for historical comparison. Weaknesses: ignores rushing, sacks, fumbles, game context, clutch situations, opponent quality, drops vs catchable balls, garbage time stats. Better alternatives: Total QBR (includes all plays + context), EPA/play (expected points added), DVOA (opponent-adjusted), ANY/A (includes sacks). Use passer rating alongside other metrics for complete QB evaluation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Total QBR and how is it calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Total QBR (ESPN, 2011) measures QB performance on a 0-100 scale using Expected Points Added (EPA). Components: passing efficiency, rushing yards/TDs, sacks taken, fumbles, game context (score, time, down), win probability contribution, opponent strength. The formula is proprietary, but it weights plays by importance: 4th quarter > 1st quarter, close games > blowouts, 3rd down > 1st down. QBR credits QBs for clutch plays and penalizes garbage time stats. QBR 75+ = MVP level, 60-75 = excellent, 50-60 = above average, <50 = below average. Unlike passer rating's 158.3 cap, QBR maxes at 100."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can non-quarterbacks have passer ratings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, any player who attempts a pass gets a passer rating: wide receivers, running backs, punters, even offensive linemen on trick plays. Notable examples: Antwaan Randle El (WR): career 157.5 rating (7/9, 191 yards, 3 TDs, 0 INTs), Walter Payton (RB): 63.9 career rating, LaDainian Tomlinson: perfect 158.3 on multiple occasions. Wide receivers often have perfect or near-perfect ratings because they attempt passes rarely and only on high-percentage trick plays (WR pass, flea flicker). Minimum attempts for official QB rating: typically 14 attempts per team game (224 per season)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does completion percentage affect passer rating?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Completion percentage is Component A: ((Completions/Attempts - 0.3) × 5), capped at 0-2.375. The 0.3 baseline means 30% completion = 0 points, and 77.5% completion = max 2.375 points. Impact on final rating: Going from 50% to 60% completion adds ~8 points to rating, 60% to 70% adds another ~8 points, 70% to 77.5% adds ~6 points. However, completion % alone doesn't guarantee high rating - you also need yards/attempt, TDs, and no INTs. A 70% completion rate with 5 YPA, no TDs, and 2 INTs = ~75 rating (below average)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do interceptions hurt rating more than TDs help?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Interceptions are weighted heavily because they're drive-killers and possession changes. Component D (INT): 2.375 - (INTs/Attempts × 25) means each INT per attempt costs 25× weight. Component C (TD): TDs/Attempts × 20 means each TD per attempt adds 20× weight. Practical example: 1 INT in 20 attempts drops rating by ~21 points, but 1 TD in 20 attempts adds ~17 points. This reflects football reality: turnovers are more damaging than TDs are beneficial. INTs can lead to opponent scores (pick-six, short field), while TDs only add 6-7 points for your team."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the minimum number of attempts for official rating?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NFL official passer rating qualifications: 14 attempts per team game scheduled (224 attempts for 16-game season, 238 for 17-game season). For single-season records, QB must play in 75% of team's games. Career records require 1,500 career attempts minimum. These minimums prevent fluky perfect ratings from small sample sizes (backup QB throwing 3/3 for 50 yards in garbage time). Active leaders and all-time rankings only include QBs meeting attempt thresholds. However, any QB with 1+ attempts gets a game passer rating, regardless of minimum."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};

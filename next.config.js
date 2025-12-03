@@ -216,6 +216,16 @@ const nextConfig = {
         destination: '/sports-recreation/outdoor-activities/fishing-line-capacity-calculator/',
         permanent: true,
       },
+      {
+        source: '/calculator/quarterback-rating-calculator',
+        destination: '/sports-recreation/sports-performance/quarterback-rating-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/quarterback-rating-calculator/',
+        destination: '/sports-recreation/sports-performance/quarterback-rating-calculator/',
+        permanent: true,
+      },
     ];
   },
 
