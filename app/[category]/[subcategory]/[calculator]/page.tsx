@@ -4,7 +4,7 @@ import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug } fr
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
-import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema, generatePondVolumeSchema, generateDPSCalculatorSchema, generateBreastmilkStorageCalculatorSchema, generateRecipeConverterCalculatorSchema, generateSpayNeuterCalculatorSchema, generateBoardingCostCalculatorSchema, generateFishingLineCapacityCalculatorSchema, generateQuarterbackRatingCalculatorSchema, generatePriceComparisonCalculatorSchema } from '@/lib/schemas';
+import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema, generatePondVolumeSchema, generateDPSCalculatorSchema, generateBreastmilkStorageCalculatorSchema, generateRecipeConverterCalculatorSchema, generateSpayNeuterCalculatorSchema, generateBoardingCostCalculatorSchema, generateFishingLineCapacityCalculatorSchema, generateQuarterbackRatingCalculatorSchema, generatePriceComparisonCalculatorSchema, generateDaysOnMarketCalculatorSchema } from '@/lib/schemas';
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
@@ -105,6 +105,7 @@ import AdvancedBoardingCostCalculator from './calculators/AdvancedBoardingCostCa
 import AdvancedFishingLineCapacityCalculator from './calculators/AdvancedFishingLineCapacityCalculator';
 import AdvancedQuarterbackRatingCalculator from './calculators/AdvancedQuarterbackRatingCalculator';
 import AdvancedPriceComparisonCalculator from './calculators/AdvancedPriceComparisonCalculator';
+import AdvancedDaysOnMarketCalculator from './calculators/AdvancedDaysOnMarketCalculator';
 
 // This would ideally be generated from a CMS or database
 const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
@@ -130,6 +131,7 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'fishing-line-capacity-calculator': AdvancedFishingLineCapacityCalculator,
   'quarterback-rating-calculator': AdvancedQuarterbackRatingCalculator,
   'price-comparison-calculator': AdvancedPriceComparisonCalculator,
+  'days-on-market-calculator': AdvancedDaysOnMarketCalculator,
   // Add more calculators as we create them
   // etc.
 };
@@ -174,7 +176,8 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     'boarding-cost-calculator',
     'fishing-line-capacity-calculator',
     'quarterback-rating-calculator',
-    'price-comparison-calculator'
+    'price-comparison-calculator',
+    'days-on-market-calculator'
   ].includes(calculator.slug);
 
   // Generate schemas based on calculator type
@@ -219,6 +222,8 @@ export default function CalculatorPage({ params }: CalculatorPageProps) {
     combinedSchema = generateQuarterbackRatingCalculatorSchema(breadcrumbItems);
   } else if (calculator.slug === 'price-comparison-calculator') {
     combinedSchema = generatePriceComparisonCalculatorSchema(breadcrumbItems);
+  } else if (calculator.slug === 'days-on-market-calculator') {
+    combinedSchema = generateDaysOnMarketCalculatorSchema(breadcrumbItems);
   } else {
     // Use standard schemas for other calculators
     const softwareSchema = generateSoftwareSchema(

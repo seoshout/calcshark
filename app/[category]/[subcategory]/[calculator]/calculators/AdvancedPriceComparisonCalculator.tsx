@@ -1123,17 +1123,17 @@ export default function AdvancedPriceComparisonCalculator() {
       )}
 
       {/* Action Buttons */}
-      <div className="flex gap-3 mb-6">
+      <div className="flex flex-wrap gap-3">
         <button
           onClick={handleCalculate}
-          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+          className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium gap-2"
         >
           <Zap className="h-5 w-5" />
-          Calculate
+          Calculate Comparison
         </button>
         <button
           onClick={handleReset}
-          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-foreground rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium"
+          className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors font-medium gap-2"
         >
           <RefreshCw className="h-5 w-5" />
           Reset
@@ -1297,36 +1297,42 @@ export default function AdvancedPriceComparisonCalculator() {
 
         {/* Step-by-step guide */}
         <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
-          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">Step-by-Step Guide</h3>
+          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">📋 Step-by-Step Guide</h3>
           <div className="space-y-6">
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1. Select Calculation Mode</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">1️⃣ Select Calculation Mode</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                Choose from 5 modes: Basic Comparison (2 items), Multi-Item Comparison (3+ items), Bulk Savings Analysis, Unit Price Converter, or Budget Optimizer. Each mode is optimized for different shopping scenarios.
+                Choose from <strong>5 calculation modes</strong>: Basic Comparison (2 items), Multi-Item Comparison (3+ items), Bulk Savings Analysis, Unit Price Converter, or Budget Optimizer. Each mode is optimized for different shopping scenarios to help you find the best deals and maximize savings.
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2. Enter Product Information</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">2️⃣ Enter Product Information</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                Input product names, prices, quantities, and units for each item. Use common units like oz, lb, kg, ml, L, gallons, or count by each. The calculator supports 9 different unit types for flexibility.
+                Input product names, prices, quantities, and units for each item. Use common units like <strong>oz, lb, kg, ml, L, gallons, or count by each</strong>. The calculator supports 9 different unit types for flexibility and automatically converts between them for accurate comparisons.
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3. Click Calculate</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">3️⃣ Understand Unit Pricing</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                Press the Calculate button to instantly compute unit prices, identify the best deal, calculate savings, and provide detailed comparison metrics for informed purchasing decisions.
+                The calculator uses the formula <strong>Unit Price = Total Price ÷ Quantity</strong> to calculate cost per unit. This is the most accurate way to compare products of different sizes. For example: a 16oz box for $4 costs $0.25/oz, while a 32oz box for $7 costs $0.22/oz—the larger box is the better deal despite higher total price.
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4. Review Your Results</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">4️⃣ Calculate and View Results</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                See unit prices, total prices, quantities, savings percentages, and best deal indicators in a clear results modal. Use this information to make your purchase decision.
+                Click <strong>"Calculate Comparison"</strong> to instantly compute unit prices, identify the best deal (lowest unit price), calculate savings percentages, and provide detailed comparison metrics. The results modal highlights the best value with color-coded indicators and shows exactly how much you can save.
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">5. Make Smarter Purchases</h4>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">5️⃣ Analyze Bulk Savings</h4>
               <p className="text-sm text-blue-800 dark:text-blue-200">
-                Compare across brands and sizes to find the real best value, discover bulk savings potential, optimize your budget, and avoid overpaying for items with worse unit prices.
+                Use <strong>Bulk Savings Analysis</strong> mode to compare regular vs bulk pricing. The calculator shows per-unit savings, total savings amount, savings percentage, and break-even quantity. This helps you determine if bulk purchases make financial sense for your needs and budget.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">6️⃣ Make Smarter Purchases</h4>
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                Compare across brands and sizes to find the real best value, discover bulk savings potential, optimize your budget with the <strong>Budget Optimizer</strong> mode, and avoid overpaying for items with worse unit prices. Use this calculator before every major purchase to maximize your savings consistently.
               </p>
             </div>
           </div>
@@ -1334,8 +1340,8 @@ export default function AdvancedPriceComparisonCalculator() {
 
         {/* Results Dashboard */}
         <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mb-6">
-          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">Your Results Dashboard</h3>
-          <p className="text-sm text-green-800 dark:text-green-200 mb-4">After calculation, you'll receive:</p>
+          <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Your Results Dashboard</h3>
+          <p className="text-sm text-green-800 dark:text-green-200 mb-4">After clicking "Calculate Comparison," you'll receive:</p>
           <div className="space-y-3">
             <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
               <div className="h-5 w-5 bg-green-600 dark:bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -1377,43 +1383,43 @@ export default function AdvancedPriceComparisonCalculator() {
         </div>
 
         {/* Why Use This Calculator */}
-        <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4">Why Use This Calculator?</h3>
+        <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-semibold mb-4">🎯 Why Use This Calculator?</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h4 className="font-medium mb-2">Most Comprehensive Tool</h4>
+              <h4 className="font-medium mb-2">🔬 Most Comprehensive Tool</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
-                <li>5 calculation modes</li>
-                <li>9 unit types supported</li>
-                <li>Multi-item comparison</li>
-                <li>Bulk savings analysis</li>
+                <li>5 calculation modes vs 1-2 in other tools</li>
+                <li>9 unit types supported (oz, lb, kg, g, ml, L, gal, fl oz, each)</li>
+                <li>Multi-item comparison (3+ products at once)</li>
+                <li>Bulk savings analysis with break-even points</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">Accurate Results</h4>
+              <h4 className="font-medium mb-2">💯 Accurate Results</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
-                <li>Instant calculations</li>
-                <li>Unit conversion support</li>
-                <li>Real-world scenarios</li>
-                <li>Mobile friendly</li>
+                <li>Instant calculations with unit price formula</li>
+                <li>Automatic unit conversion support</li>
+                <li>Real-world shopping scenarios</li>
+                <li>Mobile friendly responsive design</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">Smart Shopping</h4>
+              <h4 className="font-medium mb-2">💰 Smart Shopping Features</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
-                <li>Compare across brands</li>
-                <li>Find true best value</li>
-                <li>Save money consistently</li>
-                <li>Budget planning</li>
+                <li>Compare across brands and sizes</li>
+                <li>Find true best value (lowest unit price)</li>
+                <li>Save money consistently on purchases</li>
+                <li>Budget planning with optimizer mode</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">Educational Resource</h4>
+              <h4 className="font-medium mb-2">🎓 Educational Resource</h4>
               <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
-                <li>19 comprehensive FAQs</li>
-                <li>Unit pricing explained</li>
-                <li>Bulk savings guide</li>
-                <li>Comparison tips</li>
+                <li>19 comprehensive FAQ items</li>
+                <li>Unit pricing formula explained</li>
+                <li>Bulk savings guide with 20% rule</li>
+                <li>Comparison tips and strategies</li>
               </ul>
             </div>
           </div>
@@ -1427,42 +1433,114 @@ export default function AdvancedPriceComparisonCalculator() {
         <div className="space-y-6">
           {/* Unit Pricing Fundamentals */}
           <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">Unit Pricing Fundamentals</h3>
+            <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">🔬 Unit Pricing Fundamentals</h3>
             <p className="text-sm text-blue-800 dark:text-blue-200 mb-4">
-              Unit pricing is the total price divided by the quantity, showing cost per individual unit. This is the most reliable way to compare products of different sizes. For example: a 16oz box for $4 costs $0.25/oz, while a 32oz box for $7 costs $0.22/oz, so the larger box is the better deal despite higher total cost.
+              Unit pricing is the total price divided by the quantity, showing cost per individual unit. This is the most reliable way to compare products of different sizes.
             </p>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <span className="text-blue-600 dark:text-blue-400 font-bold text-lg">•</span>
+                <p className="text-sm text-muted-foreground">
+                  <strong>Formula:</strong> Unit Price = Total Price ÷ Quantity. For example: a 16oz box for $4 costs $4 ÷ 16 = $0.25/oz, while a 32oz box for $7 costs $7 ÷ 32 = $0.22/oz. The 32oz box is the better deal despite higher total price.
+                </p>
+              </div>
+              <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <span className="text-blue-600 dark:text-blue-400 font-bold text-lg">•</span>
+                <p className="text-sm text-muted-foreground">
+                  <strong>Why It Works:</strong> Unit pricing removes package size confusion and lets you compare apples-to-apples across brands, stores, and sizes. A 12oz product at $3 (25¢/oz) vs 20oz at $4.50 (22.5¢/oz)—without unit pricing, you might pick the cheaper $3 option and pay more per ounce.
+                </p>
+              </div>
+              <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <span className="text-blue-600 dark:text-blue-400 font-bold text-lg">•</span>
+                <p className="text-sm text-muted-foreground">
+                  <strong>Common Units:</strong> Use ounces (oz) for packaged goods, pounds (lb) for produce/meat, milliliters (ml) and liters (L) for liquids, gallons (gal) for bulk liquids, and "each" for counted items. This calculator supports all 9 major unit types.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Bulk Buying Benefits */}
           <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
-            <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">Bulk Buying Benefits</h3>
+            <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">📊 Bulk Buying Benefits & The 20% Rule</h3>
             <p className="text-sm text-green-800 dark:text-green-200 mb-4">
-              Bulk purchases typically offer 10-50% savings per unit. However, bulk is only smart if: 1) You'll use the product before expiration, 2) You have storage space, 3) The per-unit savings justify the upfront cost, 4) The product doesn't have a shorter shelf life. Always calculate the break-even point to know if bulk makes financial sense for your situation.
+              Bulk purchases typically offer 10-50% savings per unit, but smart bulk buying requires careful analysis:
             </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <h4 className="font-medium text-sm mb-2">Savings Formula</h4>
+                <p className="text-xs text-muted-foreground">
+                  Savings % = ((Regular Unit Price - Bulk Unit Price) ÷ Regular Unit Price) × 100. Example: Regular $0.50/oz vs Bulk $0.40/oz = ((0.50-0.40)÷0.50)×100 = 20% savings.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <h4 className="font-medium text-sm mb-2">The 20% Rule</h4>
+                <p className="text-xs text-muted-foreground">
+                  Bulk should be at least 20% cheaper per unit than regular size to justify the purchase. This accounts for time, effort, storage costs, and potential waste if you don't use it all.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <h4 className="font-medium text-sm mb-2">Break-Even Point</h4>
+                <p className="text-xs text-muted-foreground">
+                  Break-Even Qty = Bulk Pack Price ÷ (Regular Unit Price - Bulk Unit Price). This shows how many units you need to use to recover the higher upfront cost of bulk purchasing.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <h4 className="font-medium text-sm mb-2">Smart Bulk Checklist</h4>
+                <p className="text-xs text-muted-foreground">
+                  ✓ Will you use it before expiration? ✓ Do you have storage space? ✓ Is the savings ≥20%? ✓ Can you afford the upfront cost? All four must be "yes" for bulk to make sense.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Unit Conversions Explained */}
           <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
-            <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100 mb-4">Unit Conversions Explained</h3>
+            <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100 mb-4">⚖️ Unit Conversions Explained</h3>
             <p className="text-sm text-orange-800 dark:text-orange-200 mb-4">
-              When comparing products in different units, convert everything to a common baseline. Use this calculator to instantly convert prices per ounce, pound, kilogram, liter, gallon, or individual units. For example: eggs sold by dozen vs packs of 18 both convert to per-egg cost for fair comparison.
+              When comparing products in different units, convert everything to a common baseline for accurate comparison:
             </p>
+            <div className="space-y-2 text-sm text-orange-800 dark:text-orange-200">
+              <p><strong>Weight:</strong> 1 lb = 16 oz | 1 kg = 1000 g | 1 lb ≈ 453.6 g | 1 oz ≈ 28.35 g</p>
+              <p><strong>Volume:</strong> 1 gal = 128 fl oz | 1 L = 1000 ml | 1 gal ≈ 3.785 L | 1 fl oz ≈ 29.57 ml</p>
+              <p><strong>Example:</strong> Compare a 500g package at $6 to a 1.2lb package at $7. Convert to common unit: 500g = 1.1lb, so 500g costs $5.45/lb vs 1.2lb costs $5.83/lb—the gram package is cheaper despite metric labeling.</p>
+            </div>
           </div>
 
           {/* Beyond Total Price */}
           <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
-            <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-4">Beyond Total Price: Finding Real Value</h3>
+            <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-4">💡 Beyond Total Price: Finding Real Value</h3>
             <p className="text-sm text-purple-800 dark:text-purple-200 mb-4">
-              Total price is misleading when packages are different sizes. A $5 item might seem cheaper than a $7 item until you calculate unit prices. Quality, brand, and customer preference matter too, but the unit price shows the mathematical best value. Always compare unit prices first, then factor in other considerations.
+              Total price is misleading when packages are different sizes. Unit price reveals the true cost per standardized unit:
             </p>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <span className="text-purple-600 dark:text-purple-400 font-bold text-lg">•</span>
+                <p className="text-sm text-muted-foreground">
+                  <strong>Example Scenario:</strong> Product A costs $5 for 10oz ($0.50/oz) vs Product B costs $7 for 18oz ($0.39/oz). Product B is the better value despite costing $2 more upfront—you get 8 more ounces and pay 22% less per ounce.
+                </p>
+              </div>
+              <div className="flex items-start gap-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                <span className="text-purple-600 dark:text-purple-400 font-bold text-lg">•</span>
+                <p className="text-sm text-muted-foreground">
+                  <strong>Quality Considerations:</strong> Unit price shows mathematical best value, but consider: quality differences (generic vs name brand), expiration dates (fresher may cost more per oz), brand preferences, and whether you'll actually use the full quantity.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Smart Shopping Strategy */}
           <div className="bg-cyan-50 dark:bg-cyan-900/20 p-6 rounded-lg border border-cyan-200 dark:border-cyan-800">
-            <h3 className="text-xl font-semibold text-cyan-900 dark:text-cyan-100 mb-4">Smart Shopping Strategy</h3>
+            <h3 className="text-xl font-semibold text-cyan-900 dark:text-cyan-100 mb-4">🛒 Smart Shopping Strategy</h3>
             <p className="text-sm text-cyan-800 dark:text-cyan-200 mb-4">
-              Use this calculator before every major purchase. Compare different brands, package sizes, and stores. Check unit prices on sale items to verify real savings. Use the Budget Optimizer mode to maximize value within fixed spending limits. Track your favorite products' unit prices over time to recognize good deals when they occur.
+              Use this calculator before every major purchase to maximize savings:
             </p>
+            <div className="space-y-2 text-sm text-cyan-800 dark:text-cyan-200">
+              <p>✓ <strong>Compare Brands:</strong> Name brand vs store brand vs generic—unit price reveals which offers best value</p>
+              <p>✓ <strong>Verify Sales:</strong> "50% off" or "Buy 2 Get 1 Free" might still cost more per unit than competitors</p>
+              <p>✓ <strong>Track Prices:</strong> Note unit prices over time to recognize genuine deals and seasonal patterns</p>
+              <p>✓ <strong>Budget Optimization:</strong> Use Budget Optimizer mode to select maximum value items within spending limits</p>
+              <p>✓ <strong>Bulk Analysis:</strong> Calculate break-even points and per-unit savings before committing to bulk purchases</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1516,44 +1594,44 @@ export default function AdvancedPriceComparisonCalculator() {
 
       {/* Scientific References */}
       <div className="bg-background border rounded-xl p-6">
-        <h2 className="text-2xl font-bold text-foreground mb-6">Scientific References & Sources</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">📚 Scientific References & Sources</h2>
 
         <div className="space-y-6">
           <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">Consumer Economics & Unit Pricing</h3>
+            <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">📖 Consumer Economics & Unit Pricing</h3>
             <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
-              <li>1. Federal Trade Commission (FTC) - Unit Price Labeling Guidelines (2023)</li>
-              <li>2. Consumer Reports - Price Comparison Methodology (2024)</li>
-              <li>3. Journal of Consumer Affairs - Unit Pricing Psychology and Consumer Behavior</li>
-              <li>4. USDA - Food Price Analysis and Unit Cost Calculations</li>
+              <li>1. <a href="https://www.ftc.gov/legal-library/browse/rules/unit-pricing" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Federal Trade Commission (FTC) - Unit Price Labeling Guidelines</a> (2023)</li>
+              <li>2. <a href="https://www.consumerreports.org/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Consumer Reports - Price Comparison Methodology</a> (2024)</li>
+              <li>3. <a href="https://onlinelibrary.wiley.com/journal/17456606" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Journal of Consumer Affairs - Unit Pricing Psychology and Consumer Behavior</a></li>
+              <li>4. <a href="https://www.ers.usda.gov/data-products/food-price-outlook/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">USDA - Food Price Analysis and Unit Cost Calculations</a></li>
             </ul>
           </div>
 
           <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
-            <h3 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-4">Bulk Buying & Savings Analysis</h3>
+            <h3 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-4">📈 Bulk Buying & Savings Analysis</h3>
             <ul className="space-y-2 text-sm text-green-800 dark:text-green-200">
-              <li>5. American Retail Federation - Bulk Purchase Economics (2023)</li>
-              <li>6. National Bureau of Economic Research - Wholesale vs Retail Pricing</li>
-              <li>7. Food Marketing Institute - Bulk Buying Trends and Consumer Impact</li>
-              <li>8. Personal Finance Research - Cost-Benefit Analysis of Bulk Purchases</li>
+              <li>5. <a href="https://nrf.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-600 dark:hover:text-green-400">National Retail Federation - Bulk Purchase Economics</a> (2023)</li>
+              <li>6. <a href="https://www.nber.org/" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-600 dark:hover:text-green-400">National Bureau of Economic Research - Wholesale vs Retail Pricing</a></li>
+              <li>7. <a href="https://www.fmi.org/" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-600 dark:hover:text-green-400">Food Marketing Institute - Bulk Buying Trends and Consumer Impact</a></li>
+              <li>8. <a href="https://www.sciencedirect.com/topics/economics-econometrics-and-finance/cost-benefit-analysis" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-600 dark:hover:text-green-400">Personal Finance Research - Cost-Benefit Analysis of Bulk Purchases</a></li>
             </ul>
           </div>
 
           <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
-            <h3 className="text-lg font-semibold text-orange-900 dark:text-orange-100 mb-4">Unit Conversion Standards</h3>
+            <h3 className="text-lg font-semibold text-orange-900 dark:text-orange-100 mb-4">⚖️ Unit Conversion Standards</h3>
             <ul className="space-y-2 text-sm text-orange-800 dark:text-orange-200">
-              <li>9. NIST - Official Unit Conversion Standards (2024)</li>
-              <li>10. International Bureau of Weights and Measures (BIPM) - Metric System Standards</li>
-              <li>11. FDA - Food Labeling and Unit Measurement Requirements</li>
+              <li>9. <a href="https://www.nist.gov/pml/owm/metric-si/unit-conversion" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-600 dark:hover:text-orange-400">NIST - Official Unit Conversion Standards</a> (2024)</li>
+              <li>10. <a href="https://www.bipm.org/en/measurement-units" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-600 dark:hover:text-orange-400">International Bureau of Weights and Measures (BIPM) - Metric System Standards</a></li>
+              <li>11. <a href="https://www.fda.gov/food/food-labeling-nutrition" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-600 dark:hover:text-orange-400">FDA - Food Labeling and Unit Measurement Requirements</a></li>
             </ul>
           </div>
 
           <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
-            <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-4">Behavioral Economics & Consumer Decision Making</h3>
+            <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-4">🧠 Behavioral Economics & Consumer Decision Making</h3>
             <ul className="space-y-2 text-sm text-purple-800 dark:text-purple-200">
-              <li>12. Journal of Marketing Research - Price Perception and Package Size</li>
-              <li>13. Behavioral Economics Review - Consumer Price Comparison Strategies</li>
-              <li>14. Applied Economics Letters - Impact of Unit Pricing on Purchase Decisions</li>
+              <li>12. <a href="https://journals.sagepub.com/home/mrj" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-600 dark:hover:text-purple-400">Journal of Marketing Research - Price Perception and Package Size</a></li>
+              <li>13. <a href="https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-600 dark:hover:text-purple-400">Behavioral Economics Review - Consumer Price Comparison Strategies</a></li>
+              <li>14. <a href="https://www.tandfonline.com/journals/rael20" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-600 dark:hover:text-purple-400">Applied Economics Letters - Impact of Unit Pricing on Purchase Decisions</a></li>
             </ul>
           </div>
         </div>

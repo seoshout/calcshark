@@ -192,7 +192,8 @@ function componentNameToSlug(componentName: string): string {
     'AdvancedBoardingCostCalculator': 'boarding-cost-calculator',
     'AdvancedFishingLineCapacityCalculator': 'fishing-line-capacity-calculator',
     'AdvancedQuarterbackRatingCalculator': 'quarterback-rating-calculator',
-    'AdvancedPriceComparisonCalculator': 'price-comparison-calculator'
+    'AdvancedPriceComparisonCalculator': 'price-comparison-calculator',
+    'AdvancedDaysOnMarketCalculator': 'days-on-market-calculator'
   };
 
   if (knownMappings[componentName]) {

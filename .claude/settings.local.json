@@ -97,7 +97,11 @@
       "Bash(python -c:*)",
       "Bash(timeout 15 bash:*)",
       "Bash(rm:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(timeout 15 curl:*)",
+      "Bash(mv:*)",
+      "Bash(taskkill:*)",
+      "Bash(timeout 20 curl:*)"
     ],
     "deny": [],
     "ask": []

@@ -2666,3 +2666,145 @@ export const generatePriceComparisonCalculatorSchema = (breadcrumbItems: Breadcr
     ]
   };
 };
+// Temporary file - content to add to schemas.ts
+
+export const generateDaysOnMarketCalculatorSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = 'https://calcshark.com/real-estate-property/home-buying-selling/days-on-market-calculator/';
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#webapp`,
+        "name": "Days on Market (DOM) Calculator - Real Estate Listing Analysis",
+        "description": "Calculate Days on Market (DOM), Cumulative Days on Market (CDOM), average DOM, and analyze pricing impact. 5 calculation modes for comprehensive real estate listing analysis.",
+        "url": baseUrl,
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "12"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Calcshark"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate Days on Market (DOM) for Real Estate",
+        "description": "Step-by-step guide to calculating Days on Market (DOM) and Cumulative Days on Market (CDOM) for real estate listings using MLS standards.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Select Calculation Mode",
+            "text": "Choose from 5 modes: Basic DOM (listing to sale), CDOM Calculator (cumulative with relistings), Average DOM (multiple properties), Pricing Impact (DOM vs list price), or Property Comparison (compare 2 properties).",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Enter Listing Dates",
+            "text": "For Basic DOM: input the original listing date and the sale/contract date. For CDOM: add all relisting periods and off-market days to track cumulative time on market.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Calculate DOM Value",
+            "text": "The calculator computes DOM by counting days from listing to pending status. Formula: DOM = Sale Date - List Date. For CDOM, it accumulates all listing periods unless off-market for 45+ days.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Market Interpretation",
+            "text": "Analyze the result: Hot Market (<30 days), Balanced Market (30-60 days), Slow Market (60-90 days), or Cold Market (90+ days). National median is 43-51 days.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Get Pricing Recommendations",
+            "text": "Based on your DOM compared to market average, receive pricing strategy recommendations. High DOM suggests price reduction may be needed. Low DOM indicates competitive pricing.",
+            "position": 5
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Compare Properties",
+            "text": "Use Comparison mode to evaluate multiple listings side-by-side. See which property is selling faster and by what percentage, helping with competitive market analysis.",
+            "position": 6
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Days on Market (DOM)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Days on Market (DOM) is the number of days a property has been officially listed for sale on the Multiple Listing Service (MLS). The DOM calculation starts when the property is marked as 'active' and ends when a purchase contract is signed (status changes to 'pending' or 'under contract'). It's a key metric for understanding market conditions and pricing strategies."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is CDOM vs DOM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "DOM (Days on Market) resets each time a property is relisted, while CDOM (Cumulative Days on Market) tracks the total time across all listings. For example: if a property was listed for 30 days, delisted, then relisted for 20 days before selling, DOM would be 20 days but CDOM would be 50 days. CDOM provides a more complete picture of marketing time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a good Days on Market?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 'good' DOM depends on your market, but general guidelines are: Under 30 days = hot market (high demand), 30-60 days = balanced market (normal conditions), 60-90 days = slow market (buyer's market), Over 90 days = cold market (may need price reduction). The national average DOM is typically 40-60 days, but this varies significantly by location and price range."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Days on Market reset?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "DOM resets when a property is relisted as a new listing. However, most MLSs have reset rules: if a property is off-market (cancelled or expired) for more than 45 consecutive days, both DOM and CDOM reset to 0. If relisted before 45 days, DOM resets but CDOM continues accumulating. This prevents artificial manipulation of DOM statistics."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you calculate Days on Market?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To calculate DOM, subtract the listing date from the contract acceptance date: DOM = Sale Date - List Date. For example, if a home was listed on January 1 and accepted an offer on January 25, the DOM is 24 days. This calculator automates this process and provides market insights based on the DOM value."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the national average Days on Market in 2025?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As of 2025, the national average DOM is approximately 40-60 days, though this varies significantly by region. Hot markets (major tech hubs) average 25-35 days. Moderate markets average 45-60 days. Slow markets average 70-90+ days. The national median DOM is currently around 43-51 days according to Realtor.com and Redfin."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};

@@ -236,6 +236,16 @@ const nextConfig = {
         destination: '/lifestyle-daily-life/shopping-savings/price-comparison-calculator/',
         permanent: true,
       },
+      {
+        source: '/calculator/days-on-market-calculator',
+        destination: '/real-estate-property/home-buying-selling/days-on-market-calculator/',
+        permanent: true,
+      },
+      {
+        source: '/calculator/days-on-market-calculator/',
+        destination: '/real-estate-property/home-buying-selling/days-on-market-calculator/',
+        permanent: true,
+      },
     ];
   },
 
