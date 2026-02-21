@@ -12,6 +12,7 @@ export interface FAQItem {
 
 interface FAQAccordionProps {
   title?: string;
+  showTitle?: boolean;
   faqs: FAQItem[];
   className?: string;
   defaultOpen?: boolean;
@@ -19,18 +20,21 @@ interface FAQAccordionProps {
 
 export default function FAQAccordion({ 
   title = "Frequently Asked Questions", 
+  showTitle = true,
   faqs, 
   className = "",
   defaultOpen = false
 }: FAQAccordionProps) {
-  // Safety check for faqs
-  if (!faqs || !Array.isArray(faqs) || faqs.length === 0) {
-    return null;
-  }
+  const safeFaqs = Array.isArray(faqs) ? faqs : [];
 
   const [openItems, setOpenItems] = useState<Set<number>>(
-    defaultOpen ? new Set(Array.from({ length: faqs.length }, (_, i) => i)) : new Set()
+    defaultOpen ? new Set(Array.from({ length: safeFaqs.length }, (_, i) => i)) : new Set()
   );
+
+  // Safety check for faqs
+  if (safeFaqs.length === 0) {
+    return null;
+  }
 
   const toggleItem = (index: number) => {
     const newOpenItems = new Set(openItems);
@@ -44,13 +48,15 @@ export default function FAQAccordion({
 
   return (
     <div className={cn("bg-background border rounded-xl p-8", className)}>
-      <div className="flex items-center gap-3 mb-6">
-        <HelpCircle className="h-6 w-6 text-primary" />
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
-      </div>
+      {showTitle && (
+        <div className="flex items-center gap-3 mb-6">
+          <HelpCircle className="h-6 w-6 text-primary" />
+          <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        </div>
+      )}
 
       <div className="space-y-4">
-        {faqs.map((faq, index) => {
+        {safeFaqs.map((faq, index) => {
           const isOpen = openItems.has(index);
           return (
             <div key={index} className="border border-border rounded-lg overflow-hidden">
@@ -94,7 +100,7 @@ export default function FAQAccordion({
         })}
       </div>
 
-      {faqs.length > 0 && (
+      {safeFaqs.length > 0 && (
         <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
           <p className="text-sm text-blue-800 dark:text-blue-200">
             <strong>Still have questions?</strong> Our calculators are designed to be accurate and easy to use. 

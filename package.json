@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint . --quiet",
+    "lint:full": "ESLINT_USE_FLAT_CONFIG=true eslint .",
     "security:audit": "npm audit --audit-level=moderate",
     "security:hsts": "node scripts/verify-hsts.js",
     "security:headers": "node scripts/verify-hsts.js && echo 'Run: curl -I https://calcshark.com' to check all headers",
@@ -37,7 +38,7 @@
     "framer-motion": "^11.3.24",
     "lucide-react": "^0.427.0",
     "mathjs": "^13.0.3",
-    "next": "^14.2.32",
+    "next": "^16.1.6",
     "postcss": "^8.4.41",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -52,6 +53,6 @@
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.5"
+    "eslint-config-next": "^16.1.6"
   }
 }

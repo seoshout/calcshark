@@ -8,14 +8,15 @@ import { generateSoftwareSchema, generateBreadcrumbSchema } from '@/lib/schemas'
 import { calculatorSEO } from '@/lib/seo';
 
 interface CalculatorPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate metadata dynamically based on calculator
 export async function generateMetadata({ params }: CalculatorPageProps): Promise<Metadata> {
-  const calculator = getCalculatorBySlug(params.slug);
+  const { slug: routeSlug } = await params;
+  const calculator = getCalculatorBySlug(routeSlug);
   
   if (!calculator) {
     return {
@@ -96,8 +97,9 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   // etc.
 };
 
-export default function CalculatorPage({ params }: CalculatorPageProps) {
-  const calculator = getCalculatorBySlug(params.slug);
+export default async function CalculatorPage({ params }: CalculatorPageProps) {
+  const { slug } = await params;
+  const calculator = getCalculatorBySlug(slug);
   
   if (!calculator) {
     notFound();

@@ -7,15 +7,16 @@ import { Calculator, Star, TrendingUp, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SubcategoryPageProps {
-  params: {
+  params: Promise<{
     category: string;
     subcategory: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: SubcategoryPageProps): Promise<Metadata> {
-  const category = getCategoryBySlug(params.category);
-  const subcategory = getSubcategoryBySlug(params.category, params.subcategory);
+  const { category: categorySlug, subcategory: subcategorySlug } = await params;
+  const category = getCategoryBySlug(categorySlug);
+  const subcategory = getSubcategoryBySlug(categorySlug, subcategorySlug);
   
   if (!category || !subcategory) {
     return {
@@ -42,9 +43,10 @@ export async function generateMetadata({ params }: SubcategoryPageProps): Promis
   };
 }
 
-export default function SubcategoryPage({ params }: SubcategoryPageProps) {
-  const category = getCategoryBySlug(params.category);
-  const subcategory = getSubcategoryBySlug(params.category, params.subcategory);
+export default async function SubcategoryPage({ params }: SubcategoryPageProps) {
+  const { category: categorySlug, subcategory: subcategorySlug } = await params;
+  const category = getCategoryBySlug(categorySlug);
+  const subcategory = getSubcategoryBySlug(categorySlug, subcategorySlug);
   
   if (!category || !subcategory) {
     notFound();

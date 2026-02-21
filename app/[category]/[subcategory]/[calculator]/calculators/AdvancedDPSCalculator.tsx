@@ -859,7 +859,7 @@ export default function AdvancedDPSCalculator() {
       {/* FAQ Section */}
       <div className="bg-background border rounded-xl p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
-        <FAQAccordion faqs={faqs} />
+        <FAQAccordion faqs={faqs} showTitle={false} />
       </div>
 
       {/* Review Section */}

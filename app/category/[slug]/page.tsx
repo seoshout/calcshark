@@ -28,14 +28,15 @@ const iconMap: { [key: string]: any } = {
 };
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: CategoryPageProps) {
-  const category = getCategoryBySlug(params.slug);
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
   
   if (!category) {
     return {
@@ -153,8 +154,9 @@ const getSubcategoryIcon = (subcategorySlug: string) => {
   return iconMap[subcategorySlug] || iconMap['default'];
 };
 
-export default function CategoryPage({ params }: CategoryPageProps) {
-  const category = getCategoryBySlug(params.slug);
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
 
   if (!category) {
     notFound();
@@ -484,4 +486,3 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     </div>
   );
 }
-

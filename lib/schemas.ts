@@ -2808,3 +2808,2099 @@ export const generateDaysOnMarketCalculatorSchema = (breadcrumbItems: Breadcrumb
     ]
   };
 };
+
+// Carbon Footprint Calculator Comprehensive Schema
+export const generateCarbonFootprintSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/environmental-sustainability/carbon-waste/carbon-footprint-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Carbon Footprint Calculator - Advanced Household Emissions Tool",
+        "url": baseUrl,
+        "description": "Free advanced carbon footprint calculator for households. Analyze energy, transportation, flights, food, consumption, and waste with reduction scenarios and per-person benchmarking.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "13",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Household and per-person carbon footprint analysis",
+          "Category breakdown for energy, transport, flights, food, consumption, and waste",
+          "Reduction scenarios ranked by annual tons saved",
+          "Uncertainty range for planning use",
+          "U.S. baseline and climate target comparisons"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Use the Carbon Footprint Calculator",
+        "description": "Step-by-step guide to estimate annual household and per-person carbon emissions and prioritize high-impact reduction actions.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Home Energy Inputs",
+            "text": "Add annual electricity and fuel usage values using utility statements or yearly account summaries.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Enter Transportation and Flight Inputs",
+            "text": "Provide vehicle miles, MPG, public transit miles, and annual short and long flight counts.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Lifestyle and Household Inputs",
+            "text": "Set diet profile, monthly shopping spend, weekly waste, recycling rate, and household size.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Calculate and Review Detailed Results",
+            "text": "Open the results popup to review total footprint, per-person benchmark, category breakdown, and top reduction scenarios.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Use Recommendations to Plan Reductions",
+            "text": "Start with the highest-tons reduction scenarios and recalculate after implementation periods.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why do different carbon footprint calculators give different results?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Different calculators use different system boundaries, emission factors, and assumptions. Some include only direct household emissions while others include food, consumption, and indirect categories."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this calculator designed for U.S. users?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Inputs and baseline assumptions are structured for U.S.-style household energy and transportation behavior patterns."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I track total household emissions or per-person emissions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Track both. Household totals are useful for operational planning, while per-person values improve comparability across household sizes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are transportation emissions estimated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Transportation emissions are estimated from annual miles, vehicle type, and MPG for personal driving, plus a separate factor for transit mileage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does the uncertainty range represent?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The uncertainty range is a planning band that reflects model and input variability. It is not a formal statistical confidence interval."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this calculator be used for compliance reporting?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. This tool supports planning and education. Compliance reporting requires formal boundaries, auditable data, and approved reporting methodologies."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// Commute Cost Calculator Comprehensive Schema
+export const generateCommuteCostSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/commute-cost-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Commute Cost Calculator - Advanced Drive vs Transit Cost Tool",
+        "url": baseUrl,
+        "description": "Free advanced commute cost calculator for U.S. users. Estimate annual commuting cost with fuel, maintenance, depreciation, parking, tolls, insurance allocation, and optional time value.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "11",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Annual and monthly commute cost estimation",
+          "Cost-per-mile and cost-per-trip analysis",
+          "Drive vs transit comparison",
+          "Remote-work savings projection",
+          "Scenario planning by highest annual savings"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate Your Commute Cost",
+        "description": "Step-by-step guide to estimate full commuting cost and evaluate savings scenarios.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Distance and Commute Frequency",
+            "text": "Input one-way distance, commute days per week, and commute weeks per year to model annual trip volume.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Enter Driving Cost Inputs",
+            "text": "Add MPG, fuel price, parking, tolls, maintenance per mile, depreciation per mile, and insurance assumptions.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Transit and Schedule Inputs",
+            "text": "Input transit fare assumptions and remote-work days to model mode-switch and hybrid schedule savings.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Calculate and Review Detailed Results",
+            "text": "Review annual cost, monthly cost, cost per mile, cost breakdown, and highest-impact savings scenarios.",
+            "position": 4
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What costs are included in commute cost calculations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This calculator includes fuel, maintenance, depreciation, parking, tolls, insurance allocation, and optionally the value of commute time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is fuel-only commute math misleading?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fuel-only models miss major categories like depreciation and maintenance, which often represent a large portion of annual commuting cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does remote work affect commute cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Remote work reduces commute-day volume, cutting variable costs such as fuel, parking, tolls, and potentially time burden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can transit be cheaper than driving?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Transit can be cheaper depending on fare structure, parking/toll burden, and driving distance. This calculator compares both using your own assumptions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I include the value of commute time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Including time value is useful for strategic decisions and often changes which commute option has the lowest total cost."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// Cost Per Mile Calculator Comprehensive Schema
+export const generateCostPerMileSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/cost-per-mile-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Cost Per Mile Calculator - Advanced Vehicle Operating Cost Tool",
+        "url": baseUrl,
+        "description": "Free advanced cost per mile calculator for U.S. users. Model fuel, maintenance, depreciation, insurance, financing, fees, and optional time-value costs.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "12",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "All-in vehicle cost-per-mile analysis",
+          "Variable and fixed-cost category modeling",
+          "Transit-alternative annual comparison",
+          "Scenario planning ranked by annual savings",
+          "Optional time-value cost inclusion"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate Vehicle Cost Per Mile",
+        "description": "Step-by-step guide to estimate full vehicle operating cost per mile and prioritize savings actions.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Annual Mileage",
+            "text": "Use realistic annual miles to establish the per-mile denominator.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Fuel and MPG Inputs",
+            "text": "Input local fuel price and realistic vehicle MPG assumptions.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Variable Per-Mile Costs",
+            "text": "Enter maintenance, depreciation, and tire costs per mile.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Fixed Monthly Costs",
+            "text": "Include insurance, financing, parking, tolls, and other recurring monthly fees.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Calculate and Review Breakdown",
+            "text": "Review annual cost, cost per mile, largest cost drivers, and scenario-based savings opportunities.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is included in cost per mile calculations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This calculator includes fuel, maintenance, depreciation, tire costs, insurance, financing, parking, tolls, recurring monthly costs, and optional time-value burden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is fuel-only cost per mile inaccurate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fuel-only models exclude major categories such as depreciation, insurance, and financing, which can materially impact total operating cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should depreciation be included?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Depreciation is often one of the largest vehicle cost components and can exceed fuel cost in newer vehicles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this calculator be used for business mileage planning?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, for budgeting and planning. Official tax reporting should still use IRS guidance and proper documentation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should cost-per-mile assumptions be updated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quarterly updates are recommended due to price volatility and changing vehicle usage patterns."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// Diesel vs Gas Calculator Comprehensive Schema
+export const generateDieselVsGasSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/diesel-vs-gas-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Diesel vs Gas Calculator - Advanced Ownership Cost Comparison Tool",
+        "url": baseUrl,
+        "description": "Free advanced diesel vs gas calculator for U.S. users. Compare annual ownership costs with fuel, maintenance, depreciation, insurance, repair reserve, and break-even analysis.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "9",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Diesel vs gas annual ownership-cost comparison",
+          "Powertrain-specific category breakdown",
+          "Break-even mileage and years estimation",
+          "Upfront premium and resale recovery modeling",
+          "Scenario stress testing for fuel and maintenance assumptions"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Compare Diesel vs Gas Ownership Cost",
+        "description": "Step-by-step method to evaluate diesel vs gas using all-in annual ownership economics.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Mileage and Ownership Horizon",
+            "text": "Start with realistic annual miles and expected ownership years.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Fuel Prices and MPG Assumptions",
+            "text": "Enter local diesel and gas prices plus realistic MPG values for each powertrain.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Maintenance and Depreciation Inputs",
+            "text": "Input maintenance and depreciation per mile for diesel and gas vehicles.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Fixed Costs and Premium Inputs",
+            "text": "Include insurance, repair reserve, diesel extras, and upfront premium assumptions.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Calculate and Review Break-Even Results",
+            "text": "Review annual deltas, cost-per-mile, break-even thresholds, and scenario stress cases.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When does diesel usually become cheaper than gas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Diesel usually becomes more favorable when annual mileage is high, MPG advantage is sustained, and the diesel premium can be recovered within the ownership period."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is fuel-only comparison not enough?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fuel-only comparisons ignore maintenance, depreciation, insurance, and purchase-premium effects that can materially change total ownership economics."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is break-even mileage estimated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Break-even mileage is estimated by comparing per-mile variable-cost advantage against annual fixed-cost differences between diesel and gas vehicles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should diesel-specific extras be included?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Diesel-specific consumables and service assumptions should be included for realistic annual ownership totals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should assumptions be updated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quarterly updates are recommended, and assumptions should be refreshed before final purchase decisions."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// E85 vs Regular Calculator Comprehensive Schema
+export const generateE85VsRegularSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/e85-vs-regular-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "E85 vs Regular Calculator - Advanced Flex-Fuel Cost Comparison Tool",
+        "url": baseUrl,
+        "description": "Free advanced E85 vs regular calculator for U.S. flex-fuel vehicle users. Compare cost-per-mile, net annual savings, station-overhead impact, and break-even discount thresholds.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "8",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "E85 vs regular cost-per-mile analysis",
+          "Net annual savings after station-overhead adjustments",
+          "Break-even E85 price and discount threshold estimation",
+          "Range and fill-up frequency comparison",
+          "Scenario testing for price spread and seasonal MPG shifts"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Compare E85 vs Regular Fuel Cost",
+        "description": "Step-by-step workflow to evaluate E85 economics using MPG loss, price spread, and convenience overhead.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Annual Miles and Baseline MPG",
+            "text": "Input annual mileage and regular-gas MPG as your baseline efficiency reference.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Local E85 and Regular Fuel Prices",
+            "text": "Use current local prices to calculate realistic cost-per-mile for each fuel option.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Set Expected MPG Loss on E85",
+            "text": "Enter expected E85 MPG reduction to account for lower energy content per gallon.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Station Overhead Inputs",
+            "text": "Include extra detour miles, fill-time, and optional time-value to capture real-world fueling friction.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Break-Even Threshold and Scenarios",
+            "text": "Compare required discount threshold, net annual savings, and scenario outcomes before choosing a fueling strategy.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much cheaper must E85 be to break even?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A practical starting rule is that E85 discount should roughly match MPG loss percentage, then be adjusted for station detour and time overhead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is MPG usually lower on E85?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "E85 has lower energy content per gallon than regular gasoline, so flex-fuel vehicles typically use more volume per mile."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I compare MPG or cost per mile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cost per mile is the more reliable decision metric because it combines both fuel price and efficiency in one value."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can all gasoline vehicles use E85?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. E85 should only be used in vehicles designed for high-ethanol fuel, typically labeled as flex-fuel vehicles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why include station detour and time assumptions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Detour mileage and extra fueling time can materially reduce fuel-price savings, especially when E85 stations are not on-route."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// Electric Vehicle Savings Calculator Comprehensive Schema
+export const generateElectricVehicleSavingsSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/electric-vehicle-savings-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Electric Vehicle Savings Calculator - Advanced EV vs Gas Cost Tool",
+        "url": baseUrl,
+        "description": "Free advanced EV savings calculator for U.S. drivers. Compare EV vs gas operating costs, charging mix sensitivity, break-even timeline, and ownership-period economics.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "9",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "EV vs gas annual operating-cost comparison",
+          "Charging mix and charging-loss modeling",
+          "Public charging overhead and time-cost analysis",
+          "Break-even years and miles estimation",
+          "Ownership-period net savings and scenario stress tests"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Estimate EV Savings vs Gas",
+        "description": "Step-by-step method to calculate electric-vehicle savings under realistic charging and ownership assumptions.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Annual Miles and Gas Baseline",
+            "text": "Use expected yearly mileage, gas price, and baseline gas-vehicle MPG.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add EV Efficiency and Charging Rates",
+            "text": "Input EV miles-per-kWh plus home and public charging electricity rates.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Set Charging Mix and Charging Loss",
+            "text": "Define home/public charging share and optional charging-loss percentage.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Maintenance, Insurance, and Purchase Inputs",
+            "text": "Include annual maintenance/insurance assumptions and upfront vehicle-price and incentive values.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Net Savings and Break-Even Results",
+            "text": "Evaluate annual savings, ownership-period outcomes, break-even timeline, and scenario sensitivity.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much can EVs save compared to gas vehicles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Savings depend on mileage, local energy prices, charging mix, maintenance differences, insurance, and upfront purchase economics."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does home vs public charging mix matter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Home charging is often materially cheaper than public fast charging, so charging mix can significantly change annual EV savings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is EV break-even timeline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Break-even timeline is the estimated time needed for annual EV operating savings to recover net upfront EV premium after incentives."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should charging losses be included?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Including charging losses usually improves real-world planning accuracy because delivered energy per mile is higher than ideal assumptions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should EV savings assumptions be updated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quarterly updates are recommended, and assumptions should be refreshed after major electricity, fuel, insurance, or usage changes."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// Fuel Cost Calculator Comprehensive Schema
+export const generateFuelCostSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/fuel-cost-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Fuel Cost Calculator - Advanced Trip and Annual Fuel Budget Tool",
+        "url": baseUrl,
+        "description": "Free advanced fuel cost calculator for U.S. drivers. Estimate trip and annual fuel spending with effective MPG, city/highway mix, idle fuel use, fixed road costs, and multi-year budget projections.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "8",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Trip and annual fuel-cost estimation",
+          "City/highway weighted MPG modeling",
+          "Idle fuel waste estimation",
+          "Tolls and parking cost layering",
+          "Fuel-price sensitivity scenarios",
+          "Multi-year fuel budget projection"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Calculate Fuel Cost for Trips and Annual Budgets",
+        "description": "Step-by-step guide for estimating trip fuel cost, annual fuel burden, and scenario-based budget sensitivity.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Distance and Annual Mileage",
+            "text": "Input one-way trip distance and annual mileage baseline for both short-term and annual planning.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Fuel Price and MPG Inputs",
+            "text": "Use current local fuel price and realistic vehicle MPG assumptions.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Configure Driving Mix and Idle Use",
+            "text": "Set city/highway split and idle fuel assumptions to model real-world operating conditions.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Include Fixed Road Costs",
+            "text": "Add recurring toll and parking costs for complete travel-cost planning.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Scenario and Projection Results",
+            "text": "Analyze annual totals, cost-per-mile, stress scenarios, and multi-year projections before setting budgets.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate fuel cost for a trip?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trip fuel cost is estimated by dividing trip miles by effective MPG and multiplying by local fuel price per gallon."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why use effective MPG instead of sticker MPG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Effective MPG reflects actual route mix and driving conditions, so it is usually more accurate for budgeting than label MPG."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should idle fuel use be included in annual planning?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Idle fuel use can materially increase annual spend, especially for urban, delivery, or frequent stop-and-go usage patterns."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do tolls and parking belong in fuel budgeting?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For full travel-cost planning, include tolls and parking because they can be significant recurring costs alongside fuel."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should fuel-cost assumptions be updated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Monthly updates are best during volatile fuel markets, with quarterly updates as a minimum planning cadence."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// Fuel Economy Comparison Calculator Comprehensive Schema
+export const generateFuelEconomyComparisonSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/fuel-economy-comparison-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Fuel Economy Comparison Calculator - Vehicle A vs Vehicle B Cost Tool",
+        "url": baseUrl,
+        "description": "Free advanced fuel economy comparison calculator for U.S. drivers. Compare Vehicle A vs Vehicle B using MPG, fuel price, annual miles, operating costs, and payback timeline.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "8",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Vehicle A vs Vehicle B annual operating-cost comparison",
+          "Weighted city/highway MPG modeling",
+          "Idle fuel-use and recurring-cost adjustments",
+          "Break-even and payback estimation",
+          "Scenario stress testing and multi-year projections"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Compare Fuel Economy Between Two Vehicles",
+        "description": "Step-by-step method for comparing two vehicles using total operating economics.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Set Annual Mileage and Driving Mix",
+            "text": "Enter annual miles and city/highway driving split to model realistic usage.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Input Fuel Price and MPG for Both Vehicles",
+            "text": "Add local fuel prices and MPG assumptions for Vehicle A and Vehicle B.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add Non-Fuel Annual Costs",
+            "text": "Include maintenance, insurance, registration, and optional idle-fuel cost assumptions.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Set Projection Assumptions",
+            "text": "Add fuel-price growth, mileage trend, and planning horizon for multi-year analysis.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Savings and Break-even Results",
+            "text": "Compare annual cost totals, savings, payback, and scenario outputs before making decisions.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Should I compare MPG or total annual cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Total annual cost is the better decision metric because MPG alone excludes insurance, maintenance, and other recurring expenses."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does annual mileage matter so much?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Higher annual mileage magnifies per-mile fuel differences, which can materially change annual savings and payback timing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should weighted city/highway MPG be used?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use weighted MPG whenever your driving profile is known, since it better represents real-world efficiency than generic combined MPG."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is break-even in this comparison?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Break-even is the estimated time needed for Vehicle B operating savings to recover any upfront purchase-price premium over Vehicle A."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should assumptions be refreshed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quarterly updates are recommended, with more frequent updates during high fuel-price volatility or major usage changes."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+// Fuel Tank Range Calculator Comprehensive Schema
+export const generateFuelTankRangeSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  const baseUrl = "https://calcshark.com/automotive-transportation/fuel-efficiency/fuel-tank-range-calculator";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": "Fuel Tank Range Calculator - Advanced Range and Refuel Planning Tool",
+        "url": baseUrl,
+        "description": "Free advanced fuel tank range calculator for U.S. drivers. Estimate practical range using fuel level, reserve strategy, weighted MPG, route conditions, and safety buffers.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "8",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "featureList": [
+          "Usable-fuel and reserve-based range calculation",
+          "Weighted city/highway MPG support",
+          "Terrain, weather, and load penalty adjustments",
+          "Safety-buffer and refuel-threshold planning",
+          "Annual fuel budgeting and projection scenarios"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": "How to Estimate Practical Fuel Tank Range",
+        "description": "Step-by-step method for calculating realistic tank range and conservative refuel distance.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Tank and Fuel-Level Inputs",
+            "text": "Input tank capacity, current fuel level, and reserve percentage.",
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add MPG and Driving Mix",
+            "text": "Use combined MPG or weighted city/highway MPG assumptions based on your route profile.",
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Configure Real-World Penalties",
+            "text": "Set terrain, weather, payload, tire, and optional idle-fuel assumptions.",
+            "position": 3
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Set Safety Buffer and Cost Inputs",
+            "text": "Apply a planning safety buffer and fuel-price context for practical route and budget decisions.",
+            "position": 4
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Conservative Range and Scenarios",
+            "text": "Use popup results, scenario outputs, and projection rows to define reliable refuel strategy.",
+            "position": 5
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is practical tank range different from theoretical range?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Practical range uses reserve fuel and safety margins, while theoretical range often assumes full usable fuel and ideal conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why include reserve fuel in planning?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Reserve fuel helps reduce low-fuel risk and improves reliability when station access or traffic conditions are uncertain."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do weather and terrain meaningfully affect range?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Hilly terrain, extreme temperatures, and HVAC load can materially reduce real-world MPG and tank range."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is conservative range important for trip planning?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Conservative range includes margin for uncertainty, helping drivers avoid late refuel decisions and route risk."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should I recalibrate range assumptions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Recalibrate quarterly and before long trips, seasonal changes, or major shifts in driving pattern and vehicle condition."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+const generateGenericFuelCalculatorSchema = (
+  breadcrumbItems: BreadcrumbItem[],
+  baseUrl: string,
+  name: string,
+  description: string,
+  howToName: string,
+  howToSteps: string[],
+  faqPairs: Array<{ q: string; a: string }>
+) => {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": name,
+        "url": baseUrl,
+        "description": description,
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "8",
+          "bestRating": "5",
+          "worstRating": "3"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": howToName,
+        "description": description,
+        "step": howToSteps.map((step, index) => ({
+          "@type": "HowToStep",
+          "name": `Step ${index + 1}`,
+          "text": step,
+          "position": index + 1
+        }))
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": faqPairs.map((pair) => ({
+          "@type": "Question",
+          "name": pair.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": pair.a
+          }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}#breadcrumb`,
+        "itemListElement": breadcrumbItems.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": `https://calcshark.com${item.url}`
+        }))
+      }
+    ]
+  };
+};
+
+export const generateGasMileageSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  return generateGenericFuelCalculatorSchema(
+    breadcrumbItems,
+    "https://calcshark.com/automotive-transportation/fuel-efficiency/gas-mileage-calculator",
+    "Gas Mileage Calculator - Advanced MPG and Fuel Cost Tool",
+    "Free advanced gas mileage calculator for U.S. drivers. Estimate observed MPG, cost per mile, annual fuel spend, and planning scenarios.",
+    "How to Calculate Gas Mileage and Annual Fuel Cost",
+    [
+      "Enter trip miles and gallons used for observed mileage calculation.",
+      "Add annual miles and local fuel price assumptions.",
+      "Review MPG, cost per mile, and annual fuel burden outputs.",
+      "Test scenario sensitivity under price and efficiency changes.",
+      "Use projection results for budgeting checkpoints."
+    ],
+    [
+      { q: "How do you calculate gas mileage?", a: "Gas mileage is calculated as miles driven divided by gallons used." },
+      { q: "Why use observed MPG instead of label MPG?", a: "Observed MPG reflects real route and driving conditions, improving planning accuracy." },
+      { q: "How often should MPG assumptions be updated?", a: "Quarterly updates are recommended, with more frequent updates in volatile conditions." },
+      { q: "Does small MPG improvement matter financially?", a: "Yes, even modest MPG gains can materially reduce annual fuel cost at higher mileage." },
+      { q: "Can this support annual budgeting?", a: "Yes, it provides annual and projected fuel-cost outputs for planning." }
+    ]
+  );
+};
+
+export const generateGasSavingsSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  return generateGenericFuelCalculatorSchema(
+    breadcrumbItems,
+    "https://calcshark.com/automotive-transportation/fuel-efficiency/gas-savings-calculator",
+    "Gas Savings Calculator - Fuel Efficiency Savings Estimator",
+    "Free advanced gas savings calculator for U.S. drivers. Compare baseline and improved MPG assumptions to estimate annual and monthly savings.",
+    "How to Estimate Gas Savings from Efficiency Improvements",
+    [
+      "Enter baseline and improved MPG assumptions.",
+      "Input annual miles and local fuel price.",
+      "Calculate annual and monthly fuel savings.",
+      "Review scenario ranges for price and mileage volatility.",
+      "Use projections for multi-year planning."
+    ],
+    [
+      { q: "How are gas savings estimated?", a: "Savings are estimated as the difference between baseline and improved annual fuel costs." },
+      { q: "Does annual mileage affect savings?", a: "Yes, higher annual mileage usually increases fuel-savings impact." },
+      { q: "Can fuel price changes alter savings?", a: "Yes, fuel price volatility can materially shift expected savings." },
+      { q: "Should non-fuel costs be considered separately?", a: "Yes, total-cost decisions should include maintenance and insurance effects." },
+      { q: "How often should assumptions be refreshed?", a: "Update assumptions quarterly and after major fuel-price changes." }
+    ]
+  );
+};
+
+export const generateHybridSavingsSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  return generateGenericFuelCalculatorSchema(
+    breadcrumbItems,
+    "https://calcshark.com/automotive-transportation/fuel-efficiency/hybrid-savings-calculator",
+    "Hybrid Savings Calculator - Hybrid vs Gas Cost Comparison Tool",
+    "Free advanced hybrid savings calculator for U.S. drivers. Compare hybrid and gas annual operating costs and estimate premium payback timeline.",
+    "How to Compare Hybrid Savings vs Gas Vehicle Costs",
+    [
+      "Enter annual miles and fuel assumptions.",
+      "Add MPG values for gas and hybrid options.",
+      "Include premium, maintenance, and insurance deltas.",
+      "Review annual savings and payback results.",
+      "Use scenarios and projections for risk-aware planning."
+    ],
+    [
+      { q: "What does hybrid savings compare?", a: "It compares annual operating cost of gas and hybrid assumptions plus key deltas." },
+      { q: "How is payback estimated?", a: "Payback is estimated by dividing upfront premium by annual net savings when positive." },
+      { q: "Can a hybrid save fuel but still cost more?", a: "Yes, higher insurance or other costs can offset fuel savings." },
+      { q: "Does mileage affect hybrid payback?", a: "Yes, higher annual mileage generally shortens hybrid payback timelines." },
+      { q: "Should maintenance assumptions be included?", a: "Yes, maintenance deltas can be significant in total-cost comparisons." }
+    ]
+  );
+};
+
+export const generateMPGSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  return generateGenericFuelCalculatorSchema(
+    breadcrumbItems,
+    "https://calcshark.com/automotive-transportation/fuel-efficiency/mpg-calculator",
+    "MPG Calculator - Weighted Fuel Economy and Cost Planner",
+    "Free advanced MPG calculator for U.S. drivers. Estimate weighted MPG, cost per mile, and annual fuel cost using route-mix assumptions.",
+    "How to Calculate Weighted MPG for Better Fuel Planning",
+    [
+      "Enter city MPG, highway MPG, and route mix percentages.",
+      "Add annual miles and fuel price assumptions.",
+      "Calculate weighted MPG and cost-per-mile outputs.",
+      "Compare scenario sensitivity under changing assumptions.",
+      "Use projection rows for budgeting cadence."
+    ],
+    [
+      { q: "How is weighted MPG calculated?", a: "Weighted MPG uses city/highway shares and corresponding MPG values to estimate blended efficiency." },
+      { q: "Why not use combined MPG only?", a: "Combined MPG can misstate cost if your real route profile differs from test assumptions." },
+      { q: "Can weighted MPG improve budgeting accuracy?", a: "Yes, it aligns fuel estimates more closely with actual driving patterns." },
+      { q: "Should route mix be updated seasonally?", a: "Yes, update route mix when usage patterns materially change." },
+      { q: "How often should MPG assumptions be refreshed?", a: "Refresh assumptions quarterly or after major usage changes." }
+    ]
+  );
+};
+
+export const generateOctaneSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  return generateGenericFuelCalculatorSchema(
+    breadcrumbItems,
+    "https://calcshark.com/automotive-transportation/fuel-efficiency/octane-calculator",
+    "Octane Calculator - Regular vs Premium Fuel Economics Tool",
+    "Free advanced octane calculator for U.S. drivers. Compare regular vs premium cost per mile using price spread and performance assumptions.",
+    "How to Compare Octane Fuel Grade Economics",
+    [
+      "Enter regular and premium fuel prices.",
+      "Add baseline MPG and premium MPG-gain assumption.",
+      "Calculate cost per mile and annual cost delta.",
+      "Review break-even thresholds for premium economics.",
+      "Test scenarios for price and mileage changes."
+    ],
+    [
+      { q: "How is octane economics compared?", a: "Comparison uses cost per mile and annual cost under regular and premium assumptions." },
+      { q: "Does premium always save money?", a: "No, premium only saves money when efficiency/performance gain offsets price spread." },
+      { q: "How should MPG gain assumptions be set?", a: "Use conservative assumptions and validate with observed data where possible." },
+      { q: "Can annual mileage change octane decision outcomes?", a: "Yes, higher annual mileage magnifies annual cost differences between grades." },
+      { q: "Should manufacturer recommendations be followed first?", a: "Yes, always follow compatibility guidance before economics optimization." }
+    ]
+  );
+};
+
+export const generateTripFuelSchema = (breadcrumbItems: BreadcrumbItem[]) => {
+  return generateGenericFuelCalculatorSchema(
+    breadcrumbItems,
+    "https://calcshark.com/automotive-transportation/fuel-efficiency/trip-fuel-calculator",
+    "Trip Fuel Calculator - Route Cost and Fuel Stop Estimator",
+    "Free advanced trip fuel calculator for U.S. drivers. Estimate trip fuel usage, trip cost, and refuel-stop strategy under practical assumptions.",
+    "How to Estimate Trip Fuel Cost and Refuel Stops",
+    [
+      "Enter trip distance and MPG assumptions.",
+      "Add fuel price and optional return-trip setting.",
+      "Input tank capacity for stop-planning estimates.",
+      "Calculate trip cost and fuel demand outputs.",
+      "Review scenarios and projections for reliability."
+    ],
+    [
+      { q: "How is trip fuel cost calculated?", a: "Trip fuel cost is estimated from trip miles divided by MPG multiplied by fuel price." },
+      { q: "Why include return distance?", a: "Including return distance prevents underestimation for round-trip planning." },
+      { q: "How are refuel stops estimated?", a: "Stops are estimated from trip fuel demand relative to tank-capacity assumptions." },
+      { q: "What causes trip fuel estimate errors?", a: "Traffic, elevation, weather, and load changes can shift realized fuel use." },
+      { q: "Should I plan with conservative assumptions?", a: "Yes, conservative assumptions reduce risk during long or uncertain routes." }
+    ]
+  );
+};
+
+interface MaintenanceSchemaConfig {
+  title: string;
+  description: string;
+  howToTitle: string;
+  howToSteps: string[];
+  faqs: Array<{ q: string; a: string }>;
+}
+
+const maintenanceSchemaConfigs: Record<string, MaintenanceSchemaConfig> = {
+  'battery-life-calculator': {
+    title: 'Battery Life Calculator - Vehicle Battery Replacement Planner',
+    description: 'Free advanced battery life calculator for U.S. drivers. Estimate remaining battery life, replacement risk, and reserve budgeting using age and warranty assumptions.',
+    howToTitle: 'How to Plan Vehicle Battery Replacement Timing',
+    howToSteps: [
+      'Enter battery age, warranty horizon, and replacement cost assumptions.',
+      'Review estimated remaining life and replacement-risk output.',
+      'Use reserve targets to schedule replacement budgeting.',
+      'Compare conservative and stress scenarios before deciding.',
+      'Refresh assumptions after inspections and seasonal extremes.'
+    ],
+    faqs: [
+      { q: 'How is remaining battery life estimated?', a: 'It estimates remaining life by comparing current battery age against the warranty or planning horizon.' },
+      { q: 'Can weather affect battery lifespan?', a: 'Yes, very hot and very cold conditions can shorten real-world battery life.' },
+      { q: 'Should I budget before failure happens?', a: 'Yes, reserve budgeting reduces sudden replacement stress and downtime risk.' },
+      { q: 'Is warranty end date the same as battery failure date?', a: 'No, warranty limits coverage and does not guarantee exact lifespan.' },
+      { q: 'How often should this estimate be updated?', a: 'Update after periodic inspections or when reliability symptoms appear.' }
+    ]
+  },
+  'brake-pad-life-calculator': {
+    title: 'Brake Pad Life Calculator - Remaining Miles and Service Timing',
+    description: 'Free advanced brake pad life calculator for U.S. drivers. Estimate miles remaining, months to service, and reserve cost from wear and thickness assumptions.',
+    howToTitle: 'How to Estimate Brake Pad Service Timing',
+    howToSteps: [
+      'Enter current pad thickness, minimum threshold, and wear rate.',
+      'Add annual mileage and service cost assumptions.',
+      'Calculate estimated miles and months remaining.',
+      'Review downside wear scenarios before scheduling service.',
+      'Confirm with inspection findings for safety decisions.'
+    ],
+    faqs: [
+      { q: 'How are brake-pad miles remaining calculated?', a: 'The estimate uses usable pad thickness divided by assumed wear rate, then converted to miles.' },
+      { q: 'Why does wear rate vary so much?', a: 'Driving style, traffic density, terrain, and vehicle load all change wear patterns.' },
+      { q: 'Is this enough to make safety decisions?', a: 'Use this with physical inspection and braking-performance checks, not in isolation.' },
+      { q: 'Can city driving shorten pad life?', a: 'Yes, stop-and-go driving usually increases wear and reduces service intervals.' },
+      { q: 'Should I replace pads before minimum limit?', a: 'Conservative replacement thresholds are often safer and reduce unplanned downtime.' }
+    ]
+  },
+  'diagnostic-time-calculator': {
+    title: 'Diagnostic Time Calculator - Labor Hours and Cost Estimator',
+    description: 'Free advanced diagnostic time calculator for U.S. shops and drivers. Estimate diagnostic labor hours and cost using complexity and labor-rate assumptions.',
+    howToTitle: 'How to Estimate Diagnostic Labor Time',
+    howToSteps: [
+      'Enter base diagnostic hours and complexity multiplier.',
+      'Add labor rate and applicable shop fees.',
+      'Calculate expected diagnostic time and total cost.',
+      'Run high-complexity scenarios to set expectation ranges.',
+      'Track planned versus actual results for calibration.'
+    ],
+    faqs: [
+      { q: 'How is diagnostic time estimated?', a: 'Diagnostic time is modeled as base hours multiplied by a complexity factor.' },
+      { q: 'Why include a complexity multiplier?', a: 'Complexity captures case variance in fault isolation and troubleshooting scope.' },
+      { q: 'Can this support quote preparation?', a: 'Yes, as a planning baseline before final scope confirmation and approvals.' },
+      { q: 'How do shops reduce diagnostic overruns?', a: 'Standard intake and repeatable workflows usually reduce estimate variance.' },
+      { q: 'Should I include misc fees in planning?', a: 'Yes, excluding fees often understates total customer-facing diagnostic cost.' }
+    ]
+  },
+  'diy-savings-calculator': {
+    title: 'DIY Savings Calculator - DIY vs Shop Repair Economics',
+    description: 'Free advanced DIY savings calculator for U.S. vehicle owners. Compare DIY and shop economics including labor, markup, and time-value assumptions.',
+    howToTitle: 'How to Compare DIY and Shop Repair Cost',
+    howToSteps: [
+      'Enter shop labor rate, hours, parts, and markup assumptions.',
+      'Add DIY hours and your value-of-time assumption.',
+      'Calculate net savings between DIY and professional service.',
+      'Stress-test with rework and time-overrun scenarios.',
+      'Choose a strategy based on risk and total cost.'
+    ],
+    faqs: [
+      { q: 'How are DIY savings calculated?', a: 'Savings compare shop total cost against DIY parts plus time-value and risk assumptions.' },
+      { q: 'Why include value-of-time?', a: 'Ignoring your time can overstate DIY savings on complex jobs.' },
+      { q: 'Is DIY always cheaper?', a: 'No, tools, rework risk, and time requirements can offset savings.' },
+      { q: 'Should I include tool purchases?', a: 'Yes, first-time tool costs should be part of realistic DIY planning.' },
+      { q: 'When should I avoid DIY?', a: 'Avoid high-risk or safety-critical jobs if required skill or tooling is uncertain.' }
+    ]
+  },
+  'fleet-maintenance-calculator': {
+    title: 'Fleet Maintenance Calculator - Multi-Vehicle Cost Planner',
+    description: 'Free advanced fleet maintenance calculator for U.S. operators. Estimate annual fleet maintenance spend including labor, parts, event frequency, and downtime.',
+    howToTitle: 'How to Estimate Fleet Maintenance Budget',
+    howToSteps: [
+      'Enter fleet size and annual maintenance event assumptions.',
+      'Add labor, parts, fees, and downtime-cost inputs.',
+      'Calculate annual fleet maintenance and total exposure.',
+      'Run frequency and cost-inflation stress scenarios.',
+      'Use outputs to set budget and scheduling thresholds.'
+    ],
+    faqs: [
+      { q: 'What does annual fleet maintenance output include?', a: 'It includes per-event maintenance cost multiplied by event frequency and vehicle count.' },
+      { q: 'Why include downtime cost?', a: 'Downtime can materially increase total fleet impact beyond invoice cost.' },
+      { q: 'Can this support annual budgeting?', a: 'Yes, it is built for planning and scenario-based budget setting.' },
+      { q: 'How often should assumptions be refreshed?', a: 'Quarterly reviews are typical, or sooner after major cost shifts.' },
+      { q: 'What input usually drives the largest variance?', a: 'Fleet size and event frequency often dominate total cost variance.' }
+    ]
+  },
+  'labor-rate-calculator': {
+    title: 'Labor Rate Calculator - Fully Burdened Shop Rate Tool',
+    description: 'Free advanced labor rate calculator for U.S. shops. Estimate fully burdened labor rates using wage, overhead, and margin assumptions.',
+    howToTitle: 'How to Set a Sustainable Labor Rate',
+    howToSteps: [
+      'Enter base technician wage, overhead, and target margin.',
+      'Calculate recommended fully burdened labor rate.',
+      'Review hourly margin buffer from current assumptions.',
+      'Test wage and overhead stress cases before pricing updates.',
+      'Validate with realized job-margin tracking each month.'
+    ],
+    faqs: [
+      { q: 'How is labor rate calculated?', a: 'Rate is estimated from base wage with overhead and target margin adjustments.' },
+      { q: 'Why separate overhead from wage?', a: 'Separating layers improves transparency and pricing governance.' },
+      { q: 'Can underpricing hurt operations?', a: 'Yes, persistent underpricing compresses margins and limits reinvestment.' },
+      { q: 'How often should labor rates be reviewed?', a: 'Review quarterly or whenever wage and overhead assumptions shift.' },
+      { q: 'Is this useful for quote consistency?', a: 'Yes, it helps standardize labor policy across service lines.' }
+    ]
+  },
+  'maintenance-schedule-calculator': {
+    title: 'Maintenance Schedule Calculator - Next Service Timing Planner',
+    description: 'Free advanced maintenance schedule calculator for U.S. drivers and fleets. Estimate miles to next service, overdue risk, and scheduling windows.',
+    howToTitle: 'How to Plan Vehicle Service Intervals',
+    howToSteps: [
+      'Enter current odometer, last-service odometer, and interval miles.',
+      'Add annual mileage and service-ticket assumptions.',
+      'Calculate miles and months to next service window.',
+      'Review overdue or high-usage risk scenarios.',
+      'Set alert thresholds for schedule reassessment.'
+    ],
+    faqs: [
+      { q: 'How are miles to next service calculated?', a: 'It subtracts miles since last service from the planned service interval.' },
+      { q: 'What if the result is negative?', a: 'A negative value indicates overdue service and should be prioritized.' },
+      { q: 'Why convert miles to months?', a: 'Month-based planning helps coordinate calendar scheduling and workload.' },
+      { q: 'Can intervals change over time?', a: 'Yes, severe usage conditions can justify shorter service intervals.' },
+      { q: 'How often should this schedule be recalculated?', a: 'Monthly updates are practical when mileage patterns vary.' }
+    ]
+  },
+  'parts-markup-calculator': {
+    title: 'Parts Markup Calculator - Parts Pricing and Margin Estimator',
+    description: 'Free advanced parts markup calculator for U.S. shops. Estimate sale price, gross profit, and margin quality from parts-cost and markup assumptions.',
+    howToTitle: 'How to Evaluate Parts Markup and Margin',
+    howToSteps: [
+      'Enter base parts cost and markup percentage.',
+      'Calculate expected sale price and gross profit.',
+      'Review resulting margin percentage and sensitivity.',
+      'Run supplier-cost stress scenarios for pricing resilience.',
+      'Use realized margin tracking to calibrate policy.'
+    ],
+    faqs: [
+      { q: 'What is the difference between markup and margin?', a: 'Markup is based on cost, while margin is based on sale price.' },
+      { q: 'How is parts selling price estimated?', a: 'Price is calculated as parts cost multiplied by one plus markup percent.' },
+      { q: 'Can high markup reduce close rates?', a: 'Yes, excessive markup can weaken competitiveness and customer trust.' },
+      { q: 'Should markup policy be standardized?', a: 'Yes, standardization improves quote consistency and margin control.' },
+      { q: 'How frequently should markup assumptions be revised?', a: 'Update when supplier costs or target margin requirements change.' }
+    ]
+  },
+  'repair-vs-replace-calculator': {
+    title: 'Repair vs Replace Calculator - Lifecycle Cost Decision Tool',
+    description: 'Free advanced repair vs replace calculator for U.S. vehicle decisions. Compare repair-path cost and replacement cost over a multi-year horizon.',
+    howToTitle: 'How to Compare Repair and Replacement Paths',
+    howToSteps: [
+      'Enter current repair cost, replacement cost, and planning horizon.',
+      'Add annual repair-growth and downtime assumptions.',
+      'Calculate lifecycle cost delta between both options.',
+      'Evaluate downside scenarios for repair escalation risk.',
+      'Choose action thresholds for replacement timing.'
+    ],
+    faqs: [
+      { q: 'What does repair vs replace delta represent?', a: 'It represents the cost difference between replacement and projected repair path.' },
+      { q: 'Why model repair-cost growth?', a: 'Escalating repairs can change decision economics quickly over time.' },
+      { q: 'Should downtime be included?', a: 'Yes, downtime often has meaningful operational and financial impact.' },
+      { q: 'Can replacement be correct before failure?', a: 'Yes, proactive replacement can be rational under high repair-risk conditions.' },
+      { q: 'How often should this decision be revisited?', a: 'Reevaluate after major repairs, usage changes, or cost shocks.' }
+    ]
+  },
+  'service-cost-estimator-calculator': {
+    title: 'Service Cost Estimator Calculator - Full Service Ticket Planner',
+    description: 'Free advanced service cost estimator for U.S. shops and drivers. Estimate full service ticket cost from labor, parts, fees, and downtime assumptions.',
+    howToTitle: 'How to Estimate Total Service Ticket Cost',
+    howToSteps: [
+      'Enter labor rate, service hours, and parts assumptions.',
+      'Add parts markup, fees, and optional downtime cost.',
+      'Calculate estimated total service-ticket amount.',
+      'Run rate and parts inflation scenarios for quote resilience.',
+      'Compare estimated versus actual after completion.'
+    ],
+    faqs: [
+      { q: 'What does total service estimate include?', a: 'It includes labor, marked-up parts, fees, and optional downtime impact.' },
+      { q: 'Why include downtime in service estimates?', a: 'Downtime can materially increase total economic impact for clients.' },
+      { q: 'Can this be used for quote preparation?', a: 'Yes, it is a planning baseline before final scope confirmation.' },
+      { q: 'How can estimate variance be reduced?', a: 'Use standardized rate assumptions and post-job variance review loops.' },
+      { q: 'Should parts and labor be stress tested separately?', a: 'Yes, separate stress tests reveal which layer drives volatility.' }
+    ]
+  },
+  'tire-pressure-calculator': {
+    title: 'Tire Pressure Calculator - Pressure Impact on Fuel and Wear',
+    description: 'Free advanced tire pressure calculator for U.S. drivers. Estimate fuel-cost impact and efficiency penalty from PSI deviation assumptions.',
+    howToTitle: 'How to Estimate Tire Pressure Cost Impact',
+    howToSteps: [
+      'Enter current and recommended PSI values.',
+      'Add annual miles, MPG, and fuel-price assumptions.',
+      'Calculate annual fuel-impact estimate from pressure delta.',
+      'Review downside cases for additional underinflation.',
+      'Use output to set pressure-check maintenance cadence.'
+    ],
+    faqs: [
+      { q: 'How does pressure deviation affect cost?', a: 'Underinflation can reduce efficiency and increase annual fuel spend.' },
+      { q: 'Is even small PSI drift important?', a: 'Yes, small PSI deviations can compound over high annual mileage.' },
+      { q: 'Does this tool estimate tire wear too?', a: 'It focuses on cost and efficiency impact, with wear risk as planning context.' },
+      { q: 'How often should PSI be checked?', a: 'Regular checks and seasonal adjustments are recommended.' },
+      { q: 'Can fuel-price changes magnify impact?', a: 'Yes, higher fuel prices increase the annual cost penalty from underinflation.' }
+    ]
+  },
+  'tire-size-calculator': {
+    title: 'Tire Size Calculator - Diameter and Fitment Change Analyzer',
+    description: 'Free advanced tire size calculator for U.S. drivers. Compare old and new tire dimensions and estimate diameter and speedometer-impact deltas.',
+    howToTitle: 'How to Compare Tire Size Changes Safely',
+    howToSteps: [
+      'Enter new tire width, aspect ratio, and rim diameter.',
+      'Enter current tire size as baseline.',
+      'Calculate diameter and percent-delta outputs.',
+      'Review speedometer-shift and fitment-context estimates.',
+      'Validate clearances and OEM guidance before purchase.'
+    ],
+    faqs: [
+      { q: 'How is tire-size difference calculated?', a: 'It compares computed tire diameters from width, aspect ratio, and rim size.' },
+      { q: 'Why does diameter change matter?', a: 'Diameter shifts can affect speedometer readings and fitment behavior.' },
+      { q: 'Can larger tires always improve performance?', a: 'No, changes can introduce tradeoffs in handling, efficiency, and clearance.' },
+      { q: 'Should fitment be verified beyond calculator math?', a: 'Yes, always validate vehicle-specific clearance and compatibility.' },
+      { q: 'Can tire-size changes affect costs?', a: 'Yes, they can influence fuel use, replacement pricing, and wear profile.' }
+    ]
+  },
+  'warranty-coverage-calculator': {
+    title: 'Warranty Coverage Calculator - Covered vs Out-of-Pocket Estimator',
+    description: 'Free advanced warranty coverage calculator for U.S. vehicle repairs. Estimate covered amount, deductible impact, and out-of-pocket exposure.',
+    howToTitle: 'How to Estimate Warranty Claim Exposure',
+    howToSteps: [
+      'Enter claim amount, deductible, and coverage percentage.',
+      'Calculate covered and out-of-pocket estimate outputs.',
+      'Review sensitivity to deductible and coverage changes.',
+      'Use results before authorizing major repair work.',
+      'Confirm final coverage with provider policy terms.'
+    ],
+    faqs: [
+      { q: 'How is covered amount estimated?', a: 'Covered amount is eligible claim after deductible multiplied by coverage percent.' },
+      { q: 'Why does deductible matter so much?', a: 'Deductible directly increases out-of-pocket exposure on each claim.' },
+      { q: 'Can high coverage still leave large costs?', a: 'Yes, exclusions and deductible rules can still create significant exposure.' },
+      { q: 'Is this calculator a policy guarantee?', a: 'No, final outcomes depend on warranty contract terms and approvals.' },
+      { q: 'Should assumptions be verified every claim?', a: 'Yes, verify coverage terms and pre-authorization requirements each time.' }
+    ]
+  }
+};
+
+export const generateMaintenanceSuiteSchema = (calculatorSlug: string, breadcrumbItems: BreadcrumbItem[]) => {
+  const config = maintenanceSchemaConfigs[calculatorSlug];
+  const baseUrl = `https://calcshark.com/automotive-transportation/maintenance-parts/${calculatorSlug}`;
+
+  if (!config) {
+    return {
+      "@context": "https://schema.org",
+      "@graph": [
+        generateSoftwareSchema('Maintenance Calculator', 'Maintenance planning calculator', 'Automotive Maintenance'),
+        generateBreadcrumbSchema(breadcrumbItems)
+      ]
+    };
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": config.title,
+        "url": baseUrl,
+        "description": config.description,
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "Advanced maintenance calculations",
+          "Scenario sensitivity analysis",
+          "Multi-year projections",
+          "Popup-only detailed result reporting",
+          "No sign-up required"
+        ],
+        "author": {
+          "@type": "Organization",
+          "name": "Calcshark",
+          "url": "https://calcshark.com"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": config.howToTitle,
+        "description": config.description,
+        "step": config.howToSteps.map((step, index) => ({
+          "@type": "HowToStep",
+          "name": `Step ${index + 1}`,
+          "text": step,
+          "position": index + 1
+        }))
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": config.faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      },
+      generateBreadcrumbSchema(breadcrumbItems)
+    ]
+  };
+};
+
+const vehicleCostsSchemaConfigs: Record<string, MaintenanceSchemaConfig> = {
+  'auto-loan-calculator': {
+    title: 'Auto Loan Calculator - Payment and Interest Planner',
+    description: 'Free advanced auto loan calculator for U.S. drivers. Estimate monthly payment, total interest, and loan affordability under multiple financing assumptions.',
+    howToTitle: 'How to Estimate Auto Loan Cost',
+    howToSteps: [
+      'Enter vehicle price, down payment, trade-in value, APR, and loan term.',
+      'Calculate monthly payment and total interest.',
+      'Review scenario sensitivity before choosing financing terms.',
+      'Use projection rows for budgeting and affordability planning.'
+    ],
+    faqs: [
+      { q: 'How is monthly payment calculated?', a: 'Payment is calculated using standard amortization from principal, APR, and term.' },
+      { q: 'What drives total interest most?', a: 'APR and loan length usually drive the largest total-interest changes.' },
+      { q: 'Should I optimize monthly payment only?', a: 'No, compare monthly payment with total interest and all-in ownership cost.' }
+    ]
+  },
+  'car-depreciation-calculator': {
+    title: 'Car Depreciation Calculator - Vehicle Value Decline Estimator',
+    description: 'Free advanced car depreciation calculator for U.S. owners. Estimate current value, value loss, and trade-in baseline with age and condition assumptions.',
+    howToTitle: 'How to Estimate Vehicle Depreciation',
+    howToSteps: [
+      'Enter original price, vehicle age, depreciation rate, and mileage.',
+      'Apply condition adjustments for practical valuation context.',
+      'Review estimated current value and depreciation loss.',
+      'Compare scenarios before resale or trade-in decisions.'
+    ],
+    faqs: [
+      { q: 'How is depreciation modeled?', a: 'Depreciation is modeled as compounded annual value decline over vehicle age.' },
+      { q: 'Does mileage affect value significantly?', a: 'Yes, higher mileage often reduces value relative to baseline assumptions.' },
+      { q: 'Is this a final market quote?', a: 'No, it is a planning estimate and should be validated with live market offers.' }
+    ]
+  },
+  'car-insurance-calculator': {
+    title: 'Car Insurance Calculator - Annual Premium Planning Tool',
+    description: 'Free advanced car insurance calculator for U.S. drivers. Estimate annual premium exposure and monthly impact using value and usage assumptions.',
+    howToTitle: 'How to Estimate Annual Insurance Cost',
+    howToSteps: [
+      'Enter baseline annual insurance and vehicle value assumptions.',
+      'Add mileage and usage context.',
+      'Calculate estimated annual and monthly insurance exposure.',
+      'Compare sensitivity cases to improve policy budgeting.'
+    ],
+    faqs: [
+      { q: 'What is included in this estimate?', a: 'The estimate uses baseline premium with modeled value and usage adjustments.' },
+      { q: 'Can coverage choices change results a lot?', a: 'Yes, deductibles and coverage limits can materially change premium cost.' },
+      { q: 'Should insurance be reviewed with TCO?', a: 'Yes, insurance is a major recurring ownership cost driver.' }
+    ]
+  },
+  'car-lease-calculator': {
+    title: 'Car Lease Calculator - Lease Payment and Cost Analyzer',
+    description: 'Free advanced car lease calculator for U.S. drivers. Estimate lease payments from cap cost, residual value, money factor, and term assumptions.',
+    howToTitle: 'How to Estimate Car Lease Payments',
+    howToSteps: [
+      'Enter vehicle price, residual percentage, money factor, and lease term.',
+      'Include down payment, trade-in, and acquisition fees.',
+      'Calculate monthly lease payment and total lease-path cost.',
+      'Use scenarios for residual and money-factor stress testing.'
+    ],
+    faqs: [
+      { q: 'What drives lease payment the most?', a: 'Cap cost, residual value, money factor, and lease term are the main drivers.' },
+      { q: 'Is money factor the same as APR?', a: 'Not exactly, but it serves a similar financing-cost role in leases.' },
+      { q: 'Should upfront fees be included?', a: 'Yes, excluding upfront fees can understate total lease economics.' }
+    ]
+  },
+  'car-payment-calculator': {
+    title: 'Car Payment Calculator - Monthly Payment and Total Cost Tool',
+    description: 'Free advanced car payment calculator for U.S. buyers. Estimate monthly payment, interest, and affordability under practical financing assumptions.',
+    howToTitle: 'How to Plan Car Payment Affordability',
+    howToSteps: [
+      'Enter financed amount inputs and loan assumptions.',
+      'Calculate monthly payment and total financing burden.',
+      'Add ownership costs for realistic affordability analysis.',
+      'Review stress scenarios before final commitment.'
+    ],
+    faqs: [
+      { q: 'Does lower monthly payment always mean better deal?', a: 'No, longer terms can lower payment but increase total interest.' },
+      { q: 'Should ownership costs be included?', a: 'Yes, payment should be evaluated with insurance, fuel, and maintenance.' },
+      { q: 'Can this support budget setting?', a: 'Yes, use projection rows and scenarios for planning resilience.' }
+    ]
+  },
+  'down-payment-calculator': {
+    title: 'Down Payment Calculator - LTV and Upfront Cash Planner',
+    description: 'Free advanced down payment calculator for U.S. car buyers. Estimate required down payment from target LTV and financing assumptions.',
+    howToTitle: 'How to Estimate Required Down Payment',
+    howToSteps: [
+      'Enter vehicle price, target down-payment percentage, and target LTV.',
+      'Include trade-in and current cash contribution.',
+      'Calculate required down payment and any shortfall.',
+      'Review price and LTV sensitivity before purchase.'
+    ],
+    faqs: [
+      { q: 'Why does LTV matter?', a: 'LTV affects financing risk, terms, and negative-equity exposure.' },
+      { q: 'Can trade-in reduce required cash?', a: 'Yes, trade-in value can offset down-payment requirements.' },
+      { q: 'Should I aim for higher down payment?', a: 'Often yes, because it reduces financed principal and interest risk.' }
+    ]
+  },
+  'early-payoff-calculator': {
+    title: 'Early Payoff Calculator - Interest Savings Estimator',
+    description: 'Free advanced early payoff calculator for U.S. auto loans. Estimate payoff acceleration and interest savings from extra monthly payments.',
+    howToTitle: 'How to Estimate Early Payoff Savings',
+    howToSteps: [
+      'Enter current payment, remaining balance, APR, and term.',
+      'Add planned extra monthly payment amount.',
+      'Calculate months saved and estimated interest savings.',
+      'Compare scenarios for different extra-payment levels.'
+    ],
+    faqs: [
+      { q: 'How are interest savings estimated?', a: 'Savings are estimated by comparing amortization with and without extra payments.' },
+      { q: 'What input drives payoff speed most?', a: 'Extra monthly payment size typically drives the biggest timeline reduction.' },
+      { q: 'Should I always prioritize payoff?', a: 'Compare payoff benefits against liquidity and alternative use of cash.' }
+    ]
+  },
+  'extended-warranty-calculator': {
+    title: 'Extended Warranty Calculator - Expected Value Comparison',
+    description: 'Free advanced extended warranty calculator for U.S. drivers. Compare warranty cost against expected claim value from repair-risk assumptions.',
+    howToTitle: 'How to Evaluate Extended Warranty Value',
+    howToSteps: [
+      'Enter warranty cost, expected repair cost, and claim probability.',
+      'Calculate expected claim value and net expected position.',
+      'Review downside and upside risk scenarios.',
+      'Use output to support warranty purchase decisions.'
+    ],
+    faqs: [
+      { q: 'How is net warranty value calculated?', a: 'Expected claim value is compared against warranty premium to estimate net value.' },
+      { q: 'Can negative expected value still be acceptable?', a: 'Yes, risk preferences may justify coverage despite lower expected value.' },
+      { q: 'What should I verify before buying?', a: 'Confirm covered components, exclusions, and claim process terms.' }
+    ]
+  },
+  'gap-insurance-calculator': {
+    title: 'GAP Insurance Calculator - Negative Equity Exposure Tool',
+    description: 'Free advanced GAP insurance calculator for U.S. auto loans. Estimate negative equity gap and potential uncovered exposure.',
+    howToTitle: 'How to Estimate GAP Coverage Need',
+    howToSteps: [
+      'Enter current loan balance and current market value.',
+      'Set expected GAP coverage percentage.',
+      'Calculate total gap, covered amount, and residual exposure.',
+      'Review scenarios for depreciation and paydown changes.'
+    ],
+    faqs: [
+      { q: 'What is GAP exposure?', a: 'It is the difference between loan balance and market value.' },
+      { q: 'When is GAP risk highest?', a: 'Risk is usually highest early in the loan with low down payment.' },
+      { q: 'Does GAP coverage remove all risk?', a: 'Not always, policy caps and exclusions can leave residual exposure.' }
+    ]
+  },
+  'interest-rate-calculator': {
+    title: 'Interest Rate Calculator - Implied APR Back-Solver',
+    description: 'Free advanced interest rate calculator for U.S. auto financing. Back-solve implied APR from payment, principal, and term assumptions.',
+    howToTitle: 'How to Back-Solve Implied APR',
+    howToSteps: [
+      'Enter monthly payment, principal, and remaining term.',
+      'Calculate implied APR from amortization balance.',
+      'Compare implied APR with quoted rates.',
+      'Use scenarios to evaluate quote consistency and risk.'
+    ],
+    faqs: [
+      { q: 'Why use implied APR checks?', a: 'It helps validate financing assumptions and quote consistency.' },
+      { q: 'Can fees affect implied rate?', a: 'Yes, financed fees and add-ons can raise effective rate materially.' },
+      { q: 'Is implied APR exact?', a: 'It is an estimate based on provided assumptions and payment structure.' }
+    ]
+  },
+  'lease-vs-buy-calculator': {
+    title: 'Lease vs Buy Calculator - Lifecycle Cost Comparator',
+    description: 'Free advanced lease vs buy calculator for U.S. drivers. Compare lease and ownership economics with residual and depreciation assumptions.',
+    howToTitle: 'How to Compare Lease vs Buy Economics',
+    howToSteps: [
+      'Enter lease assumptions including residual and money factor.',
+      'Enter buy assumptions including APR, term, and down payment.',
+      'Calculate lease-path versus buy-path cost delta.',
+      'Review sensitivity to depreciation and financing changes.'
+    ],
+    faqs: [
+      { q: 'What does the lease vs buy delta mean?', a: 'It measures modeled net cost difference between lease and buy paths.' },
+      { q: 'Which factors often flip the decision?', a: 'Residual, depreciation, APR, and mileage assumptions can flip outcomes.' },
+      { q: 'Should resale value be included for buy?', a: 'Yes, ownership economics require projected residual/trade-in value.' }
+    ]
+  },
+  'refinance-calculator': {
+    title: 'Refinance Calculator - Break-Even and Savings Planner',
+    description: 'Free advanced refinance calculator for U.S. auto loans. Estimate monthly savings, break-even period, and net refinance impact.',
+    howToTitle: 'How to Evaluate Auto Loan Refinance',
+    howToSteps: [
+      'Enter current balance, current rate, and remaining term.',
+      'Add new refinance rate, new term, and refinance fees.',
+      'Calculate monthly savings and fee break-even timeline.',
+      'Compare scenarios for rate, fees, and term choices.'
+    ],
+    faqs: [
+      { q: 'How is refinance break-even estimated?', a: 'Break-even compares refinance fees against monthly payment savings.' },
+      { q: 'Can lower payment still cost more long-term?', a: 'Yes, longer terms can increase lifetime interest despite lower payment.' },
+      { q: 'What should be validated before refinancing?', a: 'Confirm fees, prepayment terms, and final effective rate details.' }
+    ]
+  },
+  'registration-fee-estimator-calculator': {
+    title: 'Registration Fee Estimator Calculator - DMV Fee Planner',
+    description: 'Free advanced registration fee estimator for U.S. vehicles. Estimate registration fees from base-fee and value-based rate assumptions.',
+    howToTitle: 'How to Estimate Vehicle Registration Fees',
+    howToSteps: [
+      'Enter base registration fee and value-based rate assumptions.',
+      'Provide vehicle value for the fee estimate.',
+      'Calculate estimated total registration charge.',
+      'Use scenarios to stress value and rate assumptions.'
+    ],
+    faqs: [
+      { q: 'Why can actual registration differ?', a: 'States and counties use different rules, surcharges, and classes.' },
+      { q: 'Is this estimate final?', a: 'No, confirm exact fees from your local DMV authority.' },
+      { q: 'What usually drives variance?', a: 'Vehicle value and jurisdiction-specific rate schedules drive most variance.' }
+    ]
+  },
+  'total-cost-of-ownership-calculator': {
+    title: 'Total Cost of Ownership Calculator - All-In Vehicle Cost Tool',
+    description: 'Free advanced total cost of ownership calculator for U.S. drivers. Estimate annual and multi-year all-in vehicle costs including depreciation.',
+    howToTitle: 'How to Estimate Total Vehicle Ownership Cost',
+    howToSteps: [
+      'Enter annual insurance, fuel, maintenance, fees, and other costs.',
+      'Include depreciation assumptions for economic ownership view.',
+      'Calculate annual total ownership cost output.',
+      'Review projection and scenario sensitivity for planning.'
+    ],
+    faqs: [
+      { q: 'Why include depreciation in TCO?', a: 'Depreciation is a major economic cost even if it is not monthly cash outflow.' },
+      { q: 'What recurring costs matter most?', a: 'Insurance, fuel, and depreciation often dominate annual cost structure.' },
+      { q: 'How often should TCO be refreshed?', a: 'Quarterly refresh cycles are useful in changing rate and cost environments.' }
+    ]
+  },
+  'trade-in-value-calculator': {
+    title: 'Trade-in Value Calculator - Dealer Offer Baseline Estimator',
+    description: 'Free advanced trade-in value calculator for U.S. drivers. Estimate trade-in baseline from age, depreciation, condition, and mileage assumptions.',
+    howToTitle: 'How to Estimate Trade-in Value Baseline',
+    howToSteps: [
+      'Enter original vehicle value and age assumptions.',
+      'Set depreciation, mileage, and condition adjustments.',
+      'Calculate estimated trade-in value baseline.',
+      'Use scenario ranges for negotiation planning.'
+    ],
+    faqs: [
+      { q: 'Can this replace a dealer appraisal?', a: 'No, use it as a negotiation baseline before obtaining live offers.' },
+      { q: 'Why is condition adjustment important?', a: 'Condition can significantly shift trade-in value versus average baselines.' },
+      { q: 'Should I compare multiple offers?', a: 'Yes, compare multiple offers to reduce pricing uncertainty.' }
+    ]
+  }
+};
+
+export const generateVehicleCostsSuiteSchema = (calculatorSlug: string, breadcrumbItems: BreadcrumbItem[]) => {
+  const config = vehicleCostsSchemaConfigs[calculatorSlug];
+  const baseUrl = `https://calcshark.com/automotive-transportation/vehicle-costs/${calculatorSlug}`;
+
+  if (!config) {
+    return {
+      "@context": "https://schema.org",
+      "@graph": [
+        generateSoftwareSchema('Vehicle Cost Calculator', 'Vehicle cost planning calculator', 'Automotive Vehicle Costs'),
+        generateBreadcrumbSchema(breadcrumbItems)
+      ]
+    };
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": `${baseUrl}#app`,
+        "name": config.title,
+        "url": baseUrl,
+        "description": config.description,
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "softwareVersion": "2026.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "Advanced vehicle-cost calculations",
+          "Scenario sensitivity analysis",
+          "Multi-year projections",
+          "Popup-only detailed result reporting",
+          "No sign-up required"
+        ],
+        "author": {
+          "@type": "Organization",
+          "name": "Calcshark",
+          "url": "https://calcshark.com"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${baseUrl}#howto`,
+        "name": config.howToTitle,
+        "description": config.description,
+        "step": config.howToSteps.map((step, index) => ({
+          "@type": "HowToStep",
+          "name": `Step ${index + 1}`,
+          "text": step,
+          "position": index + 1
+        }))
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${baseUrl}#faq`,
+        "mainEntity": config.faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      },
+      generateBreadcrumbSchema(breadcrumbItems)
+    ]
+  };
+};

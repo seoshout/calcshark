@@ -1343,7 +1343,7 @@ export default function AdvancedDaysOnMarketCalculator() {
       {/* FAQ Section */}
       <div className="bg-background border rounded-xl p-6 mt-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Frequently Asked Questions About Days on Market</h2>
-        <FAQAccordion faqs={faqItems} />
+        <FAQAccordion faqs={faqItems} showTitle={false} />
       </div>
 
       {/* Calculator Review */}

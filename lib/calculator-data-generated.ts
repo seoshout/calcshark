@@ -4794,7 +4794,7 @@ export const calculatorCategories: Category[] = [
               'gas mileage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -4810,7 +4810,7 @@ export const calculatorCategories: Category[] = [
               'mpg calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4826,7 +4826,7 @@ export const calculatorCategories: Category[] = [
               'fuel cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4842,7 +4842,7 @@ export const calculatorCategories: Category[] = [
               'trip fuel calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4858,7 +4858,7 @@ export const calculatorCategories: Category[] = [
               'commute cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4874,7 +4874,7 @@ export const calculatorCategories: Category[] = [
               'gas savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4890,7 +4890,7 @@ export const calculatorCategories: Category[] = [
               'hybrid savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4906,7 +4906,7 @@ export const calculatorCategories: Category[] = [
               'electric vehicle savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4922,7 +4922,7 @@ export const calculatorCategories: Category[] = [
               'fuel economy comparison calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4938,7 +4938,7 @@ export const calculatorCategories: Category[] = [
               'carbon footprint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4954,7 +4954,7 @@ export const calculatorCategories: Category[] = [
               'diesel vs gas calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4970,7 +4970,7 @@ export const calculatorCategories: Category[] = [
               'octane calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4986,7 +4986,7 @@ export const calculatorCategories: Category[] = [
               'e85 vs regular calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5002,7 +5002,7 @@ export const calculatorCategories: Category[] = [
               'fuel tank range calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5018,7 +5018,7 @@ export const calculatorCategories: Category[] = [
               'cost per mile calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -5041,7 +5041,7 @@ export const calculatorCategories: Category[] = [
               'oil change interval calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10547,7 +10547,7 @@ export const calculatorCategories: Category[] = [
               'carbon footprint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {

@@ -1640,7 +1640,7 @@ export default function AdvancedPriceComparisonCalculator() {
       {/* FAQ Section */}
       <div className="bg-background border rounded-xl p-6">
         <h2 className="text-2xl font-bold text-foreground mb-6">Frequently Asked Questions About Price Comparison</h2>
-        <FAQAccordion faqs={faqItems} />
+        <FAQAccordion faqs={faqItems} showTitle={false} />
       </div>
 
       {/* Calculator Review */}

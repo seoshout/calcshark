@@ -4566,7 +4566,7 @@ export const calculatorCategories: Category[] = [
               'car payment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -4582,7 +4582,7 @@ export const calculatorCategories: Category[] = [
               'auto loan calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4598,7 +4598,7 @@ export const calculatorCategories: Category[] = [
               'car lease calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4614,7 +4614,7 @@ export const calculatorCategories: Category[] = [
               'lease vs buy calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4630,7 +4630,7 @@ export const calculatorCategories: Category[] = [
               'car depreciation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4646,7 +4646,7 @@ export const calculatorCategories: Category[] = [
               'total cost of ownership calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4662,7 +4662,7 @@ export const calculatorCategories: Category[] = [
               'car insurance calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4678,7 +4678,7 @@ export const calculatorCategories: Category[] = [
               'registration fee estimator calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4694,7 +4694,7 @@ export const calculatorCategories: Category[] = [
               'trade-in value calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4710,7 +4710,7 @@ export const calculatorCategories: Category[] = [
               'down payment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4726,7 +4726,7 @@ export const calculatorCategories: Category[] = [
               'interest rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4742,7 +4742,7 @@ export const calculatorCategories: Category[] = [
               'early payoff calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4758,7 +4758,7 @@ export const calculatorCategories: Category[] = [
               'refinance calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4774,7 +4774,7 @@ export const calculatorCategories: Category[] = [
               'gap insurance calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4790,7 +4790,7 @@ export const calculatorCategories: Category[] = [
               'extended warranty calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -4813,7 +4813,7 @@ export const calculatorCategories: Category[] = [
               'gas mileage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -4829,7 +4829,7 @@ export const calculatorCategories: Category[] = [
               'mpg calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4845,7 +4845,7 @@ export const calculatorCategories: Category[] = [
               'fuel cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4861,7 +4861,7 @@ export const calculatorCategories: Category[] = [
               'trip fuel calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4877,7 +4877,7 @@ export const calculatorCategories: Category[] = [
               'commute cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4893,7 +4893,7 @@ export const calculatorCategories: Category[] = [
               'gas savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4909,7 +4909,7 @@ export const calculatorCategories: Category[] = [
               'hybrid savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4925,7 +4925,7 @@ export const calculatorCategories: Category[] = [
               'electric vehicle savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4941,7 +4941,7 @@ export const calculatorCategories: Category[] = [
               'fuel economy comparison calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4957,7 +4957,7 @@ export const calculatorCategories: Category[] = [
               'carbon footprint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4973,7 +4973,7 @@ export const calculatorCategories: Category[] = [
               'diesel vs gas calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4989,7 +4989,7 @@ export const calculatorCategories: Category[] = [
               'octane calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5005,7 +5005,7 @@ export const calculatorCategories: Category[] = [
               'e85 vs regular calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5021,7 +5021,7 @@ export const calculatorCategories: Category[] = [
               'fuel tank range calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5037,7 +5037,7 @@ export const calculatorCategories: Category[] = [
               'cost per mile calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -5060,7 +5060,7 @@ export const calculatorCategories: Category[] = [
               'oil change interval calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5076,7 +5076,7 @@ export const calculatorCategories: Category[] = [
               'tire size calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5092,7 +5092,7 @@ export const calculatorCategories: Category[] = [
               'tire pressure calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5146,7 +5146,7 @@ export const calculatorCategories: Category[] = [
               'brake pad life calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5162,7 +5162,7 @@ export const calculatorCategories: Category[] = [
               'battery life calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5178,7 +5178,7 @@ export const calculatorCategories: Category[] = [
               'maintenance schedule calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5194,7 +5194,7 @@ export const calculatorCategories: Category[] = [
               'service cost estimator calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5210,7 +5210,7 @@ export const calculatorCategories: Category[] = [
               'parts markup calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5226,7 +5226,7 @@ export const calculatorCategories: Category[] = [
               'labor rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5242,7 +5242,7 @@ export const calculatorCategories: Category[] = [
               'diagnostic time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5258,7 +5258,7 @@ export const calculatorCategories: Category[] = [
               'warranty coverage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -5274,7 +5274,7 @@ export const calculatorCategories: Category[] = [
               'repair vs replace calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5290,7 +5290,7 @@ export const calculatorCategories: Category[] = [
               'diy savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -5306,7 +5306,7 @@ export const calculatorCategories: Category[] = [
               'fleet maintenance calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -10645,7 +10645,7 @@ export const calculatorCategories: Category[] = [
               'carbon footprint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -12466,12 +12466,27 @@ export const getCalculatorsBySubcategory = (subcategorySlug: string): Calculator
 
 export const getCalculatorByNestedSlug = (categorySlug: string, subcategorySlug: string, calculatorSlug: string): Calculator | undefined => {
   const category = getCategoryBySlug(categorySlug);
-  if (!category) return undefined;
-  
-  const subcategory = category.subcategories.find(sub => sub.slug === subcategorySlug);
-  if (!subcategory) return undefined;
-  
-  return subcategory.calculators.find(calc => calc.slug === calculatorSlug);
+  if (category) {
+    const subcategory = category.subcategories.find(sub => sub.slug === subcategorySlug);
+    const exact = subcategory?.calculators.find(calc => calc.slug === calculatorSlug);
+    if (exact) return exact;
+
+    // Fallback: calculator exists in this category but in a different subcategory record.
+    for (const sub of category.subcategories) {
+      const inCategory = sub.calculators.find(calc => calc.slug === calculatorSlug);
+      if (inCategory) return inCategory;
+    }
+  }
+
+  // Fallback: allow lookup by subcategory + calculator across all categories.
+  for (const cat of calculatorCategories) {
+    const sub = cat.subcategories.find(s => s.slug === subcategorySlug);
+    const inSubcategory = sub?.calculators.find(calc => calc.slug === calculatorSlug);
+    if (inSubcategory) return inSubcategory;
+  }
+
+  // Final fallback: unique slug lookup.
+  return getCalculatorBySlug(calculatorSlug);
 };
 
 export const getCalculatorURL = (calculator: Calculator): string => {
