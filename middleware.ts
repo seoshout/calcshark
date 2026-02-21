@@ -78,7 +78,9 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // Get client IP for rate limiting
-  const ip = request.ip ?? request.headers.get('x-forwarded-for') ?? 'anonymous';
+  const forwardedFor = request.headers.get('x-forwarded-for');
+  const realIp = request.headers.get('x-real-ip');
+  const ip = forwardedFor?.split(',')[0]?.trim() || realIp || 'anonymous';
 
   // Apply rate limiting to API routes
   if (request.nextUrl.pathname.startsWith('/api/')) {
