@@ -95,6 +95,11 @@ async function discoverStaticPages(): Promise<DiscoveredRoute[]> {
 
 async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
   const routes: DiscoveredRoute[] = [];
+  const routeScopedCalculatorSlugs = new Set([
+    'cash-flow-calculator',
+    'roi-calculator',
+    'down-payment-calculator',
+  ]);
   
   try {
     // First, check which calculator components actually exist
@@ -105,10 +110,10 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
       const existingComponents = calculatorFiles
         .filter(file => file.endsWith('.tsx') && file !== 'index.tsx')
         .map(file => componentNameToSlug(file.replace('.tsx', '')));
-      const registeredCalculatorSlugs = await discoverRegisteredCalculatorSlugs();
+      const { globalCalculatorSlugs, nestedCalculatorKeys } = await discoverRegisteredCalculatorSlugs();
       const implementedSlugs = new Set([
         ...existingComponents,
-        ...registeredCalculatorSlugs,
+        ...globalCalculatorSlugs,
       ]);
       
       // Import calculator categories to get the actual structure
@@ -117,8 +122,12 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
       for (const category of calculatorCategories) {
         for (const subcategory of category.subcategories) {
           for (const calculator of subcategory.calculators) {
-            // Only include calculators that have actual component files
-            if (implementedSlugs.has(calculator.slug)) {
+            const nestedRouteKey = `${category.slug}/${subcategory.slug}/${calculator.slug}`;
+            const isRouteScoped = routeScopedCalculatorSlugs.has(calculator.slug);
+            const hasNestedImplementation = nestedCalculatorKeys.has(nestedRouteKey);
+            const hasGlobalImplementation = implementedSlugs.has(calculator.slug) && !isRouteScoped;
+
+            if (hasNestedImplementation || hasGlobalImplementation) {
               const isPopular = popularCalculators.includes(calculator.slug);
               
               routes.push({
@@ -139,7 +148,10 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
   return routes;
 }
 
-async function discoverRegisteredCalculatorSlugs(): Promise<string[]> {
+async function discoverRegisteredCalculatorSlugs(): Promise<{
+  globalCalculatorSlugs: string[];
+  nestedCalculatorKeys: Set<string>;
+}> {
   try {
     const calculatorPagePath = path.join(
       process.cwd(),
@@ -151,16 +163,26 @@ async function discoverRegisteredCalculatorSlugs(): Promise<string[]> {
     );
 
     if (!(await fileExists(calculatorPagePath))) {
-      return [];
+      return {
+        globalCalculatorSlugs: [],
+        nestedCalculatorKeys: new Set<string>(),
+      };
     }
 
     const pageSource = await fs.readFile(calculatorPagePath, 'utf8');
-    const matches = pageSource.matchAll(/'([^']+-calculator)'(?=\s*:)/g);
+    const globalMatches = pageSource.matchAll(/'([^'\/]+-calculator)'(?=\s*:)/g);
+    const nestedMatches = pageSource.matchAll(/'([^']+\/[^']+\/[^']+-calculator)'(?=\s*:)/g);
 
-    return Array.from(new Set(Array.from(matches, (match) => match[1])));
+    return {
+      globalCalculatorSlugs: Array.from(new Set(Array.from(globalMatches, (match) => match[1]))),
+      nestedCalculatorKeys: new Set(Array.from(nestedMatches, (match) => match[1])),
+    };
   } catch (error) {
     console.warn('Could not discover registered calculator slugs:', error instanceof Error ? error.message : String(error));
-    return [];
+    return {
+      globalCalculatorSlugs: [],
+      nestedCalculatorKeys: new Set<string>(),
+    };
   }
 }
 

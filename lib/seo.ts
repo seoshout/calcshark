@@ -140,6 +140,81 @@ export const defaultSEO: SEOProps = {
 };
 
 export const calculatorSEO = {
+  'quadratic-formula': {
+    title: 'Quadratic Formula Calculator - Free Online Root Solver | Calcshark',
+    description: 'Solve quadratic equations with exact roots, decimal roots, discriminant checks, and vertex context using our free online quadratic formula calculator.',
+    keywords: ['quadratic formula calculator', 'quadratic root calculator', 'discriminant calculator', 'solve quadratic equation', 'parabola root calculator'],
+  },
+  slope: {
+    title: 'Slope Calculator - Free Online Two-Point Line Tool | Calcshark',
+    description: 'Find slope from two points, view rise and run, and generate line-equation context with our free online slope calculator.',
+    keywords: ['slope calculator', 'slope from two points', 'line slope calculator', 'rise over run calculator', 'point slope calculator'],
+  },
+  'distance-formula': {
+    title: 'Distance Formula Calculator - Free Online Coordinate Tool | Calcshark',
+    description: 'Measure exact and decimal distance between two points on the coordinate plane with our free online distance formula calculator.',
+    keywords: ['distance formula calculator', 'distance between two points calculator', 'coordinate distance calculator', 'analytic geometry calculator'],
+  },
+  midpoint: {
+    title: 'Midpoint Calculator - Free Online Coordinate Center Tool | Calcshark',
+    description: 'Find the midpoint between two coordinates and keep segment context visible with our free online midpoint calculator.',
+    keywords: ['midpoint calculator', 'midpoint formula calculator', 'coordinate midpoint calculator', 'segment midpoint calculator'],
+  },
+  'linear-equation': {
+    title: 'Linear Equation Calculator - Free Online Solver | Calcshark',
+    description: 'Solve one-variable linear equations, including no-solution and infinite-solution cases, with our free online linear equation calculator.',
+    keywords: ['linear equation calculator', 'solve linear equation', 'ax+b=cx+d solver', 'equation solver calculator'],
+  },
+  'system-of-equations': {
+    title: 'System of Equations Calculator - Free Online 2x2 Solver | Calcshark',
+    description: 'Solve 2x2 systems of linear equations with determinant checks, exact fractions, and decimal outputs using our free online calculator.',
+    keywords: ['system of equations calculator', '2x2 system solver', 'simultaneous equations calculator', 'linear system calculator'],
+  },
+  polynomial: {
+    title: 'Polynomial Calculator - Free Online Polynomial Evaluator | Calcshark',
+    description: 'Evaluate polynomials, inspect degree and derivative context, and screen possible integer roots with our free online polynomial calculator.',
+    keywords: ['polynomial calculator', 'polynomial evaluator', 'evaluate polynomial calculator', 'polynomial derivative calculator'],
+  },
+  factoring: {
+    title: 'Factoring Calculator - Free Online Quadratic Factoring Tool | Calcshark',
+    description: 'Factor quadratic expressions, connect factors to roots, and identify irreducible cases with our free online factoring calculator.',
+    keywords: ['factoring calculator', 'quadratic factoring calculator', 'factor polynomial calculator', 'factor expression solver'],
+  },
+  exponent: {
+    title: 'Exponent Calculator - Free Online Power Solver | Calcshark',
+    description: 'Evaluate powers, understand negative exponents, and connect exponents to roots with our free online exponent calculator.',
+    keywords: ['exponent calculator', 'power calculator', 'negative exponent calculator', 'fractional exponent calculator'],
+  },
+  logarithm: {
+    title: 'Logarithm Calculator - Free Online Log Solver | Calcshark',
+    description: 'Evaluate logarithms with arbitrary bases, change-of-base context, and exponent-form checks using our free online logarithm calculator.',
+    keywords: ['logarithm calculator', 'log calculator', 'arbitrary base logarithm calculator', 'change of base calculator'],
+  },
+  'scientific-notation': {
+    title: 'Scientific Notation Calculator - Free Online Converter | Calcshark',
+    description: 'Convert between decimal form and scientific notation with normalized mantissa checks using our free online scientific notation calculator.',
+    keywords: ['scientific notation calculator', 'scientific notation converter', 'decimal to scientific notation', 'scientific to decimal calculator'],
+  },
+  'square-root': {
+    title: 'Square Root Calculator - Free Online Radical Simplifier | Calcshark',
+    description: 'Simplify square roots and compare exact radical form with decimal values using our free online square root calculator.',
+    keywords: ['square root calculator', 'radical calculator', 'simplify square root calculator', 'sqrt calculator'],
+  },
+  'cube-root': {
+    title: 'Cube Root Calculator - Free Online Radical Tool | Calcshark',
+    description: 'Evaluate cube roots, including negative inputs, with exact simplification and decimal output using our free online cube root calculator.',
+    keywords: ['cube root calculator', 'cuberoot calculator', 'simplify cube root calculator', 'radical calculator'],
+  },
+  'nth-root': {
+    title: 'Nth Root Calculator - Free Online Higher-Order Root Tool | Calcshark',
+    description: 'Evaluate higher-order roots with index-aware simplification and domain checks using our free online nth root calculator.',
+    keywords: ['nth root calculator', 'nth root solver', 'higher order root calculator', 'radical exponent calculator'],
+  },
+  'absolute-value': {
+    title: 'Absolute Value Calculator - Free Online Magnitude Tool | Calcshark',
+    description: 'Measure magnitude as distance from zero and keep sign context visible with our free online absolute value calculator.',
+    keywords: ['absolute value calculator', 'magnitude calculator', 'distance from zero calculator', 'abs calculator'],
+  },
   '15-vs-30-year-mortgage-comparison': {
     title: '15 vs 30 Year Mortgage Comparison Calculator - Free Online Tool | Calcshark',
     description: 'Compare 15-year and 30-year mortgage payments, total interest, PMI timing, housing cost, and extra-payment scenarios with our free online calculator.',
@@ -299,6 +374,71 @@ export const calculatorSEO = {
     title: '70% Rule Calculator - Free Online Fix and Flip Offer Tool | Calcshark',
     description: 'Use our free 70% Rule Calculator to compare standard and custom MAO, actual offer pricing, projected flip profit, holding costs, financing costs, and break-even sale price.',
     keywords: ['70% rule calculator', '70 percent rule calculator', 'fix and flip calculator', 'maximum allowable offer calculator', 'ARV calculator', 'house flip deal analyzer'],
+  },
+  'break-even': {
+    title: 'Break-Even Calculator - Free Online Business Volume Tool | Calcshark',
+    description: 'Estimate break-even units, break-even revenue, contribution margin, planned profit, and target-profit volume with our free online break-even calculator.',
+    keywords: ['break-even calculator', 'break even analysis calculator', 'contribution margin calculator', 'target profit calculator', 'break-even revenue calculator', 'business finance calculator'],
+  },
+  'profit-margin': {
+    title: 'Profit Margin Calculator - Free Online Margin Tool | Calcshark',
+    description: 'Measure gross margin, operating margin, net margin, and profit per unit with our free online profit margin calculator.',
+    keywords: ['profit margin calculator', 'gross margin calculator', 'net margin calculator', 'operating margin calculator', 'business profit calculator', 'margin percentage calculator'],
+  },
+  markup: {
+    title: 'Markup Calculator - Free Online Pricing Tool | Calcshark',
+    description: 'Compare markup, gross margin, unit profit, projected revenue, and projected gross profit with our free online markup calculator.',
+    keywords: ['markup calculator', 'margin vs markup calculator', 'pricing calculator', 'retail markup calculator', 'wholesale pricing calculator', 'product pricing calculator'],
+  },
+  'gross-profit': {
+    title: 'Gross Profit Calculator - Free Online Revenue Tool | Calcshark',
+    description: 'Calculate gross profit, gross margin, COGS ratio, and gross profit per unit with our free online gross profit calculator.',
+    keywords: ['gross profit calculator', 'gross margin calculator', 'COGS calculator', 'gross profit per unit calculator', 'business gross profit tool'],
+  },
+  'net-profit': {
+    title: 'Net Profit Calculator - Free Online Bottom Line Tool | Calcshark',
+    description: 'Calculate net profit, net margin, operating profit, expense load, and net profit per unit with our free online net profit calculator.',
+    keywords: ['net profit calculator', 'net margin calculator', 'business profit calculator', 'bottom line calculator', 'profit and loss calculator'],
+  },
+  'payback-period': {
+    title: 'Payback Period Calculator - Free Online Investment Recovery Tool | Calcshark',
+    description: 'Compare simple payback and discounted payback with our free online payback period calculator for capital projects and investments.',
+    keywords: ['payback period calculator', 'discounted payback calculator', 'investment recovery calculator', 'capital budgeting calculator', 'project payback calculator'],
+  },
+  npv: {
+    title: 'NPV Calculator - Free Online Net Present Value Tool | Calcshark',
+    description: 'Evaluate project value with discount-rate-aware present value math using our free online NPV calculator.',
+    keywords: ['NPV calculator', 'net present value calculator', 'discounted cash flow calculator', 'capital budgeting calculator', 'project valuation calculator'],
+  },
+  irr: {
+    title: 'IRR Calculator - Free Online Internal Rate of Return Tool | Calcshark',
+    description: 'Estimate internal rate of return, compare it with a hurdle rate, and cross-check project value with our free online IRR calculator.',
+    keywords: ['IRR calculator', 'internal rate of return calculator', 'project return calculator', 'capital budgeting calculator', 'hurdle rate calculator'],
+  },
+  'working-capital': {
+    title: 'Working Capital Calculator - Free Online Liquidity Tool | Calcshark',
+    description: 'Measure working capital, current ratio, quick ratio, inventory share, and working-capital days with our free online calculator.',
+    keywords: ['working capital calculator', 'current ratio calculator', 'quick ratio calculator', 'liquidity calculator', 'working capital ratio calculator'],
+  },
+  'burn-rate': {
+    title: 'Burn Rate Calculator - Free Online Runway Tool | Calcshark',
+    description: 'Estimate gross burn, net burn, runway months, and revenue coverage with our free online burn rate calculator.',
+    keywords: ['burn rate calculator', 'runway calculator', 'startup burn rate calculator', 'cash runway calculator', 'net burn calculator'],
+  },
+  'customer-acquisition-cost': {
+    title: 'Customer Acquisition Cost Calculator - Free Online CAC Tool | Calcshark',
+    description: 'Measure CAC, payback months, estimated CLV, and LTV:CAC ratio with our free online customer acquisition cost calculator.',
+    keywords: ['customer acquisition cost calculator', 'CAC calculator', 'CAC payback calculator', 'LTV CAC calculator', 'marketing efficiency calculator'],
+  },
+  'customer-lifetime-value': {
+    title: 'Customer Lifetime Value Calculator - Free Online CLV Tool | Calcshark',
+    description: 'Estimate customer lifetime value, customer lifespan, gross profit per customer, and LTV:CAC ratio with our free online calculator.',
+    keywords: ['customer lifetime value calculator', 'CLV calculator', 'LTV calculator', 'customer lifespan calculator', 'LTV CAC ratio calculator'],
+  },
+  'business-valuation': {
+    title: 'Business Valuation Calculator - Free Online Multiple Tool | Calcshark',
+    description: 'Screen a business using revenue, EBITDA, and SDE multiple methods plus implied equity value with our free online business valuation calculator.',
+    keywords: ['business valuation calculator', 'EBITDA multiple calculator', 'SDE multiple calculator', 'enterprise value calculator', 'business worth calculator'],
   },
   mortgage: {
     title: 'Mortgage Payment Calculator - Free Online Tool',

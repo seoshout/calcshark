@@ -21,11 +21,21 @@ function getCalculatorComponentForRoute(
   calculatorSlug: string
 ) {
   const nestedCalculatorKey = `${categorySlug}/${subcategorySlug}/${calculatorSlug}`;
+  const routeScopedCalculatorSlugs = new Set([
+    'cash-flow-calculator',
+    'roi-calculator',
+    'down-payment-calculator',
+  ]);
 
-  return (
-    nestedCalculatorComponents[nestedCalculatorKey] ??
-    calculatorComponents[calculatorSlug]
-  );
+  if (nestedCalculatorComponents[nestedCalculatorKey]) {
+    return nestedCalculatorComponents[nestedCalculatorKey];
+  }
+
+  if (routeScopedCalculatorSlugs.has(calculatorSlug)) {
+    return undefined;
+  }
+
+  return calculatorComponents[calculatorSlug];
 }
 
 // Generate metadata dynamically based on calculator
@@ -112,6 +122,8 @@ import AdvancedSeventyPercentRuleCalculator from './calculators/AdvancedSeventyP
 import AdvancedPropertyInvestmentSuiteCalculator from './calculators/AdvancedPropertyInvestmentSuiteCalculator';
 import AdvancedBRRRRCalculator from './calculators/AdvancedBRRRRCalculator';
 import AdvancedDealAcquisitionSuiteCalculator from './calculators/AdvancedDealAcquisitionSuiteCalculator';
+import AdvancedAlgebraSuiteCalculator from '@/components/advanced-algebra-suite-calculator';
+import AdvancedBusinessFinanceSuiteCalculator from '@/components/advanced-business-finance-suite-calculator';
 import AdvancedLoanPaymentCalculator from './calculators/AdvancedLoanPaymentCalculator';
 import AdvancedDogAgeCalculator from './calculators/AdvancedDogAgeCalculator';
 import AdvancedCatAgeCalculator from './calculators/AdvancedCatAgeCalculator';
@@ -224,6 +236,34 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'brrrr-calculator': AdvancedBRRRRCalculator,
   'fix-and-flip-calculator': () => <AdvancedDealAcquisitionSuiteCalculator variant="fix-and-flip" />,
   'wholesale-calculator': () => <AdvancedDealAcquisitionSuiteCalculator variant="wholesale" />,
+  'quadratic-formula-calculator': () => <AdvancedAlgebraSuiteCalculator variant="quadratic-formula" />,
+  'slope-calculator': () => <AdvancedAlgebraSuiteCalculator variant="slope" />,
+  'distance-formula-calculator': () => <AdvancedAlgebraSuiteCalculator variant="distance-formula" />,
+  'midpoint-calculator': () => <AdvancedAlgebraSuiteCalculator variant="midpoint" />,
+  'linear-equation-calculator': () => <AdvancedAlgebraSuiteCalculator variant="linear-equation" />,
+  'system-of-equations-calculator': () => <AdvancedAlgebraSuiteCalculator variant="system-of-equations" />,
+  'polynomial-calculator': () => <AdvancedAlgebraSuiteCalculator variant="polynomial" />,
+  'factoring-calculator': () => <AdvancedAlgebraSuiteCalculator variant="factoring" />,
+  'exponent-calculator': () => <AdvancedAlgebraSuiteCalculator variant="exponent" />,
+  'logarithm-calculator': () => <AdvancedAlgebraSuiteCalculator variant="logarithm" />,
+  'scientific-notation-calculator': () => <AdvancedAlgebraSuiteCalculator variant="scientific-notation" />,
+  'square-root-calculator': () => <AdvancedAlgebraSuiteCalculator variant="square-root" />,
+  'cube-root-calculator': () => <AdvancedAlgebraSuiteCalculator variant="cube-root" />,
+  'nth-root-calculator': () => <AdvancedAlgebraSuiteCalculator variant="nth-root" />,
+  'absolute-value-calculator': () => <AdvancedAlgebraSuiteCalculator variant="absolute-value" />,
+  'break-even-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="break-even" />,
+  'profit-margin-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="profit-margin" />,
+  'markup-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="markup" />,
+  'gross-profit-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="gross-profit" />,
+  'net-profit-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="net-profit" />,
+  'payback-period-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="payback-period" />,
+  'npv-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="npv" />,
+  'irr-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="irr" />,
+  'working-capital-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="working-capital" />,
+  'burn-rate-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="burn-rate" />,
+  'customer-acquisition-cost-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="customer-acquisition-cost" />,
+  'customer-lifetime-value-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="customer-lifetime-value" />,
+  'business-valuation-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="business-valuation" />,
   'loan-payment-calculator': AdvancedLoanPaymentCalculator,
   'dog-age-calculator': AdvancedDogAgeCalculator,
   'cat-age-calculator': AdvancedCatAgeCalculator,
@@ -292,6 +332,9 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
 
 const nestedCalculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'finance-personal-finance/mortgages/down-payment-calculator': () => <AdvancedMortgagePlanningSuiteCalculator variant="down-payment" />,
+  'automotive-transportation/vehicle-costs/down-payment-calculator': AdvancedDownPaymentCalculator,
+  'real-estate-property/property-investment/cash-flow-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="cash-flow" />,
+  'real-estate-property/property-investment/roi-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="roi" />,
 };
 
 export default async function CalculatorPage({ params }: CalculatorPageProps) {

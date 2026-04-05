@@ -56,7 +56,7 @@ export const calculatorCategories: Category[] = [
               'loan payment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -88,7 +88,7 @@ export const calculatorCategories: Category[] = [
               'debt payoff calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -104,7 +104,7 @@ export const calculatorCategories: Category[] = [
               'debt consolidation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -120,7 +120,7 @@ export const calculatorCategories: Category[] = [
               'debt-to-income ratio calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -136,7 +136,7 @@ export const calculatorCategories: Category[] = [
               'credit card payoff calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -152,7 +152,7 @@ export const calculatorCategories: Category[] = [
               'credit card interest calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -168,7 +168,7 @@ export const calculatorCategories: Category[] = [
               'minimum payment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -184,7 +184,7 @@ export const calculatorCategories: Category[] = [
               'loan comparison calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -200,7 +200,7 @@ export const calculatorCategories: Category[] = [
               'apr calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -216,7 +216,7 @@ export const calculatorCategories: Category[] = [
               'simple interest calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -248,7 +248,7 @@ export const calculatorCategories: Category[] = [
               'loan-to-value calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -264,7 +264,7 @@ export const calculatorCategories: Category[] = [
               'debt snowball calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2540,7 +2540,7 @@ export const calculatorCategories: Category[] = [
               'baking calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'intermediate',
+            difficulty: 'advanced',
             popular: true
           }
         ]
@@ -7340,7 +7340,7 @@ export const calculatorCategories: Category[] = [
               'quadratic formula calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7356,7 +7356,7 @@ export const calculatorCategories: Category[] = [
               'slope calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7372,7 +7372,7 @@ export const calculatorCategories: Category[] = [
               'distance formula calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7388,7 +7388,7 @@ export const calculatorCategories: Category[] = [
               'midpoint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7404,7 +7404,7 @@ export const calculatorCategories: Category[] = [
               'linear equation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7420,7 +7420,7 @@ export const calculatorCategories: Category[] = [
               'system of equations calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7436,7 +7436,7 @@ export const calculatorCategories: Category[] = [
               'polynomial calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7452,7 +7452,7 @@ export const calculatorCategories: Category[] = [
               'factoring calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7468,7 +7468,7 @@ export const calculatorCategories: Category[] = [
               'exponent calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7484,7 +7484,7 @@ export const calculatorCategories: Category[] = [
               'logarithm calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7500,7 +7500,7 @@ export const calculatorCategories: Category[] = [
               'scientific notation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7516,7 +7516,7 @@ export const calculatorCategories: Category[] = [
               'square root calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7532,7 +7532,7 @@ export const calculatorCategories: Category[] = [
               'cube root calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7548,7 +7548,7 @@ export const calculatorCategories: Category[] = [
               'nth root calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7564,7 +7564,7 @@ export const calculatorCategories: Category[] = [
               'absolute value calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
