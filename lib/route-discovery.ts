@@ -105,6 +105,11 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
       const existingComponents = calculatorFiles
         .filter(file => file.endsWith('.tsx') && file !== 'index.tsx')
         .map(file => componentNameToSlug(file.replace('.tsx', '')));
+      const registeredCalculatorSlugs = await discoverRegisteredCalculatorSlugs();
+      const implementedSlugs = new Set([
+        ...existingComponents,
+        ...registeredCalculatorSlugs,
+      ]);
       
       // Import calculator categories to get the actual structure
       const { calculatorCategories, popularCalculators } = await import('./calculator-categories');
@@ -113,7 +118,7 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
         for (const subcategory of category.subcategories) {
           for (const calculator of subcategory.calculators) {
             // Only include calculators that have actual component files
-            if (existingComponents.includes(calculator.slug)) {
+            if (implementedSlugs.has(calculator.slug)) {
               const isPopular = popularCalculators.includes(calculator.slug);
               
               routes.push({
@@ -132,6 +137,31 @@ async function discoverActualCalculators(): Promise<DiscoveredRoute[]> {
   }
 
   return routes;
+}
+
+async function discoverRegisteredCalculatorSlugs(): Promise<string[]> {
+  try {
+    const calculatorPagePath = path.join(
+      process.cwd(),
+      'app',
+      '[category]',
+      '[subcategory]',
+      '[calculator]',
+      'page.tsx'
+    );
+
+    if (!(await fileExists(calculatorPagePath))) {
+      return [];
+    }
+
+    const pageSource = await fs.readFile(calculatorPagePath, 'utf8');
+    const matches = pageSource.matchAll(/'([^']+-calculator)'(?=\s*:)/g);
+
+    return Array.from(new Set(Array.from(matches, (match) => match[1])));
+  } catch (error) {
+    console.warn('Could not discover registered calculator slugs:', error instanceof Error ? error.message : String(error));
+    return [];
+  }
 }
 
 async function discoverCategoryPages(): Promise<DiscoveredRoute[]> {
@@ -250,14 +280,6 @@ function componentNameToSlug(componentName: string): string {
     .toLowerCase()
     .replace(/^-/, '') // Remove leading hyphen
     .replace(/--+/g, '-'); // Replace multiple hyphens with single
-}
-
-function isPopularCalculator(slug: string): boolean {
-  const popularSlugs = [
-    'bmi-calculator', 'mortgage-payment-calculator', 'loan-payment-calculator', 'compound-interest-calculator',
-    'percentage-calculator', 'tip-calculator', 'calorie-calculator', 'gpa-calculator', 'age-calculator', 'discount-calculator'
-  ];
-  return popularSlugs.includes(slug);
 }
 
 function getPagePriority(pageName: string): number {

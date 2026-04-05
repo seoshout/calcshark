@@ -1,111 +1,188 @@
-# Calculator Content Template (Based on `/pet-care/pet-health-nutrition/spayneuter-cost-calculator/`)
+# Calculator Content Template (Based on `/automotive-transportation/vehicle-costs/car-payment-calculator/`)
 
-Use this template for **every calculator page** after the tool/input section.
+Use this template for every new advanced calculator page after the tool/input section.
 
 ## Scope
-This template starts **immediately below the calculator tool section** (inputs + calculate/reset buttons).
+This template starts immediately below the calculator tool section (inputs + calculate/reset buttons).
+
+## Core Baseline
+The car payment calculator is implemented through the shared suite pattern in:
+- `app/[category]/[subcategory]/[calculator]/calculators/AdvancedCarPaymentCalculator.tsx`
+- `app/[category]/[subcategory]/[calculator]/calculators/AdvancedVehicleCostsSuiteCalculator.tsx`
+
+For all new calculators, follow this structure order and content density unless there is a strong calculator-specific reason to deviate.
 
 ## Mandatory Rules
-1. Keep detailed calculation output in a **modal/popup only**.
-2. Do **not** render duplicate full results cards below the calculator.
-3. Every major section and key subsection must include clear visual markers (icon + colored panel/card style).
-4. Content must be advanced-depth (practical guidance + interpretation + actionable next steps).
+1. Keep detailed calculation output in a modal/popup only.
+2. Do not render a duplicate full results panel below the calculator.
+3. Every major section and key subsection must include an icon-led heading.
+4. Use colored panels/cards to separate content groups.
+5. Keep the tone practical, decision-oriented, and non-generic.
+6. Use specific numbers, thresholds, examples, and action guidance where possible.
+7. End with FAQ and `CalculatorReview`.
 
 ## Required Section Order (Below Tool)
 
 ## 1) About This Calculator
 Required structure:
-- Intro block: section title + short descriptor line.
-- 2-4 intro paragraphs explaining what the calculator covers and why it is useful.
-- Feature grid/cards (minimum 4 cards):
-  - Calculation modes
-  - Comparison capability
-  - Regional/assumption support
-  - Advanced output depth
-- Badge/tag row (minimum 4 tags) highlighting key strengths.
+- `H2`: `About This Calculator`
+- 2-4 intro paragraphs that explain:
+  - what the calculator covers
+  - what decision it helps with
+  - what risk or planning problem it solves
+- Feature card grid with 4 cards minimum:
+  - layered calculation depth
+  - scenario/projection capability
+  - sensitivity/comparison coverage
+  - risk/decision framing
+- Badge/tag row with at least 4 short highlights.
+
+This section should feel like a short product overview for the tool.
 
 ## 2) Results Modal (UI Rule)
 Required structure:
-- Modal header with icon + result title.
-- KPI cards (total result + key companion metrics).
-- Full breakdown section.
-- Recommendations section.
-- Warnings/considerations section.
-- Next steps section.
-- Optional comparison/scenario blocks where relevant.
+- modal header with icon + result title
+- primary decision metric
+- supporting KPI cards
+- breakdown section
+- scenario deltas / comparison section
+- recommendations
+- warnings / considerations
+- next steps
+- optional projection table where relevant
 
 Hard rule:
-- No full duplicate result panel below calculator content.
+- No full duplicate result block below the calculator body.
 
 ## 3) How to Use This Free Online [Calculator Name]
-Required subsections:
-- `Step-by-Step Guide` (exactly 6 steps, each with detailed explanatory paragraph).
-- `Your Results Dashboard` (what appears after calculation; minimum 4 items).
-- `Why Use This Calculator?` (minimum 4 reason groups).
-- `Advanced Features` (minimum 3 feature cards with practical explanation).
-
-## 4) Understanding [Topic] [Costs/Results/Concepts]
 Required structure:
-- Main education section title.
-- Minimum 6 themed subsections (cards/panels), each with depth:
-  1. Core concept explanation
-  2. Major factors affecting results
-  3. Advanced comparison block (method A vs method B or equivalent)
-  4. Recommendation/timing/threshold guidance
-  5. Financial optimization/assistance options
-  6. Practical benefits/risks/impact summary
+- `H2`: `How to Use This Free Online [Calculator Name]`
+- 4 recurring `H3` groups in this order:
+  1. `Step-by-Step Guide`
+  2. `Your [Topic] Results Dashboard (Popup Only)`
+  3. `Why Use This [Topic] Calculator?`
+  4. `[Topic] Advanced Features`
+- Final `H3` block for practical planning guidance / action rules.
+
+### Step-by-Step Guide
+- Exactly 6 steps
+- Each step should be an `H4`
+- Each step needs a real explanatory paragraph, not just a label
+- The 6 steps should move from inputs -> assumptions -> outputs -> decisions
+
+### Results Dashboard
+- Minimum 4 dashboard interpretation items:
+  - primary decision metric
+  - supporting KPIs
+  - scenario deltas
+  - projections / planning rows
+
+### Why Use This Calculator?
+- Minimum 4 reason cards
+- Focus on depth beyond basic calculators:
+  - better modeling
+  - risk visibility
+  - cash-flow clarity
+  - actionable planning
+
+### Advanced Features
+- Minimum 3 feature cards
+- Explain what the advanced logic adds and why it matters
+
+### Practical Planning Guidance
+- Add a final short action section with 4 planning prompts such as:
+  - set approval limits
+  - stress-test weak points
+  - connect results to budget policy
+  - set recheck triggers
+
+## 4) Understanding [Topic] Planning
+Required structure:
+- `H2`: `Understanding [Topic] Planning` or calculator-equivalent
+- Exactly 6 themed `H3` subsections modeled after the car-payment pattern:
+  1. `Core Concept and Decision Context`
+  2. `Major Factors Affecting Results`
+  3. `Advanced Comparison Framework`
+  4. `Threshold and Timing Guidance`
+  5. `Financial Optimization and Assistance Options`
+  6. `Practical Benefits, Risks, and Impact Summary`
 
 Each subsection should include:
-- Subheading with icon/symbol emphasis.
-- Context paragraph.
-- Structured bullets or cards (not just one short paragraph).
+- icon-led subheading
+- a context paragraph
+- structured bullets/cards/grids
+- practical interpretation, not just definitions
 
 ## 5) Quick Reference Table
 Required structure:
-- One compact table with at least 5 rows.
-- Columns must include practical planning fields (category, typical value/range, low/high or option comparison).
-- Include a short caveat note below the table.
+- `H3`: `Quick Reference: ...`
+- one compact benchmark/planning table
+- minimum 5 rows
+- rows should use practical ranges, thresholds, or benchmark views
+- include a short caveat note below the table
+
+This section should help users quickly sense-check results.
 
 ## 6) Scientific References & Resources
 Required structure:
-- Minimum 4 grouped source blocks.
-- Each block needs a heading and multiple sources.
-- Source groups should map to:
-  - Official/association guidance
-  - Research/clinical or technical studies
-  - Cost/market/financial data
-  - Educational or consumer resources
-- End with a short methodology/disclaimer paragraph.
+- `H2`: `Scientific References & Resources`
+- minimum 5 grouped source blocks in this preferred order:
+  1. `Official Sources`
+  2. `Research and Technical Sources`
+  3. `Cost and Market Data Sources`
+  4. `Educational and Consumer Resources`
+  5. `Tool-Specific Research Focus`
+- end with a short methodology/disclaimer paragraph
+
+Each source group should have multiple references or bullets.
 
 ## 7) Frequently Asked Questions
 Required structure:
-- Section heading + FAQ accordion.
-- Minimum 10 FAQs for advanced tools.
+- `H2`: `Frequently Asked Questions`
+- FAQ accordion rendered with `showTitle={false}` if the section heading is already present
+- minimum 10 FAQs for advanced tools
+
+FAQ topics should include:
+- calculation meaning
+- assumptions
+- edge cases
+- planning thresholds
+- user misconceptions
 
 ## 8) Review Section
 Required structure:
-- `CalculatorReview` block at the end.
+- `CalculatorReview` block at the very end
 
-## Design and Content Density Requirements
-- Use icon-led headings for each major section.
-- Use colored panels (blue/green/orange/purple/cyan etc.) to separate content groups.
-- Prefer cards/grids over long unbroken paragraphs.
-- Use specific numbers/ranges/examples where possible.
-- Keep tone practical, decision-oriented, and non-generic.
+## Heading Hierarchy
+- `H1`: handled by shared calculator layout
+- `H2`: major sections only
+- `H3`: grouped sub-sections
+- `H4`: individual cards, steps, and planning blocks
 
-## SEO/Structured-Data Alignment Checklist (Per Tool)
-- Breadcrumb schema present.
-- Software/WebApplication schema present.
-- FAQPage schema present.
-- Tool route included in sitemap discovery.
+## Design Requirements
+- use icon-led headings across all major sections
+- use grids/cards instead of long walls of text
+- use blue/green/orange/purple/cyan panel variations to separate groups
+- keep sections scannable and visually modular
+- keep paragraph lengths moderate
 
-## Authoring Checklist (Use Before Marking Tool Complete)
-- [ ] All 8 required sections exist in the required order.
-- [ ] How-to section has 6 detailed steps.
-- [ ] Understanding section has at least 6 deep subsections.
-- [ ] Quick reference table added with caveat.
-- [ ] 4 grouped reference/resource blocks added.
-- [ ] FAQ count is at least 10.
-- [ ] Results are popup-only (no duplicate below).
-- [ ] Icons are present across major sections/subsections.
-- [ ] Schema + sitemap wiring updated.
+## SEO / Structured-Data Alignment Checklist
+- breadcrumb schema present
+- software / web application schema present
+- FAQ section present and aligned with page content
+- tool route included in sitemap discovery
+
+## Authoring Checklist
+- [ ] Uses the car-payment section order
+- [ ] About section includes intro + 4 feature cards + tags
+- [ ] Results stay in popup/modal only
+- [ ] How-to section includes 6 detailed steps
+- [ ] Results dashboard has at least 4 interpretation items
+- [ ] Why-use section has at least 4 reason cards
+- [ ] Advanced-features section has at least 3 feature cards
+- [ ] Practical planning guidance block is present
+- [ ] Understanding section contains all 6 deep subsections
+- [ ] Quick reference benchmark table is included
+- [ ] References section contains 5 grouped source blocks
+- [ ] FAQ count is at least 10
+- [ ] Review section is last

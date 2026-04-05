@@ -309,7 +309,7 @@ export const calculatorCategories: Category[] = [
           {
             id: 'mortgage-affordability-calculator',
             name: 'Mortgage Affordability Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced affordability calculator with debt-to-income screening, real housing costs, and payment comfort analysis',
             slug: 'mortgage-affordability-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -319,29 +319,29 @@ export const calculatorCategories: Category[] = [
               'mortgage affordability calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
-          {
-            id: '15-vs-30-year-mortgage-comparison-calculator',
-            name: '15 vs 30 Year Mortgage Comparison Calculator',
-            description: 'Quick and accurate calculations',
-            slug: '15-vs-30-year-mortgage-comparison-calculator',
+            {
+              id: '15-vs-30-year-mortgage-comparison-calculator',
+              name: '15 vs 30 Year Mortgage Comparison Calculator',
+              description: 'Quick and accurate calculations',
+              slug: '15-vs-30-year-mortgage-comparison-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
             tags: [
               'finance & personal finance',
               'mortgages',
               '15 vs 30 year mortgage comparison calculator'
-            ],
-            icon: 'Calculator',
-            difficulty: 'basic',
-            popular: false
-          },
+              ],
+              icon: 'Calculator',
+              difficulty: 'advanced',
+              popular: false
+            },
           {
             id: 'mortgage-refinance-calculator',
             name: 'Mortgage Refinance Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced refinance calculator with payment comparison, break-even timing, and long-term interest tradeoff analysis',
             slug: 'mortgage-refinance-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -351,13 +351,13 @@ export const calculatorCategories: Category[] = [
               'mortgage refinance calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'mortgage-amortization-calculator',
             name: 'Mortgage Amortization Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced amortization calculator with payoff timing, balance milestones, and remaining interest analysis',
             slug: 'mortgage-amortization-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -367,13 +367,13 @@ export const calculatorCategories: Category[] = [
               'mortgage amortization calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'intermediate',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'down-payment-calculator',
             name: 'Down Payment Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced down payment calculator with cash-to-close, PMI exposure, and monthly housing cost analysis',
             slug: 'down-payment-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -383,13 +383,13 @@ export const calculatorCategories: Category[] = [
               'down payment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'private-mortgage-insurance-pmi-calculator',
             name: 'Private Mortgage Insurance (PMI) Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced PMI calculator with monthly cost, annual burden, and cancellation-timing estimates',
             slug: 'private-mortgage-insurance-pmi-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -399,13 +399,13 @@ export const calculatorCategories: Category[] = [
               'private mortgage insurance (pmi) calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'mortgage-points-calculator',
             name: 'Mortgage Points Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced mortgage points calculator with upfront cost, payment savings, and break-even timing analysis',
             slug: 'mortgage-points-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -415,13 +415,13 @@ export const calculatorCategories: Category[] = [
               'mortgage points calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'arm-vs-fixed-rate-calculator',
             name: 'ARM vs Fixed Rate Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced ARM vs fixed calculator with intro-rate savings, reset-risk comparison, and payment stress testing',
             slug: 'arm-vs-fixed-rate-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -431,13 +431,13 @@ export const calculatorCategories: Category[] = [
               'arm vs fixed rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'extra-payment-calculator',
             name: 'Extra Payment Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced extra payment calculator with payoff acceleration, interest savings, and prepayment planning',
             slug: 'extra-payment-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -447,13 +447,13 @@ export const calculatorCategories: Category[] = [
               'extra payment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'bi-weekly-mortgage-calculator',
             name: 'Bi-weekly Mortgage Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced bi-weekly mortgage calculator with payoff acceleration and interest savings analysis',
             slug: 'bi-weekly-mortgage-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -463,13 +463,13 @@ export const calculatorCategories: Category[] = [
               'bi-weekly mortgage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
             id: 'home-equity-calculator',
             name: 'Home Equity Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced home equity calculator with combined leverage, CLTV, and available-equity screening',
             slug: 'home-equity-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -479,13 +479,13 @@ export const calculatorCategories: Category[] = [
               'home equity calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'heloc-payment-calculator',
             name: 'HELOC Payment Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced HELOC calculator with draw-period payment, repayment-period reset, and leverage analysis',
             slug: 'heloc-payment-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -495,13 +495,13 @@ export const calculatorCategories: Category[] = [
               'heloc payment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'closing-cost-calculator',
             name: 'Closing Cost Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced closing cost calculator with lender fees, prepaids, and total cash-to-close estimates',
             slug: 'closing-cost-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -511,13 +511,13 @@ export const calculatorCategories: Category[] = [
               'closing cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'rent-vs-buy-calculator',
             name: 'Rent vs Buy Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced rent vs buy calculator with stay horizon, appreciation, ownership costs, and selling-cost analysis',
             slug: 'rent-vs-buy-calculator',
             category: 'finance-personal-finance',
             subcategory: 'mortgages',
@@ -527,7 +527,7 @@ export const calculatorCategories: Category[] = [
               'rent vs buy calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -787,7 +787,7 @@ export const calculatorCategories: Category[] = [
           {
             id: 'retirement-savings-calculator',
             name: 'Retirement Savings Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced retirement savings calculator with nest egg projection, real-value adjustment, and spending-support analysis',
             slug: 'retirement-savings-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -797,13 +797,13 @@ export const calculatorCategories: Category[] = [
               'retirement savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
             id: '401k-calculator',
             name: '401(k) Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced 401(k) calculator with employer match, 2026 contribution-limit context, and retirement-income support',
             slug: '401k-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -813,13 +813,13 @@ export const calculatorCategories: Category[] = [
               '401(k) calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
             id: 'ira-calculator',
             name: 'IRA Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced IRA calculator with 2026 contribution limits, compounding, and retirement-income support',
             slug: 'ira-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -829,13 +829,13 @@ export const calculatorCategories: Category[] = [
               'ira calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'roth-ira-conversion-calculator',
             name: 'Roth IRA Conversion Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced Roth IRA conversion calculator with tax-cost comparison and after-tax value analysis',
             slug: 'roth-ira-conversion-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -845,13 +845,13 @@ export const calculatorCategories: Category[] = [
               'roth ira conversion calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'social-security-estimator-calculator',
             name: 'Social Security Estimator Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced Social Security estimator with claim-age impact and replacement-rate planning',
             slug: 'social-security-estimator-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -861,13 +861,13 @@ export const calculatorCategories: Category[] = [
               'social security estimator calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'retirement-income-calculator',
             name: 'Retirement Income Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced retirement income calculator with portfolio withdrawals, Social Security, pension, and gap analysis',
             slug: 'retirement-income-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -877,13 +877,13 @@ export const calculatorCategories: Category[] = [
               'retirement income calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'catch-up-contribution-calculator',
             name: 'Catch-up Contribution Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced catch-up contribution calculator with 2026 age-based contribution room analysis',
             slug: 'catch-up-contribution-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -893,13 +893,13 @@ export const calculatorCategories: Category[] = [
               'catch-up contribution calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'required-minimum-distribution-calculator',
             name: 'Required Minimum Distribution Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced RMD calculator with IRS divisor estimates and annual distribution planning',
             slug: 'required-minimum-distribution-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -909,13 +909,13 @@ export const calculatorCategories: Category[] = [
               'required minimum distribution calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'pension-calculator',
             name: 'Pension Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced pension calculator with salary, service years, multiplier, and replacement-rate analysis',
             slug: 'pension-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -925,13 +925,13 @@ export const calculatorCategories: Category[] = [
               'pension calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'annuity-calculator',
             name: 'Annuity Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced annuity calculator with payout-rate, horizon, and retirement-income estimates',
             slug: 'annuity-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -941,13 +941,13 @@ export const calculatorCategories: Category[] = [
               'annuity calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'early-retirement-calculator',
             name: 'Early Retirement Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced early retirement calculator with financial-independence age and target-gap analysis',
             slug: 'early-retirement-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -957,13 +957,13 @@ export const calculatorCategories: Category[] = [
               'early retirement calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'fire-calculator',
             name: 'FIRE Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced FIRE calculator with target portfolio, savings-rate, and timeline analysis',
             slug: 'fire-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -973,13 +973,13 @@ export const calculatorCategories: Category[] = [
               'fire calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'retirement-withdrawal-calculator',
             name: 'Retirement Withdrawal Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced retirement withdrawal calculator with depletion timing and inflation-adjusted withdrawal analysis',
             slug: 'retirement-withdrawal-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -989,13 +989,13 @@ export const calculatorCategories: Category[] = [
               'retirement withdrawal calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'life-expectancy-calculator',
             name: 'Life Expectancy Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced life expectancy planning calculator with retirement-horizon estimates and longevity context',
             slug: 'life-expectancy-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -1005,13 +1005,13 @@ export const calculatorCategories: Category[] = [
               'life expectancy calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
             id: 'retirement-gap-calculator',
             name: 'Retirement Gap Calculator',
-            description: 'Quick and accurate calculations',
+            description: 'Advanced retirement gap calculator with portfolio target, shortfall, and readiness analysis',
             slug: 'retirement-gap-calculator',
             category: 'finance-personal-finance',
             subcategory: 'retirement',
@@ -1021,7 +1021,7 @@ export const calculatorCategories: Category[] = [
               'retirement gap calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -2819,7 +2819,7 @@ export const calculatorCategories: Category[] = [
               'rental property calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2835,7 +2835,7 @@ export const calculatorCategories: Category[] = [
               'cash flow calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2851,7 +2851,7 @@ export const calculatorCategories: Category[] = [
               'cap rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2867,7 +2867,7 @@ export const calculatorCategories: Category[] = [
               'roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2883,7 +2883,7 @@ export const calculatorCategories: Category[] = [
               'cash-on-cash return calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2899,7 +2899,7 @@ export const calculatorCategories: Category[] = [
               'noi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2915,7 +2915,7 @@ export const calculatorCategories: Category[] = [
               'gross rent multiplier calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2931,7 +2931,7 @@ export const calculatorCategories: Category[] = [
               '1% rule calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2947,7 +2947,7 @@ export const calculatorCategories: Category[] = [
               '50% rule calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2963,7 +2963,7 @@ export const calculatorCategories: Category[] = [
               '70% rule calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2979,7 +2979,7 @@ export const calculatorCategories: Category[] = [
               'brrrr calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2995,7 +2995,7 @@ export const calculatorCategories: Category[] = [
               'fix and flip calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3011,7 +3011,7 @@ export const calculatorCategories: Category[] = [
               'wholesale calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3027,7 +3027,7 @@ export const calculatorCategories: Category[] = [
               'property appreciation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3043,7 +3043,7 @@ export const calculatorCategories: Category[] = [
               'rental yield calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -6176,7 +6176,7 @@ export const calculatorCategories: Category[] = [
               'roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6256,7 +6256,7 @@ export const calculatorCategories: Category[] = [
               'cash flow calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -12501,3 +12501,4 @@ export const getCalculatorURL = (calculator: Calculator): string => {
   // Fallback to old format if not found (shouldn't happen)
   return `/calculator/${calculator.slug}/`;
 };
+

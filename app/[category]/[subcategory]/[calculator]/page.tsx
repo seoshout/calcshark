@@ -15,12 +15,26 @@ interface CalculatorPageProps {
   }>;
 }
 
+function getCalculatorComponentForRoute(
+  categorySlug: string,
+  subcategorySlug: string,
+  calculatorSlug: string
+) {
+  const nestedCalculatorKey = `${categorySlug}/${subcategorySlug}/${calculatorSlug}`;
+
+  return (
+    nestedCalculatorComponents[nestedCalculatorKey] ??
+    calculatorComponents[calculatorSlug]
+  );
+}
+
 // Generate metadata dynamically based on calculator
 export async function generateMetadata({ params }: CalculatorPageProps): Promise<Metadata> {
   const { category: categorySlug, subcategory: subcategorySlug, calculator: calculatorSlug } = await params;
   const calculator =
     getCalculatorByNestedSlug(categorySlug, subcategorySlug, calculatorSlug) ??
     getCalculatorBySlug(calculatorSlug);
+  const CalculatorComponent = getCalculatorComponentForRoute(categorySlug, subcategorySlug, calculatorSlug);
   
   if (!calculator) {
     return {
@@ -29,9 +43,6 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
     };
   }
 
-  const category = getCategoryBySlug(categorySlug);
-  const subcategory = getSubcategoryBySlug(categorySlug, subcategorySlug);
-  
   // Get specific SEO data if available, otherwise use defaults
   const slug = calculator.slug.replace('-calculator', '');
   const seoData = calculatorSEO[slug as keyof typeof calculatorSEO];
@@ -70,11 +81,11 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
       canonical: `https://calcshark.com/${categorySlug}/${subcategorySlug}/${calculator.slug}/`,
     },
     robots: {
-      index: true,
-      follow: true,
+      index: !!CalculatorComponent,
+      follow: !!CalculatorComponent,
       googleBot: {
-        index: true,
-        follow: true,
+        index: !!CalculatorComponent,
+        follow: !!CalculatorComponent,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
@@ -90,6 +101,17 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
 // Import calculators
 import AdvancedCompoundInterestCalculator from './calculators/AdvancedCompoundInterestCalculator';
 import AdvancedMortgageCalculator from './calculators/AdvancedMortgageCalculator';
+import AdvancedMortgageTermComparisonCalculator from './calculators/AdvancedMortgageTermComparisonCalculator';
+import AdvancedMortgagePlanningSuiteCalculator from './calculators/AdvancedMortgagePlanningSuiteCalculator';
+import AdvancedMortgageStrategySuiteCalculator from './calculators/AdvancedMortgageStrategySuiteCalculator';
+import AdvancedMortgageEquitySuiteCalculator from './calculators/AdvancedMortgageEquitySuiteCalculator';
+import AdvancedRetirementSuiteCalculator from './calculators/AdvancedRetirementSuiteCalculator';
+import AdvancedOnePercentRuleCalculator from './calculators/AdvancedOnePercentRuleCalculator';
+import AdvancedFiftyPercentRuleCalculator from './calculators/AdvancedFiftyPercentRuleCalculator';
+import AdvancedSeventyPercentRuleCalculator from './calculators/AdvancedSeventyPercentRuleCalculator';
+import AdvancedPropertyInvestmentSuiteCalculator from './calculators/AdvancedPropertyInvestmentSuiteCalculator';
+import AdvancedBRRRRCalculator from './calculators/AdvancedBRRRRCalculator';
+import AdvancedDealAcquisitionSuiteCalculator from './calculators/AdvancedDealAcquisitionSuiteCalculator';
 import AdvancedLoanPaymentCalculator from './calculators/AdvancedLoanPaymentCalculator';
 import AdvancedDogAgeCalculator from './calculators/AdvancedDogAgeCalculator';
 import AdvancedCatAgeCalculator from './calculators/AdvancedCatAgeCalculator';
@@ -159,6 +181,49 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'basic-bmi-calculator': BMICalculator,   // Keep basic version available
   'compound-interest-calculator': AdvancedCompoundInterestCalculator,
   'mortgage-payment-calculator': AdvancedMortgageCalculator,
+  '15-vs-30-year-mortgage-comparison-calculator': AdvancedMortgageTermComparisonCalculator,
+  'mortgage-affordability-calculator': () => <AdvancedMortgagePlanningSuiteCalculator variant="mortgage-affordability" />,
+  'mortgage-refinance-calculator': () => <AdvancedMortgageStrategySuiteCalculator variant="mortgage-refinance" />,
+  'mortgage-amortization-calculator': () => <AdvancedMortgageStrategySuiteCalculator variant="mortgage-amortization" />,
+  'private-mortgage-insurance-pmi-calculator': () => <AdvancedMortgagePlanningSuiteCalculator variant="pmi" />,
+  'mortgage-points-calculator': () => <AdvancedMortgagePlanningSuiteCalculator variant="mortgage-points" />,
+  'arm-vs-fixed-rate-calculator': () => <AdvancedMortgageStrategySuiteCalculator variant="arm-vs-fixed-rate" />,
+  'extra-payment-calculator': () => <AdvancedMortgageStrategySuiteCalculator variant="extra-payment" />,
+  'bi-weekly-mortgage-calculator': () => <AdvancedMortgageStrategySuiteCalculator variant="bi-weekly-mortgage" />,
+  'home-equity-calculator': () => <AdvancedMortgageEquitySuiteCalculator variant="home-equity" />,
+  'heloc-payment-calculator': () => <AdvancedMortgageEquitySuiteCalculator variant="heloc-payment" />,
+  'closing-cost-calculator': () => <AdvancedMortgagePlanningSuiteCalculator variant="closing-cost" />,
+  'rent-vs-buy-calculator': () => <AdvancedMortgageEquitySuiteCalculator variant="rent-vs-buy" />,
+  'retirement-savings-calculator': () => <AdvancedRetirementSuiteCalculator variant="retirement-savings" />,
+  '401k-calculator': () => <AdvancedRetirementSuiteCalculator variant="401k" />,
+  'ira-calculator': () => <AdvancedRetirementSuiteCalculator variant="ira" />,
+  'roth-ira-conversion-calculator': () => <AdvancedRetirementSuiteCalculator variant="roth-ira-conversion" />,
+  'social-security-estimator-calculator': () => <AdvancedRetirementSuiteCalculator variant="social-security-estimator" />,
+  'retirement-income-calculator': () => <AdvancedRetirementSuiteCalculator variant="retirement-income" />,
+  'catch-up-contribution-calculator': () => <AdvancedRetirementSuiteCalculator variant="catch-up-contribution" />,
+  'required-minimum-distribution-calculator': () => <AdvancedRetirementSuiteCalculator variant="required-minimum-distribution" />,
+  'pension-calculator': () => <AdvancedRetirementSuiteCalculator variant="pension" />,
+  'annuity-calculator': () => <AdvancedRetirementSuiteCalculator variant="annuity" />,
+  'early-retirement-calculator': () => <AdvancedRetirementSuiteCalculator variant="early-retirement" />,
+  'fire-calculator': () => <AdvancedRetirementSuiteCalculator variant="fire" />,
+  'retirement-withdrawal-calculator': () => <AdvancedRetirementSuiteCalculator variant="retirement-withdrawal" />,
+  'life-expectancy-calculator': () => <AdvancedRetirementSuiteCalculator variant="life-expectancy" />,
+  'retirement-gap-calculator': () => <AdvancedRetirementSuiteCalculator variant="retirement-gap" />,
+  'rental-property-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="rental-property" />,
+  'cash-flow-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="cash-flow" />,
+  'cap-rate-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="cap-rate" />,
+  'roi-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="roi" />,
+  'cash-on-cash-return-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="cash-on-cash-return" />,
+  'noi-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="noi" />,
+  'gross-rent-multiplier-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="gross-rent-multiplier" />,
+  'property-appreciation-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="property-appreciation" />,
+  'rental-yield-calculator': () => <AdvancedPropertyInvestmentSuiteCalculator variant="rental-yield" />,
+  '1-rule-calculator': AdvancedOnePercentRuleCalculator,
+  '50-rule-calculator': AdvancedFiftyPercentRuleCalculator,
+  '70-rule-calculator': AdvancedSeventyPercentRuleCalculator,
+  'brrrr-calculator': AdvancedBRRRRCalculator,
+  'fix-and-flip-calculator': () => <AdvancedDealAcquisitionSuiteCalculator variant="fix-and-flip" />,
+  'wholesale-calculator': () => <AdvancedDealAcquisitionSuiteCalculator variant="wholesale" />,
   'loan-payment-calculator': AdvancedLoanPaymentCalculator,
   'dog-age-calculator': AdvancedDogAgeCalculator,
   'cat-age-calculator': AdvancedCatAgeCalculator,
@@ -225,12 +290,16 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   // etc.
 };
 
+const nestedCalculatorComponents: { [key: string]: React.ComponentType<any> } = {
+  'finance-personal-finance/mortgages/down-payment-calculator': () => <AdvancedMortgagePlanningSuiteCalculator variant="down-payment" />,
+};
+
 export default async function CalculatorPage({ params }: CalculatorPageProps) {
   const { category: categorySlug, subcategory: subcategorySlug, calculator: calculatorSlug } = await params;
   const calculatorFromLookup =
     getCalculatorByNestedSlug(categorySlug, subcategorySlug, calculatorSlug) ??
     getCalculatorBySlug(calculatorSlug);
-  const CalculatorComponentFromSlug = calculatorComponents[calculatorSlug];
+  const CalculatorComponentFromSlug = getCalculatorComponentForRoute(categorySlug, subcategorySlug, calculatorSlug);
   const calculator = calculatorFromLookup ?? (
     CalculatorComponentFromSlug
       ? {
@@ -543,3 +612,4 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     </CalculatorLayout>
   );
 }
+
