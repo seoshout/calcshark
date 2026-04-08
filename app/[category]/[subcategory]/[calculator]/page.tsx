@@ -124,6 +124,8 @@ import AdvancedBRRRRCalculator from './calculators/AdvancedBRRRRCalculator';
 import AdvancedDealAcquisitionSuiteCalculator from './calculators/AdvancedDealAcquisitionSuiteCalculator';
 import AdvancedAlgebraSuiteCalculator from '@/components/advanced-algebra-suite-calculator';
 import AdvancedBusinessFinanceSuiteCalculator from '@/components/advanced-business-finance-suite-calculator';
+import AdvancedHumanResourcesSuiteCalculator from '@/components/advanced-human-resources-suite-calculator';
+import AdvancedProductivityEfficiencySuiteCalculator from '@/components/advanced-productivity-efficiency-suite-calculator';
 import AdvancedLoanPaymentCalculator from './calculators/AdvancedLoanPaymentCalculator';
 import AdvancedDogAgeCalculator from './calculators/AdvancedDogAgeCalculator';
 import AdvancedCatAgeCalculator from './calculators/AdvancedCatAgeCalculator';
@@ -264,6 +266,36 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'customer-acquisition-cost-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="customer-acquisition-cost" />,
   'customer-lifetime-value-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="customer-lifetime-value" />,
   'business-valuation-calculator': () => <AdvancedBusinessFinanceSuiteCalculator variant="business-valuation" />,
+  'salary-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="salary" />,
+  'hourly-wage-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="hourly-wage" />,
+  'overtime-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="overtime" />,
+  'payroll-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="payroll" />,
+  'employee-cost-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="employee-cost" />,
+  'pto-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="pto" />,
+  'sick-leave-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="sick-leave" />,
+  'holiday-pay-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="holiday-pay" />,
+  'severance-pay-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="severance-pay" />,
+  'employee-turnover-cost-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="employee-turnover-cost" />,
+  'recruitment-cost-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="recruitment-cost" />,
+  'training-roi-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="training-roi" />,
+  'benefits-cost-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="benefits-cost" />,
+  'workers-comp-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="workers-comp" />,
+  'fte-calculator': () => <AdvancedHumanResourcesSuiteCalculator variant="fte" />,
+  'time-tracking-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="time-tracking" />,
+  'billable-hours-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="billable-hours" />,
+  'utilization-rate-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="utilization-rate" />,
+  'productivity-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="productivity" />,
+  'efficiency-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="efficiency" />,
+  'oee-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="oee" />,
+  'cycle-time-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="cycle-time" />,
+  'takt-time-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="takt-time" />,
+  'lead-time-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="lead-time" />,
+  'throughput-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="throughput" />,
+  'capacity-planning-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="capacity-planning" />,
+  'resource-allocation-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="resource-allocation" />,
+  'project-roi-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="project-roi" />,
+  'meeting-cost-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="meeting-cost" />,
+  'deadline-calculator': () => <AdvancedProductivityEfficiencySuiteCalculator variant="deadline" />,
   'loan-payment-calculator': AdvancedLoanPaymentCalculator,
   'dog-age-calculator': AdvancedDogAgeCalculator,
   'cat-age-calculator': AdvancedCatAgeCalculator,

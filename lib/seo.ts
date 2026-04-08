@@ -440,6 +440,156 @@ export const calculatorSEO = {
     description: 'Screen a business using revenue, EBITDA, and SDE multiple methods plus implied equity value with our free online business valuation calculator.',
     keywords: ['business valuation calculator', 'EBITDA multiple calculator', 'SDE multiple calculator', 'enterprise value calculator', 'business worth calculator'],
   },
+  salary: {
+    title: 'Salary Calculator - Free Online Hourly to Salary Tool | Calcshark',
+    description: 'Convert hourly pay into annual salary, monthly pay, biweekly pay, semimonthly pay, weekly pay, and daily pay with our free online salary calculator.',
+    keywords: ['salary calculator', 'hourly to salary calculator', 'annual salary calculator', 'biweekly pay calculator', 'monthly salary calculator'],
+  },
+  'hourly-wage': {
+    title: 'Hourly Wage Calculator - Free Online Salary Converter | Calcshark',
+    description: 'Convert annual salary into an hourly wage using your real work schedule with our free online hourly wage calculator.',
+    keywords: ['hourly wage calculator', 'salary to hourly calculator', 'hourly rate calculator', 'salary converter calculator', 'pay rate calculator'],
+  },
+  overtime: {
+    title: 'Overtime Calculator - Free Online Overtime Pay Tool | Calcshark',
+    description: 'Estimate overtime pay, regular pay, overtime rate, and total weekly pay with our free online overtime calculator.',
+    keywords: ['overtime calculator', 'overtime pay calculator', 'time and a half calculator', 'overtime wage calculator', 'premium pay calculator'],
+  },
+  payroll: {
+    title: 'Payroll Calculator - Free Online Gross to Net Tool | Calcshark',
+    description: 'Estimate taxable wages, employee taxes, employer payroll taxes, deductions, and net pay with our free online payroll calculator.',
+    keywords: ['payroll calculator', 'gross to net calculator', 'net pay calculator', 'paycheck calculator', 'employer payroll tax calculator'],
+  },
+  'employee-cost': {
+    title: 'Employee Cost Calculator - Free Online Loaded Cost Tool | Calcshark',
+    description: 'Estimate loaded employee cost with salary, employer payroll taxes, benefits, bonus, equipment, and training using our free online calculator.',
+    keywords: ['employee cost calculator', 'loaded employee cost calculator', 'fully loaded salary calculator', 'headcount cost calculator', 'employee cost estimator'],
+  },
+  pto: {
+    title: 'PTO Calculator - Free Online Leave Balance Tool | Calcshark',
+    description: 'Estimate PTO accrual, earned hours, used time, remaining hours, and remaining days with our free online PTO calculator.',
+    keywords: ['PTO calculator', 'paid time off calculator', 'leave accrual calculator', 'vacation balance calculator', 'PTO balance calculator'],
+  },
+  'sick-leave': {
+    title: 'Sick Leave Calculator - Free Online Leave Accrual Tool | Calcshark',
+    description: 'Estimate sick leave accrual, used hours, remaining balance, and remaining days with our free online sick leave calculator.',
+    keywords: ['sick leave calculator', 'sick time calculator', 'leave accrual calculator', 'paid sick leave calculator', 'sick balance calculator'],
+  },
+  'holiday-pay': {
+    title: 'Holiday Pay Calculator - Free Online Premium Pay Tool | Calcshark',
+    description: 'Compare base holiday pay, worked-holiday premium pay, and total holiday compensation with our free online holiday pay calculator.',
+    keywords: ['holiday pay calculator', 'holiday premium pay calculator', 'double time calculator', 'holiday wages calculator', 'premium pay calculator'],
+  },
+  'severance-pay': {
+    title: 'Severance Pay Calculator - Free Online Separation Package Tool | Calcshark',
+    description: 'Estimate severance pay, PTO payout, weekly salary equivalent, and total separation package with our free online severance pay calculator.',
+    keywords: ['severance pay calculator', 'severance calculator', 'separation package calculator', 'PTO payout calculator', 'termination pay calculator'],
+  },
+  'employee-turnover-cost': {
+    title: 'Employee Turnover Cost Calculator - Free Online Replacement Cost Tool | Calcshark',
+    description: 'Estimate recruiting, onboarding, ramp-loss, and transition costs tied to replacing one employee with our free online turnover cost calculator.',
+    keywords: ['employee turnover cost calculator', 'turnover cost calculator', 'replacement cost calculator', 'attrition cost calculator', 'employee turnover calculator'],
+  },
+  'recruitment-cost': {
+    title: 'Recruitment Cost Calculator - Free Online Cost per Hire Tool | Calcshark',
+    description: 'Estimate recruiting spend, interview-time cost, total hiring cost, and cost per hire with our free online recruitment cost calculator.',
+    keywords: ['recruitment cost calculator', 'cost per hire calculator', 'hiring cost calculator', 'recruiting cost calculator', 'talent acquisition calculator'],
+  },
+  'training-roi': {
+    title: 'Training ROI Calculator - Free Online Learning Investment Tool | Calcshark',
+    description: 'Estimate training cost, annual benefit, net benefit, ROI percentage, and payback timing with our free online training ROI calculator.',
+    keywords: ['training ROI calculator', 'learning ROI calculator', 'employee training calculator', 'training payback calculator', 'L&D ROI calculator'],
+  },
+  'benefits-cost': {
+    title: 'Benefits Cost Calculator - Free Online Compensation Load Tool | Calcshark',
+    description: 'Estimate annual benefits cost, payroll-tax load, retirement match, and loaded compensation with our free online benefits cost calculator.',
+    keywords: ['benefits cost calculator', 'employee benefits calculator', 'loaded compensation calculator', 'compensation cost calculator', 'total compensation calculator'],
+  },
+  'workers-comp': {
+    title: "Workers' Comp Calculator - Free Online Premium Tool | Calcshark",
+    description: "Estimate manual premium, experience-modified premium, and final workers' comp premium with our free online calculator.",
+    keywords: ["workers' comp calculator", 'workers compensation calculator', 'workers comp premium calculator', 'experience mod calculator', 'premium rate calculator'],
+  },
+  fte: {
+    title: 'FTE Calculator - Free Online Full-Time Equivalent Tool | Calcshark',
+    description: 'Convert total hours worked into full-time equivalents using your chosen hours standard with our free online FTE calculator.',
+    keywords: ['FTE calculator', 'full time equivalent calculator', 'staffing calculator', 'workforce capacity calculator', 'hours to FTE calculator'],
+  },
+  'time-tracking': {
+    title: 'Time Tracking Calculator - Free Online Work Log Tool | Calcshark',
+    description: 'Compare logged time, productive time, billable time, overtime share, and billable value with our free online time tracking calculator.',
+    keywords: ['time tracking calculator', 'work log calculator', 'tracked hours calculator', 'productive hours calculator', 'billable time calculator'],
+  },
+  'billable-hours': {
+    title: 'Billable Hours Calculator - Free Online Revenue Tool | Calcshark',
+    description: 'Estimate billable revenue, non-billable time, billable percentage, and realized rate with our free online billable hours calculator.',
+    keywords: ['billable hours calculator', 'billable revenue calculator', 'consulting hours calculator', 'freelance hours calculator', 'realized rate calculator'],
+  },
+  'utilization-rate': {
+    title: 'Utilization Rate Calculator - Free Online Capacity Tool | Calcshark',
+    description: 'Compare billable hours with available capacity, target utilization, and revenue at current utilization using our free online utilization rate calculator.',
+    keywords: ['utilization rate calculator', 'billable utilization calculator', 'capacity utilization calculator', 'service utilization calculator', 'available hours calculator'],
+  },
+  productivity: {
+    title: 'Productivity Calculator - Free Online Output per Hour Tool | Calcshark',
+    description: 'Measure output per hour, output per person, expected output, and output gap with our free online productivity calculator.',
+    keywords: ['productivity calculator', 'output per hour calculator', 'labor productivity calculator', 'work output calculator', 'productivity rate calculator'],
+  },
+  efficiency: {
+    title: 'Efficiency Calculator - Free Online Standard vs Actual Tool | Calcshark',
+    description: 'Compare standard hours with actual hours to estimate efficiency rate, hour variance, and cost variance using our free online efficiency calculator.',
+    keywords: ['efficiency calculator', 'standard vs actual calculator', 'time efficiency calculator', 'process efficiency calculator', 'variance calculator'],
+  },
+  oee: {
+    title: 'OEE Calculator - Free Online Availability Performance Quality Tool | Calcshark',
+    description: 'Calculate availability, performance, quality, and total OEE with our free online OEE calculator.',
+    keywords: ['OEE calculator', 'overall equipment effectiveness calculator', 'availability performance quality calculator', 'manufacturing OEE calculator', 'production efficiency calculator'],
+  },
+  'cycle-time': {
+    title: 'Cycle Time Calculator - Free Online Pace Tool | Calcshark',
+    description: 'Estimate minutes per unit, hourly throughput, and capacity from one run with our free online cycle time calculator.',
+    keywords: ['cycle time calculator', 'minutes per unit calculator', 'process pace calculator', 'throughput pace calculator', 'production cycle calculator'],
+  },
+  'takt-time': {
+    title: 'Takt Time Calculator - Free Online Demand Pace Tool | Calcshark',
+    description: 'Convert available time and demand volume into the required pace with our free online takt time calculator.',
+    keywords: ['takt time calculator', 'demand pace calculator', 'production takt calculator', 'required pace calculator', 'lean takt calculator'],
+  },
+  'lead-time': {
+    title: 'Lead Time Calculator - Free Online Workflow Time Tool | Calcshark',
+    description: 'Estimate total lead time, value-added ratio, and non-value-added time with our free online lead time calculator.',
+    keywords: ['lead time calculator', 'workflow lead time calculator', 'elapsed time calculator', 'value added ratio calculator', 'queue time calculator'],
+  },
+  throughput: {
+    title: 'Throughput Calculator - Free Online Flow Rate Tool | Calcshark',
+    description: 'Measure units per hour, daily output, good-output rate, and time per unit using our free online throughput calculator.',
+    keywords: ['throughput calculator', 'units per hour calculator', 'production throughput calculator', 'flow rate calculator', 'output rate calculator'],
+  },
+  'capacity-planning': {
+    title: 'Capacity Planning Calculator - Free Online Staffing Load Tool | Calcshark',
+    description: 'Compare gross capacity, productive capacity, required hours, and capacity gap using our free online capacity planning calculator.',
+    keywords: ['capacity planning calculator', 'team capacity calculator', 'staffing capacity calculator', 'workload capacity calculator', 'resource capacity calculator'],
+  },
+  'resource-allocation': {
+    title: 'Resource Allocation Calculator - Free Online Staffing Balance Tool | Calcshark',
+    description: 'Compare allocated hours with team capacity, remaining capacity, overload, and people needed using our free online resource allocation calculator.',
+    keywords: ['resource allocation calculator', 'allocation rate calculator', 'staffing allocation calculator', 'workload allocation calculator', 'team allocation calculator'],
+  },
+  'project-roi': {
+    title: 'Project ROI Calculator - Free Online Return Tool | Calcshark',
+    description: 'Estimate project ROI, net benefit, payback period, and benefit-cost ratio with our free online project ROI calculator.',
+    keywords: ['project ROI calculator', 'project return calculator', 'benefit cost ratio calculator', 'project payback calculator', 'project investment calculator'],
+  },
+  'meeting-cost': {
+    title: 'Meeting Cost Calculator - Free Online Collaboration Cost Tool | Calcshark',
+    description: 'Estimate cost per meeting, monthly meeting cost, cost per minute, and prep-time impact with our free online meeting cost calculator.',
+    keywords: ['meeting cost calculator', 'cost of meeting calculator', 'meeting time cost calculator', 'recurring meeting cost calculator', 'collaboration cost calculator'],
+  },
+  deadline: {
+    title: 'Deadline Calculator - Free Online Delivery Pace Tool | Calcshark',
+    description: 'Estimate required team hours per day, effective capacity, schedule gap, and pace needed to finish on time with our free online deadline calculator.',
+    keywords: ['deadline calculator', 'project deadline calculator', 'schedule pace calculator', 'delivery deadline calculator', 'workload deadline calculator'],
+  },
   mortgage: {
     title: 'Mortgage Payment Calculator - Free Online Tool',
     description: 'Calculate your monthly mortgage payments with our free online mortgage calculator. Includes principal, interest, taxes, and insurance (PITI). Get accurate results instantly.',

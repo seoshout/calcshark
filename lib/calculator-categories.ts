@@ -280,7 +280,7 @@ export const calculatorCategories: Category[] = [
               'debt avalanche calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -550,7 +550,7 @@ export const calculatorCategories: Category[] = [
               'investment return calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -566,7 +566,7 @@ export const calculatorCategories: Category[] = [
               'future value calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -582,7 +582,7 @@ export const calculatorCategories: Category[] = [
               'present value calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -598,7 +598,7 @@ export const calculatorCategories: Category[] = [
               'cagr calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -614,7 +614,7 @@ export const calculatorCategories: Category[] = [
               'stock profit calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -630,7 +630,7 @@ export const calculatorCategories: Category[] = [
               'dividend calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -646,7 +646,7 @@ export const calculatorCategories: Category[] = [
               'dividend reinvestment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -662,7 +662,7 @@ export const calculatorCategories: Category[] = [
               'dollar cost averaging calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -678,7 +678,7 @@ export const calculatorCategories: Category[] = [
               'asset allocation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -694,7 +694,7 @@ export const calculatorCategories: Category[] = [
               'risk tolerance calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -710,7 +710,7 @@ export const calculatorCategories: Category[] = [
               'rule of 72 calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -726,7 +726,7 @@ export const calculatorCategories: Category[] = [
               'bond yield calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -742,7 +742,7 @@ export const calculatorCategories: Category[] = [
               'capital gains tax calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -758,7 +758,7 @@ export const calculatorCategories: Category[] = [
               'investment fee calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -774,7 +774,7 @@ export const calculatorCategories: Category[] = [
               'portfolio rebalancing calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -1044,7 +1044,7 @@ export const calculatorCategories: Category[] = [
               'budget calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1092,7 +1092,7 @@ export const calculatorCategories: Category[] = [
               'emergency fund calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1108,7 +1108,7 @@ export const calculatorCategories: Category[] = [
               'paycheck calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1124,7 +1124,7 @@ export const calculatorCategories: Category[] = [
               'take-home pay calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1140,7 +1140,7 @@ export const calculatorCategories: Category[] = [
               'hourly to salary calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1156,7 +1156,7 @@ export const calculatorCategories: Category[] = [
               'salary to hourly calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1172,7 +1172,7 @@ export const calculatorCategories: Category[] = [
               'cost of living calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1188,7 +1188,7 @@ export const calculatorCategories: Category[] = [
               'expense tracker calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1204,7 +1204,7 @@ export const calculatorCategories: Category[] = [
               'bill split calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1268,7 +1268,7 @@ export const calculatorCategories: Category[] = [
               'net worth calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -1396,7 +1396,7 @@ export const calculatorCategories: Category[] = [
               'test grade calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1412,7 +1412,7 @@ export const calculatorCategories: Category[] = [
               'assignment grade calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1428,7 +1428,7 @@ export const calculatorCategories: Category[] = [
               'grade curve calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1444,7 +1444,7 @@ export const calculatorCategories: Category[] = [
               'class rank calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6590,7 +6590,7 @@ export const calculatorCategories: Category[] = [
               'salary calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6606,7 +6606,7 @@ export const calculatorCategories: Category[] = [
               'hourly wage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -6622,7 +6622,7 @@ export const calculatorCategories: Category[] = [
               'overtime calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6638,7 +6638,7 @@ export const calculatorCategories: Category[] = [
               'payroll calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6654,7 +6654,7 @@ export const calculatorCategories: Category[] = [
               'employee cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6670,7 +6670,7 @@ export const calculatorCategories: Category[] = [
               'pto calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6686,7 +6686,7 @@ export const calculatorCategories: Category[] = [
               'sick leave calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6702,7 +6702,7 @@ export const calculatorCategories: Category[] = [
               'holiday pay calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6718,7 +6718,7 @@ export const calculatorCategories: Category[] = [
               'severance pay calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6734,7 +6734,7 @@ export const calculatorCategories: Category[] = [
               'employee turnover cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6750,7 +6750,7 @@ export const calculatorCategories: Category[] = [
               'recruitment cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6766,7 +6766,7 @@ export const calculatorCategories: Category[] = [
               'training roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6782,7 +6782,7 @@ export const calculatorCategories: Category[] = [
               'benefits cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6798,7 +6798,7 @@ export const calculatorCategories: Category[] = [
               'workers\' comp calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6814,7 +6814,7 @@ export const calculatorCategories: Category[] = [
               'fte calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -6837,7 +6837,7 @@ export const calculatorCategories: Category[] = [
               'time tracking calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6853,7 +6853,7 @@ export const calculatorCategories: Category[] = [
               'billable hours calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6869,7 +6869,7 @@ export const calculatorCategories: Category[] = [
               'utilization rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6885,7 +6885,7 @@ export const calculatorCategories: Category[] = [
               'productivity calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6901,7 +6901,7 @@ export const calculatorCategories: Category[] = [
               'efficiency calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6917,7 +6917,7 @@ export const calculatorCategories: Category[] = [
               'oee calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6933,7 +6933,7 @@ export const calculatorCategories: Category[] = [
               'cycle time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6949,7 +6949,7 @@ export const calculatorCategories: Category[] = [
               'takt time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6965,7 +6965,7 @@ export const calculatorCategories: Category[] = [
               'lead time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6981,7 +6981,7 @@ export const calculatorCategories: Category[] = [
               'throughput calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6997,7 +6997,7 @@ export const calculatorCategories: Category[] = [
               'capacity planning calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7013,7 +7013,7 @@ export const calculatorCategories: Category[] = [
               'resource allocation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7029,7 +7029,7 @@ export const calculatorCategories: Category[] = [
               'project roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7045,7 +7045,7 @@ export const calculatorCategories: Category[] = [
               'meeting cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -7061,7 +7061,7 @@ export const calculatorCategories: Category[] = [
               'deadline calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
