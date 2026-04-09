@@ -215,6 +215,231 @@ export const calculatorSEO = {
     description: 'Measure magnitude as distance from zero and keep sign context visible with our free online absolute value calculator.',
     keywords: ['absolute value calculator', 'magnitude calculator', 'distance from zero calculator', 'abs calculator'],
   },
+  'sales-commission': {
+    title: 'Sales Commission Calculator - Free Online Quota and Payout Tool | Calcshark',
+    description: 'Estimate sales commission, quota attainment, accelerator payout, and blended commission rate with our free online sales commission calculator.',
+    keywords: ['sales commission calculator', 'commission calculator', 'quota commission calculator', 'sales payout calculator', 'accelerator commission calculator'],
+  },
+  'sales-tax': {
+    title: 'Sales Tax Calculator - Free Online Order Total Tool | Calcshark',
+    description: 'Estimate taxable subtotal, sales tax, shipping, discounts, and final order total with our free online sales tax calculator.',
+    keywords: ['sales tax calculator', 'tax amount calculator', 'order total calculator', 'checkout tax calculator', 'sales tax estimate'],
+  },
+  discount: {
+    title: 'Discount Calculator - Free Online Sale Price Tool | Calcshark',
+    description: 'Calculate discounted price, savings, coupon impact, tax, and final price with our free online discount calculator.',
+    keywords: ['discount calculator', 'sale price calculator', 'markdown calculator', 'coupon calculator', 'discount percentage calculator'],
+  },
+  'price-increase': {
+    title: 'Price Increase Calculator - Free Online Revenue Impact Tool | Calcshark',
+    description: 'Compare current and projected revenue, break-even units, and revenue change after a price increase with our free online calculator.',
+    keywords: ['price increase calculator', 'pricing calculator', 'revenue impact calculator', 'price change calculator', 'break even price increase'],
+  },
+  'conversion-rate': {
+    title: 'Conversion Rate Calculator - Free Online Funnel Tool | Calcshark',
+    description: 'Measure conversion rate, conversions per 1,000 visitors, revenue per visitor, and value per conversion with our free online calculator.',
+    keywords: ['conversion rate calculator', 'website conversion calculator', 'funnel conversion calculator', 'revenue per visitor calculator', 'marketing conversion rate'],
+  },
+  'lead-generation-roi': {
+    title: 'Lead Generation ROI Calculator - Free Online Campaign Tool | Calcshark',
+    description: 'Estimate cost per lead, estimated customers, revenue, and gross-profit ROI with our free online lead generation ROI calculator.',
+    keywords: ['lead generation roi calculator', 'cost per lead calculator', 'lead roi calculator', 'marketing lead calculator', 'lead funnel roi'],
+  },
+  'marketing-roi': {
+    title: 'Marketing ROI Calculator - Free Online ROMI Tool | Calcshark',
+    description: 'Estimate marketing ROI, ROAS, gross profit, cost per lead, and cost per acquisition with our free online marketing ROI calculator.',
+    keywords: ['marketing roi calculator', 'romi calculator', 'roas calculator', 'campaign roi calculator', 'marketing return calculator'],
+  },
+  'email-marketing-roi': {
+    title: 'Email Marketing ROI Calculator - Free Online Campaign Return Tool | Calcshark',
+    description: 'Estimate email marketing ROI, open rate, click rate, click-to-open rate, and post-click conversion rate with our free calculator.',
+    keywords: ['email marketing roi calculator', 'email campaign calculator', 'click to open calculator', 'email conversion calculator', 'email marketing return'],
+  },
+  'cost-per-click': {
+    title: 'Cost Per Click Calculator - Free Online CPC Tool | Calcshark',
+    description: 'Estimate cost per click, CTR, CPA, and CPM with our free online CPC calculator for ad campaign planning.',
+    keywords: ['cost per click calculator', 'cpc calculator', 'ppc calculator', 'ad click cost calculator', 'google ads cpc calculator'],
+  },
+  'cost-per-acquisition': {
+    title: 'Cost Per Acquisition Calculator - Free Online CPA Tool | Calcshark',
+    description: 'Estimate cost per acquisition, ROAS, value per acquisition, and gross profit per acquisition with our free CPA calculator.',
+    keywords: ['cost per acquisition calculator', 'cpa calculator', 'customer acquisition calculator', 'paid media cpa calculator', 'acquisition cost calculator'],
+  },
+  'click-through-rate': {
+    title: 'Click-Through Rate Calculator - Free Online CTR Tool | Calcshark',
+    description: 'Estimate click-through rate, clicks, CPC, CPM, and post-click conversion rate with our free online CTR calculator.',
+    keywords: ['click through rate calculator', 'ctr calculator', 'ad ctr calculator', 'ppc ctr calculator', 'email ctr calculator'],
+  },
+  'engagement-rate': {
+    title: 'Engagement Rate Calculator - Free Online Social Media Tool | Calcshark',
+    description: 'Calculate engagement rate by impressions or followers, plus click share and engagement intensity, with our free online calculator.',
+    keywords: ['engagement rate calculator', 'social media engagement calculator', 'instagram engagement calculator', 'engagement formula calculator', 'engagement by impressions'],
+  },
+  'ab-test': {
+    title: 'A/B Test Calculator - Free Online Lift and Confidence Tool | Calcshark',
+    description: 'Compare control and variant conversion rates, absolute lift, relative uplift, and confidence approximation with our free A/B test calculator.',
+    keywords: ['ab test calculator', 'a/b test calculator', 'split test calculator', 'conversion lift calculator', 'experiment calculator'],
+  },
+  'sample-size': {
+    title: 'Sample Size Calculator - Free Online Survey and Experiment Tool | Calcshark',
+    description: 'Estimate recommended sample size using confidence level, margin of error, response distribution, and population size with our free calculator.',
+    keywords: ['sample size calculator', 'survey sample size calculator', 'experiment sample size calculator', 'margin of error calculator', 'confidence level sample size'],
+  },
+  'market-share': {
+    title: 'Market Share Calculator - Free Online Revenue Position Tool | Calcshark',
+    description: 'Estimate current market share, target-share revenue, and revenue gap with our free online market share calculator.',
+    keywords: ['market share calculator', 'market share formula calculator', 'revenue share calculator', 'target market share calculator', 'competitive market share'],
+  },
+  flooring: {
+    title: 'Flooring Calculator - Free Online Flooring Quantity Tool | Calcshark',
+    description: 'Estimate flooring square footage, waste, and carton count with our free online flooring calculator for purchase-ready project planning.',
+    keywords: ['flooring calculator', 'flooring square footage calculator', 'flooring estimate calculator', 'flooring coverage calculator', 'flooring box calculator'],
+  },
+  tile: {
+    title: 'Tile Calculator - Free Online Tile Quantity Tool | Calcshark',
+    description: 'Estimate tile count, waste, coverage area, and carton quantity with our free online tile calculator for flooring projects.',
+    keywords: ['tile calculator', 'tile quantity calculator', 'tile flooring calculator', 'floor tile calculator', 'tile box calculator'],
+  },
+  grout: {
+    title: 'Grout Calculator - Free Online Grout Quantity Tool | Calcshark',
+    description: 'Estimate grout bags, joint volume, and grout coverage using tile size and grout-joint assumptions with our free online grout calculator.',
+    keywords: ['grout calculator', 'grout quantity calculator', 'grout bag calculator', 'tile grout calculator', 'grout coverage calculator'],
+  },
+  thinset: {
+    title: 'Thinset Calculator - Free Online Mortar Quantity Tool | Calcshark',
+    description: 'Estimate thinset bags and waste-adjusted coverage area with our free online thinset calculator for tile-floor planning.',
+    keywords: ['thinset calculator', 'thinset bag calculator', 'mortar calculator', 'tile mortar calculator', 'thinset coverage calculator'],
+  },
+  'hardwood-flooring': {
+    title: 'Hardwood Flooring Calculator - Free Online Wood Floor Tool | Calcshark',
+    description: 'Estimate hardwood flooring square footage, waste, and carton count with our free online hardwood flooring calculator.',
+    keywords: ['hardwood flooring calculator', 'wood floor calculator', 'hardwood square footage calculator', 'hardwood estimate calculator', 'hardwood box calculator'],
+  },
+  laminate: {
+    title: 'Laminate Calculator - Free Online Laminate Flooring Tool | Calcshark',
+    description: 'Estimate laminate flooring quantity, waste, and carton count with our free online laminate calculator.',
+    keywords: ['laminate calculator', 'laminate flooring calculator', 'laminate square footage calculator', 'laminate box calculator', 'floating floor calculator'],
+  },
+  'vinyl-flooring': {
+    title: 'Vinyl Flooring Calculator - Free Online Vinyl Plank Tool | Calcshark',
+    description: 'Estimate vinyl flooring area, waste, and package count with our free online vinyl flooring calculator.',
+    keywords: ['vinyl flooring calculator', 'vinyl plank calculator', 'lvp calculator', 'vinyl floor estimate calculator', 'vinyl box calculator'],
+  },
+  carpet: {
+    title: 'Carpet Calculator - Free Online Carpet Measurement Tool | Calcshark',
+    description: 'Estimate carpet square footage, square yards, strip runs, and seam count with our free online carpet calculator.',
+    keywords: ['carpet calculator', 'carpet measurement calculator', 'carpet square yard calculator', 'carpet estimate calculator', 'carpet seam calculator'],
+  },
+  underlayment: {
+    title: 'Underlayment Calculator - Free Online Roll Coverage Tool | Calcshark',
+    description: 'Estimate underlayment square footage, waste, and roll count with our free online underlayment calculator.',
+    keywords: ['underlayment calculator', 'underlayment roll calculator', 'floor underlayment calculator', 'underlayment coverage calculator', 'padding calculator'],
+  },
+  subfloor: {
+    title: 'Subfloor Calculator - Free Online Sheet Count Tool | Calcshark',
+    description: 'Estimate subfloor sheet count, waste, and panel coverage with our free online subfloor calculator.',
+    keywords: ['subfloor calculator', 'subfloor sheet calculator', 'subfloor plywood calculator', 'subfloor coverage calculator', 'floor sheathing calculator'],
+  },
+  baseboard: {
+    title: 'Baseboard Calculator - Free Online Trim Length Tool | Calcshark',
+    description: 'Estimate baseboard linear feet, adjusted perimeter, and stock pieces with our free online baseboard calculator.',
+    keywords: ['baseboard calculator', 'trim calculator', 'baseboard linear feet calculator', 'trim length calculator', 'molding calculator'],
+  },
+  'transition-strip': {
+    title: 'Transition Strip Calculator - Free Online Trim Piece Tool | Calcshark',
+    description: 'Estimate transition strip length, waste, and stock-piece count with our free online transition strip calculator.',
+    keywords: ['transition strip calculator', 'floor transition calculator', 'threshold calculator', 't molding calculator', 'transition trim calculator'],
+  },
+  'floor-joist': {
+    title: 'Floor Joist Calculator - Free Online Framing Takeoff Tool | Calcshark',
+    description: 'Estimate floor joist count, total linear footage, and average spacing with our free online floor joist calculator.',
+    keywords: ['floor joist calculator', 'joist count calculator', 'floor framing calculator', 'joist spacing calculator', 'joist material calculator'],
+  },
+  'floor-leveling': {
+    title: 'Floor Leveling Calculator - Free Online Self-Leveler Tool | Calcshark',
+    description: 'Estimate leveling-compound bags, pour depth impact, and adjusted coverage with our free online floor leveling calculator.',
+    keywords: ['floor leveling calculator', 'self leveler calculator', 'leveling compound calculator', 'floor prep calculator', 'self leveling underlayment calculator'],
+  },
+  'floor-heating': {
+    title: 'Floor Heating Calculator - Free Online Radiant Floor Tool | Calcshark',
+    description: 'Estimate heated floor coverage, system wattage, energy use, and monthly cost with our free online floor heating calculator.',
+    keywords: ['floor heating calculator', 'radiant floor heating calculator', 'heated floor calculator', 'electric floor heat calculator', 'floor heating cost calculator'],
+  },
+  concrete: {
+    title: 'Concrete Calculator - Free Online Cubic Yard Tool | Calcshark',
+    description: 'Estimate concrete volume in cubic feet, cubic yards, and bag equivalents with our free online concrete calculator.',
+    keywords: ['concrete calculator', 'cubic yard calculator', 'bagged concrete calculator', 'ready mix calculator', 'concrete volume calculator'],
+  },
+  'concrete-block': {
+    title: 'Concrete Block Calculator - Free Online Block Wall Tool | Calcshark',
+    description: 'Estimate block count, wall area coverage, mortar-joint module size, and waste-adjusted quantity with our free online concrete block calculator.',
+    keywords: ['concrete block calculator', 'block wall calculator', 'cmu calculator', 'masonry block calculator', 'block count calculator'],
+  },
+  'concrete-column': {
+    title: 'Concrete Column Calculator - Free Online Pier Volume Tool | Calcshark',
+    description: 'Estimate cylindrical column and pier concrete volume, cubic yards, and bag equivalents with our free online concrete column calculator.',
+    keywords: ['concrete column calculator', 'pier concrete calculator', 'cylindrical concrete volume calculator', 'column volume calculator', 'round footing calculator'],
+  },
+  'concrete-slab': {
+    title: 'Concrete Slab Calculator - Free Online Slab Volume Tool | Calcshark',
+    description: 'Estimate slab concrete volume, cubic yards, and bag count for patios, floors, pads, and walkways with our free online concrete slab calculator.',
+    keywords: ['concrete slab calculator', 'slab volume calculator', 'patio concrete calculator', 'garage slab calculator', 'concrete yard calculator'],
+  },
+  'concrete-stairs': {
+    title: 'Concrete Stairs Calculator - Free Online Step Volume Tool | Calcshark',
+    description: 'Estimate stepped-stair concrete volume, cubic yards, and bag count with our free online concrete stairs calculator.',
+    keywords: ['concrete stairs calculator', 'step concrete calculator', 'stair volume calculator', 'concrete step calculator', 'stair pour calculator'],
+  },
+  gravel: {
+    title: 'Gravel Calculator - Free Online Tons and Yards Tool | Calcshark',
+    description: 'Estimate gravel volume in cubic yards and tons for driveways, drainage, and base layers with our free online gravel calculator.',
+    keywords: ['gravel calculator', 'gravel tons calculator', 'gravel yard calculator', 'driveway gravel calculator', 'aggregate gravel calculator'],
+  },
+  sand: {
+    title: 'Sand Calculator - Free Online Tons and Yards Tool | Calcshark',
+    description: 'Estimate sand volume in cubic yards and tons for bedding, leveling, and fill projects with our free online sand calculator.',
+    keywords: ['sand calculator', 'sand tons calculator', 'sand yard calculator', 'bedding sand calculator', 'fill sand calculator'],
+  },
+  topsoil: {
+    title: 'Topsoil Calculator - Free Online Soil Quantity Tool | Calcshark',
+    description: 'Estimate topsoil volume in cubic yards and bag counts for lawns, beds, and grading work with our free online topsoil calculator.',
+    keywords: ['topsoil calculator', 'soil calculator', 'topsoil yard calculator', 'topsoil bag calculator', 'garden soil calculator'],
+  },
+  mulch: {
+    title: 'Mulch Calculator - Free Online Bag and Yard Tool | Calcshark',
+    description: 'Estimate mulch volume in cubic yards and bags for beds, borders, and landscape coverage with our free online mulch calculator.',
+    keywords: ['mulch calculator', 'mulch bag calculator', 'mulch yard calculator', 'landscape mulch calculator', 'garden bed mulch calculator'],
+  },
+  aggregate: {
+    title: 'Aggregate Calculator - Free Online Tons and Yards Tool | Calcshark',
+    description: 'Estimate aggregate volume in cubic yards and tons for compacted base, drainage, and fill layers with our free online aggregate calculator.',
+    keywords: ['aggregate calculator', 'aggregate tons calculator', 'aggregate yard calculator', 'base rock calculator', 'compacted aggregate calculator'],
+  },
+  asphalt: {
+    title: 'Asphalt Calculator - Free Online Tons and Yards Tool | Calcshark',
+    description: 'Estimate asphalt volume in cubic yards and tons for driveways, overlays, and paving areas with our free online asphalt calculator.',
+    keywords: ['asphalt calculator', 'asphalt tons calculator', 'asphalt yard calculator', 'driveway asphalt calculator', 'paving material calculator'],
+  },
+  rebar: {
+    title: 'Rebar Calculator - Free Online Reinforcement Grid Tool | Calcshark',
+    description: 'Estimate rebar stick count, total linear footage, spacing, and overlap allowances with our free online rebar calculator.',
+    keywords: ['rebar calculator', 'rebar grid calculator', 'rebar spacing calculator', 'slab reinforcement calculator', 'rebar quantity calculator'],
+  },
+  brick: {
+    title: 'Brick Calculator - Free Online Brick Count Tool | Calcshark',
+    description: 'Estimate brick count, wall area coverage, and mortar-joint adjusted ordering quantity with our free online brick calculator.',
+    keywords: ['brick calculator', 'brick count calculator', 'brick wall calculator', 'masonry brick calculator', 'brick quantity calculator'],
+  },
+  paver: {
+    title: 'Paver Calculator - Free Online Patio Count Tool | Calcshark',
+    description: 'Estimate paver count, project area coverage, and waste-adjusted ordering quantity with our free online paver calculator.',
+    keywords: ['paver calculator', 'patio paver calculator', 'paver count calculator', 'walkway paver calculator', 'hardscape paver calculator'],
+  },
+  stone: {
+    title: 'Stone Calculator - Free Online Tons and Yards Tool | Calcshark',
+    description: 'Estimate decorative stone volume in cubic yards and tons for beds, drainage, and landscape coverage with our free online stone calculator.',
+    keywords: ['stone calculator', 'stone tons calculator', 'stone yard calculator', 'landscape stone calculator', 'decorative stone calculator'],
+  },
   '15-vs-30-year-mortgage-comparison': {
     title: '15 vs 30 Year Mortgage Comparison Calculator - Free Online Tool | Calcshark',
     description: 'Compare 15-year and 30-year mortgage payments, total interest, PMI timing, housing cost, and extra-payment scenarios with our free online calculator.',

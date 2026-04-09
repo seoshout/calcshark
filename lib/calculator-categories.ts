@@ -1060,7 +1060,7 @@ export const calculatorCategories: Category[] = [
               '50/30/20 budget calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1076,7 +1076,7 @@ export const calculatorCategories: Category[] = [
               'savings goal calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1220,7 +1220,7 @@ export const calculatorCategories: Category[] = [
               'wedding budget calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1236,7 +1236,7 @@ export const calculatorCategories: Category[] = [
               'vacation budget calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1252,7 +1252,7 @@ export const calculatorCategories: Category[] = [
               'christmas budget calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1300,7 +1300,7 @@ export const calculatorCategories: Category[] = [
               'gpa calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1316,7 +1316,7 @@ export const calculatorCategories: Category[] = [
               'cumulative gpa calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1332,7 +1332,7 @@ export const calculatorCategories: Category[] = [
               'semester gpa calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1348,7 +1348,7 @@ export const calculatorCategories: Category[] = [
               'weighted gpa calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1364,7 +1364,7 @@ export const calculatorCategories: Category[] = [
               'grade calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1380,7 +1380,7 @@ export const calculatorCategories: Category[] = [
               'final grade calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1460,7 +1460,7 @@ export const calculatorCategories: Category[] = [
               'gpa to letter grade converter calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1476,7 +1476,7 @@ export const calculatorCategories: Category[] = [
               'grade improvement calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1492,7 +1492,7 @@ export const calculatorCategories: Category[] = [
               'grade point converter calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1508,7 +1508,7 @@ export const calculatorCategories: Category[] = [
               'college gpa calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1524,7 +1524,7 @@ export const calculatorCategories: Category[] = [
               'high school gpa calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           }
         ]
@@ -1547,7 +1547,7 @@ export const calculatorCategories: Category[] = [
               'sat score calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1563,7 +1563,7 @@ export const calculatorCategories: Category[] = [
               'act score calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1579,7 +1579,7 @@ export const calculatorCategories: Category[] = [
               'test score percentage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1595,7 +1595,7 @@ export const calculatorCategories: Category[] = [
               'raw score to scaled score converter calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1611,7 +1611,7 @@ export const calculatorCategories: Category[] = [
               'practice test score analyzer calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1627,7 +1627,7 @@ export const calculatorCategories: Category[] = [
               'study time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1643,7 +1643,7 @@ export const calculatorCategories: Category[] = [
               'reading speed calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1659,7 +1659,7 @@ export const calculatorCategories: Category[] = [
               'words per minute calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1675,7 +1675,7 @@ export const calculatorCategories: Category[] = [
               'quiz score calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1691,7 +1691,7 @@ export const calculatorCategories: Category[] = [
               'multiple choice score calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1707,7 +1707,7 @@ export const calculatorCategories: Category[] = [
               'true/false score calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1723,7 +1723,7 @@ export const calculatorCategories: Category[] = [
               'essay grade calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1739,7 +1739,7 @@ export const calculatorCategories: Category[] = [
               'exam curve calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1755,7 +1755,7 @@ export const calculatorCategories: Category[] = [
               'pass/fail calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1771,7 +1771,7 @@ export const calculatorCategories: Category[] = [
               'test anxiety assessment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -1794,7 +1794,7 @@ export const calculatorCategories: Category[] = [
               'college cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -1810,7 +1810,7 @@ export const calculatorCategories: Category[] = [
               'student loan calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1826,7 +1826,7 @@ export const calculatorCategories: Category[] = [
               'student loan payoff calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1842,7 +1842,7 @@ export const calculatorCategories: Category[] = [
               'college savings calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1858,7 +1858,7 @@ export const calculatorCategories: Category[] = [
               '529 plan calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1874,7 +1874,7 @@ export const calculatorCategories: Category[] = [
               'financial aid calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1890,7 +1890,7 @@ export const calculatorCategories: Category[] = [
               'expected family contribution calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1906,7 +1906,7 @@ export const calculatorCategories: Category[] = [
               'room and board calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1922,7 +1922,7 @@ export const calculatorCategories: Category[] = [
               'textbook cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1938,7 +1938,7 @@ export const calculatorCategories: Category[] = [
               'college roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1954,7 +1954,7 @@ export const calculatorCategories: Category[] = [
               'credit hour calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1970,7 +1970,7 @@ export const calculatorCategories: Category[] = [
               'course load calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -1986,7 +1986,7 @@ export const calculatorCategories: Category[] = [
               'graduation date calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2002,7 +2002,7 @@ export const calculatorCategories: Category[] = [
               'transfer credit calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2018,7 +2018,7 @@ export const calculatorCategories: Category[] = [
               'class schedule optimizer calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -2066,7 +2066,7 @@ export const calculatorCategories: Category[] = [
               'bmi calculator for kids calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -2082,7 +2082,7 @@ export const calculatorCategories: Category[] = [
               'body fat percentage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -2098,7 +2098,7 @@ export const calculatorCategories: Category[] = [
               'ideal weight calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2114,7 +2114,7 @@ export const calculatorCategories: Category[] = [
               'healthy weight range calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2130,7 +2130,7 @@ export const calculatorCategories: Category[] = [
               'body surface area calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -2146,7 +2146,7 @@ export const calculatorCategories: Category[] = [
               'waist-to-hip ratio calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2162,7 +2162,7 @@ export const calculatorCategories: Category[] = [
               'waist-to-height ratio calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2178,7 +2178,7 @@ export const calculatorCategories: Category[] = [
               'lean body mass calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2194,7 +2194,7 @@ export const calculatorCategories: Category[] = [
               'body shape calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2210,7 +2210,7 @@ export const calculatorCategories: Category[] = [
               'frame size calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2226,7 +2226,7 @@ export const calculatorCategories: Category[] = [
               'muscle mass calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2242,7 +2242,7 @@ export const calculatorCategories: Category[] = [
               'body age calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -2258,7 +2258,7 @@ export const calculatorCategories: Category[] = [
               'body type calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2274,7 +2274,7 @@ export const calculatorCategories: Category[] = [
               'weight loss goal calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -3569,7 +3569,7 @@ export const calculatorCategories: Category[] = [
               'concrete calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -3585,7 +3585,7 @@ export const calculatorCategories: Category[] = [
               'concrete block calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3601,7 +3601,7 @@ export const calculatorCategories: Category[] = [
               'concrete column calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3617,7 +3617,7 @@ export const calculatorCategories: Category[] = [
               'concrete slab calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3633,7 +3633,7 @@ export const calculatorCategories: Category[] = [
               'concrete stairs calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3649,7 +3649,7 @@ export const calculatorCategories: Category[] = [
               'gravel calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3665,7 +3665,7 @@ export const calculatorCategories: Category[] = [
               'sand calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3681,7 +3681,7 @@ export const calculatorCategories: Category[] = [
               'topsoil calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3697,7 +3697,7 @@ export const calculatorCategories: Category[] = [
               'mulch calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3713,7 +3713,7 @@ export const calculatorCategories: Category[] = [
               'aggregate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3729,7 +3729,7 @@ export const calculatorCategories: Category[] = [
               'asphalt calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3745,7 +3745,7 @@ export const calculatorCategories: Category[] = [
               'rebar calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3761,7 +3761,7 @@ export const calculatorCategories: Category[] = [
               'brick calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3777,7 +3777,7 @@ export const calculatorCategories: Category[] = [
               'paver calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3793,7 +3793,7 @@ export const calculatorCategories: Category[] = [
               'stone calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -3816,7 +3816,7 @@ export const calculatorCategories: Category[] = [
               'flooring calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3832,7 +3832,7 @@ export const calculatorCategories: Category[] = [
               'tile calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3848,7 +3848,7 @@ export const calculatorCategories: Category[] = [
               'hardwood flooring calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3864,7 +3864,7 @@ export const calculatorCategories: Category[] = [
               'laminate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3880,7 +3880,7 @@ export const calculatorCategories: Category[] = [
               'carpet calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3896,7 +3896,7 @@ export const calculatorCategories: Category[] = [
               'vinyl flooring calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3912,7 +3912,7 @@ export const calculatorCategories: Category[] = [
               'floor joist calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3928,7 +3928,7 @@ export const calculatorCategories: Category[] = [
               'subfloor calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3944,7 +3944,7 @@ export const calculatorCategories: Category[] = [
               'underlayment calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3960,7 +3960,7 @@ export const calculatorCategories: Category[] = [
               'baseboard calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3976,7 +3976,7 @@ export const calculatorCategories: Category[] = [
               'transition strip calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3992,7 +3992,7 @@ export const calculatorCategories: Category[] = [
               'floor leveling calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4008,7 +4008,7 @@ export const calculatorCategories: Category[] = [
               'grout calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4024,7 +4024,7 @@ export const calculatorCategories: Category[] = [
               'thinset calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4040,7 +4040,7 @@ export const calculatorCategories: Category[] = [
               'floor heating calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -6343,7 +6343,7 @@ export const calculatorCategories: Category[] = [
               'sales commission calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6359,7 +6359,7 @@ export const calculatorCategories: Category[] = [
               'sales tax calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6375,7 +6375,7 @@ export const calculatorCategories: Category[] = [
               'discount calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -6391,7 +6391,7 @@ export const calculatorCategories: Category[] = [
               'price increase calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6407,7 +6407,7 @@ export const calculatorCategories: Category[] = [
               'conversion rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6423,7 +6423,7 @@ export const calculatorCategories: Category[] = [
               'lead generation roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6439,7 +6439,7 @@ export const calculatorCategories: Category[] = [
               'marketing roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6455,7 +6455,7 @@ export const calculatorCategories: Category[] = [
               'email marketing roi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6471,7 +6471,7 @@ export const calculatorCategories: Category[] = [
               'cost per click calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6487,7 +6487,7 @@ export const calculatorCategories: Category[] = [
               'cost per acquisition calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6503,7 +6503,7 @@ export const calculatorCategories: Category[] = [
               'click-through rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6519,7 +6519,7 @@ export const calculatorCategories: Category[] = [
               'engagement rate calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6535,7 +6535,7 @@ export const calculatorCategories: Category[] = [
               'a/b test calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6551,7 +6551,7 @@ export const calculatorCategories: Category[] = [
               'sample size calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -6567,7 +6567,7 @@ export const calculatorCategories: Category[] = [
               'market share calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
