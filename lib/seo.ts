@@ -365,6 +365,306 @@ export const calculatorSEO = {
     description: 'Estimate heated floor coverage, system wattage, energy use, and monthly cost with our free online floor heating calculator.',
     keywords: ['floor heating calculator', 'radiant floor heating calculator', 'heated floor calculator', 'electric floor heat calculator', 'floor heating cost calculator'],
   },
+  paint: {
+    title: 'Paint Calculator - Free Online Wall Paint Estimator | Calcshark',
+    description: 'Estimate wall paint gallons, net wall area, and rounded purchase quantities with our free online paint calculator.',
+    keywords: ['paint calculator', 'wall paint calculator', 'paint gallon calculator', 'room paint estimator', 'interior paint calculator'],
+  },
+  'ceiling-paint': {
+    title: 'Ceiling Paint Calculator - Free Online Ceiling Estimator | Calcshark',
+    description: 'Estimate ceiling paint gallons from room size, coats, and coverage using our free online ceiling paint calculator.',
+    keywords: ['ceiling paint calculator', 'ceiling paint estimator', 'ceiling gallon calculator', 'room ceiling paint calculator'],
+  },
+  primer: {
+    title: 'Primer Calculator - Free Online Primer Estimator | Calcshark',
+    description: 'Estimate primer gallons from wall area, prep coats, and primer coverage with our free online primer calculator.',
+    keywords: ['primer calculator', 'primer coverage calculator', 'wall primer calculator', 'paint primer estimator'],
+  },
+  wallpaper: {
+    title: 'Wallpaper Calculator - Free Online Roll Estimator | Calcshark',
+    description: 'Estimate wallpaper rolls from wall area, opening deductions, and pattern waste with our free online wallpaper calculator.',
+    keywords: ['wallpaper calculator', 'wallpaper roll calculator', 'wallpaper estimator', 'roll coverage calculator'],
+  },
+  'wall-area': {
+    title: 'Wall Area Calculator - Free Online Paintable Surface Tool | Calcshark',
+    description: 'Calculate paintable wall area after doors and windows are deducted with our free online wall area calculator.',
+    keywords: ['wall area calculator', 'paintable wall area calculator', 'wall square footage calculator', 'room wall area estimator'],
+  },
+  texture: {
+    title: 'Texture Calculator - Free Online Wall Texture Estimator | Calcshark',
+    description: 'Estimate wall texture material from surface area, coats, and bag coverage with our free online texture calculator.',
+    keywords: ['texture calculator', 'wall texture calculator', 'knockdown texture calculator', 'orange peel texture calculator'],
+  },
+  stain: {
+    title: 'Stain Calculator - Free Online Stain Coverage Tool | Calcshark',
+    description: 'Estimate stain gallons from project area, coats, and coverage with our free online stain calculator.',
+    keywords: ['stain calculator', 'wood stain calculator', 'stain coverage calculator', 'stain gallon estimator'],
+  },
+  'deck-stain': {
+    title: 'Deck Stain Calculator - Free Online Deck Coverage Tool | Calcshark',
+    description: 'Estimate deck stain gallons from deck size, coats, and coverage with our free online deck stain calculator.',
+    keywords: ['deck stain calculator', 'deck stain coverage calculator', 'deck stain estimator', 'deck coating calculator'],
+  },
+  'spray-paint-coverage': {
+    title: 'Spray Paint Coverage Calculator - Free Online Can Estimator | Calcshark',
+    description: 'Estimate spray paint cans from coverage area, overspray, and coats with our free online spray paint coverage calculator.',
+    keywords: ['spray paint coverage calculator', 'spray paint can calculator', 'aerosol paint calculator', 'spray paint estimator'],
+  },
+  'paint-mixing-ratio': {
+    title: 'Paint Mixing Ratio Calculator - Free Online Batch Tool | Calcshark',
+    description: 'Scale paint, thinner, and hardener from a batch ratio using our free online paint mixing ratio calculator.',
+    keywords: ['paint mixing ratio calculator', 'paint ratio calculator', 'thinner ratio calculator', 'paint hardener calculator'],
+  },
+  'number-of-coats': {
+    title: 'Number of Coats Calculator - Free Online Paint Planning Tool | Calcshark',
+    description: 'Estimate recommended paint coats and supporting material needs with our free online number of coats calculator.',
+    keywords: ['number of coats calculator', 'paint coats calculator', 'paint coverage planning tool', 'how many coats of paint calculator'],
+  },
+  'trim-paint': {
+    title: 'Trim Paint Calculator - Free Online Trim Estimator | Calcshark',
+    description: 'Estimate trim paint gallons from linear footage, trim width, and coats using our free online trim paint calculator.',
+    keywords: ['trim paint calculator', 'baseboard paint calculator', 'trim coverage calculator', 'molding paint calculator'],
+  },
+  'cabinet-paint': {
+    title: 'Cabinet Paint Calculator - Free Online Cabinet Coating Tool | Calcshark',
+    description: 'Estimate cabinet paint gallons from doors, drawers, frame area, and coats with our free online cabinet paint calculator.',
+    keywords: ['cabinet paint calculator', 'kitchen cabinet paint calculator', 'cabinet coating estimator', 'cabinet paint coverage calculator'],
+  },
+  'epoxy-coverage': {
+    title: 'Epoxy Coverage Calculator - Free Online Kit Estimator | Calcshark',
+    description: 'Estimate epoxy kits from floor area, coats, and kit coverage with our free online epoxy coverage calculator.',
+    keywords: ['epoxy coverage calculator', 'epoxy kit calculator', 'garage floor epoxy calculator', 'floor coating calculator'],
+  },
+  'touch-up-paint': {
+    title: 'Touch-up Paint Calculator - Free Online Patch Coverage Tool | Calcshark',
+    description: 'Estimate quart-equivalent touch-up paint needs for patch repairs and small spots with our free online touch-up paint calculator.',
+    keywords: ['touch-up paint calculator', 'patch paint calculator', 'paint repair calculator', 'small paint job estimator'],
+  },
+  'roof-area': {
+    title: 'Roof Area Calculator - Free Online Roofing Squares Tool | Calcshark',
+    description: 'Calculate sloped roof area, roof squares, and waste-adjusted roofing area with our free online roof area calculator.',
+    keywords: ['roof area calculator', 'roof squares calculator', 'roof measurement calculator', 'sloped roof area calculator', 'roofing area estimator'],
+  },
+  shingle: {
+    title: 'Shingle Calculator - Free Online Bundle Estimator | Calcshark',
+    description: 'Estimate shingle bundles from roof area, pitch, and waste allowance with our free online shingle calculator.',
+    keywords: ['shingle calculator', 'roof shingle calculator', 'shingle bundle calculator', 'asphalt shingle estimator', 'roof bundle calculator'],
+  },
+  'metal-roofing': {
+    title: 'Metal Roofing Calculator - Free Online Panel Estimator | Calcshark',
+    description: 'Estimate metal roofing panels from roof area, panel coverage width, and panel length with our free online metal roofing calculator.',
+    keywords: ['metal roofing calculator', 'metal roof panel calculator', 'metal roof estimator', 'roof panel count calculator'],
+  },
+  'roof-pitch': {
+    title: 'Roof Pitch Calculator - Free Online Slope Tool | Calcshark',
+    description: 'Calculate roof pitch, slope multiplier, and roof angle with our free online roof pitch calculator.',
+    keywords: ['roof pitch calculator', 'roof slope calculator', 'roof angle calculator', 'pitch rise run calculator'],
+  },
+  'rafter-length': {
+    title: 'Rafter Length Calculator - Free Online Framing Tool | Calcshark',
+    description: 'Estimate rafter length from span and roof pitch with our free online rafter length calculator.',
+    keywords: ['rafter length calculator', 'roof rafter calculator', 'rafter span calculator', 'roof framing calculator'],
+  },
+  'ridge-cap': {
+    title: 'Ridge Cap Calculator - Free Online Bundle Tool | Calcshark',
+    description: 'Estimate ridge cap bundles from ridge length and bundle coverage with our free online ridge cap calculator.',
+    keywords: ['ridge cap calculator', 'ridge cap shingle calculator', 'ridge line calculator', 'roof ridge bundle calculator'],
+  },
+  'roof-ventilation': {
+    title: 'Roof Ventilation Calculator - Free Online Ridge Vent Tool | Calcshark',
+    description: 'Estimate required roof ventilation, net free area, and ridge vent length with our free online roof ventilation calculator.',
+    keywords: ['roof ventilation calculator', 'ridge vent calculator', 'attic ventilation calculator', 'net free area calculator'],
+  },
+  gutter: {
+    title: 'Gutter Calculator - Free Online Gutter Run Tool | Calcshark',
+    description: 'Estimate gutter sections from total gutter run and section length with our free online gutter calculator.',
+    keywords: ['gutter calculator', 'gutter length calculator', 'gutter section calculator', 'roof drainage calculator'],
+  },
+  downspout: {
+    title: 'Downspout Calculator - Free Online Drainage Tool | Calcshark',
+    description: 'Estimate downspout count from roof drainage area and capacity assumptions with our free online downspout calculator.',
+    keywords: ['downspout calculator', 'downspout count calculator', 'roof drainage area calculator', 'gutter downspout estimator'],
+  },
+  fascia: {
+    title: 'Fascia Calculator - Free Online Roof Edge Tool | Calcshark',
+    description: 'Estimate fascia pieces from roof-edge length and stock-piece size with our free online fascia calculator.',
+    keywords: ['fascia calculator', 'fascia board calculator', 'roof edge trim calculator', 'fascia length calculator'],
+  },
+  soffit: {
+    title: 'Soffit Calculator - Free Online Soffit Area Tool | Calcshark',
+    description: 'Estimate soffit area and panel count from eave run and soffit width with our free online soffit calculator.',
+    keywords: ['soffit calculator', 'soffit area calculator', 'soffit panel calculator', 'eave soffit estimator'],
+  },
+  siding: {
+    title: 'Siding Calculator - Free Online Siding Squares Tool | Calcshark',
+    description: 'Estimate siding panels and siding squares from exterior wall area with our free online siding calculator.',
+    keywords: ['siding calculator', 'siding squares calculator', 'house siding calculator', 'siding panel calculator'],
+  },
+  'vinyl-siding': {
+    title: 'Vinyl Siding Calculator - Free Online Panel Estimator | Calcshark',
+    description: 'Estimate vinyl siding panels and squares from exterior wall area and waste allowance with our free online vinyl siding calculator.',
+    keywords: ['vinyl siding calculator', 'vinyl siding panel calculator', 'vinyl siding squares calculator', 'house siding estimator'],
+  },
+  'board-and-batten': {
+    title: 'Board and Batten Calculator - Free Online Layout Tool | Calcshark',
+    description: 'Estimate board-and-batten materials from wall dimensions and repeating module width with our free online calculator.',
+    keywords: ['board and batten calculator', 'board and batten siding calculator', 'batten spacing calculator', 'board and batten estimator'],
+  },
+  'house-wrap': {
+    title: 'House Wrap Calculator - Free Online Roll Estimator | Calcshark',
+    description: 'Estimate house wrap rolls from exterior wall area, openings, and roll coverage with our free online house wrap calculator.',
+    keywords: ['house wrap calculator', 'house wrap roll calculator', 'weather barrier calculator', 'wrap coverage estimator'],
+  },
+  'cups-to-grams': {
+    title: 'Cups to Grams Calculator - Free Online Ingredient Converter | Calcshark',
+    description: 'Convert cups to grams using ingredient-specific weights with our free online cups to grams calculator.',
+    keywords: ['cups to grams calculator', 'ingredient weight converter', 'baking conversion calculator', 'cup to gram converter'],
+  },
+  'ounces-to-grams': {
+    title: 'Ounces to Grams Calculator - Free Online Weight Converter | Calcshark',
+    description: 'Convert ounces to grams, pounds, and kilograms with our free online ounces to grams calculator.',
+    keywords: ['ounces to grams calculator', 'oz to g calculator', 'weight converter calculator', 'ounces grams converter'],
+  },
+  'tablespoon-to-cup': {
+    title: 'Tablespoon to Cup Calculator - Free Online Kitchen Converter | Calcshark',
+    description: 'Convert tablespoons to cups, teaspoons, fluid ounces, and milliliters with our free online tablespoon to cup calculator.',
+    keywords: ['tablespoon to cup calculator', 'tbsp to cup converter', 'kitchen spoon conversion calculator'],
+  },
+  'metric-to-imperial-converter': {
+    title: 'Metric to Imperial Converter Calculator - Free Online Kitchen Tool | Calcshark',
+    description: 'Convert metric kitchen values into common U.S. units with our free online metric to imperial converter calculator.',
+    keywords: ['metric to imperial converter calculator', 'kitchen metric converter', 'recipe unit converter'],
+  },
+  'temperature-conversion': {
+    title: 'Temperature Conversion Calculator - Free Online Oven Converter | Calcshark',
+    description: 'Convert cooking temperatures between Fahrenheit and Celsius with our free online temperature conversion calculator.',
+    keywords: ['temperature conversion calculator', 'oven temperature converter', 'fahrenheit to celsius calculator'],
+  },
+  'baking-pan-conversion': {
+    title: 'Baking Pan Conversion Calculator - Free Online Pan Size Tool | Calcshark',
+    description: 'Compare baking pan sizes and get a recipe scale factor with our free online baking pan conversion calculator.',
+    keywords: ['baking pan conversion calculator', 'pan size calculator', 'recipe pan size converter'],
+  },
+  'egg-size-substitution': {
+    title: 'Egg Size Substitution Calculator - Free Online Baking Tool | Calcshark',
+    description: 'Estimate equivalent egg counts by size using our free online egg size substitution calculator.',
+    keywords: ['egg size substitution calculator', 'egg conversion calculator', 'baking egg size tool'],
+  },
+  'butter-conversion': {
+    title: 'Butter Conversion Calculator - Free Online Kitchen Tool | Calcshark',
+    description: 'Convert butter between sticks, cups, tablespoons, ounces, and grams with our free online butter conversion calculator.',
+    keywords: ['butter conversion calculator', 'butter sticks to grams', 'butter cup converter'],
+  },
+  'sugar-substitution': {
+    title: 'Sugar Substitution Calculator - Free Online Sweetener Tool | Calcshark',
+    description: 'Estimate sweetener substitution starting points with our free online sugar substitution calculator.',
+    keywords: ['sugar substitution calculator', 'sweetener converter', 'honey to sugar calculator'],
+  },
+  'flour-weight': {
+    title: 'Flour Weight Calculator - Free Online Baking Weight Tool | Calcshark',
+    description: 'Convert flour cups into grams by flour type with our free online flour weight calculator.',
+    keywords: ['flour weight calculator', 'flour cups to grams', 'baking flour converter'],
+  },
+  'liquid-measurement': {
+    title: 'Liquid Measurement Calculator - Free Online Kitchen Converter | Calcshark',
+    description: 'Convert liquid kitchen measurements between cups, tablespoons, teaspoons, fluid ounces, and milliliters with our free online calculator.',
+    keywords: ['liquid measurement calculator', 'kitchen liquid converter', 'cups to ml calculator'],
+  },
+  'dry-measurement': {
+    title: 'Dry Measurement Calculator - Free Online Kitchen Converter | Calcshark',
+    description: 'Convert dry kitchen measurements between cups, tablespoons, teaspoons, and milliliters with our free online dry measurement calculator.',
+    keywords: ['dry measurement calculator', 'kitchen dry converter', 'cup tablespoon teaspoon calculator'],
+  },
+  'kitchen-timer': {
+    title: 'Kitchen Timer Calculator - Free Online Time Tool | Calcshark',
+    description: 'Convert kitchen timer durations into total minutes, seconds, and hours with our free online kitchen timer calculator.',
+    keywords: ['kitchen timer calculator', 'cooking time calculator', 'timer duration calculator'],
+  },
+  'proof-time': {
+    title: 'Proof Time Calculator - Free Online Dough Timing Tool | Calcshark',
+    description: 'Estimate proof time from base timing and proof temperature with our free online proof time calculator.',
+    keywords: ['proof time calculator', 'bread proofing calculator', 'dough proof time tool'],
+  },
+  fermentation: {
+    title: 'Fermentation Calculator - Free Online Brine Salt Tool | Calcshark',
+    description: 'Estimate salt needed for a fermentation brine from water weight and salinity with our free online fermentation calculator.',
+    keywords: ['fermentation calculator', 'brine salt calculator', 'fermentation brine tool'],
+  },
+  'recipe-converter': {
+    title: 'Recipe Converter Calculator - Free Online Recipe Scaling Tool | Calcshark',
+    description: 'Convert recipe quantities with serving-based scaling, ingredient units, and kitchen-ready context using our free online recipe converter calculator.',
+    keywords: ['recipe converter calculator', 'recipe conversion calculator', 'recipe scaling tool', 'ingredient quantity converter'],
+  },
+  'serving-size': {
+    title: 'Serving Size Calculator - Free Online Portion Estimator | Calcshark',
+    description: 'Estimate portion weight and serving size from recipe yield with our free online serving size calculator.',
+    keywords: ['serving size calculator', 'portion size calculator', 'recipe serving calculator', 'portion estimator'],
+  },
+  'recipe-scaling': {
+    title: 'Recipe Scaling Calculator - Free Online Batch Resizer | Calcshark',
+    description: 'Scale recipes up or down using serving multipliers and ingredient context with our free online recipe scaling calculator.',
+    keywords: ['recipe scaling calculator', 'recipe batch calculator', 'recipe resizer', 'serving multiplier calculator'],
+  },
+  'ingredient-substitution': {
+    title: 'Ingredient Substitution Calculator - Free Online Swap Tool | Calcshark',
+    description: 'Estimate ingredient substitution starting amounts and kitchen-ready equivalents with our free online ingredient substitution calculator.',
+    keywords: ['ingredient substitution calculator', 'recipe substitution calculator', 'sweetener swap calculator', 'ingredient swap tool'],
+  },
+  'cooking-time': {
+    title: 'Cooking Time Calculator - Free Online Time Estimator | Calcshark',
+    description: 'Estimate total cooking time from prep, base cook time, weight, and thickness with our free online cooking time calculator.',
+    keywords: ['cooking time calculator', 'cook time estimator', 'recipe time calculator', 'meal timing calculator'],
+  },
+  'meat-cooking': {
+    title: 'Meat Cooking Calculator - Free Online Roast Time Tool | Calcshark',
+    description: 'Estimate roast time, rest time, and serving schedule context with our free online meat cooking calculator.',
+    keywords: ['meat cooking calculator', 'roast time calculator', 'meat cook time estimator', 'rest time calculator'],
+  },
+  'baking-ratio': {
+    title: 'Baking Ratio Calculator - Free Online Hydration Tool | Calcshark',
+    description: 'Estimate hydration, dough weight, and preferment context with our free online baking ratio calculator.',
+    keywords: ['baking ratio calculator', 'hydration calculator', 'bakers percentage calculator', 'dough formula calculator'],
+  },
+  'yeast-conversion': {
+    title: 'Yeast Conversion Calculator - Free Online Baking Tool | Calcshark',
+    description: 'Convert between instant, active dry, and fresh yeast with our free online yeast conversion calculator.',
+    keywords: ['yeast conversion calculator', 'instant to active dry yeast calculator', 'fresh yeast converter', 'baking yeast tool'],
+  },
+  'recipe-cost': {
+    title: 'Recipe Cost Calculator - Free Online Cost Per Serving Tool | Calcshark',
+    description: 'Estimate batch cost and cost per serving with our free online recipe cost calculator.',
+    keywords: ['recipe cost calculator', 'cost per serving calculator', 'recipe costing tool', 'meal prep cost calculator'],
+  },
+  'nutrition-label': {
+    title: 'Nutrition Label Calculator - Free Online Per Serving Tool | Calcshark',
+    description: 'Estimate calories and macros per serving from recipe-level inputs with our free online nutrition label calculator.',
+    keywords: ['nutrition label calculator', 'recipe nutrition calculator', 'calories per serving calculator', 'macro calculator recipe'],
+  },
+  'menu-pricing': {
+    title: 'Menu Pricing Calculator - Free Online Food Cost Tool | Calcshark',
+    description: 'Estimate menu price from recipe cost and target food-cost percentage with our free online menu pricing calculator.',
+    keywords: ['menu pricing calculator', 'food cost calculator', 'menu price estimator', 'dish pricing calculator'],
+  },
+  'food-waste': {
+    title: 'Food Waste Calculator - Free Online Yield Tool | Calcshark',
+    description: 'Estimate food waste percentage and edible yield with our free online food waste calculator.',
+    keywords: ['food waste calculator', 'yield percentage calculator', 'edible yield calculator', 'prep waste calculator'],
+  },
+  'batch-cooking': {
+    title: 'Batch Cooking Calculator - Free Online Meal Prep Tool | Calcshark',
+    description: 'Scale batch servings and cost together with our free online batch cooking calculator.',
+    keywords: ['batch cooking calculator', 'meal prep batch calculator', 'recipe batch cost calculator', 'large batch recipe calculator'],
+  },
+  'freezer-storage': {
+    title: 'Freezer Storage Calculator - Free Online Portion Planner | Calcshark',
+    description: 'Estimate total freezer weight, portion load, and storage-time context with our free online freezer storage calculator.',
+    keywords: ['freezer storage calculator', 'meal prep freezer calculator', 'portion freezer planner', 'freezer portion calculator'],
+  },
+  'pantry-inventory': {
+    title: 'Pantry Inventory Calculator - Free Online Reorder Tool | Calcshark',
+    description: 'Estimate reorder quantity and weeks of supply from pantry stock and usage with our free online pantry inventory calculator.',
+    keywords: ['pantry inventory calculator', 'reorder calculator pantry', 'weeks of supply calculator', 'pantry stock calculator'],
+  },
   concrete: {
     title: 'Concrete Calculator - Free Online Cubic Yard Tool | Calcshark',
     description: 'Estimate concrete volume in cubic feet, cubic yards, and bag equivalents with our free online concrete calculator.',

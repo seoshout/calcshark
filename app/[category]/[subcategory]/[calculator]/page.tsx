@@ -129,6 +129,10 @@ import AdvancedProductivityEfficiencySuiteCalculator from '@/components/advanced
 import AdvancedSalesMarketingSuiteCalculator from '@/components/advanced-sales-marketing-suite-calculator';
 import AdvancedFlooringSuiteCalculator from '@/components/advanced-flooring-suite-calculator';
 import AdvancedMaterialsQuantitiesSuiteCalculator from '@/components/advanced-materials-quantities-suite-calculator';
+import AdvancedPaintWallCoveringSuiteCalculator from '@/components/advanced-paint-wall-covering-suite-calculator';
+import AdvancedRoofingSidingSuiteCalculator from '@/components/advanced-roofing-siding-suite-calculator';
+import AdvancedKitchenMeasurementsSuiteCalculator from '@/components/advanced-kitchen-measurements-suite-calculator';
+import AdvancedRecipeCalculationsSuiteCalculator from '@/components/advanced-recipe-calculations-suite-calculator';
 import AdvancedLoanPaymentCalculator from './calculators/AdvancedLoanPaymentCalculator';
 import AdvancedDogAgeCalculator from './calculators/AdvancedDogAgeCalculator';
 import AdvancedCatAgeCalculator from './calculators/AdvancedCatAgeCalculator';
@@ -141,7 +145,6 @@ import OilChangeIntervalCalculator from './calculators/OilChangeIntervalCalculat
 import AdvancedPondVolumeCalculator from './calculators/AdvancedPondVolumeCalculator';
 import AdvancedDPSCalculator from './calculators/AdvancedDPSCalculator';
 import AdvancedBreastmilkStorageCalculator from './calculators/AdvancedBreastmilkStorageCalculator';
-import AdvancedRecipeConverterCalculator from './calculators/AdvancedRecipeConverterCalculator';
 import AdvancedSpayNeuterCalculator from './calculators/AdvancedSpayNeuterCalculator';
 import AdvancedBoardingCostCalculator from './calculators/AdvancedBoardingCostCalculator';
 import AdvancedFishingLineCapacityCalculator from './calculators/AdvancedFishingLineCapacityCalculator';
@@ -344,6 +347,66 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'brick-calculator': () => <AdvancedMaterialsQuantitiesSuiteCalculator variant="brick" />,
   'paver-calculator': () => <AdvancedMaterialsQuantitiesSuiteCalculator variant="paver" />,
   'stone-calculator': () => <AdvancedMaterialsQuantitiesSuiteCalculator variant="stone" />,
+  'paint-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="paint" />,
+  'ceiling-paint-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="ceiling-paint" />,
+  'primer-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="primer" />,
+  'wallpaper-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="wallpaper" />,
+  'wall-area-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="wall-area" />,
+  'texture-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="texture" />,
+  'stain-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="stain" />,
+  'deck-stain-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="deck-stain" />,
+  'spray-paint-coverage-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="spray-paint-coverage" />,
+  'paint-mixing-ratio-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="paint-mixing-ratio" />,
+  'number-of-coats-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="number-of-coats" />,
+  'trim-paint-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="trim-paint" />,
+  'cabinet-paint-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="cabinet-paint" />,
+  'epoxy-coverage-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="epoxy-coverage" />,
+  'touch-up-paint-calculator': () => <AdvancedPaintWallCoveringSuiteCalculator variant="touch-up-paint" />,
+  'roof-area-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="roof-area" />,
+  'shingle-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="shingle" />,
+  'metal-roofing-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="metal-roofing" />,
+  'roof-pitch-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="roof-pitch" />,
+  'rafter-length-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="rafter-length" />,
+  'ridge-cap-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="ridge-cap" />,
+  'roof-ventilation-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="roof-ventilation" />,
+  'gutter-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="gutter" />,
+  'downspout-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="downspout" />,
+  'fascia-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="fascia" />,
+  'soffit-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="soffit" />,
+  'siding-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="siding" />,
+  'vinyl-siding-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="vinyl-siding" />,
+  'board-and-batten-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="board-and-batten" />,
+  'house-wrap-calculator': () => <AdvancedRoofingSidingSuiteCalculator variant="house-wrap" />,
+  'cups-to-grams-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="cups-to-grams" />,
+  'ounces-to-grams-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="ounces-to-grams" />,
+  'tablespoon-to-cup-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="tablespoon-to-cup" />,
+  'metric-to-imperial-converter-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="metric-to-imperial-converter" />,
+  'temperature-conversion-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="temperature-conversion" />,
+  'baking-pan-conversion-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="baking-pan-conversion" />,
+  'egg-size-substitution-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="egg-size-substitution" />,
+  'butter-conversion-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="butter-conversion" />,
+  'sugar-substitution-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="sugar-substitution" />,
+  'flour-weight-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="flour-weight" />,
+  'liquid-measurement-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="liquid-measurement" />,
+  'dry-measurement-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="dry-measurement" />,
+  'kitchen-timer-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="kitchen-timer" />,
+  'proof-time-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="proof-time" />,
+  'fermentation-calculator': () => <AdvancedKitchenMeasurementsSuiteCalculator variant="fermentation" />,
+  'recipe-converter-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="recipe-converter" />,
+  'serving-size-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="serving-size" />,
+  'recipe-scaling-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="recipe-scaling" />,
+  'ingredient-substitution-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="ingredient-substitution" />,
+  'cooking-time-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="cooking-time" />,
+  'meat-cooking-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="meat-cooking" />,
+  'baking-ratio-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="baking-ratio" />,
+  'yeast-conversion-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="yeast-conversion" />,
+  'recipe-cost-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="recipe-cost" />,
+  'nutrition-label-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="nutrition-label" />,
+  'menu-pricing-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="menu-pricing" />,
+  'food-waste-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="food-waste" />,
+  'batch-cooking-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="batch-cooking" />,
+  'freezer-storage-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="freezer-storage" />,
+  'pantry-inventory-calculator': () => <AdvancedRecipeCalculationsSuiteCalculator variant="pantry-inventory" />,
   'loan-payment-calculator': AdvancedLoanPaymentCalculator,
   'dog-age-calculator': AdvancedDogAgeCalculator,
   'cat-age-calculator': AdvancedCatAgeCalculator,
@@ -356,7 +419,6 @@ const calculatorComponents: { [key: string]: React.ComponentType<any> } = {
   'pond-volume-calculator': AdvancedPondVolumeCalculator,
   'dps-calculator': AdvancedDPSCalculator,
   'breastmilk-storage-calculator': AdvancedBreastmilkStorageCalculator,
-  'recipe-converter-calculator': AdvancedRecipeConverterCalculator,
   'spayneuter-cost-calculator': AdvancedSpayNeuterCalculator,
   'boarding-cost-calculator': AdvancedBoardingCostCalculator,
   'fishing-line-capacity-calculator': AdvancedFishingLineCapacityCalculator,

@@ -2297,7 +2297,7 @@ export const calculatorCategories: Category[] = [
               'calorie calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -2313,7 +2313,7 @@ export const calculatorCategories: Category[] = [
               'tdee calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2329,7 +2329,7 @@ export const calculatorCategories: Category[] = [
               'bmr calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2345,7 +2345,7 @@ export const calculatorCategories: Category[] = [
               'macro calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2361,7 +2361,7 @@ export const calculatorCategories: Category[] = [
               'protein intake calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2377,7 +2377,7 @@ export const calculatorCategories: Category[] = [
               'carb intake calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2393,7 +2393,7 @@ export const calculatorCategories: Category[] = [
               'fat intake calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2409,7 +2409,7 @@ export const calculatorCategories: Category[] = [
               'water intake calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2425,7 +2425,7 @@ export const calculatorCategories: Category[] = [
               'calorie deficit calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2441,7 +2441,7 @@ export const calculatorCategories: Category[] = [
               'calorie surplus calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2457,7 +2457,7 @@ export const calculatorCategories: Category[] = [
               'meal prep calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2473,7 +2473,7 @@ export const calculatorCategories: Category[] = [
               'portion size calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2489,7 +2489,7 @@ export const calculatorCategories: Category[] = [
               'food diary analyzer calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2505,7 +2505,7 @@ export const calculatorCategories: Category[] = [
               'intermittent fasting calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2521,7 +2521,7 @@ export const calculatorCategories: Category[] = [
               'keto calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2563,7 +2563,7 @@ export const calculatorCategories: Category[] = [
               'calories burned calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2579,7 +2579,7 @@ export const calculatorCategories: Category[] = [
               'heart rate zone calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2611,7 +2611,7 @@ export const calculatorCategories: Category[] = [
               'vo2 max calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2627,7 +2627,7 @@ export const calculatorCategories: Category[] = [
               'one rep max calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2659,7 +2659,7 @@ export const calculatorCategories: Category[] = [
               'race time predictor calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2723,7 +2723,7 @@ export const calculatorCategories: Category[] = [
               'steps to miles calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2739,7 +2739,7 @@ export const calculatorCategories: Category[] = [
               'exercise duration calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2755,7 +2755,7 @@ export const calculatorCategories: Category[] = [
               'recovery time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -2771,7 +2771,7 @@ export const calculatorCategories: Category[] = [
               'training load calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3066,7 +3066,7 @@ export const calculatorCategories: Category[] = [
               'rent affordability calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3082,7 +3082,7 @@ export const calculatorCategories: Category[] = [
               'rent increase calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3098,7 +3098,7 @@ export const calculatorCategories: Category[] = [
               'security deposit calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -3114,7 +3114,7 @@ export const calculatorCategories: Category[] = [
               'late fee calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4063,7 +4063,7 @@ export const calculatorCategories: Category[] = [
               'roof area calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -4079,7 +4079,7 @@ export const calculatorCategories: Category[] = [
               'shingle calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4095,7 +4095,7 @@ export const calculatorCategories: Category[] = [
               'metal roofing calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4111,7 +4111,7 @@ export const calculatorCategories: Category[] = [
               'roof pitch calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4127,7 +4127,7 @@ export const calculatorCategories: Category[] = [
               'rafter length calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4143,7 +4143,7 @@ export const calculatorCategories: Category[] = [
               'ridge cap calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4159,7 +4159,7 @@ export const calculatorCategories: Category[] = [
               'roof ventilation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4175,7 +4175,7 @@ export const calculatorCategories: Category[] = [
               'gutter calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4191,7 +4191,7 @@ export const calculatorCategories: Category[] = [
               'downspout calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4207,7 +4207,7 @@ export const calculatorCategories: Category[] = [
               'fascia calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4223,7 +4223,7 @@ export const calculatorCategories: Category[] = [
               'soffit calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4239,7 +4239,7 @@ export const calculatorCategories: Category[] = [
               'siding calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4255,7 +4255,7 @@ export const calculatorCategories: Category[] = [
               'vinyl siding calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4271,7 +4271,7 @@ export const calculatorCategories: Category[] = [
               'board and batten calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4287,7 +4287,7 @@ export const calculatorCategories: Category[] = [
               'house wrap calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -4310,7 +4310,7 @@ export const calculatorCategories: Category[] = [
               'paint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4326,7 +4326,7 @@ export const calculatorCategories: Category[] = [
               'ceiling paint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4342,7 +4342,7 @@ export const calculatorCategories: Category[] = [
               'primer calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4358,7 +4358,7 @@ export const calculatorCategories: Category[] = [
               'wallpaper calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4374,7 +4374,7 @@ export const calculatorCategories: Category[] = [
               'wall area calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -4390,7 +4390,7 @@ export const calculatorCategories: Category[] = [
               'texture calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4406,7 +4406,7 @@ export const calculatorCategories: Category[] = [
               'stain calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4422,7 +4422,7 @@ export const calculatorCategories: Category[] = [
               'deck stain calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4438,7 +4438,7 @@ export const calculatorCategories: Category[] = [
               'spray paint coverage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -4454,7 +4454,7 @@ export const calculatorCategories: Category[] = [
               'paint mixing ratio calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4470,7 +4470,7 @@ export const calculatorCategories: Category[] = [
               'number of coats calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4486,7 +4486,7 @@ export const calculatorCategories: Category[] = [
               'trim paint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4502,7 +4502,7 @@ export const calculatorCategories: Category[] = [
               'cabinet paint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -4518,7 +4518,7 @@ export const calculatorCategories: Category[] = [
               'epoxy coverage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -4534,7 +4534,7 @@ export const calculatorCategories: Category[] = [
               'touch-up paint calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -5769,7 +5769,7 @@ export const calculatorCategories: Category[] = [
               'child bmi calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -5817,7 +5817,7 @@ export const calculatorCategories: Category[] = [
               'baby name generator calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -9895,7 +9895,7 @@ export const calculatorCategories: Category[] = [
               'recipe converter calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -9911,7 +9911,7 @@ export const calculatorCategories: Category[] = [
               'serving size calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -9927,7 +9927,7 @@ export const calculatorCategories: Category[] = [
               'recipe scaling calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -9943,7 +9943,7 @@ export const calculatorCategories: Category[] = [
               'ingredient substitution calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -9959,7 +9959,7 @@ export const calculatorCategories: Category[] = [
               'cooking time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -9975,7 +9975,7 @@ export const calculatorCategories: Category[] = [
               'meat cooking calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -9991,7 +9991,7 @@ export const calculatorCategories: Category[] = [
               'baking ratio calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10007,7 +10007,7 @@ export const calculatorCategories: Category[] = [
               'yeast conversion calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10023,7 +10023,7 @@ export const calculatorCategories: Category[] = [
               'recipe cost calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10039,7 +10039,7 @@ export const calculatorCategories: Category[] = [
               'nutrition label calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10055,7 +10055,7 @@ export const calculatorCategories: Category[] = [
               'menu pricing calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10071,7 +10071,7 @@ export const calculatorCategories: Category[] = [
               'food waste calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10087,7 +10087,7 @@ export const calculatorCategories: Category[] = [
               'batch cooking calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10103,7 +10103,7 @@ export const calculatorCategories: Category[] = [
               'freezer storage calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: true
           },
           {
@@ -10119,7 +10119,7 @@ export const calculatorCategories: Category[] = [
               'pantry inventory calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
@@ -10142,7 +10142,7 @@ export const calculatorCategories: Category[] = [
               'cups to grams calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10158,7 +10158,7 @@ export const calculatorCategories: Category[] = [
               'ounces to grams calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10174,7 +10174,7 @@ export const calculatorCategories: Category[] = [
               'tablespoon to cup calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10190,7 +10190,7 @@ export const calculatorCategories: Category[] = [
               'metric to imperial converter calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10206,7 +10206,7 @@ export const calculatorCategories: Category[] = [
               'temperature conversion calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10222,7 +10222,7 @@ export const calculatorCategories: Category[] = [
               'baking pan conversion calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10238,7 +10238,7 @@ export const calculatorCategories: Category[] = [
               'egg size substitution calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10254,7 +10254,7 @@ export const calculatorCategories: Category[] = [
               'butter conversion calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10270,7 +10270,7 @@ export const calculatorCategories: Category[] = [
               'sugar substitution calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10286,7 +10286,7 @@ export const calculatorCategories: Category[] = [
               'flour weight calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10302,7 +10302,7 @@ export const calculatorCategories: Category[] = [
               'liquid measurement calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10318,7 +10318,7 @@ export const calculatorCategories: Category[] = [
               'dry measurement calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10334,7 +10334,7 @@ export const calculatorCategories: Category[] = [
               'kitchen timer calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10350,7 +10350,7 @@ export const calculatorCategories: Category[] = [
               'proof time calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           },
           {
@@ -10366,7 +10366,7 @@ export const calculatorCategories: Category[] = [
               'fermentation calculator'
             ],
             icon: 'Calculator',
-            difficulty: 'basic',
+            difficulty: 'advanced',
             popular: false
           }
         ]
