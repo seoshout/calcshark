@@ -242,7 +242,7 @@ export default function PopularCalculatorsPage() {
             Can't Find What You're Looking For?
           </h2>
           <p className="text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Browse all {allCalculators.length}+ calculators across 17 categories to find the perfect tool for your needs.
+            Browse all 735+ calculators across 17 categories to find the perfect tool for your needs.
           </p>
           <Link
             href="/all-online-calculators/"

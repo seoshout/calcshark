@@ -123,7 +123,7 @@ export function generateMetadata({
 
 export const defaultSEO: SEOProps = {
   title: 'Calcshark - The Ultimate Calculator Collection',
-  description: 'Discover 898+ free online calculators for finance, health, construction, education, business, and more. Fast, accurate, and easy-to-use tools for all your calculation needs.',
+  description: 'Discover 735+ free online calculators for finance, health, construction, education, business, and more. Fast, accurate, and easy-to-use tools for all your calculation needs.',
   keywords: [
     'calculators',
     'online calculator',
