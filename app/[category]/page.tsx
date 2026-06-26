@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getCategoryBySlug, getCalculatorURL } from '@/lib/calculator-categories';
+import { clampDescription } from '@/lib/seo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calculator, Users, TrendingUp } from 'lucide-react';
 
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 
   const title = `${category.name} Calculators - Free Online Tools | Calcshark`;
-  const description = `${category.description}. Browse our comprehensive collection of ${category.name.toLowerCase()} calculators and tools.`;
+  const description = clampDescription(`${category.description}. Browse our comprehensive collection of ${category.name.toLowerCase()} calculators and tools.`);
   
   return {
     title,
@@ -33,6 +34,13 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       description,
       url: `https://calcshark.com/${category.slug}/`,
       type: 'website',
+      images: [{ url: `https://calcshark.com/og-category-${category.slug}.jpg`, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`https://calcshark.com/og-category-${category.slug}.jpg`],
     },
     alternates: {
       canonical: `https://calcshark.com/${category.slug}/`,

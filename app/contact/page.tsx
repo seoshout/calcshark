@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Contact | Calcshark',
   description: 'Contact the Calcshark team for feedback or support.',
+  alternates: {
+    canonical: 'https://calcshark.com/contact/',
+  },
 };
 
 export default function ContactPage() {

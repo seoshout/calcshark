@@ -819,9 +819,9 @@ export default function AdvancedDogAgeCalculator() {
       <div className="text-center mb-8">
         <div className="flex items-center justify-center mb-4">
           <PawPrint className="h-8 w-8 text-primary mr-3" />
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
             Dog Age Calculator
-          </h1>
+          </h2>
         </div>
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
           Calculate your dog's human age using 2025 scientific research, assess health with latest biomarkers, and get personalized care recommendations

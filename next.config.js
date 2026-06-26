@@ -2,7 +2,7 @@
 const nextConfig = {
   trailingSlash: true,
   images: {
-    domains: ['calcshark.com'],
+    remotePatterns: [{ protocol: 'https', hostname: 'calcshark.com' }],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
   },
@@ -69,7 +69,8 @@ const nextConfig = {
     ];
   },
 
-  // Redirects for security and legacy URLs
+  // Redirects. NOTE: legacy /calculator/* slug redirects live in middleware.ts
+  // (single source of truth) — only the HTTP->HTTPS rule stays here.
   async redirects() {
     return [
       // Redirect HTTP to HTTPS in production
@@ -83,167 +84,6 @@ const nextConfig = {
           },
         ],
         destination: 'https://calcshark.com/:path*',
-        permanent: true,
-      },
-      // Redirect old calculator URL format to new nested format
-      {
-        source: '/calculator/spayneuter-cost-calculator',
-        destination: '/pet-care/pet-health-nutrition/spayneuter-cost-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/spayneuter-cost-calculator/',
-        destination: '/pet-care/pet-health-nutrition/spayneuter-cost-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/tire-life-calculator',
-        destination: '/automotive-transportation/maintenance-parts/tire-life-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/tire-life-calculator/',
-        destination: '/automotive-transportation/maintenance-parts/tire-life-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/dps-calculator',
-        destination: '/gaming-entertainment/gaming-performance/dps-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/dps-calculator/',
-        destination: '/gaming-entertainment/gaming-performance/dps-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/smart-thermostat-savings-calculator',
-        destination: '/environmental-sustainability/energy-utilities/smart-thermostat-savings-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/smart-thermostat-savings-calculator/',
-        destination: '/environmental-sustainability/energy-utilities/smart-thermostat-savings-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/oil-change-interval-calculator',
-        destination: '/automotive-transportation/maintenance-parts/oil-change-interval-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/oil-change-interval-calculator/',
-        destination: '/automotive-transportation/maintenance-parts/oil-change-interval-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/breastmilk-storage-calculator',
-        destination: '/pregnancy-parenting/baby-child-development/breastmilk-storage-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/breastmilk-storage-calculator/',
-        destination: '/pregnancy-parenting/baby-child-development/breastmilk-storage-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/cat-age-calculator',
-        destination: '/pet-care/pet-health-nutrition/cat-age-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/cat-age-calculator/',
-        destination: '/pet-care/pet-health-nutrition/cat-age-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/crop-rotation-calculator',
-        destination: '/gardening-landscaping/garden-planning/crop-rotation-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/crop-rotation-calculator/',
-        destination: '/gardening-landscaping/garden-planning/crop-rotation-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/pond-volume-calculator',
-        destination: '/gardening-landscaping/lawn-landscaping/pond-volume-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/pond-volume-calculator/',
-        destination: '/gardening-landscaping/lawn-landscaping/pond-volume-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/wedding-alcohol-calculator',
-        destination: '/wedding-events/wedding-planning/wedding-alcohol-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/wedding-alcohol-calculator/',
-        destination: '/wedding-events/wedding-planning/wedding-alcohol-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/loan-payment-calculator',
-        destination: '/finance-personal-finance/loans-debt/loan-payment-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/loan-payment-calculator/',
-        destination: '/finance-personal-finance/loans-debt/loan-payment-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/boarding-cost-calculator',
-        destination: '/pet-care/pet-care-costs/boarding-cost-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/boarding-cost-calculator/',
-        destination: '/pet-care/pet-care-costs/boarding-cost-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/fishing-line-capacity-calculator',
-        destination: '/sports-recreation/outdoor-activities/fishing-line-capacity-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/fishing-line-capacity-calculator/',
-        destination: '/sports-recreation/outdoor-activities/fishing-line-capacity-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/quarterback-rating-calculator',
-        destination: '/sports-recreation/sports-performance/quarterback-rating-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/quarterback-rating-calculator/',
-        destination: '/sports-recreation/sports-performance/quarterback-rating-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/price-comparison-calculator',
-        destination: '/lifestyle-daily-life/shopping-savings/price-comparison-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/price-comparison-calculator/',
-        destination: '/lifestyle-daily-life/shopping-savings/price-comparison-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/days-on-market-calculator',
-        destination: '/real-estate-property/home-buying-selling/days-on-market-calculator/',
-        permanent: true,
-      },
-      {
-        source: '/calculator/days-on-market-calculator/',
-        destination: '/real-estate-property/home-buying-selling/days-on-market-calculator/',
         permanent: true,
       },
     ];

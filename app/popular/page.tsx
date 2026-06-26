@@ -7,12 +7,14 @@ import { generateBreadcrumbSchema } from '@/lib/schemas';
 export const metadata = {
   title: 'Popular Calculators - Most Used Online Calculators | Calcshark',
   description: 'Discover the most popular and frequently used calculators on Calcshark. From BMI and mortgage calculators to GPA and percentage calculators.',
-  keywords: 'popular calculators, most used calculators, trending calculators, BMI calculator, mortgage calculator, GPA calculator',
   openGraph: {
     title: 'Popular Calculators - Most Used Online Calculators',
     description: 'Discover the most popular and frequently used calculators on Calcshark.',
-    url: '/popular',
-  }
+    url: 'https://calcshark.com/popular/',
+  },
+  alternates: {
+    canonical: 'https://calcshark.com/popular/',
+  },
 };
 
 export default function PopularCalculatorsPage() {

@@ -39,6 +39,22 @@ export function middleware(request: NextRequest) {
         'ab-test-calculator': '/business-professional/sales-marketing/ab-test-calculator/',
         'skisnowboard-size-calculator': '/sports-recreation/outdoor-activities/skisnowboard-size-calculator/',
         'maternitypaternity-leave-budget-calculator': '/pregnancy-parenting/family-planning/maternitypaternity-leave-budget-calculator/',
+        // Niche calculators (consolidated here from next.config.js redirects)
+        'spayneuter-cost-calculator': '/pet-care/pet-health-nutrition/spayneuter-cost-calculator/',
+        'tire-life-calculator': '/automotive-transportation/maintenance-parts/tire-life-calculator/',
+        'dps-calculator': '/gaming-entertainment/gaming-performance/dps-calculator/',
+        'smart-thermostat-savings-calculator': '/environmental-sustainability/energy-utilities/smart-thermostat-savings-calculator/',
+        'oil-change-interval-calculator': '/automotive-transportation/maintenance-parts/oil-change-interval-calculator/',
+        'breastmilk-storage-calculator': '/pregnancy-parenting/baby-child-development/breastmilk-storage-calculator/',
+        'cat-age-calculator': '/pet-care/pet-health-nutrition/cat-age-calculator/',
+        'crop-rotation-calculator': '/gardening-landscaping/garden-planning/crop-rotation-calculator/',
+        'pond-volume-calculator': '/gardening-landscaping/lawn-landscaping/pond-volume-calculator/',
+        'wedding-alcohol-calculator': '/wedding-events/wedding-planning/wedding-alcohol-calculator/',
+        'boarding-cost-calculator': '/pet-care/pet-care-costs/boarding-cost-calculator/',
+        'fishing-line-capacity-calculator': '/sports-recreation/outdoor-activities/fishing-line-capacity-calculator/',
+        'quarterback-rating-calculator': '/sports-recreation/sports-performance/quarterback-rating-calculator/',
+        'price-comparison-calculator': '/lifestyle-daily-life/shopping-savings/price-comparison-calculator/',
+        'days-on-market-calculator': '/real-estate-property/home-buying-selling/days-on-market-calculator/',
       };
 
       if (redirectMap[calculatorSlugPath]) {

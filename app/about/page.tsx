@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'About | Calcshark',
   description: 'Learn about Calcshark and our mission to provide free, accurate calculators.',
+  alternates: {
+    canonical: 'https://calcshark.com/about/',
+  },
 };
 
 export default function AboutPage() {

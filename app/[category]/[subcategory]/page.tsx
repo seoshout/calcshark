@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getCategoryBySlug, getSubcategoryBySlug, getCalculatorURL } from '@/lib/calculator-categories';
+import { clampDescription } from '@/lib/seo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calculator, Star, TrendingUp, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: SubcategoryPageProps): Promis
   }
 
   const title = `${subcategory.name} Calculators - ${category.name} | Calcshark`;
-  const description = `${subcategory.description}. Explore our collection of ${subcategory.calculators.length} professional ${subcategory.name.toLowerCase()} calculators.`;
+  const description = clampDescription(`${subcategory.description}. Explore our collection of ${subcategory.calculators.length} professional ${subcategory.name.toLowerCase()} calculators.`);
   
   return {
     title,
@@ -36,6 +37,13 @@ export async function generateMetadata({ params }: SubcategoryPageProps): Promis
       description,
       url: `https://calcshark.com/${category.slug}/${subcategory.slug}/`,
       type: 'website',
+      images: [{ url: `https://calcshark.com/og-category-${category.slug}.jpg`, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`https://calcshark.com/og-category-${category.slug}.jpg`],
     },
     alternates: {
       canonical: `https://calcshark.com/${category.slug}/${subcategory.slug}/`,

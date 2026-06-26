@@ -333,19 +333,18 @@ function AllCalculatorsContent() {
                     </span>
                   </h2>
                   <Link
-                    href={`/category/${categoryData.slug}/`}
+                    href={`/${categoryData.slug}/`}
                     className="text-sm text-primary hover:underline flex items-center"
                   >
-                    View category
+                    View {categoryName} Category
                     <ChevronRight className="h-3 w-3 ml-1" />
                   </Link>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {categoryData.calculators.map((calculator) => (
-                    <Link
+                    <div
                       key={calculator.id}
-                      href={getCalculatorURL(calculator)}
                       className="group relative p-4 bg-background border rounded-lg hover:shadow-md transition-all duration-200 hover:border-primary/50"
                     >
                       {calculator.popular && (
@@ -359,8 +358,13 @@ function AllCalculatorsContent() {
                           {getCalculatorIcon(calculator.name, calculator.category)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-sm text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                            {calculator.name}
+                          <h3 className="font-medium text-sm text-foreground line-clamp-2">
+                            <Link
+                              href={getCalculatorURL(calculator)}
+                              className="hover:text-primary transition-colors"
+                            >
+                              {calculator.name}
+                            </Link>
                           </h3>
                           <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
                             {calculator.description}
@@ -378,7 +382,7 @@ function AllCalculatorsContent() {
                           </div>
                         </div>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -397,19 +401,18 @@ function AllCalculatorsContent() {
                     </span>
                   </h2>
                   <Link
-                    href={`/category/${categoryData.slug}/`}
+                    href={`/${categoryData.slug}/`}
                     className="text-sm text-primary hover:underline flex items-center"
                   >
-                    View category
+                    View {categoryName} Category
                     <ChevronRight className="h-3 w-3 ml-1" />
                   </Link>
                 </div>
 
                 <div className="space-y-2">
                   {categoryData.calculators.map((calculator) => (
-                    <Link
+                    <div
                       key={calculator.id}
-                      href={getCalculatorURL(calculator)}
                       className="group flex items-center justify-between p-3 bg-background border rounded-lg hover:bg-accent transition-colors"
                     >
                       <div className="flex items-center space-x-3 flex-1 min-w-0">
@@ -418,8 +421,13 @@ function AllCalculatorsContent() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center space-x-2">
-                            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                              {calculator.name}
+                            <h3 className="font-medium text-foreground">
+                              <Link
+                                href={getCalculatorURL(calculator)}
+                                className="hover:text-primary transition-colors"
+                              >
+                                {calculator.name}
+                              </Link>
                             </h3>
                             {calculator.popular && (
                               <Star className="h-3 w-3 text-orange-500 fill-current" />
@@ -439,7 +447,7 @@ function AllCalculatorsContent() {
                         </div>
                       </div>
                       <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>

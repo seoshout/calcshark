@@ -220,9 +220,8 @@ export default function HomePage() {
               const calculator = getAllCalculators().find(c => c.slug === calcSlug);
               if (!calculator) return null;
               return (
-                <Link
+                <div
                   key={calcSlug}
-                  href={getCalculatorURL(calculator)}
                   className="group p-6 rounded-xl border bg-card hover:shadow-lg transition-all duration-200 hover:border-primary/50"
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -232,12 +231,17 @@ export default function HomePage() {
                     <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                   <h3 className="font-semibold text-lg mb-2">
-                    {calculator.name}
+                    <Link
+                      href={getCalculatorURL(calculator)}
+                      className="hover:text-primary transition-colors"
+                    >
+                      {calculator.name}
+                    </Link>
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {calculator.description}
                   </p>
-                </Link>
+                </div>
               );
             })}
           </div>
@@ -291,9 +295,8 @@ export default function HomePage() {
               ];
               const colorClass = blueColorVariants[index % blueColorVariants.length];
               return (
-                <Link
+                <div
                   key={category.slug}
-                  href={`/category/${category.slug}/`}
                   className="group p-6 rounded-xl bg-background border hover:shadow-lg transition-all duration-200 hover:border-primary/50"
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -303,7 +306,12 @@ export default function HomePage() {
                     <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 <h3 className="font-semibold text-lg mb-2">
-                  {category.name}
+                  <Link
+                    href={`/${category.slug}/`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {category.name}
+                  </Link>
                 </h3>
                 <p className="text-sm text-muted-foreground mb-3">
                   {category.description}
@@ -311,7 +319,7 @@ export default function HomePage() {
                 <div className="text-sm text-primary font-medium">
                   {category.subcategories.length} subcategories
                 </div>
-              </Link>
+              </div>
               );
             })}
           </div>

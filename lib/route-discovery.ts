@@ -78,7 +78,7 @@ async function discoverStaticPages(): Promise<DiscoveredRoute[]> {
           const changefreq = getPageChangeFreq(entry.name);
 
           routes.push({
-            url: `/${entry.name}`,
+            url: `/${entry.name}/`,
             priority,
             changefreq,
             type: 'static'
@@ -347,9 +347,9 @@ function getFallbackRoutes(): DiscoveredRoute[] {
   // Fallback routes if discovery fails
   return [
     { url: '', priority: 1.0, changefreq: 'daily', type: 'static' },
-    { url: '/all-online-calculators', priority: 0.9, changefreq: 'daily', type: 'static' },
-    { url: '/categories', priority: 0.9, changefreq: 'weekly', type: 'static' },
-    { url: '/popular', priority: 0.8, changefreq: 'daily', type: 'static' },
+    { url: '/all-online-calculators/', priority: 0.9, changefreq: 'daily', type: 'static' },
+    { url: '/categories/', priority: 0.9, changefreq: 'weekly', type: 'static' },
+    { url: '/popular/', priority: 0.8, changefreq: 'daily', type: 'static' },
   ];
 }
 

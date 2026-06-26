@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Privacy Policy | Calcshark',
   description: 'Read the Calcshark privacy policy.',
+  alternates: {
+    canonical: 'https://calcshark.com/privacy/',
+  },
 };
 
 export default function PrivacyPage() {

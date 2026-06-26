@@ -6,13 +6,28 @@ import { ChevronRight, Star, Bookmark, Share2, Calculator, TrendingUp, Users, Cl
 import { cn } from '@/lib/utils';
 import { secureStorage, validateCalculatorInput, sanitizeInput } from '@/lib/security';
 
+interface RelatedLink {
+  name: string;
+  url: string;
+}
+
 interface CalculatorLayoutProps {
   calculator: any;
   category: any;
+  subcategory?: any;
+  relatedCalculators?: RelatedLink[];
+  popularCalculators?: RelatedLink[];
   children: React.ReactNode;
 }
 
-export default function CalculatorLayout({ calculator, category, children }: CalculatorLayoutProps) {
+export default function CalculatorLayout({
+  calculator,
+  category,
+  subcategory,
+  relatedCalculators = [],
+  popularCalculators = [],
+  children,
+}: CalculatorLayoutProps) {
   const [isSaved, setIsSaved] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
 
@@ -132,6 +147,17 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
             >
               {category?.name ? toTitleCase(category.name) : ''}
             </Link>
+            {subcategory?.name && (
+              <>
+                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                <Link
+                  href={`/${calculator.category}/${subcategory.slug}/`}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {toTitleCase(subcategory.name)}
+                </Link>
+              </>
+            )}
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <span className="text-foreground font-medium">{calculator.name}</span>
           </nav>
@@ -238,7 +264,7 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
             <div className="space-y-6">
               {/* Quick Info */}
               <div className="bg-background border rounded-xl p-6">
-                <h3 className="font-semibold text-foreground mb-4">Quick Info</h3>
+                <h2 className="font-semibold text-foreground mb-4">Quick Info</h2>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Category:</span>
@@ -261,82 +287,65 @@ export default function CalculatorLayout({ calculator, category, children }: Cal
               </div>
 
               {/* Related Calculators */}
-              <div className="bg-background border rounded-xl p-6">
-                <h3 className="font-semibold text-foreground mb-4">Related Calculators</h3>
-                <div className="space-y-3">
-                  {/* This would be dynamically generated based on the same category */}
-                  <Link 
-                    href="/calculator/body-fat-percentage-calculator/"
-                    className="block p-3 rounded-lg hover:bg-accent transition-colors"
+              {relatedCalculators.length > 0 && (
+                <div className="bg-background border rounded-xl p-6">
+                  <h2 className="font-semibold text-foreground mb-4">Related Calculators</h2>
+                  <div className="space-y-3">
+                    {relatedCalculators.map((rc) => (
+                      <div
+                        key={rc.url}
+                        className="p-3 rounded-lg hover:bg-accent transition-colors"
+                      >
+                        <div className="font-medium text-sm">
+                          <Link href={rc.url} className="hover:text-primary transition-colors">
+                            {rc.name}
+                          </Link>
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {category?.name ? toTitleCase(category.name) : ''}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    href={`/${calculator.category}/`}
+                    className="block mt-4 text-sm text-primary hover:underline"
                   >
-                    <div className="font-medium text-sm">Body Fat Percentage Calculator</div>
-                    <div className="text-xs text-muted-foreground">Health & Fitness</div>
-                  </Link>
-                  <Link 
-                    href="/calculator/ideal-weight-calculator/"
-                    className="block p-3 rounded-lg hover:bg-accent transition-colors"
-                  >
-                    <div className="font-medium text-sm">Ideal Weight Calculator</div>
-                    <div className="text-xs text-muted-foreground">Health & Fitness</div>
-                  </Link>
-                  <Link 
-                    href="/calculator/calorie-calculator/"
-                    className="block p-3 rounded-lg hover:bg-accent transition-colors"
-                  >
-                    <div className="font-medium text-sm">Calorie Calculator</div>
-                    <div className="text-xs text-muted-foreground">Health & Fitness</div>
+                    View all {category?.name ? toTitleCase(category.name) : ''} calculators →
                   </Link>
                 </div>
-                <Link
-                  href={`/${calculator.category}/`}
-                  className="block mt-4 text-sm text-primary hover:underline"
-                >
-                  View all {category?.name ? toTitleCase(category.name) : ''} calculators →
-                </Link>
-              </div>
+              )}
 
               {/* Popular Calculators */}
-              <div className="bg-background border rounded-xl p-6">
-                <h3 className="font-semibold text-foreground mb-4">
-                  <TrendingUp className="h-5 w-5 inline mr-2" />
-                  Popular Calculators
-                </h3>
-                <div className="space-y-3">
-                  <Link 
-                    href="/calculator/mortgage-payment-calculator/"
-                    className="block p-3 rounded-lg hover:bg-accent transition-colors"
+              {popularCalculators.length > 0 && (
+                <div className="bg-background border rounded-xl p-6">
+                  <h2 className="font-semibold text-foreground mb-4">
+                    <TrendingUp className="h-5 w-5 inline mr-2" />
+                    Popular Calculators
+                  </h2>
+                  <div className="space-y-3">
+                    {popularCalculators.map((pc) => (
+                      <div
+                        key={pc.url}
+                        className="p-3 rounded-lg hover:bg-accent transition-colors"
+                      >
+                        <div className="flex items-center">
+                          <Star className="h-3 w-3 text-orange-500 mr-2 fill-current" />
+                          <Link href={pc.url} className="font-medium text-sm hover:text-primary transition-colors">
+                            {pc.name}
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    href="/popular/"
+                    className="block mt-4 text-sm text-primary hover:underline"
                   >
-                    <div className="flex items-center">
-                      <Star className="h-3 w-3 text-orange-500 mr-2 fill-current" />
-                      <span className="font-medium text-sm">Mortgage Payment Calculator</span>
-                    </div>
-                  </Link>
-                  <Link 
-                    href="/calculator/percentage-calculator/"
-                    className="block p-3 rounded-lg hover:bg-accent transition-colors"
-                  >
-                    <div className="flex items-center">
-                      <Star className="h-3 w-3 text-orange-500 mr-2 fill-current" />
-                      <span className="font-medium text-sm">Percentage Calculator</span>
-                    </div>
-                  </Link>
-                  <Link 
-                    href="/calculator/loan-payment-calculator/"
-                    className="block p-3 rounded-lg hover:bg-accent transition-colors"
-                  >
-                    <div className="flex items-center">
-                      <Star className="h-3 w-3 text-orange-500 mr-2 fill-current" />
-                      <span className="font-medium text-sm">Loan Payment Calculator</span>
-                    </div>
+                    View all popular calculators →
                   </Link>
                 </div>
-                <Link 
-                  href="/popular/"
-                  className="block mt-4 text-sm text-primary hover:underline"
-                >
-                  View all popular calculators →
-                </Link>
-              </div>
+              )}
             </div>
           </div>
         </div>

@@ -18,7 +18,8 @@
     "test:search": "node scripts/test-search.js",
     "sitemap:generate": "node scripts/generate-sitemap.js",
     "sitemap:test": "echo 'Start dev server and visit http://localhost:3000/sitemap.xml to test dynamic sitemap'",
-    "sitemap:discover": "node scripts/test-sitemap-discovery.js"
+    "sitemap:discover": "node scripts/test-sitemap-discovery.js",
+    "og:generate": "node scripts/generate-og-images.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

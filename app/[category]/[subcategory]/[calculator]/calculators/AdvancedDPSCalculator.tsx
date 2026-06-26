@@ -264,9 +264,9 @@ export default function AdvancedDPSCalculator() {
       <div className="text-center space-y-4 py-8">
         <div className="flex items-center justify-center gap-3">
           <Zap className="h-10 w-10 text-primary" />
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             DPS Calculator
-          </h1>
+          </h2>
         </div>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
           Calculate damage per second with precision for any weapon or character build. Includes burst DPS, sustained DPS, critical hit calculations, and armor penetration analysis

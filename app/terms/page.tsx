@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Terms of Service | Calcshark',
   description: 'Read the Calcshark terms of service.',
+  alternates: {
+    canonical: 'https://calcshark.com/terms/',
+  },
 };
 
 export default function TermsPage() {

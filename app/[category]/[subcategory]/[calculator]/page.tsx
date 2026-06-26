@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug, getCalculatorBySlug } from '@/lib/calculator-categories';
+import { getCalculatorByNestedSlug, getCategoryBySlug, getSubcategoryBySlug, getCalculatorBySlug, getAllCalculators, getCalculatorURL } from '@/lib/calculator-categories';
 import BMICalculator from './calculators/BMICalculator';
 import AdvancedBMICalculator from './calculators/AdvancedBMICalculator';
 import CalculatorLayout from './components/CalculatorLayout';
 import { generateSoftwareSchema, generateBreadcrumbSchema, generateSmartThermostatSchema, generateTireLifeSchema, generateOilChangeSchema, generateDogAgeSchema, generateCatAgeSchema, generateMortgageSchema, generateLoanPaymentSchema, generateCompoundInterestSchema, generateWeddingAlcoholSchema, generateCropRotationSchema, generateCooldownSchema, generatePondVolumeSchema, generateDPSCalculatorSchema, generateBreastmilkStorageCalculatorSchema, generateRecipeConverterCalculatorSchema, generateSpayNeuterCalculatorSchema, generateBoardingCostCalculatorSchema, generateFishingLineCapacityCalculatorSchema, generateQuarterbackRatingCalculatorSchema, generatePriceComparisonCalculatorSchema, generateDaysOnMarketCalculatorSchema, generateCarbonFootprintSchema, generateCommuteCostSchema, generateCostPerMileSchema, generateDieselVsGasSchema, generateE85VsRegularSchema, generateElectricVehicleSavingsSchema, generateFuelCostSchema, generateFuelEconomyComparisonSchema, generateFuelTankRangeSchema, generateGasMileageSchema, generateGasSavingsSchema, generateHybridSavingsSchema, generateMPGSchema, generateOctaneSchema, generateTripFuelSchema, generateMaintenanceSuiteSchema, generateVehicleCostsSuiteSchema } from '@/lib/schemas';
-import { calculatorSEO } from '@/lib/seo';
+import { calculatorSEO, clampDescription } from '@/lib/seo';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -57,14 +57,12 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
   const slug = calculator.slug.replace('-calculator', '');
   const seoData = calculatorSEO[slug as keyof typeof calculatorSEO];
   
-  const title = seoData?.title || `Free Online ${calculator.name} - No Sign Up - No Login Required | Calcshark`;
-  const description = seoData?.description || `${calculator.description}. Free Online ${calculator.name} - instant, accurate, and completely free to use. No registration required.`;
-  const keywords = seoData?.keywords || [`free ${calculator.name.toLowerCase()}`, ...calculator.tags, 'online calculator', 'free calculator tool', 'no registration'];
-  
+  const title = seoData?.title || `Free Online ${calculator.name} | Calcshark`;
+  const description = clampDescription(seoData?.description || `${calculator.description}. Free Online ${calculator.name} - instant, accurate, and completely free to use. No registration required.`);
+
   return {
     title,
     description,
-    keywords: Array.isArray(keywords) ? keywords.join(', ') : keywords,
     openGraph: {
       title,
       description,
@@ -514,6 +512,27 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   const subcategory = getSubcategoryBySlug(categorySlug, subcategorySlug);
   const CalculatorComponent = calculatorComponents[calculator.slug] ?? CalculatorComponentFromSlug;
 
+  // Build sidebar links from real data (built calculators only, canonical nested URLs)
+  const builtSlugs = new Set(Object.keys(calculatorComponents));
+  const relatedCalculators: { name: string; url: string }[] = [];
+  const seenRelated = new Set<string>([calculator.slug]);
+  const pushRelated = (calc: { slug: string; name: string }, subSlug: string) => {
+    if (relatedCalculators.length >= 5 || seenRelated.has(calc.slug) || !builtSlugs.has(calc.slug)) return;
+    seenRelated.add(calc.slug);
+    relatedCalculators.push({ name: calc.name, url: `/${categorySlug}/${subSlug}/${calc.slug}/` });
+  };
+  subcategory?.calculators.forEach((c: any) => pushRelated(c, subcategory.slug));
+  if (relatedCalculators.length < 5 && category) {
+    for (const sub of category.subcategories) {
+      sub.calculators.forEach((c: any) => pushRelated(c, sub.slug));
+      if (relatedCalculators.length >= 5) break;
+    }
+  }
+  const popularCalculators = getAllCalculators()
+    .filter((c) => c.popular && builtSlugs.has(c.slug) && c.slug !== calculator.slug)
+    .slice(0, 5)
+    .map((c) => ({ name: c.name, url: getCalculatorURL(c) }));
+
   // Prepare breadcrumb items
   const breadcrumbItems = [
     { name: 'Home', url: '/' },
@@ -717,32 +736,24 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   
   // If we haven't implemented this calculator yet, show a coming soon message
   if (!CalculatorComponent) {
+    // Coming Soon pages: emit ONLY breadcrumb schema — no SoftwareApplication/
+    // AggregateRating for a tool that doesn't exist yet.
+    const comingSoonBreadcrumb = (combinedSchema as any).breadcrumb ?? generateBreadcrumbSchema(breadcrumbItems);
     return (
-      <CalculatorLayout calculator={calculator} category={category}>
-        {/* Schemas */}
-        {hasComprehensiveSchema ? (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(combinedSchema),
-            }}
-          />
-        ) : (
-          <>
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify((combinedSchema as any).software),
-              }}
-            />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify((combinedSchema as any).breadcrumb),
-              }}
-            />
-          </>
-        )}
+      <CalculatorLayout
+        calculator={calculator}
+        category={category}
+        subcategory={subcategory}
+        relatedCalculators={relatedCalculators}
+        popularCalculators={popularCalculators}
+      >
+        {/* Breadcrumb schema only */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(comingSoonBreadcrumb),
+          }}
+        />
           <div className="bg-background border rounded-xl p-8 text-center">
             <div className="mb-4">
               <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -767,7 +778,13 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   }
 
   return (
-    <CalculatorLayout calculator={calculator} category={category}>
+    <CalculatorLayout
+      calculator={calculator}
+      category={category}
+      subcategory={subcategory}
+      relatedCalculators={relatedCalculators}
+      popularCalculators={popularCalculators}
+    >
       {/* Schemas */}
       {hasComprehensiveSchema ? (
         <script

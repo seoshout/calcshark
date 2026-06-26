@@ -1,5 +1,13 @@
 import { Metadata } from 'next';
 
+// Trim a meta description to <=max chars at a word boundary (avoids SERP truncation).
+export function clampDescription(s: string, max = 155): string {
+  if (!s || s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\s]+$/, '');
+}
+
 export interface SEOProps {
   title: string;
   description: string;
@@ -21,12 +29,12 @@ export function generateMetadata({
   const siteName = 'Calcshark';
   const siteUrl = 'https://calcshark.com';
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+  description = clampDescription(description);
   
   return {
     title: fullTitle,
     description,
-    keywords: keywords.join(', '),
-    
+
     // Favicon and icons
     icons: {
       icon: [
@@ -74,11 +82,6 @@ export function generateMetadata({
     // Canonical URL and alternates
     alternates: {
       canonical: canonical || siteUrl,
-      languages: {
-        'x-default': siteUrl,
-        'en': siteUrl,
-        'hi': `${siteUrl}/hi/`,
-      },
     },
     
     // Robots

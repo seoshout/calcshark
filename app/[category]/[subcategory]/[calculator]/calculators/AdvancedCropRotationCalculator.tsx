@@ -2172,7 +2172,7 @@ export default function AdvancedCropRotationCalculator() {
             <RotateCcw className="h-8 w-8 text-green-600 dark:text-green-400" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Advanced Crop Rotation Calculator</h1>
+            <h2 className="text-3xl font-bold text-foreground">Advanced Crop Rotation Calculator</h2>
             <p className="text-muted-foreground">Plan your garden for maximum soil health and yield</p>
           </div>
         </div>
