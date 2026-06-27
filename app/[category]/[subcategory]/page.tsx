@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getCategoryBySlug, getSubcategoryBySlug, getCalculatorURL } from '@/lib/calculator-categories';
+import { discoverAllWebsiteRoutes } from '@/lib/route-discovery';
 import { clampDescription } from '@/lib/seo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calculator, Star, TrendingUp, Clock } from 'lucide-react';
@@ -60,6 +61,19 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
     notFound();
   }
 
+  // Only list calculators that are actually built (have a component). Unbuilt
+  // slugs render as noindex "Coming Soon", so linking to them wastes crawl/equity.
+  // Mirrors the sitemap's built-calculator set. Fail-open: if discovery yields no
+  // calculator routes (e.g. fs unavailable), show all so the page never goes empty.
+  const allRoutes = await discoverAllWebsiteRoutes();
+  const builtUrls = new Set(
+    allRoutes.filter((r) => r.type === 'calculator').map((r) => r.url)
+  );
+  const builtCalculators =
+    builtUrls.size > 0
+      ? subcategory.calculators.filter((calc) => builtUrls.has(getCalculatorURL(calc)))
+      : subcategory.calculators;
+
   const getBadgeColor = (difficulty: string) => {
     switch (difficulty) {
       case 'basic':
@@ -109,7 +123,7 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <Calculator className="h-4 w-4 mr-2 text-primary" />
-                <span>{subcategory.calculators.length} Calculators</span>
+                <span>{builtCalculators.length} Calculators</span>
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2 text-primary" />
@@ -127,7 +141,7 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
       {/* Calculators Grid */}
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {subcategory.calculators.map((calculator) => (
+          {builtCalculators.map((calculator) => (
             <Card key={calculator.slug} className="hover:shadow-lg transition-shadow h-full">
               <CardContent className="p-6 flex flex-col h-full">
                 <div className="flex-1">
@@ -193,7 +207,7 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
           ))}
         </div>
         
-        {subcategory.calculators.length === 0 && (
+        {builtCalculators.length === 0 && (
           <div className="text-center py-12">
             <Calculator className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">No Calculators Yet</h3>

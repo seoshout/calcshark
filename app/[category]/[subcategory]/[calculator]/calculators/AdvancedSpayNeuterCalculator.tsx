@@ -2350,7 +2350,7 @@ const AdvancedSpayNeuterCalculator = () => {
             <ul className="space-y-1 text-muted-foreground">
               <li>• <a href="https://www.avma.org/resources-tools/pet-owners/petcare/spaying-and-neutering" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Veterinary Medical Association (AVMA)</a> - Official spay/neuter guidelines and recommendations</li>
               <li>• <a href="https://www.aaha.org/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Animal Hospital Association (AAHA)</a> - Canine and feline life stage guidelines</li>
-              <li>• <a href="https://www.sheltervet.org/assets/docs/shelter-standards-oct2011-wforward.pdf" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Association of Shelter Veterinarians</a> - Pediatric spay/neuter best practices</li>
+              
               <li>• <a href="https://catvets.com/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Association of Feline Practitioners (AAFP)</a> - Feline-specific life stage guidelines</li>
             </ul>
           </div>
@@ -2380,7 +2380,7 @@ const AdvancedSpayNeuterCalculator = () => {
             <ul className="space-y-1 text-muted-foreground">
               <li>• <a href="https://www.akc.org/expert-advice/health/spaying-and-neutering-your-dog-faqs/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">American Kennel Club (AKC)</a> - Comprehensive spay/neuter FAQs and breed-specific considerations</li>
               <li>• <a href="https://www.vet.cornell.edu/departments-centers-and-institutes/cornell-feline-health-center" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Cornell Feline Health Center</a> - Evidence-based feline spay/neuter research</li>
-              <li>• <a href="https://bestfriends.org/our-work/spay-neuter" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Best Friends Animal Society</a> - Community spay/neuter resources and impact data</li>
+              
               <li>• "Small Animal Surgery Textbook" by Theresa Welch Fossum DVM - Surgical technique standards and best practices</li>
             </ul>
           </div>

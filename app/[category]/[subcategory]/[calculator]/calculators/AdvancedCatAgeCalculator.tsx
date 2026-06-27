@@ -1060,7 +1060,6 @@ export default function AdvancedCatAgeCalculator() {
               {[
                 "https://www.rvc.ac.uk/about/news/purebred-cats-have-shorter-lifespans-than-mixed-breed-cats",
                 "https://journals.sagepub.com/doi/10.1177/1098612X211029390",
-                "https://www.frontiersin.org/articles/10.3389/fgene.2023.1112725/full",
                 "https://catvets.com/guidelines/practice-guidelines/life-stage-guidelines",
                 "https://www.nature.com/articles/s41598-021-94475-5"
               ].map((url, index) => (
@@ -1091,7 +1090,6 @@ export default function AdvancedCatAgeCalculator() {
                 "https://www.avma.org/resources-tools/pet-owners/petcare/selecting-pet-cat",
                 "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0288709",
                 "https://www.sciencedirect.com/science/article/pii/S1090023323001423",
-                "https://link.springer.com/article/10.1007/s11357-023-00789-4"
               ].map((url, index) => (
                 <div key={index} className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>

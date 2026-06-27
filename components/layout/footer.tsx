@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calculator, Github, Twitter, Mail, Heart } from 'lucide-react';
+import { Calculator, Twitter, Mail, Heart } from 'lucide-react';
 import { calculatorCategories, getCalculatorBySlug, getCalculatorURL } from '@/lib/calculator-categories';
 
 export default function Footer() {
@@ -71,14 +71,7 @@ export default function Footer() {
               construction to cooking - find the perfect calculator for every need.
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
-              <Link 
-                href="https://github.com/calcshark" 
-                className="text-gray-400 hover:text-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="h-5 w-5" />
-              </Link>
+              
               <Link 
                 href="https://twitter.com/calcshark" 
                 className="text-gray-400 hover:text-white transition-colors"

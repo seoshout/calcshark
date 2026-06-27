@@ -1135,7 +1135,7 @@ const AdvancedE85VsRegularCalculator = () => {
           <div className="p-4 bg-muted rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2"><Shield className="h-4 w-4 text-primary" />Official and Government Data</h3>
             <ul className="space-y-1 text-muted-foreground">
-              <li>- <a href="https://www.energy.gov/energysaver/articles/e85-fuel-right-you" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">U.S. DOE Energy Saver - E85 Overview</a> - FFV guidance and MPG context</li>
+              
               <li>- <a href="https://www.epa.gov/renewable-fuel-standard/e85-fuel" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">U.S. EPA E85 Fuel Page</a> - E85 definition and FFV compatibility</li>
               <li>- <a href="https://afdc.energy.gov/fuels/ethanol-e85" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">AFDC E85 Fuel Data</a> - station network and blend range</li>
             </ul>
@@ -1144,7 +1144,7 @@ const AdvancedE85VsRegularCalculator = () => {
           <div className="p-4 bg-muted rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2"><BarChart3 className="h-4 w-4 text-primary" />Research and Technical Context</h3>
             <ul className="space-y-1 text-muted-foreground">
-              <li>- <a href="https://www.energy.gov/eere/vehicles/maximizing-alternative-fuel-vehicle-efficiency" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">DOE VTO Alternative Fuel Efficiency</a> - FFV efficiency and E85 tradeoff context</li>
+              
               <li>- <a href="https://afdc.energy.gov/fuels/ethanol-blends" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">AFDC Ethanol Blends</a> - approved use and blend information</li>
             </ul>
           </div>

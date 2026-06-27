@@ -2300,7 +2300,6 @@ export default function AdvancedDogAgeCalculator() {
               </div>
               <div className="space-y-3">
                 {[
-                  "https://www.akc.org/expert-advice/health/how-to-tell-your-dogs-age/",
                   "https://www.avma.org/resources-tools/pet-owners/petcare/selecting-pet-dog",
                   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6822509/",
                   "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0208027",

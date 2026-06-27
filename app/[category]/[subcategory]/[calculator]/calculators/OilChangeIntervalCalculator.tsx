@@ -1414,15 +1414,7 @@ export default function OilChangeIntervalCalculator() {
               </a>
             </div>
 
-            <div className="p-4 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
-              <h4 className="font-medium text-orange-900 dark:text-orange-100 mb-2">Consumer Reports - Oil Change Testing</h4>
-              <p className="text-sm text-orange-800 dark:text-orange-200 mb-2">
-                Long-term testing of oil change intervals and analysis of manufacturer recommendations
-              </p>
-              <a href="https://www.consumerreports.org/cars/car-maintenance/" target="_blank" rel="noopener noreferrer" className="text-sm text-orange-600 dark:text-orange-400 hover:underline">
-                Consumer Reports Auto Maintenance →
-              </a>
-            </div>
+            
           </div>
         </div>
 

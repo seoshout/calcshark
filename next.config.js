@@ -53,6 +53,10 @@ const nextConfig = {
             value: 'strict-origin-when-cross-origin'
           },
           {
+            key: 'X-Permitted-Cross-Domain-Policies',
+            value: 'none'
+          },
+          {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
           },
@@ -81,6 +85,18 @@ const nextConfig = {
             type: 'header',
             key: 'x-forwarded-proto',
             value: 'http',
+          },
+        ],
+        destination: 'https://calcshark.com/:path*',
+        permanent: true,
+      },
+      // Redirect www to non-www (canonical host)
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.calcshark.com',
           },
         ],
         destination: 'https://calcshark.com/:path*',

@@ -1,0 +1,47 @@
+# Calcshark
+
+> Calcshark (https://calcshark.com) is a free directory of 735+ online calculators across 17 categories. Every calculator runs in the browser for instant results, with no sign-up, no login, and no cost. Tools use industry-standard formulas and are intended for informational use.
+
+## About
+- Site: https://calcshark.com
+- Free to use, no registration required
+- 735+ calculators across 17 categories
+- Calculations run client-side; user inputs are not stored on servers
+- Contact: contact@calcshark.com
+
+## Categories
+- [Finance & Personal Finance](https://calcshark.com/finance-personal-finance/): mortgages, loans, retirement, investing, debt
+- [Health & Fitness](https://calcshark.com/health-fitness/): BMI, body metrics, nutrition, calories
+- [Construction & Home Improvement](https://calcshark.com/construction-home-improvement/): concrete, flooring, paint, roofing, materials
+- [Education & Academic](https://calcshark.com/education-academic/): GPA, grades, test scores
+- [Business & Professional](https://calcshark.com/business-professional/): ROI, margins, payroll, sales & marketing
+- [Automotive & Transportation](https://calcshark.com/automotive-transportation/): fuel economy, auto loans, maintenance, ownership cost
+- [Cooking & Food](https://calcshark.com/cooking-food/): recipe scaling, conversions, cooking time
+- [Real Estate & Property](https://calcshark.com/real-estate-property/): rental yield, cap rate, BRRRR, days on market
+- [Pet Care](https://calcshark.com/pet-care/): dog/cat age, spay/neuter cost, boarding, nutrition
+- [Pregnancy & Parenting](https://calcshark.com/pregnancy-parenting/): breastmilk storage, due dates, baby development
+- [Mathematics & Science](https://calcshark.com/mathematics-science/): algebra, geometry, conversions
+- [Environmental & Sustainability](https://calcshark.com/environmental-sustainability/): carbon footprint, energy, EV savings
+- [Gaming & Entertainment](https://calcshark.com/gaming-entertainment/): DPS, cooldown, gaming performance
+- [Lifestyle & Daily Life](https://calcshark.com/lifestyle-daily-life/): shopping savings, price comparison, tips
+- [Gardening & Landscaping](https://calcshark.com/gardening-landscaping/): crop rotation, pond volume, garden planning
+- [Sports & Recreation](https://calcshark.com/sports-recreation/): quarterback rating, fishing line capacity, outdoor activities
+- [Wedding & Events](https://calcshark.com/wedding-events/): wedding alcohol planning, event budgeting
+
+## Popular and niche calculators
+- [Mortgage Payment Calculator](https://calcshark.com/finance-personal-finance/mortgages/mortgage-payment-calculator/)
+- [BMI Calculator](https://calcshark.com/health-fitness/body-metrics/bmi-calculator/)
+- [Wedding Alcohol Calculator](https://calcshark.com/wedding-events/wedding-planning/wedding-alcohol-calculator/)
+- [Fishing Line Capacity Calculator](https://calcshark.com/sports-recreation/outdoor-activities/fishing-line-capacity-calculator/)
+- [Quarterback Rating Calculator](https://calcshark.com/sports-recreation/sports-performance/quarterback-rating-calculator/)
+- [Spay/Neuter Cost Calculator](https://calcshark.com/pet-care/pet-health-nutrition/spayneuter-cost-calculator/)
+- [Breastmilk Storage Calculator](https://calcshark.com/pregnancy-parenting/baby-child-development/breastmilk-storage-calculator/)
+- [Dog Age Calculator](https://calcshark.com/pet-care/pet-health-nutrition/cat-age-calculator/)
+- [Crop Rotation Calculator](https://calcshark.com/gardening-landscaping/garden-planning/crop-rotation-calculator/)
+- [Smart Thermostat Savings Calculator](https://calcshark.com/environmental-sustainability/energy-utilities/smart-thermostat-savings-calculator/)
+- [DPS Calculator](https://calcshark.com/gaming-entertainment/gaming-performance/dps-calculator/)
+
+## Browse
+- [All Online Calculators](https://calcshark.com/all-online-calculators/)
+- [All Categories](https://calcshark.com/categories/)
+- [Popular Calculators](https://calcshark.com/popular/)

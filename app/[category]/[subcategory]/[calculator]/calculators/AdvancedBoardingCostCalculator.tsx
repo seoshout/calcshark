@@ -1747,7 +1747,7 @@ const AdvancedBoardingCostCalculator = () => {
             <h4 className="font-semibold mb-2">Consumer Resources</h4>
             <ul className="space-y-1 text-muted-foreground">
               <li>• <a href="https://www.rover.com/blog/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Rover Pet Care Blog</a> - Articles on pet boarding tips, costs, and choosing sitters</li>
-              <li>• <a href="https://www.petfinder.com/pet-care/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Petfinder Care Resources</a> - Guides for pet owners on boarding and travel</li>
+              
               <li>• <a href="https://www.trustedhousesitters.com/blog/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">TrustedHousesitters Blog</a> - Alternative boarding solutions and pet sitting exchanges</li>
             </ul>
           </div>

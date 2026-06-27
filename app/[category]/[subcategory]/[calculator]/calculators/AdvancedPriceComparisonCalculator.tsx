@@ -1600,7 +1600,7 @@ export default function AdvancedPriceComparisonCalculator() {
           <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
             <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">📖 Consumer Economics & Unit Pricing</h3>
             <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
-              <li>1. <a href="https://www.ftc.gov/legal-library/browse/rules/unit-pricing" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Federal Trade Commission (FTC) - Unit Price Labeling Guidelines</a> (2023)</li>
+              
               <li>2. <a href="https://www.consumerreports.org/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Consumer Reports - Price Comparison Methodology</a> (2024)</li>
               <li>3. <a href="https://onlinelibrary.wiley.com/journal/17456606" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">Journal of Consumer Affairs - Unit Pricing Psychology and Consumer Behavior</a></li>
               <li>4. <a href="https://www.ers.usda.gov/data-products/food-price-outlook/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 dark:hover:text-blue-400">USDA - Food Price Analysis and Unit Cost Calculations</a></li>

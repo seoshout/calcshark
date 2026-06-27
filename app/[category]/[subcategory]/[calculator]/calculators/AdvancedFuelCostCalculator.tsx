@@ -1197,7 +1197,7 @@ const AdvancedFuelCostCalculator = () => {
             <h3 className="font-semibold mb-2 flex items-center gap-2"><BarChart3 className="h-4 w-4 text-primary" />Research and Cost Studies</h3>
             <ul className="space-y-1 text-muted-foreground">
               <li>- <a href="https://www.aaa.com/autorepair/articles/what-does-it-cost-to-own-and-operate-a-car" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">AAA Driving Cost Research</a> - operating-cost methodology context</li>
-              <li>- <a href="https://www.nhtsa.gov/road-safety/fuel-economy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">NHTSA Fuel Economy Guidance Context</a> - efficiency and driving behavior context</li>
+              
             </ul>
           </div>
 

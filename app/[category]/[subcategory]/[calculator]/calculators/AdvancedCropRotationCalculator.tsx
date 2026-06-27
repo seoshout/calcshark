@@ -3689,17 +3689,7 @@ export default function AdvancedCropRotationCalculator() {
                     https://www.fao.org/3/cb4654en/cb4654en.pdf
                   </a>
                 </div>
-                <div className="flex items-start overflow-hidden min-w-0">
-                  <span className="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <a
-                    href="https://www.nrcs.usda.gov/conservation/practices/crop-rotation"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-indigo-800 dark:text-indigo-200 hover:underline break-all word-break-break-all overflow-wrap-anywhere min-w-0 flex-1"
-                  >
-                    https://www.nrcs.usda.gov/conservation/practices/crop-rotation
-                  </a>
-                </div>
+                
                 <div className="flex items-start overflow-hidden min-w-0">
                   <span className="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <a
@@ -3722,17 +3712,7 @@ export default function AdvancedCropRotationCalculator() {
                     https://onlinelibrary.wiley.com/journal/17447348
                   </a>
                 </div>
-                <div className="flex items-start overflow-hidden min-w-0">
-                  <span className="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <a
-                    href="https://www.crops.org/publications/cssa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-indigo-800 dark:text-indigo-200 hover:underline break-all word-break-break-all overflow-wrap-anywhere min-w-0 flex-1"
-                  >
-                    https://www.crops.org/publications/cssa
-                  </a>
-                </div>
+                
               </div>
             </div>
 
@@ -3744,39 +3724,9 @@ export default function AdvancedCropRotationCalculator() {
                 <h4 className="font-bold text-amber-900 dark:text-amber-100">Additional Data Sources</h4>
               </div>
               <div className="space-y-2">
-                <div className="flex items-start overflow-hidden min-w-0">
-                  <span className="w-2 h-2 bg-amber-600 dark:bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <a
-                    href="https://www.irri.org/where-we-work/countries/philippines/research"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-amber-800 dark:text-amber-200 hover:underline break-all word-break-break-all overflow-wrap-anywhere min-w-0 flex-1"
-                  >
-                    https://www.irri.org/where-we-work/countries/philippines/research
-                  </a>
-                </div>
-                <div className="flex items-start overflow-hidden min-w-0">
-                  <span className="w-2 h-2 bg-amber-600 dark:bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <a
-                    href="https://www.worldagroforestry.org/research/crop-tree-diversification"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-amber-800 dark:text-amber-200 hover:underline break-all word-break-break-all overflow-wrap-anywhere min-w-0 flex-1"
-                  >
-                    https://www.worldagroforestry.org/research/crop-tree-diversification
-                  </a>
-                </div>
-                <div className="flex items-start overflow-hidden min-w-0">
-                  <span className="w-2 h-2 bg-amber-600 dark:bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <a
-                    href="https://www.cgiar.org/research/crop-systems/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-amber-800 dark:text-amber-200 hover:underline break-all word-break-break-all overflow-wrap-anywhere min-w-0 flex-1"
-                  >
-                    https://www.cgiar.org/research/crop-systems/
-                  </a>
-                </div>
+                
+                
+                
                 <div className="flex items-start overflow-hidden min-w-0">
                   <span className="w-2 h-2 bg-amber-600 dark:bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <a

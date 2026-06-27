@@ -1249,7 +1249,6 @@ export function generateOrganizationStructuredData() {
     description: 'The ultimate collection of free online calculators for all your calculation needs.',
     sameAs: [
       'https://twitter.com/calcshark',
-      'https://github.com/calcshark',
     ],
     contactPoint: {
       '@type': 'ContactPoint',

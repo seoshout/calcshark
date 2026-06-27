@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { rateLimiter, getHSTSHeader } from '@/lib/security';
+import { rateLimiter } from '@/lib/security';
 
 // Rate limiting configuration
 const RATE_LIMIT_MAX_REQUESTS = 100;
@@ -116,18 +116,10 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Security headers (additional layer on top of next.config.js)
-  response.headers.set('X-Robots-Tag', 'index, follow');
-  response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('X-Frame-Options', 'DENY');
-  response.headers.set('X-XSS-Protection', '1; mode=block');
-
-  // HSTS header - force HTTPS (environment-aware)
-  response.headers.set('Strict-Transport-Security', getHSTSHeader());
-
-  // Additional security headers
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set('X-Permitted-Cross-Domain-Policies', 'none');
+  // NOTE: Security headers (CSP, HSTS, X-Frame-Options, X-Content-Type-Options,
+  // X-XSS-Protection, Referrer-Policy, Permissions-Policy, X-Permitted-Cross-Domain-Policies)
+  // are set once in next.config.js headers() — the single source of truth.
+  // No blanket X-Robots-Tag here so per-page metadata controls indexability.
 
   // Block requests with suspicious user agents
   const userAgent = request.headers.get('user-agent') || '';

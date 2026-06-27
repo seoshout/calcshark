@@ -1576,7 +1576,7 @@ export default function AdvancedQuarterbackRatingCalculator() {
           <div className="p-4 bg-muted rounded-lg">
             <h3 className="font-semibold mb-2">Rating Comparison Studies</h3>
             <ul className="space-y-1 text-muted-foreground">
-              <li>• <a href="https://www.espn.com/nfl/stats/qbr/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">ESPN Total QBR</a> - Proprietary metric (0-100 scale) accounting for context and all contributions</li>
+              
               <li>• <a href="https://www.footballoutsiders.com/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Football Outsiders</a> - EPA (Expected Points Added) and advanced QB analytics</li>
               <li>• Passer Rating vs QBR correlation studies show ratings account for ~70% of winning variance</li>
               <li>• NCAA Passer Efficiency comparative analysis - Different formula emphasis on TDs and INTs</li>

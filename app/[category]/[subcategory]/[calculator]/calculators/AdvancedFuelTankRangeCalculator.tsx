@@ -1320,7 +1320,7 @@ const AdvancedFuelTankRangeCalculator = () => {
           <div className="p-4 bg-muted rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2"><BarChart3 className="h-4 w-4 text-primary" />Research and Technical Context</h3>
             <ul className="space-y-1 text-muted-foreground">
-              <li>- <a href="https://www.nhtsa.gov/road-safety/fuel-economy" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">NHTSA Fuel Economy Resources</a> - driving behavior and efficiency effects</li>
+              
               <li>- <a href="https://afdc.energy.gov/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">DOE AFDC</a> - transportation fuel and efficiency data context</li>
             </ul>
           </div>

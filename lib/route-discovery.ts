@@ -21,7 +21,9 @@ export async function discoverAllWebsiteRoutes(): Promise<DiscoveredRoute[]> {
   }
 
   const routes: DiscoveredRoute[] = [];
-  const currentDate = '2025-09-01T00:00:00.000Z';
+  // Use the build/deploy time so lastmod reflects each rebuild rather than a
+  // fixed stale date. Content is regenerated on every deploy.
+  const currentDate = new Date().toISOString();
 
   try {
     // 1. Discover static pages by scanning app directory

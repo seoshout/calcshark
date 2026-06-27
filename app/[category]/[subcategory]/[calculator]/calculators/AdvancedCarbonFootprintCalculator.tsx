@@ -1636,18 +1636,7 @@ const AdvancedCarbonFootprintCalculator = () => {
                 </a>{' '}
                 - activity-to-offset linkage and reduction context
               </li>
-              <li>
-                •{' '}
-                <a
-                  href="https://www.conservation.org/act/carbon-footprint-calculator"
-                  className="text-primary hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Conservation International Footprint Tool
-                </a>{' '}
-                - personal footprint framing and action pathway
-              </li>
+              
             </ul>
           </div>
 

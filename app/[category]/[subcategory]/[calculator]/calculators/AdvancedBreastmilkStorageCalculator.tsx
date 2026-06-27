@@ -1445,7 +1445,7 @@ export default function AdvancedBreastmilkStorageCalculator() {
             <h3 className="font-semibold mb-2">Container Safety & Best Practices</h3>
             <ul className="space-y-1 text-muted-foreground">
               <li>• <a href="https://www.fda.gov/food/people-risk-foodborne-illness/food-safety-moms-be" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Food Safety for Moms to Be - FDA</a></li>
-              <li>• <a href="https://www.cdc.gov/hygiene/personal-hygiene/handwashing.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hand Hygiene Guidelines - CDC</a></li>
+              
               <li>• <a href="https://www.medela.us/breastfeeding/articles/breast-milk-storage-guidelines" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Breast Milk Storage Guidelines - Medela</a></li>
             </ul>
           </div>

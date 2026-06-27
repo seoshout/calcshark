@@ -95,18 +95,6 @@ const REF = {
     label: 'OEE.com: What Is Takt Time?',
     url: 'https://www.oee.com/takt-time/what-is-takt-time/',
   },
-  oeeLead: {
-    label: 'OEE.com: Lead Time',
-    url: 'https://www.oee.com/takt-time/lead-time/',
-  },
-  oeeThroughput: {
-    label: 'OEE.com: Throughput',
-    url: 'https://www.oee.com/takt-time/throughput/',
-  },
-  oeeCapacity: {
-    label: 'OEE.com: Capacity',
-    url: 'https://www.oee.com/takt-time/capacity/',
-  },
   hubstaffProductivity: {
     label: 'Hubstaff Productivity Metrics Guide',
     url: 'https://hubstaff.com/workforce-management/calculate-productivity',
@@ -465,7 +453,7 @@ export const PRODUCTIVITY_EFFICIENCY_CONFIG: Record<ProductivityEfficiencyVarian
       row('Quality', 'Good Count / Total Count', 'Shows what share of total output was good output.'),
       row('OEE', 'Availability x Performance x Quality', 'Combines the three major loss categories into one metric.'),
     ],
-    references: [REF.oeeCalc, REF.oeeCycle, REF.oeeThroughput],
+    references: [REF.oeeCalc, REF.oeeCycle],
     understanding: [
       card('OEE is multiplicative', 'A weakness in one loss category compresses the total even if the other two look strong.'),
       card('Loss separation matters', 'The combined number is useful only when availability, performance, and quality are also visible.'),
@@ -517,7 +505,7 @@ export const PRODUCTIVITY_EFFICIENCY_CONFIG: Record<ProductivityEfficiencyVarian
       row('Capacity at current pace', 'Available Hours x Hourly Throughput', 'Shows what the current pace could deliver within the available time.'),
       row('Time block', 'Actual Hours', 'Keeps the pace anchored to the run duration that produced it.'),
     ],
-    references: [REF.oeeCycle, REF.oeeTakt, REF.oeeThroughput],
+    references: [REF.oeeCycle, REF.oeeTakt],
     understanding: [
       card('Cycle time is a pace metric', 'It answers how long each unit took on average, not how much output was produced in total.'),
       card('Throughput is the mirror image', 'One describes time per unit while the other describes units per unit of time.'),
@@ -569,7 +557,7 @@ export const PRODUCTIVITY_EFFICIENCY_CONFIG: Record<ProductivityEfficiencyVarian
       row('Cycle time', '(Actual Hours x 60) / Output Units', 'Used to compare current pace with the takt requirement.'),
       row('Pace gap', 'Cycle Time - Takt Time', 'Shows whether the current process is ahead of or behind demand pace.'),
     ],
-    references: [REF.oeeTakt, REF.oeeCycle, REF.oeeCapacity],
+    references: [REF.oeeTakt, REF.oeeCycle],
     understanding: [
       card('Takt time comes from demand', 'It is not a performance score by itself. It is the pace the system needs to hit.'),
       card('Cycle time gives it meaning', 'Takt becomes actionable when you compare it with what the process is actually doing now.'),
@@ -621,7 +609,7 @@ export const PRODUCTIVITY_EFFICIENCY_CONFIG: Record<ProductivityEfficiencyVarian
       row('Non-value-added time', 'Lead Time - Processing Time', 'Shows how much time was spent waiting or being handled outside processing.'),
       row('Lead days', 'Lead Time / 480', 'Converts minutes into 8-hour-day equivalents for planning.'),
     ],
-    references: [REF.oeeLead, REF.oeeCycle, REF.oeeTakt],
+    references: [REF.oeeCycle, REF.oeeTakt],
     understanding: [
       card('Lead time is an elapsed-time lens', 'It tracks the full journey of the work item, not just the active work portion.'),
       card('Waiting usually shapes the total', 'Queue and transfer delays often affect lead time more than direct processing effort.'),
@@ -673,7 +661,7 @@ export const PRODUCTIVITY_EFFICIENCY_CONFIG: Record<ProductivityEfficiencyVarian
       row('Good-output rate', 'Good Units / Output Units', 'Keeps quality attached to the flow result.'),
       row('Time per unit', '(Actual Hours x 60) / Output Units', 'Gives the inverse pace lens in minutes per unit.'),
     ],
-    references: [REF.oeeThroughput, REF.oeeCycle, REF.oeeCapacity],
+    references: [REF.oeeCycle],
     understanding: [
       card('Throughput is a flow metric', 'It tells you how quickly usable output is moving through the system.'),
       card('Quality still matters', 'A higher throughput number loses meaning if a weaker share of the output is acceptable or sellable.'),
@@ -725,7 +713,7 @@ export const PRODUCTIVITY_EFFICIENCY_CONFIG: Record<ProductivityEfficiencyVarian
       row('Capacity gap', 'Target Capacity - Required Hours', 'Shows whether the current plan is underloaded or overloaded.'),
       row('Unit capacity', 'Target Capacity x Units per Hour per Person', 'Translates the hours plan into an output estimate.'),
     ],
-    references: [REF.asanaResourcePlanning, REF.teamworkUtilization, REF.oeeCapacity],
+    references: [REF.asanaResourcePlanning, REF.teamworkUtilization],
     understanding: [
       card('Gross hours are not the same as delivery capacity', 'A team usually cannot spend every available hour on direct productive work.'),
       card('Capacity planning works best before work starts', 'It is most useful when it is used to prevent overload rather than explain it after the fact.'),

@@ -1078,7 +1078,7 @@ const AdvancedCommuteCostCalculator = () => {
               Government and Official Data
             </h3>
             <ul className="space-y-1 text-muted-foreground">
-              <li>- <a href="https://www.bts.gov/archive/publications/transportation_statistics_annual_report/2007/html/chapter_01/entire" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Bureau of Transportation Statistics</a> - commute and transportation context</li>
+              
               <li>- <a href="https://www.eia.gov/petroleum/gasdiesel/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">U.S. EIA Fuel Price Data</a> - gasoline pricing references</li>
               <li>- <a href="https://www.irs.gov/tax-professionals/standard-mileage-rates" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">IRS Standard Mileage Rates</a> - per-mile planning benchmark</li>
             </ul>
@@ -1091,7 +1091,7 @@ const AdvancedCommuteCostCalculator = () => {
             </h3>
             <ul className="space-y-1 text-muted-foreground">
               <li>- <a href="https://www.aaa.com/autorepair/articles/what-does-it-cost-to-own-and-operate-a-car" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">AAA Driving Cost Research</a> - ownership and operating cost structure</li>
-              <li>- <a href="https://www.transit.dot.gov/funding/grants/urbanized-area-formula-grants" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">FTA Transit Funding Resources</a> - transit ecosystem context</li>
+              
             </ul>
           </div>
 

@@ -91,7 +91,6 @@ export const generateOrganizationSchema = () => {
       "availableLanguage": "English"
     },
     "sameAs": [
-      "https://github.com/calcshark",
       "https://twitter.com/calcshark"
     ]
   };

@@ -2106,8 +2106,6 @@ export default function AdvancedWeddingAlcoholCalculator() {
                   "https://www.bls.gov/ooh/food-preparation-and-serving/bartenders.htm",
                   "https://www.servsafe.com/ServSafe-Alcohol",
                   "https://www.responsiblehospitality.org/",
-                  "https://www.abc.ca.gov/licensing/special-events/",
-                  "https://www.ttb.gov/consumer/consumer-information"
                 ].map((url, index) => (
                   <div key={index} className="flex items-start">
                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
