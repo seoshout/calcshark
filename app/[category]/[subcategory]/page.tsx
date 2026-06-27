@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { getCategoryBySlug, getSubcategoryBySlug, getCalculatorURL } from '@/lib/calculator-categories';
 import { discoverAllWebsiteRoutes } from '@/lib/route-discovery';
 import { clampDescription } from '@/lib/seo';
+import { getSubcategoryContent } from '@/lib/seo-content';
+import SeoContentSection from '@/components/seo-content-section';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calculator, Star, TrendingUp, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -216,6 +218,11 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
             </p>
           </div>
         )}
+
+        <SeoContentSection
+          title={`About ${subcategory.name} Calculators`}
+          content={getSubcategoryContent(category.slug, subcategory.slug)}
+        />
       </div>
     </div>
   );

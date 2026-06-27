@@ -3,8 +3,17 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getCategoryBySlug, getCalculatorURL } from '@/lib/calculator-categories';
 import { clampDescription } from '@/lib/seo';
+import { getCategoryContent } from '@/lib/seo-content';
+import SeoContentSection from '@/components/seo-content-section';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calculator, Users, TrendingUp } from 'lucide-react';
+
+const toTitleCase = (str: string) =>
+  str
+    .toLowerCase()
+    .split(' ')
+    .map((w) => (w === '&' ? '&' : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(' ');
 
 interface CategoryPageProps {
   params: Promise<{
@@ -417,6 +426,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             </div>
           </div>
         )}
+
+        <SeoContentSection
+          title={`Understanding ${toTitleCase(category.name)} Calculators`}
+          content={getCategoryContent(category.slug)}
+        />
       </div>
     </div>
   );
